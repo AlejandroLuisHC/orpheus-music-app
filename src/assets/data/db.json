@@ -1,0 +1,171 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "userData": {
+        "username": "admin",
+        "firstName": "admin",
+        "lastName": "admin",
+        "email": "admin@admin.com",
+        "country": "Spain",
+        "city": "Barcelona",
+        "password": "admin123",
+        "secretQuestion": "",
+        "secretAnswer": "",
+        "avatar": "",
+        "banner": "",
+        "favGenres": []
+      },
+      "work": {
+        "myAlbums": [],
+        "myTracks": []
+      },
+      "myPlaylists": [],
+      "favPlaylists": [],
+      "favAlbums": [],
+      "favTracks": [],
+      "followers": [],
+      "following": [],
+      "isVerified": true,
+      "isAdmin": true,
+      "isLoggedIn": false
+    },
+    {
+      "id": 2,
+      "userData": {
+        "username": "user",
+        "firstName": "User",
+        "lastName": "Surname",
+        "email": "user@gmail.com",
+        "country": "England",
+        "city": "Manchester",
+        "password": "user123",
+        "secretQuestion": "",
+        "secretAnswer": "",
+        "avatar": "",
+        "banner": "",
+        "favGenres": [2, 3, 1, 4]
+      },
+      "work": {
+        "myAlbums": [16],
+        "myTracks": [58, 59, 60, 61]
+      },
+      "myPlaylists": [23, 21],
+      "favPlaylists": [],
+      "favAlbums": [],
+      "favTracks": [],
+      "followers": [],
+      "following": [],
+      "isVerified": true,
+      "isAdmin": false,
+      "isLoggedIn": false
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "type": "Concert",
+      "uri": "",
+      "location": "Spain",
+      "name": "Viña rock",
+      "description": "...",
+      "genres": [1, 3],
+      "artists": [1, 2, 4],
+      "date": "13/4/2023",
+      "stock": 400,
+      "price": 25
+    }
+  ],
+  "playlists": [
+    {
+      "id": 1,
+      "name": "Rock in the morning",
+      "description": "...",
+      "img": "",
+      "tracks": [
+        { "id": 2, "added": "new Data()" },
+        { "id": 45, "added": "" },
+        { "id": 2, "added": "" },
+        { "id": 2, "added": "" }
+      ],
+      "followers": [2],
+      "genres": [2, 3],
+      "moods": ["relax", "focused"],
+      "owner": 1
+    }
+  ],
+  "albums": [
+    {
+      "id": 1,
+      "name": "Rock in the morning",
+      "description": "...",
+      "img": "",
+      "tracks": [1, 3, 45, 23, 18],
+      "followers": [2],
+      "genres": [2, 3],
+      "release": "",
+      "owner": "user.id"
+    }
+  ],
+  "tracks": [
+    {
+      "id": 1,
+      "name": "Rock in the morning",
+      "description": "...",
+      "album": [1],
+      "img": "",
+      "file": "",
+      "followers": [2],
+      "genres": [2, 3],
+      "release": "",
+      "owner": {
+        "id": "user.id",
+        "username": "user.username"
+      }
+    }
+  ],
+  "genres": [
+    {
+      "id": 1,
+      "name": "rock"
+    },
+    {
+      "id": 2,
+      "name": "pop"
+    },
+    {
+      "id": 3,
+      "name": "blues"
+    },
+    {
+      "id": 4,
+      "name": "trap"
+    },
+    {
+      "id": 5,
+      "name": "metal"
+    }
+  ],
+  "moods": [
+    {
+      "id": 1,
+      "name": "relax"
+    },
+    {
+      "id": 2,
+      "name": "focused"
+    },
+    {
+      "id": 3,
+      "name": "active"
+    },
+    {
+      "id": 4,
+      "name": "working"
+    },
+    {
+      "id": 5,
+      "name": "training"
+    }
+  ]
+}
