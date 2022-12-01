@@ -35,7 +35,7 @@ _To do so, run 'npm run data' in the base folder_
 npm run data
 ```
 
-_After this, open another terminal to run the server with 'npm start'_
+_After this, open another terminal to run the server with 'npm run dev'_
 
 ```
 npm run dev
