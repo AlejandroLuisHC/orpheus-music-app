@@ -38,7 +38,7 @@ npm run data
 _After this, open another terminal to run the server with 'npm start'_
 
 ```
-npm start
+npm run dev
 ```
 
 ## Built with 🛠️
