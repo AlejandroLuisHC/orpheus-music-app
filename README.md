@@ -60,14 +60,14 @@ your contribution, and push the branch as a pull requests. Thank you.
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/BalaguerDev"><img src="https://avatars.githubusercontent.com/u/101297683?v=4?s=100" 
+    <td align="center"><a href="https://github.com/BalaguerDev"><img src="https://avatars.githubusercontent.com/u/101297683?v=4" 
     width="100px;" alt="BalaguerDev"/><br /><sub><b>Alex Balaguer</b></sub></a></td>
-    <td align="center"><a href="https://github.com/Jose-Morcillo-Cascales"><img src="https://avatars.githubusercontent.com/u/85121932?v=4?s=100" width="100px;" alt="Jose-Morcillo-Cascales"/><br /><sub><b>Jose Mocillo</b></sub></a></td>
-    <td align="center"><a href="https://github.com/pauciv"><img src="https://avatars.githubusercontent.com/u/99875709?v=4?s=100" 
+    <td align="center"><a href="https://github.com/Jose-Morcillo-Cascales"><img src="https://avatars.githubusercontent.com/u/85121932?v=4" width="100px;" alt="Jose-Morcillo-Cascales"/><br /><sub><b>Jose Mocillo</b></sub></a></td>
+    <td align="center"><a href="https://github.com/pauciv"><img src="https://avatars.githubusercontent.com/u/99875709?v=4" 
     width="100px;" alt="pauciv"/><br /><sub><b>Pau Civill</b></sub></a></td>
-    <td align="center"><a href="https://github.com/zzezequiel"><img src="https://avatars.githubusercontent.com/u/104327861?v=4?s=100" 
+    <td align="center"><a href="https://github.com/zzezequiel"><img src="https://avatars.githubusercontent.com/u/104327861?v=4" 
     width="100px;" alt="zzezequiel"/><br /><sub><b>Ezequiel Zvirgzdins</b></sub></a></td>
-    <td align="center"><a href="https://github.com/AlejandroLuisHC"><img src="https://avatars.githubusercontent.com/u/57948901?v=4?s=100" width="100px" alt="AlejandroLuisHC"/><br /><sub><b>Alejandro L. Herrero</b></sub></a></td>
+    <td align="center"><a href="https://github.com/AlejandroLuisHC"><img src="https://avatars.githubusercontent.com/u/57948901?v=4" width="100px;" alt="AlejandroLuisHC"/><br /><sub><b>Alejandro L. Herrero</b></sub></a></td>
   </tr>
 </table>
 
