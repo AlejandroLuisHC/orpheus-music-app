@@ -4,6 +4,7 @@ import QueryProvider from "../helper/utils/reactQuery/QueryProvider"
 import StoreProvider from "../redux/provider/StoreProvider"
 
 const Layout  = lazy(() => import('./Layout'))
+const Home    = lazy(() => import('../pages/Home'))
 const Landing = lazy(() => import('../pages/Landing'))
 const Profile = lazy(() => import('../pages/Profile'))
 
@@ -15,7 +16,9 @@ const Router = () => {
                 <Suspense fallback={<p>The page is loading</p>}>
                     <Routes>
                         <Route path='/' element={<Layout />}>
-                            <Route path='/' element={<Landing />} />
+                            <Route index element={<Landing />} />
+                            <Route path='/login' element={<p>Login</p>} />
+                            <Route path='/register' element={<p>Register</p>} />
                             <Route path='/home' element={<p>Home</p>} />
                             <Route path='/search' element={<p>Search</p>} />
                             <Route path='/:username' element={<Profile />}>

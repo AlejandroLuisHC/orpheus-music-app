@@ -2,10 +2,14 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const userSlice = createSlice({
     name: 'userData',
-    initialState: { username: 'Pepe' },
+    initialState: JSON.parse(sessionStorage.getItem('user')) ?? { username: 'Pepe' },
     reducers: {
-        LOG_USER: (state, action) => {},
-        LOG_OUT: (state) => {},
+        LOG_USER: (state, action) => {
+            
+        },
+        LOG_OUT: (state) => {
+
+        },
     }
 })
 

@@ -1,14 +1,18 @@
 import { Outlet } from 'react-router-dom'
+import { Aside, Footer, GridStyle, Header, Main } from '../components/style/generalStyle'
 
 const Layout = () => {
+    const isLogged = false;
+    
     return (
-        <div>
-            <header>I'm a header</header>
-            <aside>This is the aside</aside>
-            <main>
+        <GridStyle>
+            {isLogged && <Header>I'm a header</Header>}
+            {isLogged && <Aside>This is the aside</Aside>}
+            <Main>
                 <Outlet />
-            </main>
-        </div>
+            </Main>
+            {!isLogged && <Footer>I'm a footer</Footer>}
+        </GridStyle>
     )
 }
 

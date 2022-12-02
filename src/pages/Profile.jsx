@@ -5,7 +5,7 @@ const Profile = () => {
         <section>
             <h2></h2>
             <Outlet />
-            <footer>I'm a footer - c / ASJHDKAJHSDKAJHS lksjfjlk </footer>
+            <footer style={{backgroundColor: "purple"}}>I'm a footer - c / ASJHDKAJHSDKAJHS lksjfjlk </footer>
         </section>
     )
 }
