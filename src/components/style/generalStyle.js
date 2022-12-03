@@ -81,6 +81,7 @@ export const ButtonPrimaryStyle = styled.button`
     font-weight: bold;
     font-size: 18px;
     border-radius: calc(40px * .5);
+    cursor:pointer;
 `
 export const ButtonSecondaryStyle = styled.button`
     background: none;
