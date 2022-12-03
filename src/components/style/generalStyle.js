@@ -76,7 +76,7 @@ export const ButtonPrimaryStyle = styled.button`
     background-color: ${color.primaryYellow};
     color: ${color.primaryBlack};
     height: 40px;
-    width: 250px;
+    width: 280px;
     border: none;
     font-weight: bold;
     font-size: 18px;
@@ -111,10 +111,12 @@ export const H2Style = styled.h2`
 export const InputStyle = styled.input`
     background-color: ${color.primaryWhite};
     height: 40px;
-    width: 250px;
+    width: 280px;
     border: none;
     font-size: 18px;
     border-radius: calc(40px * .5);
+    text-align: center;
+}
 `
 
 export const PErrorStyle = styled.p`

@@ -11,7 +11,7 @@ export const DivLanding = styled.div`
     text-align: center;
 `
 export const ImgLogoLanding = styled(ImgLogoM)`
-    margin-bottom: 30px;
+    margin: 0 auto 30px;
 `
 
 export const LinkToLogin = styled(Link)`

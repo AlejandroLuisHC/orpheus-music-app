@@ -1,16 +1,19 @@
-import logo from '../assets/img/LOGO.png'
-import { InputStyle, ButtonPrimaryStyle } from "../style/generalStyle"
-import { DivLanding, ImgLogoLanding } from "../style/landingStyle"
+import { Link } from "react-router-dom"
+import logo from '../../assets/img/LOGO.png'
+import { DivLogin, ImgLogoLanding, InputsStyleLogin, ButtonStyleLogin } from "../style/loginStyle"
 import { IoMdLogIn } from "react-icons/io"
 
 const Login = () => {
     return (
-        <DivLanding>
+        <DivLogin>
             <ImgLogoLanding src={logo} alt="Logo" />
-            <InputStyle type="text" placeholder="Username" />
-            <InputStyle type="password" placeholder="Password" />
-            <ButtonPrimaryStyle>Login<IoMdLogIn/></ButtonPrimaryStyle>
-        </DivLanding>
+            <div>
+                <InputsStyleLogin type="text" placeholder="Username" />
+                <InputsStyleLogin type="password" placeholder="Password" />
+                <ButtonStyleLogin>Login<IoMdLogIn/></ButtonStyleLogin>
+            </div>
+           
+        </DivLogin>
     )
 }
-export default Longin
+export default Login
