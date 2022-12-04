@@ -117,12 +117,23 @@ export const InputStyle = styled.input`
     font-size: 18px;
     border-radius: calc(40px * .5);
     text-align: center;
-}
+
+`
+export const PTextNormal = styled.p`
+    color: ${color.primaryWhite};
+    font-size: 14px;
+    @media ${device.desktop}{
+        font-size: 18px;
+    }
 `
 
 export const PErrorStyle = styled.p`
     color: ${color.primaryError};
     font-size: 10px;
+`
+
+export const DivisorStyle = styled.hr`
+    margin : 10px 0 30px;
 `
 
 /* DIVS IMAGE ALBUMS, TRACKS, USERS,... */
