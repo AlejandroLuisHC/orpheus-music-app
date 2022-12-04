@@ -1,3 +1,4 @@
+
 import { Link, Navigate } from "react-router-dom"
 import logo from '../../assets/img/LOGO.png'
 import { DivLogin, ImgLogoLanding, InputsStyleLogin, ButtonStyleLogin } from "../style/loginStyle"
@@ -6,98 +7,114 @@ import { IoMdLogIn } from "react-icons/io"
 import { useReducer } from "react"
 import Home from "../../pages/Home"
 
-const initialState = {
-    username: "",
-    password: "",
-    loggedIn: false,
-    error: false,
+const initialState={
+    username:"",
+    password:"",
+    loggedIn:false,
+    error:false,
 }
 
-const loginReducer = (state, action) => {
-    console.log(state, action)
-    switch (action.type) {
+const reducer = (state,action)=>{
+    console.log(state,action)
+    switch(action.type){
         case "SUCCESS":
-            return {
+            return{
                 ...state,
-                loggedIn: true,
-                username: "",
-                password: "",
+                loggedIn:true,
+                error:false,
             }
         case "ERROR":
-            return {
+            return{
                 ...state,
-                error: "invalid",
+                loggedIn:false,
+                error:"Incorrect username or password!",
             }
         case "USERNAME":
-            return {
+             return{
                 ...state,
-                username: action.value,
-            }
+                username:action.value,
+             }
         case "PASSWORD":
-            return {
+             return{
                 ...state,
-                password: action.value
+                password:action.value
             }
-
+        default: 
+            return state
+        
     }
 }
 
+
+
+
 const Login = () => {
+    const [state,dispatch] = useReducer(reducer, initialState)
+    const { username, password, error, isLoggedIn } = state;
+    console.log(state)
 
-    const [updatedState, dispatch] = useReducer(loginReducer, initialState)
-    console.log(updatedState)
-    console.log(updatedState.username, updatedState.password)
 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
+   const handleSubmit =async (e) => {
+    e.preventDefault()
 
-        const url = "http://localhost:3000/users";
-        const res = await fetch(url);
-        const usersJson = await res.json()
-        for (const users of usersJson) {
-            if (updatedState.username === users.userData.username && updatedState.password === users.userData.password) {
+    const url = "http://localhost:3000/users";
+    const res = await fetch(url);
+    const usersJson = await res.json()
+    for ( const users of usersJson){
+        if( state.username === users.userData.username && state.password === users.userData.password){
 
-                dispatch({ type: "SUCCESS" })
-            } else {
+            dispatch({type:"SUCCESS"})
+            alert("inicio sesion ok")
+        } else { 
 
-                dispatch({ type: "ERROR" })
-            }
-            console.log(users)
+            /* dispatch({type:"ERROR"}) */
+            alert("error")
         }
+        console.log(users)
+       }
     }
+    
 
-
+    
+    
     return (
         <>
+            {isLoggedIn ? (
+                <>
+                <h1>Welcome {username}!</h1>
+                <button >Log Out</button>
+                </>
+            ) : (
+                <DivLogin>
+                    <div>
+                        <ImgLogoLanding src={logo} alt="Logo" />
+                        <DivisorStyle/>
+                        <PTextNormal>To continue, sign in to Orpheus</PTextNormal>
+                    </div>
 
-            <DivLogin>
-                <div>
-                <ImgLogoLanding src={logo} alt="Logo" />
-                <DivisorStyle/>
-                <PTextNormal>To continue, sign in to Orpheus</PTextNormal>
-                </div>
-                <form onSubmit={handleSubmit} autoComplete="off">
+                    <form onSubmit={handleSubmit} autoComplete="off">
 
-                    <PErrorStyle></PErrorStyle>
+                    {error && <PErrorStyle>{error}</PErrorStyle>}
 
-                    <InputsStyleLogin
-                        type="text"
-                        placeholder="Username"
-                        name="username"
-                        value={updatedState.username}
-                        onChange={(e) => dispatch({ type: "USERNAME", value: e.target.value })} />
+                        <InputsStyleLogin                 
+                            type="text" 
+                            placeholder="Username" 
+                            name="username"
+                            value={state.username}
+                            onChange={(e)=> dispatch({type:"USERNAME", value:e.target.value})} />
 
-                    <InputsStyleLogin
-                        type="password"
-                        placeholder="Password"
-                        name="password "
-                        value={updatedState.password}
-                        onChange={(e) => dispatch({ type: "PASSWORD", value: e.target.value })} />
+                        <InputsStyleLogin 
+                            type="password" 
+                            placeholder="Password" 
+                            name="password " 
+                            value={state.password}
+                            onChange={(e)=> dispatch({type:"PASSWORD", value:e.target.value})} />
 
-                    <ButtonStyleLogin>Login<IoMdLogIn /></ButtonStyleLogin>
-                </form>
-            </DivLogin>
-
+                        <ButtonStyleLogin>Login<IoMdLogIn/></ButtonStyleLogin>
+                    </form>
+                
+                </DivLogin>
+            )}
         </>
     )
 }
