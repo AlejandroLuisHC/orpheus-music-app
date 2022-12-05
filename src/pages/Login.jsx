@@ -5,11 +5,23 @@ import { DivLanding, DivLoging, ImgLogoLanding } from "../components/style/landi
 import { FaAngleDoubleUp } from "react-icons/fa"
 
 const Login = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const payload = { username: 'zeta' }
+
+    const onLogin = () => {
+        dispatch(LOG_IN(payload))
+        navigate('/home', { replace: true })
+    }
+
     return (
         <DivLanding>
             <ImgLogoLanding src={logo} alt="Logo" />
             <InputStyle></InputStyle>
+            <ButtonPrimaryStyle onClick={onLogin}>Next</ButtonPrimaryStyle>
         </DivLanding>
     )
 }
-export default Longin
+
+export default Login
