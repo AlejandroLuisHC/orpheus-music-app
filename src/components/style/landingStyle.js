@@ -1,20 +1,28 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { color } from "./utils/styleConstants";
+import { color, device } from "./utils/styleConstants";
 import { ImgLogoM } from "./generalStyle";
 
 export const DivLanding = styled.div`
     display: grid;
     height: 100%;
     padding: 30px;
-    grid-template-rows: 1fr 3fr 60px;
+    grid-template-rows: 4fr 3fr 60px;
     text-align: center;
 `
 export const ImgLogoLanding = styled(ImgLogoM)`
-    margin-bottom: 30px;
+    margin: 0 auto 30px;
 `
 
 export const LinkToLogin = styled(Link)`
     color: ${color.primaryYellow};
     font-size: 30px;
+`
+export const BackgroundBubble =styled.div`
+    background-color: grey;
+    border-radius: 50%;
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.1), 0 3px 10px rgba(0, 0, 0, 0.1);
+    height: 70px;
+    margin-right: 20px;
+    width: 70px;
 `

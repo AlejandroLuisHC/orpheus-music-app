@@ -59,6 +59,36 @@
       "isVerified": true,
       "isAdmin": false,
       "isLoggedIn": false
+    },
+    {
+      "id": 3,
+      "userData": {
+        "username": "Pablo",
+        "firstName": "Cañete",
+        "lastName": "Escuela",
+        "email": "PabloCaEs@gmail.com",
+        "country": "Spain",
+        "city": "Madrid",
+        "password": "000",
+        "secretQuestion": "",
+        "secretAnswer": "",
+        "avatar": "",
+        "banner": "",
+        "favGenres": [2, 3, 1, 4]
+      },
+      "work": {
+        "myAlbums": [16],
+        "myTracks": [58, 59, 60, 61]
+      },
+      "myPlaylists": [23, 21],
+      "favPlaylists": [],
+      "favAlbums": [],
+      "favTracks": [],
+      "followers": [],
+      "following": [],
+      "isVerified": true,
+      "isAdmin": false,
+      "isLoggedIn": false
     }
   ],
   "events": [
