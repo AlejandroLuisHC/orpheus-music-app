@@ -117,9 +117,7 @@ export const InputStyle = styled.input`
     font-size: 18px;
     border-radius: calc(40px * .5);
     text-align: center;
-
 `
-
 
 export const PErrorStyle = styled.p`
     color: ${color.primaryError};
