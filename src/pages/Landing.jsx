@@ -1,5 +1,5 @@
 import logo from '../assets/img/Imagotipo.png'
-import { DivLanding, ImgLogoLanding, LinkToLogin } from "../components/style/landingStyle"
+import { ButtonLogin, DivLanding, ImgLogoLanding } from "../components/style/landingStyle"
 import { FaAngleDoubleUp } from "react-icons/fa"
 import { useState } from "react"
 import Login from "../components/landing/Login"
@@ -13,7 +13,7 @@ const Landing = () => {
                 <DivLanding>
                     <ImgLogoLanding src={logo} alt="Logo" />
                     <p>Orpheus... the music that unites us</p>
-                    <LinkToLogin onClick={() => setLoginView(true)}><FaAngleDoubleUp /></LinkToLogin>
+                    <ButtonLogin onClick={() => setLoginView(true)}><FaAngleDoubleUp /></ButtonLogin>
                 </DivLanding>
             }
         </>
