@@ -119,13 +119,7 @@ export const InputStyle = styled.input`
     text-align: center;
 
 `
-export const PTextNormal = styled.p`
-    color: ${color.primaryWhite};
-    font-size: 14px;
-    @media ${device.desktop}{
-        font-size: 18px;
-    }
-`
+
 
 export const PErrorStyle = styled.p`
     color: ${color.primaryError};

@@ -2,7 +2,7 @@
 import { Link, Navigate } from "react-router-dom"
 import logo from '../../assets/img/LOGO.png'
 import { DivLogin, ImgLogoLanding, InputsStyleLogin, ButtonStyleLogin } from "../style/loginStyle"
-import { PErrorStyle, PTextNormal, DivisorStyle } from '../style/generalStyle'
+import { PErrorStyle, DivisorStyle } from '../style/generalStyle'
 import { IoMdLogIn } from "react-icons/io"
 import { useReducer } from "react"
 import Home from "../../pages/Home"
@@ -60,6 +60,7 @@ const Login = () => {
     const url = "http://localhost:3000/users";
     const res = await fetch(url);
     const usersJson = await res.json()
+
     for ( const users of usersJson){
         if( state.username === users.userData.username && state.password === users.userData.password){
 
@@ -67,7 +68,7 @@ const Login = () => {
             alert("inicio sesion ok")
         } else { 
 
-            /* dispatch({type:"ERROR"}) */
+            dispatch({type:"ERROR"}) *
             alert("error")
         }
         console.log(users)
@@ -89,7 +90,8 @@ const Login = () => {
                     <div>
                         <ImgLogoLanding src={logo} alt="Logo" />
                         <DivisorStyle/>
-                        <PTextNormal>To continue, sign in to Orpheus</PTextNormal>
+
+                       <p>To continue, sign in to Orpheus</p>
                     </div>
 
                     <form onSubmit={handleSubmit} autoComplete="off">
