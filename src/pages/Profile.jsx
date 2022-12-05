@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { Outlet, useNavigate } from "react-router-dom"
-import { LOG_OUT } from "../redux/features/userSlice";
+import { LOG_OUT } from "../redux/features/user_data/userSlice";
 
 const Profile = () => {
     const dispatch = useDispatch();
