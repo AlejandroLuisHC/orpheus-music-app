@@ -1,123 +1,104 @@
 
-import { Link, Navigate } from "react-router-dom"
-import logo from '../../assets/img/LOGO.png'
+import { Link, useNavigate } from "react-router-dom"
+import logo from '../../assets/img/Imagotipo.png'
 import { DivLogin, ImgLogoLanding, InputsStyleLogin, ButtonStyleLogin } from "../style/loginStyle"
 import { PErrorStyle, DivisorStyle } from '../style/generalStyle'
 import { IoMdLogIn } from "react-icons/io"
-import { useReducer } from "react"
-import Home from "../../pages/Home"
+import { useQuery } from "@tanstack/react-query"
+import { fetchUsers } from "../../api";
+import { useForm } from "react-hook-form"
+import { useDispatch } from "react-redux";
 
-const initialState={
-    username:"",
-    password:"",
-    loggedIn:false,
-    error:false,
-}
-
-const reducer = (state,action)=>{
-    console.log(state,action)
-    switch(action.type){
-        case "SUCCESS":
-            return{
-                ...state,
-                loggedIn:true,
-                error:false,
-            }
-        case "ERROR":
-            return{
-                ...state,
-                loggedIn:false,
-                error:"Incorrect username or password!",
-            }
-        case "USERNAME":
-             return{
-                ...state,
-                username:action.value,
-             }
-        case "PASSWORD":
-             return{
-                ...state,
-                password:action.value
-            }
-        default: 
-            return state
-        
-    }
-}
-
-
-
+import { LOG_IN } from "../../redux/features/user_data/userSlice"
+import { useState } from "react"
 
 const Login = () => {
-    const [state,dispatch] = useReducer(reducer, initialState)
-    const { username, password, error, isLoggedIn } = state;
-    console.log(state)
+    const dispatch = useDispatch;
+    const goHome = useNavigate();
+    const [invalidLogin, setInvalidLogin] = useState(false)
+    // Fetch existing users from DB
+    const { data: users, status: usersStatus } = useQuery(['users'], fetchUsers)
 
+    // Manage form with useForm()
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
-   const handleSubmit =async (e) => {
-    e.preventDefault()
-
-    const url = "http://localhost:3000/users";
-    const res = await fetch(url);
-    const usersJson = await res.json()
-
-    for ( const users of usersJson){
-        if( state.username === users.userData.username && state.password === users.userData.password){
-
-            dispatch({type:"SUCCESS"})
-            alert("inicio sesion ok")
-        } else { 
-
-            dispatch({type:"ERROR"}) *
-            alert("error")
-        }
-        console.log(users)
-       }
+    const checkUser = userInput => {
+        let foundUser = false;
+        users?.map((user) => {
+            if ((user.userData.username === userInput.username || user.userData.email === userInput.username)
+                && user.userData.password === userInput.password) {
+                foundUser = true;    
+                console.log('LOGIN')
+                dispatch(LOG_IN(user));
+                goHome("/home");
+            }
+        })
+        foundUser === false && setInvalidLogin(prev => prev = true)
+        setTimeout(() => {
+            setInvalidLogin(prev => prev = false)
+        }, 5000);
     }
-    
 
-    
-    
     return (
-        <>
-            {isLoggedIn ? (
-                <>
-                <h1>Welcome {username}!</h1>
-                <button >Log Out</button>
-                </>
-            ) : (
-                <DivLogin>
-                    <div>
-                        <ImgLogoLanding src={logo} alt="Logo" />
-                        <DivisorStyle/>
+        <DivLogin>
+            <div>
+                <ImgLogoLanding src={logo} alt="Logo" />
+                <p>To continue, sign in to Orpheus</p>
+                <DivisorStyle />   
+            </div>
 
-                       <p>To continue, sign in to Orpheus</p>
-                    </div>
+            {usersStatus === "loading"
+                ? <p>Loading</p>
+                : usersStatus === "error"
+                    ? <p>An error has occurred</p>
+                    :
+                    <>
+                        <fieldset style={{ border: "none", }}>
+                            <form onSubmit={handleSubmit(checkUser)} autoComplete="off">
+                                <div style={{marginBottom: "20px"}}>
+                                    <label> Username or email:
+                                        <InputsStyleLogin
+                                            type="text"
+                                            placeholder="Username"
+                                            required
+                                            {...register("username", {
+                                                required: {
+                                                    value: true,
+                                                    message: "This field is required"
+                                                }
+                                            })}
+                                        />
+                                    </label>
+                                    {errors.username && <PErrorStyle>{errors.username.message}</PErrorStyle>}
+                                </div>
 
-                    <form onSubmit={handleSubmit} autoComplete="off">
-
-                    {error && <PErrorStyle>{error}</PErrorStyle>}
-
-                        <InputsStyleLogin                 
-                            type="text" 
-                            placeholder="Username" 
-                            name="username"
-                            value={state.username}
-                            onChange={(e)=> dispatch({type:"USERNAME", value:e.target.value})} />
-
-                        <InputsStyleLogin 
-                            type="password" 
-                            placeholder="Password" 
-                            name="password " 
-                            value={state.password}
-                            onChange={(e)=> dispatch({type:"PASSWORD", value:e.target.value})} />
-
-                        <ButtonStyleLogin>Login<IoMdLogIn/></ButtonStyleLogin>
-                    </form>
-                
-                </DivLogin>
-            )}
-        </>
+                                <div style={{marginBottom: "20px"}}>
+                                    <label> Password:
+                                        <InputsStyleLogin
+                                            type="password"
+                                            placeholder="Password"
+                                            required
+                                            {...register("password", {
+                                                required: {
+                                                    value: true,
+                                                    message: "This field is required"
+                                                }
+                                            })}
+                                        />
+                                    </label>
+                                    {errors.password && <PErrorStyle>{errors.password.message}</PErrorStyle>}
+                                </div>
+                                <ButtonStyleLogin type="submit">Login<IoMdLogIn /></ButtonStyleLogin>
+                                {invalidLogin && <PErrorStyle>Login failed</PErrorStyle>}
+                            </form>
+                            <DivisorStyle />
+                        </fieldset>
+                        <br/>
+                        <p>Don't have an Orpheus account? <br/>
+                        <Link to="/register">Register free</Link></p>
+                    </>
+            }
+        </DivLogin>
     )
 }
 export default Login
