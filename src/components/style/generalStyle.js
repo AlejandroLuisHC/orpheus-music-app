@@ -76,11 +76,12 @@ export const ButtonPrimaryStyle = styled.button`
     background-color: ${color.primaryYellow};
     color: ${color.primaryBlack};
     height: 40px;
-    width: 250px;
+    width: 280px;
     border: none;
     font-weight: bold;
     font-size: 18px;
     border-radius: calc(40px * .5);
+    cursor:pointer;
 `
 export const ButtonSecondaryStyle = styled.button`
     background: none;
@@ -111,15 +112,20 @@ export const H2Style = styled.h2`
 export const InputStyle = styled.input`
     background-color: ${color.primaryWhite};
     height: 40px;
-    width: 250px;
+    width: 280px;
     border: none;
     font-size: 18px;
     border-radius: calc(40px * .5);
+    text-align: center;
 `
 
 export const PErrorStyle = styled.p`
     color: ${color.primaryError};
     font-size: 10px;
+`
+
+export const DivisorStyle = styled.hr`
+    margin : 10px 0 30px;
 `
 
 /* DIVS IMAGE ALBUMS, TRACKS, USERS,... */
