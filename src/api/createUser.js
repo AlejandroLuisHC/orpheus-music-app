@@ -5,7 +5,7 @@ const createUser = async (user = {}) => {
     try {
         const options = {
             method: 'POST',
-            headers: { 'Content-type': 'application/json; charset=utf-8' },
+            headers: { 'Content-type': 'application/json' },
             body: JSON.stringify(user)
         }
         const res = await fetch('http://localhost:4000/users', options)
