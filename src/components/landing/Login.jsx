@@ -13,4 +13,4 @@ const Login = () => {
         </DivLanding>
     )
 }
-export default Longin
+export default Login

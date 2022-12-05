@@ -11,7 +11,7 @@ export const userSlice = createSlice({
 })
 
 export const {
-    LOG_USER,
+    LOG_IN,
     LOG_OUT
 } = userSlice.actions;
 
