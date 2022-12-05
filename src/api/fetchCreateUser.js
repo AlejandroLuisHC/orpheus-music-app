@@ -15,4 +15,4 @@ const fetchCreateUser = async (user = {}) => {
     }
 }
 
-export default createUser
+export default fetchCreateUser;
