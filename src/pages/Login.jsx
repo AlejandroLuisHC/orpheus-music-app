@@ -3,6 +3,7 @@ import logo from '../assets/img/LOGO.png'
 import { ButtonPrimaryStyle, InputStyle } from "../components/style/generalStyle"
 import { DivLanding, DivLoging, ImgLogoLanding } from "../components/style/landingStyle"
 import { FaAngleDoubleUp } from "react-icons/fa"
+import { LOG_IN } from "../redux/features/userSlice";
 
 const Login = () => {
     const dispatch = useDispatch();
