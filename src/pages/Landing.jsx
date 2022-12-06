@@ -9,11 +9,11 @@ const Landing = () => {
 
     return (
         <>
-            {loginView ? <Login /> :
+            {loginView ? <Login setOut={setLoginView} /> :
                 <DivLanding>
                     <ImgLogoLanding src={logo} alt="Logo" />
                     <p>Orpheus... the music that unites us</p>
-                    <ButtonLogin onClick={() => setLoginView(true)}><FaAngleDoubleUp /></ButtonLogin>
+                    <ButtonLogin onClick={() => setLoginView(prev => prev = true)}><FaAngleDoubleUp /></ButtonLogin>
                 </DivLanding>
             }
         </>

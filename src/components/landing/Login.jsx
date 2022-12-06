@@ -12,7 +12,7 @@ import { useDispatch } from "react-redux";
 import { LOG_IN } from "../../redux/features/user_data/userSlice"
 import { useState } from "react"
 
-const Login = () => {
+const Login = ({ setOut }) => {
     const dispatch = useDispatch;
     const goHome = useNavigate();
     const [invalidLogin, setInvalidLogin] = useState(false)
@@ -42,7 +42,7 @@ const Login = () => {
     return (
         <DivLogin>
             <div>
-                <ImgLogoLanding src={logo} alt="Logo" />
+                <ImgLogoLanding onClick={() => setOut(prev => prev = false)} src={logo} alt="Logo" />
                 <p>To continue, sign in to Orpheus</p>
                 <DivisorStyle />   
             </div>
