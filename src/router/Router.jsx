@@ -3,10 +3,11 @@ import { lazy, Suspense} from 'react'
 import QueryProvider from "../helper/utils/reactQuery/QueryProvider"
 import StoreProvider from "../redux/provider/StoreProvider"
 
-const Layout  = lazy(() => import('./Layout'))
-const Home    = lazy(() => import('../pages/Home'))
-const Landing = lazy(() => import('../pages/Landing'))
-const Profile = lazy(() => import('../pages/Profile'))
+const Layout   = lazy(() => import('./Layout'))
+const Home     = lazy(() => import('../pages/Home'))
+const Landing  = lazy(() => import('../pages/Landing'))
+const Profile  = lazy(() => import('../pages/Profile'))
+const Register = lazy(() => import('../pages/Register'))
 
 const Router = () => {
     return (
@@ -17,7 +18,7 @@ const Router = () => {
                     <Routes>
                         <Route path='/' element={<Layout />}>
                             <Route index element={<Landing />} />
-                            <Route path='/register' element={<p>Register</p>} />
+                            <Route path='/register' element={<Register />} />
                             <Route path='/home' element={<p>Home</p>} />
                             <Route path='/search' element={<p>Search</p>} />
                             <Route path='/:username' element={<Profile />}>
