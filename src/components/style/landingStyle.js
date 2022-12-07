@@ -19,7 +19,7 @@ export const DivLanding = styled.div`
         height: 100%;  
         opacity: .2; 
         z-index: -1;
-        background: url(src/assets/gifs_background/BgBubblesMobile.gif);
+        background: url(src/assets/img/gifs_background/BgBubblesMobile.gif);
         background-size: cover;
         background-repeat: no-repeat;
     }
@@ -36,7 +36,7 @@ export const DivLanding = styled.div`
             height: 100%;  
             opacity: .2; 
             z-index: -1;
-            background: url(src/assets/gifs_background/BgBubbglesDesktop.gif);
+            background: url(src/assets/img/gifs_background/BgBubbglesDesktop.gif);
             background-size: cover;
             background-repeat: no-repeat;
         }
