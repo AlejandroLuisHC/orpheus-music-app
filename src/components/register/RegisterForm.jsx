@@ -9,7 +9,6 @@ import {
   DivImgCircleM,
   DivImgCircleS,
   FormStyle,
-  H2Style,
   InputStyle,
   PErrorStyle,
 } from '../style/generalStyle';
