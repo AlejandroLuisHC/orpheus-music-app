@@ -11,7 +11,7 @@ const Landing = () => {
 
     return (
         <>
-            {loginView ? <Login setOut={setLoginView} /> :
+            {loginView ? <Login setOut={ setLoginView } /> :
                 <DivLanding>
                     <ImgLogoM src={logo} alt="Logo" />
                     <p>Orpheus... the music that unites us</p>

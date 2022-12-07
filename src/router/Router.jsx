@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { lazy, Suspense} from 'react'
 import QueryProvider from "../helper/utils/reactQuery/QueryProvider"
 import StoreProvider from "../redux/provider/StoreProvider"
+import LogoSpinner from "../components/loaders/spinner/LogoSpinner"
 
 const Layout  = lazy(() => import('./Layout'))
 const Home    = lazy(() => import('../pages/Home'))
@@ -13,7 +14,7 @@ const Router = () => {
         <QueryProvider>
         <StoreProvider>
             <BrowserRouter>
-                <Suspense fallback={<p>The page is loading</p>}>
+                <Suspense fallback={<LogoSpinner />}>
                     <Routes>
                         <Route path='/' element={<Layout />}>
                             <Route index element={<Landing />} />

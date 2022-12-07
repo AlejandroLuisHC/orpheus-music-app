@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import logo from '../../assets/img/Logotipo.png'
 import { DivLogin, ImgLogoClick } from "../style/landingStyle"
 import { PErrorStyle, HrStyle, InputStyle, ButtonPrimaryStyle, FieldsetStyle, LabelStyle, DivInputStyle, LinkPrimaryStyle } from '../style/generalStyle'
@@ -7,14 +7,14 @@ import { useQuery } from "@tanstack/react-query"
 import { fetchUsers } from "../../api";
 import { useForm } from "react-hook-form"
 import { useDispatch } from "react-redux";
-
 import { LOG_IN } from "../../redux/features/user_data/userSlice"
 import { useState } from "react"
 
-const Login = ({setOut}) => {
+const Login = ({ setOut }) => {
     const dispatch = useDispatch();
     const goHome = useNavigate();
     const [invalidLogin, setInvalidLogin] = useState(false)
+
     // Fetch existing users from DB
     const { data: users, status: usersStatus } = useQuery(['users'], fetchUsers)
 

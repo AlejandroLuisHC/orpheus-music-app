@@ -131,7 +131,7 @@ export const DivInputStyle = styled.div`
 `
 
 export const LabelStyle = styled.label`
-    font-size:13px;
+    font-size: 13px;
 `
 
 export const InputStyle = styled.input`
@@ -185,8 +185,8 @@ export const DivImgCircleM = styled.div`
 `
 
 export const DivImgCircleS = styled.div`
-    width:30px;
-    height:30px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     @media ${device.desktop}{
         width: 50px;
@@ -228,10 +228,17 @@ export const DivImgSquareS = styled.div`
         border-radius: 10px;
     }
 `
+export const DivMainSpinnerStyle = styled.div`
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
 
 /* BANNER CONTAINER FULL-WIDTH */
 export const DivImgBannerSliderHome =styled.div`
-    width:100%;
+    width: 100%;
     height: 500px;
 `
 
