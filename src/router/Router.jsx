@@ -19,7 +19,7 @@ const Router = () => {
                         <Route path='/' element={<Layout />}>
                             <Route index element={<Landing />} />
                             <Route path='/register' element={<p>Register</p>} />
-                            <Route path='/home' element={<p>Home</p>} />
+                            <Route path='/home' element={<Home />} />
                             <Route path='/search' element={<p>Search</p>} />
                             <Route path='/:username' element={<Profile />}>
                                 <Route path='/:username/information' element={<p>Display user info</p>} />

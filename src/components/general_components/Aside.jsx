@@ -1,9 +1,13 @@
 import React from 'react'
+import { Aside, GridStyle } from '../style/generalStyle'
 
-const Aside = () => {
+const AsideMenu = () => {
+  console.log(innerWidth)
   return (
-    <div>Aside</div>
+    
+      <Aside>aside</Aside>
+    
   )
 }
 
-export default Aside   
+export default AsideMenu   
