@@ -27,6 +27,12 @@ export const GridStyle = styled.div`
         grid-template: 60px 1fr 50px / 300px 5fr; // Grid for desktop
     };  
 `
+export const GridLandingStyle = styled.div`
+    display: grid; 
+    height: 100%;
+    grid-template: 1fr 50px / 1fr; // Grid for Mobile
+     
+`
 
 export const Header = styled.header`
     display: none; 
@@ -47,6 +53,11 @@ export const Main = styled.main`
         width: 100%;
         height: 100%;
     }
+`
+export const MainLandingStyle = styled.main`
+    grid-row: 1;
+    
+    
 `
 
 export const Footer = styled.footer`
@@ -72,7 +83,7 @@ export const Aside = styled.aside`
     background-color: #121212aa;
     @media ${device.desktop}{
         width: 300px;
-        height: 100%;
+        height:100%;
         grid-column: 1;
         grid-row: 2;
     }
