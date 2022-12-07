@@ -47,6 +47,14 @@ export const ImgLogoLanding = styled(ImgLogoM)`
     margin: 0 auto 30px;
 `
 
+export const ImgLogoClick = styled(ImgLogoM)`
+    cursor:pointer;
+    transition: 300ms;
+    &:hover{
+        transform: scale(1.1);
+    }
+`
+
 const upDownAnimation = keyframes`
     0% { transform: translate(0, 0); }
     50% { transform: translate(0, 30px); }

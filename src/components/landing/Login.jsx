@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom"
 import logo from '../../assets/img/Logotipo.png'
-import { DivLogin } from "../style/landingStyle"
-import { ImgLogoM, PErrorStyle, HrStyle, InputStyle, ButtonPrimaryStyle, FieldsetStyle, LabelStyle, DivInputStyle, LinkPrimaryStyle } from '../style/generalStyle'
+import { DivLogin, ImgLogoClick } from "../style/landingStyle"
+import { PErrorStyle, HrStyle, InputStyle, ButtonPrimaryStyle, FieldsetStyle, LabelStyle, DivInputStyle, LinkPrimaryStyle } from '../style/generalStyle'
 import { IoMdLogIn } from "react-icons/io"
 import { useQuery } from "@tanstack/react-query"
 import { fetchUsers } from "../../api";
@@ -11,7 +11,7 @@ import { useDispatch } from "react-redux";
 import { LOG_IN } from "../../redux/features/user_data/userSlice"
 import { useState } from "react"
 
-const Login = () => {
+const Login = ({setOut}) => {
     const dispatch = useDispatch();
     const goHome = useNavigate();
     const [invalidLogin, setInvalidLogin] = useState(false)
@@ -41,7 +41,7 @@ const Login = () => {
     return (
         <DivLogin>
             <div> 
-                <ImgLogoM src={logo} alt="Logo" />
+                <ImgLogoClick src={logo} onClick={() => setOut(prev => prev = false)} alt="Logo" />
                 <p>To continue, sign in to Orpheus</p>
             </div>
 
