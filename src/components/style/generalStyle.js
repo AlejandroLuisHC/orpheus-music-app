@@ -32,7 +32,7 @@ export const GridStyle = styled.div`
     
     @media ${device.desktop}{
         height: 100%;
-        grid-template: 60px 1fr 50px / 300px 5fr; // Grid for desktop
+        grid-template: 60px 1fr 50px / 200px 5fr; // Grid for desktop
     };  
 `
 export const GridLandingStyle = styled.div`
@@ -94,6 +94,35 @@ export const Aside = styled.aside`
         grid-column: 1;
         grid-row: 2;
     }
+`
+export const AsideMobileStyle = styled.aside`
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+`
+
+export const AsideDesktopStyle = styled.aside`
+display: flex;
+flex-direction: column;
+
+`
+//Why i cant use Link as a html element?
+export const ElementAside = styled.a`
+margin: 0 5px 0 5px;
+@media ${device.desktop}{
+    
+    margin: 10px 0 10px 30px;
+    display: flex;
+    flex-direction: row;
+}
+`
+export const IconAside = styled.div`
+margin: 0 10px 0 0;
+`
+export const Hr = styled.hr`
+margin: 0 auto;
+width: 45%;
 `
 
 // Global styled tags (img, ol, ul, li...)

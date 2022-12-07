@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom'
-import AsideMenu from '../components/general_components/Aside';
+import AsideMenu from '../components/general_components/aside/Aside';
 import { Aside, Footer, GridStyle, GridLandingStyle, Header, Main, MainLandingStyle } from '../components/style/generalStyle'
 
 const Layout = () => {
@@ -18,7 +18,7 @@ const Layout = () => {
             ? 
             <GridStyle>
                 <Header>I'm a header</Header>
-                <Aside><AsideMenu /></Aside>
+                <AsideMenu />
                 <Main>
                     <Outlet />
                 </Main>
