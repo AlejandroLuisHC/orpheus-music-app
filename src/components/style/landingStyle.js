@@ -63,3 +63,11 @@ export const ButtonLogin = styled.button`
     animation-iteration-count: infinite;
 `
 
+export const DivLogin = styled.div`
+    display: grid;
+    height: 100vh;
+    padding: 30px;
+    grid-template-rows: 1fr 5fr 60px;
+    text-align: center;
+`
+

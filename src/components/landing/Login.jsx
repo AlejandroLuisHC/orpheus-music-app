@@ -1,8 +1,7 @@
-
 import { Link, useNavigate } from "react-router-dom"
 import logo from '../../assets/img/Logotipo.png'
-import { DivLogin, ImgLogoLanding, InputsStyleLogin, ButtonStyleLogin } from "../style/loginStyle"
-import { PErrorStyle, DivisorStyle } from '../style/generalStyle'
+import { DivLogin } from "../style/landingStyle"
+import { ImgLogoM, PErrorStyle, HrStyle, InputStyle, ButtonPrimaryStyle, FieldsetStyle, LabelStyle, DivInputStyle, LinkPrimaryStyle } from '../style/generalStyle'
 import { IoMdLogIn } from "react-icons/io"
 import { useQuery } from "@tanstack/react-query"
 import { fetchUsers } from "../../api";
@@ -13,7 +12,7 @@ import { LOG_IN } from "../../redux/features/user_data/userSlice"
 import { useState } from "react"
 
 const Login = () => {
-    const dispatch = useDispatch;
+    const dispatch = useDispatch();
     const goHome = useNavigate();
     const [invalidLogin, setInvalidLogin] = useState(false)
     // Fetch existing users from DB
@@ -41,10 +40,9 @@ const Login = () => {
 
     return (
         <DivLogin>
-            <div>
-                <ImgLogoLanding src={logo} alt="Logo" />
+            <div> 
+                <ImgLogoM src={logo} alt="Logo" />
                 <p>To continue, sign in to Orpheus</p>
-                <DivisorStyle />
             </div>
 
             {usersStatus === "loading"
@@ -53,49 +51,53 @@ const Login = () => {
                     ? <p>An error has occurred</p>
                     :
                     <>
-                        <fieldset style={{ border: "none", }}>
+                    <div>
+                        <FieldsetStyle>
                             <form onSubmit={handleSubmit(checkUser)} autoComplete="off">
-                                <div style={{ marginBottom: "20px" }}>
-                                    <label> Username or email:
-                                        <InputsStyleLogin
-                                            type="text"
-                                            placeholder="Username"
-                                            required
-                                            {...register("username", {
-                                                required: {
-                                                    value: true,
-                                                    message: "This field is required"
-                                                }
-                                            })}
-                                        />
-                                    </label>
-                                    {errors.username && <PErrorStyle>{errors.username.message}</PErrorStyle>}
-                                </div>
+                                <HrStyle />
+                                <DivInputStyle>
+                                    <LabelStyle htmlFor="username"> Username or email:
+                                    </LabelStyle>
+                                    <InputStyle
+                                        type="text"
+                                        placeholder="Username"
+                                        required
+                                        {...register("username", {
+                                            required: {
+                                                value: true,
+                                                message: "This field is required"
+                                            }
+                                        })}
+                                    />
+                                </DivInputStyle>
 
-                                <div style={{ marginBottom: "20px" }}>
-                                    <label> Password:
-                                        <InputsStyleLogin
-                                            type="password"
-                                            placeholder="Password"
-                                            required
-                                            {...register("password", {
-                                                required: {
-                                                    value: true,
-                                                    message: "This field is required"
-                                                }
-                                            })}
-                                        />
-                                    </label>
-                                    {errors.password && <PErrorStyle>{errors.password.message}</PErrorStyle>}
-                                </div>
-                                <ButtonStyleLogin type="submit">Login<IoMdLogIn /></ButtonStyleLogin>
-                                {invalidLogin && <PErrorStyle>Login failed</PErrorStyle>}
+                                <DivInputStyle>
+                                    <LabelStyle htmlFor="password"> Password:
+                                    </LabelStyle>
+                                    <InputStyle
+                                        type="password"
+                                        placeholder="Password"
+                                        required
+                                        {...register("password", {
+                                            required: {
+                                                value: true,
+                                                message: "This field is required"
+                                            }
+                                        })}
+                                    />
+                                </DivInputStyle>
+
+                                <ButtonPrimaryStyle type="submit">Login<IoMdLogIn /></ButtonPrimaryStyle>
+                                {invalidLogin && <PErrorStyle>Incorrect Username or Password</PErrorStyle>}
                             </form>
-                            <DivisorStyle />
-                        </fieldset>
-                        <br />
+                            <HrStyle />
+                        </FieldsetStyle>
+                    </div>
+
+                    <div>
                         <p>Don't have an Orpheus account? <br />
-                            <Link to="/register">Register free</Link></p>
+                        <LinkPrimaryStyle to="/register">Register free</LinkPrimaryStyle></p>
+                    </div>
                     </>
             }
         </DivLogin>
