@@ -1,4 +1,4 @@
-import logo from '../assets/img/Imagotipo.png'
+import logo from '../assets/img/Logotipo.png'
 import { ButtonLogin, DivLanding, ImgLogoLanding } from "../components/style/landingStyle"
 import { FaAngleDoubleUp } from "react-icons/fa"
 import { useState } from "react"

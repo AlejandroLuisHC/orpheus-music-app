@@ -1,6 +1,6 @@
 
 import { Link, useNavigate } from "react-router-dom"
-import logo from '../../assets/img/Imagotipo.png'
+import logo from '../../assets/img/Logotipo.png'
 import { DivLogin, ImgLogoLanding, InputsStyleLogin, ButtonStyleLogin } from "../style/loginStyle"
 import { PErrorStyle, DivisorStyle } from '../style/generalStyle'
 import { IoMdLogIn } from "react-icons/io"
@@ -27,7 +27,7 @@ const Login = () => {
         users?.map((user) => {
             if ((user.userData.username === userInput.username || user.userData.email === userInput.username)
                 && user.userData.password === userInput.password) {
-                foundUser = true;    
+                foundUser = true;
                 console.log('LOGIN')
                 dispatch(LOG_IN(user));
                 goHome("/home");
@@ -44,7 +44,7 @@ const Login = () => {
             <div>
                 <ImgLogoLanding src={logo} alt="Logo" />
                 <p>To continue, sign in to Orpheus</p>
-                <DivisorStyle />   
+                <DivisorStyle />
             </div>
 
             {usersStatus === "loading"
@@ -55,7 +55,7 @@ const Login = () => {
                     <>
                         <fieldset style={{ border: "none", }}>
                             <form onSubmit={handleSubmit(checkUser)} autoComplete="off">
-                                <div style={{marginBottom: "20px"}}>
+                                <div style={{ marginBottom: "20px" }}>
                                     <label> Username or email:
                                         <InputsStyleLogin
                                             type="text"
@@ -72,7 +72,7 @@ const Login = () => {
                                     {errors.username && <PErrorStyle>{errors.username.message}</PErrorStyle>}
                                 </div>
 
-                                <div style={{marginBottom: "20px"}}>
+                                <div style={{ marginBottom: "20px" }}>
                                     <label> Password:
                                         <InputsStyleLogin
                                             type="password"
@@ -93,9 +93,9 @@ const Login = () => {
                             </form>
                             <DivisorStyle />
                         </fieldset>
-                        <br/>
-                        <p>Don't have an Orpheus account? <br/>
-                        <Link to="/register">Register free</Link></p>
+                        <br />
+                        <p>Don't have an Orpheus account? <br />
+                            <Link to="/register">Register free</Link></p>
                     </>
             }
         </DivLogin>
