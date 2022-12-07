@@ -14,29 +14,22 @@ const Layout = () => {
     
     console.log(logged);
     return (
-        <>
-        {!isLogged && 
-            <GridLandingStyle>
-                
-                <MainLandingStyle>
-                    <Outlet />
-                </MainLandingStyle>
-                
-                <Footer>I'm a footer</Footer>
-            </GridLandingStyle>
-        }   
-        {isLogged && 
+        isLogged 
+            ? 
             <GridStyle>
-            <Header>I'm a header</Header>
-            <Aside><AsideMenu /></Aside>
+                <Header>I'm a header</Header>
+                <Aside><AsideMenu /></Aside>
                 <Main>
                     <Outlet />
                 </Main>
-                
                 <Footer>I'm a footer</Footer>
             </GridStyle>
-        }
-        </>    
+            :
+            <GridLandingStyle>
+                <MainLandingStyle>
+                    <Outlet />
+                </MainLandingStyle>
+            </GridLandingStyle>
     )
 }
 

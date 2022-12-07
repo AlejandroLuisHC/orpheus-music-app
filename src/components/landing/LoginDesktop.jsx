@@ -10,7 +10,7 @@ import { useDispatch } from "react-redux";
 import { LOG_IN } from "../../redux/features/user_data/userSlice"
 import { useState } from "react"
 
-const Login = ({ setOut }) => {
+const LoginDesktop = () => {
     const dispatch = useDispatch();
     const goHome = useNavigate();
     const [invalidLogin, setInvalidLogin] = useState(false)
@@ -40,9 +40,8 @@ const Login = ({ setOut }) => {
     }
 
     return (
-        <DivLogin>
+        <>
             <div> 
-                <ImgLogoClick src={logo} onClick={() => setOut(prev => prev = false)} alt="Logo" />
                 <p>To continue, sign in to Orpheus</p>
             </div>
 
@@ -55,7 +54,7 @@ const Login = ({ setOut }) => {
                     <div>
                         <FieldsetStyle>
                             <form onSubmit={handleSubmit(checkUser)} autoComplete="off">
-                                <HrStyle />
+                                <HrStyle style={{margin: "30px auto", width: "25vw"}} />
                                 <DivInputStyle>
                                     <LabelStyle htmlFor="username"> 
                                         <p>Username or email:</p>
@@ -93,7 +92,7 @@ const Login = ({ setOut }) => {
                                 <ButtonPrimaryStyle type="submit">Login<IoMdLogIn /></ButtonPrimaryStyle>
                                 {invalidLogin && <PErrorStyle>Incorrect Username or Password</PErrorStyle>}
                             </form>
-                            <HrStyle />
+                            <HrStyle style={{margin: "30px auto", width: "25vw"}} />
                         </FieldsetStyle>
                     </div>
 
@@ -103,7 +102,7 @@ const Login = ({ setOut }) => {
                     </div>
                     </>
             }
-        </DivLogin>
+        </>
     )
 }
-export default Login
+export default LoginDesktop

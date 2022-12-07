@@ -1,21 +1,34 @@
 import logo from '../assets/img/Logotipo.png'
-import { ButtonLogin, DivLanding} from "../components/style/landingStyle"
+import { ButtonLogin, DivLanding, FooterLanding, ImgLogoLanding, PSlogan} from "../components/style/landingStyle"
 import { FaAngleDoubleUp } from "react-icons/fa"
 import { useState } from "react"
 import { ImgLogoM } from "../components/style/generalStyle";
 import Login from "../components/landing/Login"
+import LoginDesktop from '../components/landing/LoginDesktop';
 
 
 const Landing = () => {
     const [loginView, setLoginView] = useState(false)
-
+    console.log(window.innerWidth);
     return (
         <>
-            {loginView ? <Login setOut={ setLoginView } /> :
+            {window.innerWidth < 768 
+                ?
+                loginView ? <Login setOut={ setLoginView } /> :
+                    <DivLanding>
+                        <ImgLogoLanding src={logo} alt="Logo" />
+                        <PSlogan>The music that unites us</PSlogan>
+                        <ButtonLogin onClick={() => setLoginView(prev => prev = true)}><FaAngleDoubleUp /></ButtonLogin>
+                        <FooterLanding><small>This is footer information</small></FooterLanding>
+                    </DivLanding>
+                :
                 <DivLanding>
-                    <ImgLogoM src={logo} alt="Logo" />
-                    <p>Orpheus... the music that unites us</p>
-                    <ButtonLogin onClick={() => setLoginView(prev => prev = true)}><FaAngleDoubleUp /></ButtonLogin>
+                    <ImgLogoLanding src={logo} alt="Logo" />
+                    <PSlogan>The music that unites us</PSlogan>
+                    <div style={{gridRow: 3 }}>
+                        <LoginDesktop />
+                    </div>
+                    <FooterLanding><small>This is footer information</small></FooterLanding>
                 </DivLanding>
             }
         </>

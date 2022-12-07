@@ -15,6 +15,14 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Roboto', sans-serif;
         color: ${color.primaryWhite};
     }
+    @font-face {
+        font-family: BoldblasterRegular;
+        src: url("src/assets/font/BoldblasterRegular-2OBjK.otf") format("opentype");
+    }
+    @font-face {
+        font-family: BoldblasterItalic;
+        src: url("src/assets/font/BoldblasterItalic-K7pMp.otf") format("opentype");
+    }
 `
 
 export const GridStyle = styled.div`
@@ -30,8 +38,7 @@ export const GridStyle = styled.div`
 export const GridLandingStyle = styled.div`
     display: grid; 
     height: 100%;
-    grid-template: 1fr 50px / 1fr; // Grid for Mobile
-     
+    grid-template: 1fr 50px / 1fr; // Grid for Mobile    
 `
 
 export const Header = styled.header`
@@ -55,13 +62,13 @@ export const Main = styled.main`
     }
 `
 export const MainLandingStyle = styled.main`
-    grid-row: 1;
-    
-    
+    grid-row: 1; 
 `
-
 export const Footer = styled.footer`
-    display: none; 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     @media ${device.desktop}{
         width: 100%;
         display: flex;
@@ -99,7 +106,7 @@ export const ButtonPrimaryStyle = styled.button`
     font-weight: bold;
     font-size: 18px;
     border-radius: calc(40px * .5);
-    cursor:pointer;
+    cursor: pointer;
     margin: 10px auto;
 `
 
@@ -129,7 +136,7 @@ export const ImgLogoS = styled.img`
 export const H2Style = styled.h2`
     color: ${color.primaryYellow};
     font-size: 20px;
-    font-weight:bold;
+    font-weight: bold;
 `
 export const FieldsetStyle = styled.fieldset`
     border: none;  
@@ -139,10 +146,13 @@ export const DivInputStyle = styled.div`
     margin-bottom: 20px;
     display: flex;
     flex-direction: column; 
+    align-items: flex-start;
 `
 
 export const LabelStyle = styled.label`
-    font-size: 13px;
+    margin: 0 auto;
+    font-size: 14px;
+    font-weight: bold;
 `
 
 export const InputStyle = styled.input`
@@ -154,7 +164,7 @@ export const InputStyle = styled.input`
     border-radius: calc(40px * .5);
     margin: 10px auto;
     text-align: center;
-    display:column;
+    display: column;
 `
 
 export const PErrorStyle = styled.p`
@@ -163,7 +173,7 @@ export const PErrorStyle = styled.p`
 `
 
 export const HrStyle = styled.hr`
-    margin : 30px 0;
+    margin: 30px 0;
     opacity: .05;
 `
 
