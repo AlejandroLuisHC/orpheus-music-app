@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled, { createGlobalStyle } from "styled-components";
 import { color, device } from "./utils/styleConstants";
 
@@ -15,6 +16,7 @@ export const GlobalStyle = createGlobalStyle`
         color: ${color.primaryWhite};
     }
 `
+
 export const GridStyle = styled.div`
     display: grid; 
     height: 100%;
@@ -25,6 +27,7 @@ export const GridStyle = styled.div`
         grid-template: 60px 1fr 50px / 300px 5fr; // Grid for desktop
     };  
 `
+
 export const Header = styled.header`
     display: none; 
     @media ${device.desktop} {
@@ -50,6 +53,11 @@ export const Footer = styled.footer`
     display: none; 
     @media ${device.desktop}{
         width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid-row: 3;
+        grid-column: 1 / span 2;
         height: 100%;
         display: block;
     }
@@ -71,7 +79,6 @@ export const Aside = styled.aside`
 `
 
 // Global styled tags (img, ol, ul, li...)
-
 export const ButtonPrimaryStyle = styled.button`
     background-color: ${color.primaryYellow};
     color: ${color.primaryBlack};
@@ -82,7 +89,9 @@ export const ButtonPrimaryStyle = styled.button`
     font-size: 18px;
     border-radius: calc(40px * .5);
     cursor:pointer;
+    margin: 10px auto;
 `
+
 export const ButtonSecondaryStyle = styled.button`
     background: none;
     color: ${color.primaryYellow};
@@ -94,10 +103,13 @@ export const ButtonSecondaryStyle = styled.button`
     font-size: 10px;
     
 `
+
 export const ImgLogoM = styled.img`
     object-fit: contain;
     height: 60px;
+    margin: 0 auto 20px;
 `
+
 export const ImgLogoS = styled.img`
     object-fit: contain;
     height: 30px;
@@ -108,6 +120,19 @@ export const H2Style = styled.h2`
     font-size: 20px;
     font-weight:bold;
 `
+export const FieldsetStyle = styled.fieldset`
+    border: none;  
+`
+
+export const DivInputStyle = styled.div`
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column; 
+`
+
+export const LabelStyle = styled.label`
+    font-size:13px;
+`
 
 export const InputStyle = styled.input`
     background-color: ${color.primaryWhite};
@@ -116,7 +141,9 @@ export const InputStyle = styled.input`
     border: none;
     font-size: 18px;
     border-radius: calc(40px * .5);
+    margin: 10px auto;
     text-align: center;
+    display:column;
 `
 
 export const PErrorStyle = styled.p`
@@ -124,15 +151,20 @@ export const PErrorStyle = styled.p`
     font-size: 10px;
 `
 
-export const DivisorStyle = styled.hr`
-    margin : 10px 0 30px;
+export const HrStyle = styled.hr`
+    margin : 30px 0;
+    opacity: .05;
+`
+
+export const LinkPrimaryStyle = styled(Link)`
+    color: ${color.primaryYellow};
 `
 
 /* DIVS IMAGE ALBUMS, TRACKS, USERS,... */
 /* CIRCLE */
 export const DivImgCircleL = styled.div`
-    width:110px;
-    height:110px;
+    width: 110px;
+    height: 110px;
     border-radius: 50%;
     @media ${device.desktop}{
         width: 200px;
@@ -142,8 +174,8 @@ export const DivImgCircleL = styled.div`
 `
 
 export const DivImgCircleM = styled.div`
-    width:70px;
-    height:70px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     @media ${device.desktop}{
         width: 130px;
@@ -174,6 +206,7 @@ export const DivImgSquareL = styled.div`
         border-radius: 10px;
     }
 `
+
 export const DivImgSquareM = styled.div`
     width: 180px;
     height: 180px;
@@ -184,6 +217,7 @@ export const DivImgSquareM = styled.div`
         border-radius: 10px;
     }
 `
+
 export const DivImgSquareS = styled.div`
     width: 135px;
     height: 135px;
