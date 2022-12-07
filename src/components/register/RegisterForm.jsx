@@ -26,7 +26,12 @@ const RegisterForm = () => {
   });
   // console.log(formSteps)
 
-  const { register, handleSubmit, watch } = useForm();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
 
   const userDataAvailable = (inputValue) => {
     const findUser = users?.find(
@@ -109,11 +114,16 @@ const RegisterForm = () => {
                 type="password"
                 {...register('password', {
                   required: true,
-                  pattern: /(?=.\d)(?=.[a-z])(?=.*[A-Z]).{6,20}$/
+                  /* pattern: {
+                    value: /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/,
+                    message: 'This password is not strong enough',
+                  }, */
                 })}
               />
             </label>
-            <PErrorStyle>This password is not strong enough</PErrorStyle>
+            {errors.password?.message && (
+              <PErrorStyle>{errors.password?.message}</PErrorStyle>
+            )}
           </div>
 
           <div>
@@ -123,7 +133,8 @@ const RegisterForm = () => {
                 type="password"
                 {...register('confirmPassword', {
                   required: true,
-                  validate: (confirmPassword) => passwordsMatch(watch('password'), confirmPassword)
+                  validate: (confirmPassword) =>
+                    passwordsMatch(watch('password'), confirmPassword),
                 })}
               />
             </label>

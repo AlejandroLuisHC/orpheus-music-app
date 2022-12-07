@@ -121,7 +121,7 @@ export const InputStyle = styled.input`
 
 export const PErrorStyle = styled.p`
     color: ${color.primaryError};
-    font-size: 10px;
+    font-size: 14px;
 `
 
 export const DivisorStyle = styled.hr`
