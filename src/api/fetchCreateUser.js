@@ -1,7 +1,4 @@
-import { useId } from "react"
-
 const fetchCreateUser = async (user = {}) => {
-    user.id = useId();
     try {
         const options = {
             method: 'POST',

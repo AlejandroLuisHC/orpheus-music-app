@@ -81,6 +81,34 @@
     {
       "id": 5,
       "name": "metal"
+    },
+    {
+      "id": 6,
+      "name": "hip-hop"
+    },
+    {
+      "id": 7,
+      "name": "punk"
+    },
+    {
+      "id": 8,
+      "name": "reggaeton"
+    },
+    {
+      "id": 9,
+      "name": "dembow"
+    },
+    {
+      "id": 10,
+      "name": "jazz"
+    },
+    {
+      "id": 11,
+      "name": "house"
+    },
+    {
+      "id": 12,
+      "name": "rap"
     }
   ],
   "moods": [
