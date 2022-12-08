@@ -1,9 +1,12 @@
 import React from 'react'
+import logo from '../../assets/img/Logotipo.png'
+import { ImgLogoHome } from '../style/landingStyle'
 
-const Header = () => {
+const HeaderLogo = () => {
   return (
-    <div>Header</div>
+    <ImgLogoHome onClick={() => setLoginView(prev => prev = false)} src={logo} alt="Logo" />
+
   )
 }
 
-export default Header
+export default HeaderLogo

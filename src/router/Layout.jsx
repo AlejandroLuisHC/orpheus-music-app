@@ -2,10 +2,9 @@ import { useState } from 'react';
 import { Outlet } from 'react-router-dom'
 
 import AsideMenu from '../components/general_components/aside/Aside';
+import HeaderLogo from '../components/general_components/Header';
 import { Aside, Footer, GridStyle, GridLandingStyle, Header, Main, MainLandingStyle } from '../components/style/generalStyle'
 
-import AsideMenu from '../components/general_components/Aside';
-import { Aside, GridStyle, GridLandingStyle, Header, Main, MainLandingStyle } from '../components/style/generalStyle'
 
 
 const Layout = () => {
@@ -15,7 +14,7 @@ const Layout = () => {
         logged 
             ? 
             <GridStyle>
-                <Header>I'm a header</Header>
+                <Header><HeaderLogo /></Header>
                 <AsideMenu />
                 <Main>
                     <Outlet context={{setLogged}}/>

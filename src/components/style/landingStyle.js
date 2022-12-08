@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import { color, device } from "./utils/styleConstants";
-import { Footer, ImgLogoM } from "./generalStyle";
+import { Footer, ImgLogoM, ImgLogoS } from "./generalStyle";
 
 export const DivLanding = styled.div`
     display: grid;
@@ -53,7 +53,17 @@ export const ImgLogoClick = styled(ImgLogoM)`
         transform: scale(1.1);
     }
 `
-
+export const ImgLogoHome = styled(ImgLogoS)`
+    
+    cursor: pointer;
+        transition: 300ms;
+        &:hover{
+            transform: scale(1.1);
+        }
+    @media ${device.desktop}{
+        margin: 10px 0 0 10px;
+    }
+`
 const upDownAnimation = keyframes`
     0% { transform: translate(0, 0); }
     50% { transform: translate(0, -30px); }

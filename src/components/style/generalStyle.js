@@ -108,8 +108,10 @@ flex-direction: column;
 
 `
 //Why i cant use Link as a html element?
-export const ElementAside = styled.a`
+export const ElementAside = styled(Link)`
+color: white;
 margin: 0 5px 0 5px;
+text-decoration: none;
 @media ${device.desktop}{
     
     margin: 10px 0 10px 30px;
