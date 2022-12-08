@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import fetchCreateUser from '../../api/fetchCreateUser';
 import fetchKey from '../../api/fetchKey';
 import {
@@ -13,7 +14,11 @@ import {
   InputStyle,
   PErrorStyle,
 } from '../style/generalStyle';
-import { DivFlexGenres, DivGenreCircle } from '../style/registerStyle';
+import {
+  DivFlexGenres,
+  DivGenreCircle,
+  DivSelectedGenreCircle,
+} from '../style/registerStyle';
 import { fetchUsers } from './../../api/';
 
 const RegisterForm = () => {
@@ -23,6 +28,8 @@ const RegisterForm = () => {
     ['genres', 'genres'],
     () => fetchKey('genres')
   );
+
+  const navigate = useNavigate();
 
   const [registerData, setRegisterData] = useState({
     userData: {
@@ -56,11 +63,12 @@ const RegisterForm = () => {
   console.log('registerData = ', registerData);
 
   const { userData } = registerData;
-  // console.log('userData = ', userData);
 
   const [formSteps, setformSteps] = useState({ firstStep: true });
   const [selectedGenres, setSelectedGenres] = useState([]);
+
   const [location, setLocation] = useState({ country: '', region: '' });
+  const { country, region } = location;
 
   const {
     register,
@@ -82,45 +90,53 @@ const RegisterForm = () => {
     return password === confirmPassword ? true : false;
   };
 
-  const createUser = (data) => {
-    const {
-      username,
-      email,
-      password,
-      secretQuestion,
-      secretAnswer,
-      firstName,
-      lastName,
-    } = data;
+  const isGenreSelected = (id) => (
+    selectedGenres?.find((genreId) => genreId === id)
+  );
 
-    const { country, region } = location;
+  const addToSelectedGenres = (id) => {
+    !isGenreSelected(id) && setSelectedGenres([...selectedGenres, id]);
+  };
 
-    userData.username = username;
-    userData.email = email;
-    userData.password = password;
-    userData.secretQuestion = secretQuestion;
-    userData.secretAnswer = secretAnswer;
-    userData.firstName = firstName;
-    userData.lastName = lastName;
-    userData.country = country;
-    userData.city = region;
-    userData.favGenres = selectedGenres;
+  const removeFromSelectedGenres = (id) => {
+    console.log('remove', id)
+    //TODO: fix this function
+    // setSelectedGenres([...selectedGenres].filter((genre) => genre === id))
+  };
+  
+  const createUser = ({
+    username,
+    email,
+    password,
+    secretQuestion,
+    secretAnswer,
+    firstName,
+    lastName,
+  }) => {
+    userData.username = username || '';
+    userData.email = email || '';
+    userData.password = password || '';
+    userData.secretQuestion = secretQuestion || '';
+    userData.secretAnswer = secretAnswer || '';
+    userData.firstName = firstName || '';
+    userData.lastName = lastName || '';
+    userData.country = country || '';
+    userData.city = region || '';
+    userData.favGenres = selectedGenres || [];
 
     setRegisterData({
       ...registerData,
     });
 
     console.log(registerData);
-    // fetchCreateUser(registerData);
-  }
+    fetchCreateUser(registerData);
+  };
 
   return (
-    // logo
-    // process bar
+    //TODO: logo
+    //TODO: process bar
 
-    <FormStyle
-      onSubmit={handleSubmit((data) => createUser(data))}
-    >
+    <FormStyle onSubmit={handleSubmit((data) => createUser(data))}>
       <fieldset>
         {formSteps.firstStep && (
           <>
@@ -133,7 +149,7 @@ const RegisterForm = () => {
                   type="text"
                   {...register('username', {
                     required: true,
-                    validate: (username) => userDataAvailable(username),
+                    validate: (username) => userDataAvailable(username)
                   })}
                 />
               </label>
@@ -163,7 +179,7 @@ const RegisterForm = () => {
             >
               Next
             </ButtonPrimaryStyle>
-            <button>Back</button>
+            <button onClick={() => navigate(-1)}>Back</button>
           </>
         )}
 
@@ -178,10 +194,10 @@ const RegisterForm = () => {
                   type="password"
                   {...register('password', {
                     required: true,
-                    /* pattern: {
+                    pattern: {
                       value: /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/,
                       message: 'This password is not strong enough',
-                    }, */
+                    },
                   })}
                 />
               </label>
@@ -211,7 +227,7 @@ const RegisterForm = () => {
             >
               Next
             </ButtonPrimaryStyle>
-            <button>Back</button>
+            <button onClick={() => setformSteps({ firstStep: true })}>Back</button>
           </>
         )}
 
@@ -249,7 +265,7 @@ const RegisterForm = () => {
             >
               Next
             </ButtonPrimaryStyle>
-            <button>Back</button>
+            <button onClick={() => setformSteps({ secondStep: true })}>Back</button>
           </>
         )}
 
@@ -320,7 +336,7 @@ const RegisterForm = () => {
             >
               Next
             </ButtonPrimaryStyle>
-            <button>Back</button>
+            <button onClick={() => setformSteps({ thirdStep: true })}>Back</button>
           </>
         )}
 
@@ -328,22 +344,28 @@ const RegisterForm = () => {
           <>
             <legend>Almost there...</legend>
             <p>Select at least one genre</p>
-
             <DivFlexGenres>
-              {genres?.map((genre) => (
-                <DivGenreCircle
-                  key={genre.id}
-                  onClick={() =>
-                    setSelectedGenres([...selectedGenres, genre.id])
-                  }
-                >
-                  <p>{genre.name}</p>
-                </DivGenreCircle>
-              ))}
+              {genres?.map((genre) => {
+                return !isGenreSelected(genre.id) ? (
+                  <DivGenreCircle
+                    key={genre.id}
+                    onClick={() => addToSelectedGenres(genre.id)}
+                  >
+                    <p>{genre.name}</p>
+                  </DivGenreCircle>
+                ) : (
+                  <DivSelectedGenreCircle
+                    key={genre.id}
+                    onClick={() => removeFromSelectedGenres(genre.id)}
+                  >
+                    <p>{genre.name}</p>
+                  </DivSelectedGenreCircle>
+                );
+              })}
             </DivFlexGenres>
 
-            <ButtonPrimaryStyle type="submit">I'm ready!</ButtonPrimaryStyle>
-            <button>Back</button>
+            <ButtonPrimaryStyle type="submit" disabled={selectedGenres.length < 1}>I'm ready!</ButtonPrimaryStyle>
+            <button onClick={() => setformSteps({ fourthStep: true })}>Back</button>
           </>
         )}
       </fieldset>
