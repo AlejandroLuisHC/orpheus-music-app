@@ -131,6 +131,10 @@ export const ButtonPrimaryStyle = styled.button`
     color: ${color.primaryBlack};
     height: 40px;
     width: 280px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
     border: none;
     font-weight: bold;
     font-size: 18px;
@@ -144,6 +148,10 @@ export const ButtonSecondaryStyle = styled.button`
     color: ${color.primaryYellow};
     height: 40px;
     width: 150px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
     font-weight: bold;
     border: 3px solid ${color.primaryYellow};
     border-radius: calc(40px * .5);

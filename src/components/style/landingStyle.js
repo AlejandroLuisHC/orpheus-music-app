@@ -5,11 +5,11 @@ import { Footer, ImgLogoM } from "./generalStyle";
 export const DivLanding = styled.div`
     display: grid;
     height: 100vh;
-    padding-top: 30px;
-    grid-template: 1fr 6fr 60px 40px / 1fr;
+    grid-template: 1fr 1fr 8fr 40px / 1fr;
     text-align: center;
     position: relative;
     z-index: 1;
+    padding-top: 30px;
     &::before{
         content: "";
         position: absolute;
@@ -23,10 +23,7 @@ export const DivLanding = styled.div`
         background-size: cover;
         background-repeat: no-repeat;
     }
-    @media ${device.desktop}{
-        width: 100%;
-        height: 100vh;
-        grid-template: 1fr 1fr 6fr 40px / 1fr;
+    @media ${device.desktop}{ 
         &::before{
             position: absolute;
             top: 0; 
@@ -66,6 +63,10 @@ export const ButtonLogin = styled.button`
     background: none;
     border: none;
     grid-row: 3;
+    padding-bottom: 40px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
     color: ${color.primaryYellow};
     font-size: 30px;
     text-shadow: 0 0 7px black;
@@ -91,7 +92,6 @@ export const PSlogan = styled.p`
 `
 export const FooterLanding = styled(Footer)`
     grid-row: 4;
-    padding-top: 10px;
     &::before{
         content: "";
         position: absolute;
@@ -104,6 +104,7 @@ export const FooterLanding = styled(Footer)`
         background-color: ${color.primaryBlack}
     }
     @media ${device.desktop}{
+        padding-top: 10px;
         &::before{
             content: "";
             position: absolute;

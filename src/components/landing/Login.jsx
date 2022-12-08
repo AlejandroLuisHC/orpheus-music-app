@@ -1,6 +1,4 @@
-import { useNavigate } from "react-router-dom"
-import logo from '../../assets/img/Logotipo.png'
-import { DivLogin, ImgLogoClick } from "../style/landingStyle"
+import { useNavigate, useOutletContext } from "react-router-dom"
 import { PErrorStyle, HrStyle, InputStyle, ButtonPrimaryStyle, FieldsetStyle, LabelStyle, DivInputStyle, LinkPrimaryStyle } from '../style/generalStyle'
 import { IoMdLogIn } from "react-icons/io"
 import { useQuery } from "@tanstack/react-query"
@@ -10,9 +8,10 @@ import { useDispatch } from "react-redux";
 import { LOG_IN } from "../../redux/features/user_data/userSlice"
 import { useState } from "react"
 
-const Login = ({ setOut }) => {
+const Login = () => {
     const dispatch = useDispatch();
     const goHome = useNavigate();
+    const { setLogged } = useOutletContext()
     const [invalidLogin, setInvalidLogin] = useState(false)
 
     // Fetch existing users from DB
@@ -27,10 +26,9 @@ const Login = ({ setOut }) => {
             if ((user.userData.username === userInput.username || user.userData.email === userInput.username)
                 && user.userData.password === userInput.password) {
                 foundUser = true;
-                console.log('LOGIN')
                 dispatch(LOG_IN(user));
+                setLogged(prev => prev = true)
                 goHome("/home");
-                window.location.reload(true);
             }
         })
         foundUser === false && setInvalidLogin(prev => prev = true)
@@ -40,9 +38,8 @@ const Login = ({ setOut }) => {
     }
 
     return (
-        <DivLogin>
+        <>
             <div> 
-                <ImgLogoClick src={logo} onClick={() => setOut(prev => prev = false)} alt="Logo" />
                 <p>To continue, sign in to Orpheus</p>
             </div>
 
@@ -55,7 +52,7 @@ const Login = ({ setOut }) => {
                     <div>
                         <FieldsetStyle>
                             <form onSubmit={handleSubmit(checkUser)} autoComplete="off">
-                                <HrStyle />
+                                <HrStyle style={{margin: "30px auto", width: "25vw"}} />
                                 <DivInputStyle>
                                     <LabelStyle htmlFor="username"> 
                                         <p>Username or email:</p>
@@ -93,7 +90,7 @@ const Login = ({ setOut }) => {
                                 <ButtonPrimaryStyle type="submit">Login<IoMdLogIn /></ButtonPrimaryStyle>
                                 {invalidLogin && <PErrorStyle>Incorrect Username or Password</PErrorStyle>}
                             </form>
-                            <HrStyle />
+                            <HrStyle style={{margin: "30px auto", width: "25vw"}} />
                         </FieldsetStyle>
                     </div>
 
@@ -103,7 +100,7 @@ const Login = ({ setOut }) => {
                     </div>
                     </>
             }
-        </DivLogin>
+        </>
     )
 }
 export default Login
