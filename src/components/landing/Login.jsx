@@ -1,6 +1,4 @@
-import { useNavigate } from "react-router-dom"
-import logo from '../../assets/img/Logotipo.png'
-import { DivLogin, ImgLogoClick } from "../style/landingStyle"
+import { useNavigate, useOutletContext } from "react-router-dom"
 import { PErrorStyle, HrStyle, InputStyle, ButtonPrimaryStyle, FieldsetStyle, LabelStyle, DivInputStyle, LinkPrimaryStyle } from '../style/generalStyle'
 import { IoMdLogIn } from "react-icons/io"
 import { useQuery } from "@tanstack/react-query"
@@ -13,6 +11,7 @@ import { useState } from "react"
 const Login = () => {
     const dispatch = useDispatch();
     const goHome = useNavigate();
+    const { setLogged } = useOutletContext()
     const [invalidLogin, setInvalidLogin] = useState(false)
 
     // Fetch existing users from DB
@@ -27,10 +26,9 @@ const Login = () => {
             if ((user.userData.username === userInput.username || user.userData.email === userInput.username)
                 && user.userData.password === userInput.password) {
                 foundUser = true;
-                console.log('LOGIN')
                 dispatch(LOG_IN(user));
+                setLogged(prev => prev = true)
                 goHome("/home");
-                window.location.reload(true);
             }
         })
         foundUser === false && setInvalidLogin(prev => prev = true)
