@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
 import { useForm } from 'react-hook-form';
+import fetchCreateUser from '../../api/fetchCreateUser';
 import fetchKey from '../../api/fetchKey';
 import {
   ButtonPrimaryStyle,
@@ -17,22 +18,49 @@ import { fetchUsers } from './../../api/';
 
 const RegisterForm = () => {
   const { data: users, error: usersError } = useQuery(['users'], fetchUsers);
+
   const { data: genres, error: genresError } = useQuery(
     ['genres', 'genres'],
     () => fetchKey('genres')
   );
 
-  const [registerData, setRegisterData] = useState();
+  const [registerData, setRegisterData] = useState({
+    userData: {
+      username: '',
+      firstName: '',
+      lastName: '',
+      email: '',
+      country: '',
+      city: '',
+      password: '',
+      secretQuestion: '',
+      secretAnswer: '',
+      avatar: '',
+      banner: '',
+      favGenres: [],
+    },
+    work: {
+      myAlbums: [],
+      myTracks: [],
+    },
+    myPlaylists: [],
+    favPlaylists: [],
+    favAlbums: [],
+    favTracks: [],
+    followers: [],
+    following: [],
+    isVerified: false,
+    isAdmin: false,
+    isLoggedIn: false,
+  });
   console.log('registerData = ', registerData);
 
-  const [formSteps, setformSteps] = useState({
-    // firstStep: true,
-    // secondStep: false,
-    // thirdStep: false,
-    // fourthStep: false,
-    fifthStep: true,
-  });
-  // console.log(formSteps);
+  const { userData } = registerData;
+  // console.log('userData = ', userData);
+
+  const [formSteps, setformSteps] = useState({ firstStep: true });
+  const [selectedGenres, setSelectedGenres] = useState([]);
+  const [location, setLocation] = useState({ country: '', region: '' });
 
   const {
     register,
@@ -50,31 +78,40 @@ const RegisterForm = () => {
     return !findUser ? true : false;
   };
 
-  const firstRegisterData = (data) => {
-    setRegisterData(data);
-    setformSteps({ secondStep: true });
-  };
-
   const passwordsMatch = (password, confirmPassword) => {
     return password === confirmPassword ? true : false;
   };
 
-  const secondRegisterData = (data) => {
-    setRegisterData(data);
-    setformSteps({ thirdStep: true });
-  };
+  const createUser = (data) => {
+    const {
+      username,
+      email,
+      password,
+      secretQuestion,
+      secretAnswer,
+      firstName,
+      lastName,
+    } = data;
 
-  const thirdRegisterData = (data) => {
-    setRegisterData(data);
-    setformSteps({ fourthStep: true });
-  };
+    const { country, region } = location;
 
-  //TODO: añadir el array de selectedGenres en una key llamada favGenres dentro del objeto registerData.
-  const [selectedGenres, setSelectedGenres] = useState([]);
-  console.log('selectedGenres', selectedGenres);
+    userData.username = username;
+    userData.email = email;
+    userData.password = password;
+    userData.secretQuestion = secretQuestion;
+    userData.secretAnswer = secretAnswer;
+    userData.firstName = firstName;
+    userData.lastName = lastName;
+    userData.country = country;
+    userData.city = region;
+    userData.favGenres = selectedGenres;
 
-  const selectGenre = (id) => {
-    setSelectedGenres([...selectedGenres, id]);
+    setRegisterData({
+      ...registerData,
+    });
+
+    console.log(registerData);
+    // fetchCreateUser(registerData);
   }
 
   return (
@@ -82,9 +119,7 @@ const RegisterForm = () => {
     // process bar
 
     <FormStyle
-      onSubmit={handleSubmit((data) => {
-        setRegisterData(data);
-      })}
+      onSubmit={handleSubmit((data) => createUser(data))}
     >
       <fieldset>
         {formSteps.firstStep && (
@@ -124,7 +159,7 @@ const RegisterForm = () => {
             </div>
 
             <ButtonPrimaryStyle
-              onClick={handleSubmit((data) => firstRegisterData(data))}
+              onClick={() => setformSteps({ secondStep: true })}
             >
               Next
             </ButtonPrimaryStyle>
@@ -172,7 +207,7 @@ const RegisterForm = () => {
               )}
             </div>
             <ButtonPrimaryStyle
-              onClick={handleSubmit((data) => secondRegisterData(data))}
+              onClick={() => setformSteps({ thirdStep: true })}
             >
               Next
             </ButtonPrimaryStyle>
@@ -210,7 +245,7 @@ const RegisterForm = () => {
             </div>
 
             <ButtonPrimaryStyle
-              onClick={handleSubmit((data) => thirdRegisterData(data))}
+              onClick={() => setformSteps({ fourthStep: true })}
             >
               Next
             </ButtonPrimaryStyle>
@@ -228,14 +263,14 @@ const RegisterForm = () => {
 
             <div>
               <label>
-                What 's your Name
+                What's your name
                 <InputStyle type="text" {...register('firstName')} />
               </label>
             </div>
 
             <div>
               <label>
-                Your Lastname
+                Your lastname
                 <InputStyle type="text" {...register('lastName')} />
               </label>
             </div>
@@ -280,7 +315,8 @@ const RegisterForm = () => {
               </DivImgCircleS>
             </div>
             <ButtonPrimaryStyle
-              onClick={handleSubmit((x) => console.log(x.avatar))}
+              // onClick={handleSubmit((x) => console.log(x.avatar))}
+              onClick={() => setformSteps({ fifthStep: true })}
             >
               Next
             </ButtonPrimaryStyle>
@@ -295,7 +331,12 @@ const RegisterForm = () => {
 
             <DivFlexGenres>
               {genres?.map((genre) => (
-                <DivGenreCircle key={genre.id} onClick={() => selectGenre(genre.id)}>
+                <DivGenreCircle
+                  key={genre.id}
+                  onClick={() =>
+                    setSelectedGenres([...selectedGenres, genre.id])
+                  }
+                >
                   <p>{genre.name}</p>
                 </DivGenreCircle>
               ))}

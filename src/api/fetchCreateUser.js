@@ -1,6 +1,7 @@
 import { useId } from "react"
 
 const fetchCreateUser = async (user = {}) => {
+    console.log(user);
     user.id = useId();
     try {
         const options = {
