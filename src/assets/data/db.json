@@ -28,7 +28,7 @@
       "following": [],
       "isVerified": true,
       "isAdmin": true,
-      "isLoggedIn": false
+      "isLogged": false
     },
     {
       "id": 2,
@@ -58,7 +58,7 @@
       "following": [],
       "isVerified": true,
       "isAdmin": false,
-      "isLoggedIn": false
+      "isLogged": false
     }
   ],
   "genres": [
