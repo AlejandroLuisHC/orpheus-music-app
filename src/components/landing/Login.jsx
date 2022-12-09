@@ -31,6 +31,7 @@ const Login = ({ setOut }) => {
                 dispatch(LOG_IN(user));
                 goHome("/home");
                 window.location.reload(true);
+                console.log(foundUser.username)
             }
         })
         foundUser === false && setInvalidLogin(prev => prev = true)

@@ -116,7 +116,7 @@ export const ButtonSecondaryStyle = styled.button`
     height: 40px;
     width: 150px;
     font-weight: bold;
-    border: 3px solid ${color.primaryYellow};
+    border: 1px solid ${color.primaryYellow};
     border-radius: calc(40px * .5);
     font-size: 10px;
     
