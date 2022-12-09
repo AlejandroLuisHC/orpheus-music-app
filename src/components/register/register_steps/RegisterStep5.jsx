@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import { fetchKey } from '../../../api';
 import { ButtonPrimaryStyle, ButtonSecondaryStyle } from '../../style/generalStyle';
 import { DivFlexGenres, DivGenreCircle, DivSelectedGenreCircle } from '../../style/registerStyle';
 
@@ -21,6 +22,9 @@ const RegisterStep5 = ({ setFormSteps, selectedGenres, setSelectedGenres }) => {
         //TODO: fix this function
         // setSelectedGenres([...selectedGenres].filter((genre) => genre === id))
     };
+    function getRandomSize() {
+        return Math.random() * (135 - 75) + 75;
+    }
 
     return (
         <>
@@ -32,6 +36,7 @@ const RegisterStep5 = ({ setFormSteps, selectedGenres, setSelectedGenres }) => {
                     return !isGenreSelected(genre.id) ? (
                         <DivGenreCircle
                             key={genre.id}
+                            size={`${getRandomSize()}px`}
                             onClick={() => addToSelectedGenres(genre.id)}
                         >
                             <p>{genre.name}</p>
@@ -39,6 +44,7 @@ const RegisterStep5 = ({ setFormSteps, selectedGenres, setSelectedGenres }) => {
                     ) : (
                         <DivSelectedGenreCircle
                             key={genre.id}
+                            size={`${getRandomSize()}px`}
                             onClick={() => removeFromSelectedGenres(genre.id)}
                         >
                             <p>{genre.name}</p>
