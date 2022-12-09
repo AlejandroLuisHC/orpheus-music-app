@@ -6,7 +6,6 @@ import Login from "../components/landing/Login"
 import { useEffect } from 'react';
 import FooterInfo from '../components/general_components/FooterInfo';
 
-
 const Landing = () => {
     const [loginView, setLoginView] = useState(false)
     const [mobile, setMobile] = useState()
@@ -17,33 +16,30 @@ const Landing = () => {
     }, [window.innerWidth])
 
     return (
-        <>
-            {mobile 
-                ?
-                <DivLanding>
-                    <ImgLogoClick onClick={() => setLoginView(prev => prev = false)} src={logo} alt="Logo" />
-                    <PSlogan>The music that unites us</PSlogan>
-                    {loginView 
-                        ? 
-                        <div style={{gridRow: 3}}>
-                            <Login />
-                        </div>
-                        :
-                        <ButtonLogin onClick={() => setLoginView(prev => prev = true)}><FaAngleDoubleUp /></ButtonLogin>                       
-                    }
-                    <FooterLanding><small>This is footer information</small></FooterLanding>
-                </DivLanding>
-                :
-                <DivLanding>
-                    <ImgLogoLanding src={logo} alt="Logo" />
-                    <PSlogan>The music that unites us</PSlogan>
+        mobile 
+            ?
+            <DivLanding>
+                <ImgLogoClick onClick={() => setLoginView(prev => prev = false)} src={logo} alt="Logo" />
+                <PSlogan>The music that unites us</PSlogan>
+                {loginView 
+                    ? 
                     <div style={{gridRow: 3}}>
                         <Login />
                     </div>
-                    <FooterLanding><FooterInfo /></FooterLanding>
-                </DivLanding>
-            }
-        </>
+                    :
+                    <ButtonLogin onClick={() => setLoginView(prev => prev = true)}><FaAngleDoubleUp /></ButtonLogin>                       
+                }
+                <FooterLanding><FooterInfo /></FooterLanding>
+            </DivLanding>
+            :
+            <DivLanding>
+                <ImgLogoLanding src={logo} alt="Logo" />
+                <PSlogan>The music that unites us</PSlogan>
+                <div style={{gridRow: 3}}>
+                    <Login />
+                </div>
+                <FooterLanding><FooterInfo /></FooterLanding>
+            </DivLanding>
     )
 }
 

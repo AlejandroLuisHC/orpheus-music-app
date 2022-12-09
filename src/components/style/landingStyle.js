@@ -92,6 +92,19 @@ export const DivLogin = styled.div`
     padding: 30px;
     grid-template-rows: 1fr 5fr 60px;
     text-align: center;
+    &::before{
+        content: "";
+        position: absolute;
+        top: 0; 
+        left: 0;
+        width: 100%; 
+        height: 100%;  
+        opacity: .2; 
+        z-index: -1;
+        background: url(src/assets/img/gifs_background/BgBubblesMobile.gif);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
 `
 export const PSlogan = styled.p`
     font-size: 1.6rem;

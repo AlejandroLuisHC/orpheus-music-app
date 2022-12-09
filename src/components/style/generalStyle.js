@@ -1,3 +1,4 @@
+import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 import { Link } from "react-router-dom";
 import styled, { createGlobalStyle } from "styled-components";
 import { color, device } from "./utils/styleConstants";
@@ -145,6 +146,10 @@ export const ButtonPrimaryStyle = styled.button`
     border-radius: calc(40px * .5);
     cursor: pointer;
     margin: 10px auto;
+    transition: 300ms;
+    &:hover{
+        transform: scale(1.1);
+    }
 `
 
 export const ButtonSecondaryStyle = styled.button`
@@ -160,6 +165,10 @@ export const ButtonSecondaryStyle = styled.button`
     border: 3px solid ${color.primaryYellow};
     border-radius: calc(40px * .5);
     font-size: 10px;
+    transition: 300ms;
+    &:hover{
+        transform: scale(1.1);
+    }
 `
 
 export const ImgLogoM = styled.img`
@@ -195,10 +204,53 @@ export const LabelStyle = styled.label`
     font-weight: bold;
 `
 
+export const LabelFilesStyle = styled.label`
+    height: 40px;
+    width: 280px;
+    border: 2px solid ${color.primaryYellow};
+    font-size: 18px;
+    border-radius: calc(40px * .5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
 export const InputStyle = styled.input`
     background-color: ${color.primaryWhite};
     height: 40px;
     width: 280px;
+    border: none;
+    font-size: 18px;
+    border-radius: calc(40px * .5);
+    margin: 10px auto;
+    text-align: center;
+    display: column;
+`
+export const SelectStyle = styled.select`
+    background-color: ${color.primaryWhite};
+    height: 40px;
+    width: 280px;
+    border: none;
+    font-size: 18px;
+    border-radius: calc(40px * .5);
+    margin: 10px auto;
+    text-align: center;
+    display: column;
+`
+export const SelectCountry = styled(CountryDropdown)`
+    background-color: ${color.primaryWhite};
+    height: 40px;
+    width: 120px;
+    border: none;
+    font-size: 18px;
+    border-radius: calc(40px * .5);
+    margin: 10px auto;
+    text-align: center;
+    display: column;
+`
+export const SelectRegion = styled(RegionDropdown)`
+    background-color: ${color.primaryWhite};
+    height: 40px;
+    width: 160px;
     border: none;
     font-size: 18px;
     border-radius: calc(40px * .5);
