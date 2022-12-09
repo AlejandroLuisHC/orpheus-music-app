@@ -1,14 +1,29 @@
 import styled from "styled-components";
-import { color } from "./utils/styleConstants";
+import { color, device } from "./utils/styleConstants";
 import {ButtonSecondaryStyle} from "../style/generalStyle"
 
+/* DESKTOP DIV HERO */
+export const DivHero = styled.div`
+    display:none;
+    @media ${device.desktop}{
+        display:block; 
+    } 
+`
+/* MOBILE DIV WELCOME NAD BUTTONS  */
+export const DivUsernameButtons = styled.div`
+    display:block;
+    margin:30px 0;
+    @media ${device.desktop}{
+        display:none; 
+    } 
+`
 
 /* HERO TITLES */
 export const H2StyleHero = styled.h2`
     margin: 0 auto;
-    color: ${color.primaryWhite}
-    padding: 0;
+    color: ${color.primaryWhite};
     text-transform: uppercase;
+    left:100px;
     width: 100%;
     height: 60vh;
     text-align: center;
@@ -21,7 +36,7 @@ export const H2StyleHero = styled.h2`
 
 export const H4StyleHero = styled.h4`
     margin: -150px auto 0;
-    padding: 0;
+
     width: 100%;
     text-align: center;
     font-size: 1.25em;

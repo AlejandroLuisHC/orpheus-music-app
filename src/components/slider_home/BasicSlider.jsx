@@ -31,9 +31,11 @@ export default function BasicSlider() {
       >
         <Overlay>
           <div>
-            <H2StyleHero>your favourite event just a click away</H2StyleHero>
+            <H2StyleHero>
+              Your favourite event just a click away
+            </H2StyleHero>
             <H4StyleHero>
-              Check out the documentation for more advanced examples.
+              Buy your tickets at Orpheus
             </H4StyleHero>
           </div>
         </Overlay>

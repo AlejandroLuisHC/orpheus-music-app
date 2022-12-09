@@ -1,23 +1,26 @@
 import Slider from "../components/slider_home/BasicSlider"
 import { H2Style } from "../components/style/generalStyle"
-import { DivButtonsAction, BtnAction } from "../components/style/homeStyle"
+import { DivButtonsAction, BtnAction,DivHero, DivUsernameButtons } from "../components/style/homeStyle"
 
 const Home = () => {
     return (
-        <>
-            <Slider/>
-            <div style={{margin:"30px 0"}}>
+        <>  
+            <DivHero>
+                <Slider/>
+            </DivHero>
+            <DivUsernameButtons>
                 <p>Welcome (name)</p>
-            </div>
-
-            <DivButtonsAction>
-                <BtnAction>Playlist</BtnAction>
-                <BtnAction>Events</BtnAction>
-            </DivButtonsAction>
-            <DivButtonsAction>
-                <BtnAction>Social</BtnAction>
-                <BtnAction>New Releases</BtnAction>
-            </DivButtonsAction>
+                <DivButtonsAction>
+                    <BtnAction>Playlist</BtnAction>
+                    <BtnAction>Events</BtnAction>
+                </DivButtonsAction>
+                <DivButtonsAction>
+                    <BtnAction>Social</BtnAction>
+                    <BtnAction>New Releases</BtnAction>
+                </DivButtonsAction>
+            </DivUsernameButtons>
+          
+            
 
             <div style={{margin:"20px 0 100px"}}>
                 <H2Style>Playlist</H2Style>
