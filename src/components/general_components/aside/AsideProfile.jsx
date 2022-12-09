@@ -6,7 +6,7 @@ const AsideProfile = () => {
 
     return (
         <>
-            <LinkAside>
+            <LinkAside to={userData.username}>
                 {userData?.username ?? 'Not Logged'}
             </LinkAside>
         </>
