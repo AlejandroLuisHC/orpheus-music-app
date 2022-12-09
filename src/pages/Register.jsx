@@ -1,9 +1,10 @@
+import { memo } from 'react'
 import RegisterForm from '../components/register/RegisterForm'
 
 const Register = () => {
-  return (
-    <RegisterForm />
-  )
+    return (
+        <RegisterForm />
+    )
 }
 
-export default Register
+export default memo(Register)

@@ -1,20 +1,19 @@
-import React from 'react'
-import { ElementAside} from '../../style/generalStyle'
+import { LinkAside } from '../../style/generalStyle'
 
 const AsideRecentPlaylist = () => {
-  return (
-    <>
-    <ElementAside>
-        <p>Recent playlist...</p>
-    </ElementAside>
-    <ElementAside>
-        <p>Recent playlist...</p>
-    </ElementAside>
-    <ElementAside>
-        <p>Recent playlist...</p>
-    </ElementAside>
-    </>
-  )
+    return (
+        <>
+            <LinkAside>
+                <p>Recent playlist...</p>
+            </LinkAside>
+            <LinkAside>
+                <p>Recent playlist...</p>
+            </LinkAside>
+            <LinkAside>
+                <p>Recent playlist...</p>
+            </LinkAside>
+        </>
+    )
 }
 
 export default AsideRecentPlaylist

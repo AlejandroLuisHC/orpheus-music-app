@@ -1,12 +1,11 @@
-import React from 'react'
+import { Link } from 'react-router-dom'
 import logo from '../../assets/img/Logotipo.png'
 import { ImgLogoHome } from '../style/landingStyle'
 
 const HeaderLogo = () => {
-  return (
-    <ImgLogoHome onClick={() => setLoginView(prev => prev = false)} src={logo} alt="Logo" />
-
-  )
+    return (
+        <Link to='/home'><ImgLogoHome src={logo} alt="Logo" /></Link>
+    )
 }
 
 export default HeaderLogo

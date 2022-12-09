@@ -1,15 +1,14 @@
-import React from 'react'
-import { ElementAside } from '../../style/generalStyle'
+import { LinkAside } from '../../style/generalStyle'
 
 const AsideProfile = () => {
   return (
     <>
-        <ElementAside>
+        <LinkAside>
                 Profile
-        </ElementAside>
-        <ElementAside>
+        </LinkAside>
+        {/* <LinkAside>
             Settings
-        </ElementAside>   
+        </LinkAside>    */}
     </>
   )
 }

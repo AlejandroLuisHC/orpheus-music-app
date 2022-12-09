@@ -39,7 +39,7 @@ export const GridLandingStyle = styled.div`
     display: grid; 
     height: 100%;
     grid-template: 1fr 50px / 1fr; // Grid for Mobile    
-`
+    `
 
 export const Header = styled.header`
     display: none; 
@@ -48,7 +48,9 @@ export const Header = styled.header`
         grid-row: 1;
         width: 100%;
         height: 100%;
-        display: block;
+        display: flex;
+        align-items: center;
+        padding: 20px;
     }
 `
 
@@ -95,39 +97,39 @@ export const Aside = styled.aside`
         grid-row: 2;
     }
 `
+
 export const AsideMobileStyle = styled.aside`
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 `
 
 export const AsideDesktopStyle = styled.aside`
-display: flex;
-flex-direction: column;
-
-`
-//Why i cant use Link as a html element?
-export const ElementAside = styled(Link)`
-color: white;
-margin: 0 5px 0 5px;
-text-decoration: none;
-@media ${device.desktop}{
-    
-    margin: 10px 0 10px 30px;
     display: flex;
-    flex-direction: row;
-}
-`
-export const IconAside = styled.div`
-margin: 0 10px 0 0;
-`
-export const Hr = styled.hr`
-margin: 0 auto;
-width: 45%;
+    flex-direction: column;
+    gap: 20px;
 `
 
-// Global styled tags (img, ol, ul, li...)
+export const LinkAside = styled(Link)`
+    color: ${color.primaryWhite};
+    text-decoration: none;
+    transition: 300ms;
+    gap: 10px;
+    &:hover{
+        transform: scale(1.1);
+    }
+    @media ${device.desktop}{
+        display: flex;
+        padding-left: 20px;
+        margin: 10px 0;
+    }
+`
+
+export const Hr = styled.hr`
+    opacity: .1;
+    width: 80%;
+`
+
 export const ButtonPrimaryStyle = styled.button`
     background-color: ${color.primaryYellow};
     color: ${color.primaryBlack};
@@ -158,7 +160,6 @@ export const ButtonSecondaryStyle = styled.button`
     border: 3px solid ${color.primaryYellow};
     border-radius: calc(40px * .5);
     font-size: 10px;
-    
 `
 
 export const ImgLogoM = styled.img`
@@ -169,7 +170,7 @@ export const ImgLogoM = styled.img`
 
 export const ImgLogoS = styled.img`
     object-fit: contain;
-    height: 30px;
+    height: 35px;
 `
 
 export const H2Style = styled.h2`
@@ -297,7 +298,7 @@ export const DivMainSpinnerStyle = styled.div`
 `
 
 /* BANNER CONTAINER FULL-WIDTH */
-export const DivImgBannerSliderHome =styled.div`
+export const DivImgBannerSliderHome = styled.div`
     width: 100%;
     height: 500px;
 `

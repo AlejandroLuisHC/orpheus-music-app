@@ -1,36 +1,25 @@
-import React from 'react'
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { Aside, GridStyle } from '../../style/generalStyle'
+import { useState, useEffect, memo } from 'react';
 import AsideDesktop from './AsideDesktop';
 import AsideMobile from './AsideMobile';
 
 const AsideMenu = () => {
-  const [windowSize, setWindowSize] = useState(false);
-  useEffect(() => {
-    if(innerWidth>750){
-      return setWindowSize(!windowSize);
-    }
-     console.log(innerWidth)
-  }, [innerWidth])
-//should render the component in the useEffect when the windows width change
-
-  return (
-   <>
-   { windowSize
-    ? //desktop
-      
-      <AsideDesktop />
-      
-    : //movile
-    
-      <AsideMobile />
-    }
-    
-   </>
-    
-  )
-
+    const [windowDesk, setWindowDesk] = useState(innerWidth > 768 ? true : false);
+    useEffect(() => {
+        if(innerWidth > 768){
+            setWindowDesk(prev => prev = true);
+        } else {
+            setWindowDesk(prev => prev = false);
+        }
+    }, [innerWidth])
+  
+    //It should render the component in the useEffect when the windows width change
+    return (
+        windowDesk
+            ? 
+            <AsideDesktop />
+            : 
+            <AsideMobile />
+    )
 }
 
-export default AsideMenu   
+export default memo(AsideMenu)   

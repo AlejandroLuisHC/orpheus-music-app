@@ -54,7 +54,6 @@ export const ImgLogoClick = styled(ImgLogoM)`
     }
 `
 export const ImgLogoHome = styled(ImgLogoS)`
-    
     cursor: pointer;
         transition: 300ms;
         &:hover{

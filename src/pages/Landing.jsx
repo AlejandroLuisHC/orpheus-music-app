@@ -1,10 +1,10 @@
 import logo from '../assets/img/Logotipo.png'
 import { ButtonLogin, DivLanding, FooterLanding, ImgLogoClick, ImgLogoLanding, PSlogan} from "../components/style/landingStyle"
 import { FaAngleDoubleUp } from "react-icons/fa"
-import { useState } from "react"
-import { ImgLogoM } from "../components/style/generalStyle";
+import { useState, memo } from "react"
 import Login from "../components/landing/Login"
 import { useEffect } from 'react';
+import FooterInfo from '../components/general_components/FooterInfo';
 
 
 const Landing = () => {
@@ -40,11 +40,11 @@ const Landing = () => {
                     <div style={{gridRow: 3}}>
                         <Login />
                     </div>
-                    <FooterLanding><small>This is footer information</small></FooterLanding>
+                    <FooterLanding><FooterInfo /></FooterLanding>
                 </DivLanding>
             }
         </>
     )
 }
 
-export default Landing
+export default memo(Landing)

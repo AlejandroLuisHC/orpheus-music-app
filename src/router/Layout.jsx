@@ -1,12 +1,8 @@
 import { useState } from 'react';
 import { Outlet } from 'react-router-dom'
-
-import AsideMenu from '../components/general_components/aside/Aside';
-import HeaderLogo from '../components/general_components/Header';
-import { Aside, Footer, GridStyle, GridLandingStyle, Header, Main, MainLandingStyle } from '../components/style/generalStyle'
-
-
-
+import Aside from '../components/general_components/aside/Aside';
+import HeaderLogo from '../components/general_components/HeaderLogo';
+import { GridStyle, GridLandingStyle, Header, Main, MainLandingStyle } from '../components/style/generalStyle'
 const Layout = () => {
     const [logged, setLogged] = useState(sessionStorage.getItem('user') ? true : false)
 
@@ -15,7 +11,7 @@ const Layout = () => {
             ? 
             <GridStyle>
                 <Header><HeaderLogo /></Header>
-                <AsideMenu />
+                <Aside />
                 <Main>
                     <Outlet context={{setLogged}}/>
                 </Main>

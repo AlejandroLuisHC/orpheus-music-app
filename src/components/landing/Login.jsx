@@ -6,7 +6,7 @@ import { fetchUsers } from "../../api";
 import { useForm } from "react-hook-form"
 import { useDispatch } from "react-redux";
 import { LOG_IN } from "../../redux/features/user_data/userSlice"
-import { useState } from "react"
+import { useState, memo } from "react"
 
 const Login = () => {
     const dispatch = useDispatch();
@@ -103,4 +103,4 @@ const Login = () => {
         </>
     )
 }
-export default Login
+export default memo(Login)

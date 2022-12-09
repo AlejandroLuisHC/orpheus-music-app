@@ -5,7 +5,7 @@ const login = (state, action) => {
     }
     console.log(loggedUser)
     sessionStorage.setItem('user', JSON.stringify(loggedUser));
-    state = loggedUser;
+    state = { ...loggedUser };
 }
 
 export default login
