@@ -11,7 +11,6 @@ import { useState, memo } from "react"
 const Login = () => {
     const dispatch = useDispatch();
     const goHome = useNavigate();
-    const { setLogged } = useOutletContext()
     const [invalidLogin, setInvalidLogin] = useState(false)
 
     // Fetch existing users from DB
@@ -27,7 +26,6 @@ const Login = () => {
                 && user.userData.password === userInput.password) {
                 foundUser = true;
                 dispatch(LOG_IN(user));
-                setLogged(prev => prev = true)
                 goHome('/home');
             }
         })

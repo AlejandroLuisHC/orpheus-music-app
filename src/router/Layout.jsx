@@ -1,25 +1,25 @@
-import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom'
 import Aside from '../components/general_components/aside/Aside';
 import HeaderLogo from '../components/general_components/HeaderLogo';
 import { GridStyle, GridLandingStyle, Header, Main, MainLandingStyle } from '../components/style/generalStyle'
 const Layout = () => {
-    const [logged, setLogged] = useState(sessionStorage.getItem('user') ? true : false)
+    const { isLogged } = useSelector(state => state.userData.user)
 
     return (
-        logged 
+        isLogged 
             ? 
             <GridStyle>
                 <Header><HeaderLogo /></Header>
                 <Aside />
                 <Main>
-                    <Outlet context={{setLogged}}/>
+                    <Outlet />
                 </Main>
             </GridStyle>
             :
             <GridLandingStyle>
                 <MainLandingStyle>
-                    <Outlet context={{setLogged}}/>
+                    <Outlet />
                 </MainLandingStyle>
             </GridLandingStyle>
     )

@@ -1,15 +1,10 @@
 import { IoMdHome, IoMdSearch, IoMdHeart, IoMdPeople, IoMdCheckbox, IoMdMusicalNotes } from 'react-icons/io'
-import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router'
-import { LOG_OUT } from '../../../redux/features/user_data/userSlice'
 import { AsideDesktopStyle, LinkAside, Hr } from '../../style/generalStyle'
-import { ButtonLogoutStyle } from '../../style/homeStyle'
+import DisconnectBtn from '../DisconnectBtn'
 import AsideProfile from './AsideProfile'
 import AsideRecentPlaylist from './AsideRecentPlaylist'
 
 const AsideDesktop = () => {
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
 
     return (
         <AsideDesktopStyle>
@@ -46,7 +41,7 @@ const AsideDesktop = () => {
             <Hr/>
             <AsideProfile />
             <Hr/>
-            <ButtonLogoutStyle onClick={() => {dispatch(LOG_OUT()); navigate('/')}}>Disconnect</ButtonLogoutStyle>
+            <DisconnectBtn />
         </AsideDesktopStyle>
     )
 }
