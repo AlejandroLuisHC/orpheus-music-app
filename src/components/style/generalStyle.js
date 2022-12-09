@@ -201,6 +201,24 @@ export const FieldsetStyle = styled.fieldset`
     border: none;  
 `
 
+export const DivStepsContainer = styled.div`
+    border: 1px solid ${color.primaryWhite};
+    height:  8px;
+    width: 350px;
+    margin-bottom: 20px;
+    border-radius: calc(8px * .5);
+    display: flex;
+    align-items: center;
+    justify-content: left;
+`
+export const DivStepsCounter = styled.div`
+    background-color: ${color.primaryYellow};
+    height: 5px;
+    width: ${props => `${parseInt(props.step) * 70}px` || "85px"};
+    border-radius: calc(5px * .5);
+    transition: 500ms;
+`
+
 export const DivInputStyle = styled.div`
     margin-bottom: 20px;
     display: flex;
@@ -212,6 +230,10 @@ export const LabelStyle = styled.label`
     margin: 0 auto;
     font-size: 14px;
     font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
 `
 
 export const LabelFilesStyle = styled.label`
@@ -386,16 +408,8 @@ export const FormStyle = styled.form`
     legend {
         color: ${color.primaryYellow};
         font-size: 20px;
-        font-weight:bold;
+        font-weight: bold;
         text-align: center;
-        margin: 1.5rem 0 1.5rem 0;
     }
-    div {
-        margin-bottom: 1.5rem;
-    }
-    label {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: .5rem;
-    }
+
 `

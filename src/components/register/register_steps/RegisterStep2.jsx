@@ -1,4 +1,4 @@
-import { ButtonPrimaryStyle, ButtonSecondaryStyle, InputStyle, PErrorStyle } from '../../style/generalStyle'
+import { ButtonPrimaryStyle, ButtonSecondaryStyle, DivInputStyle, InputStyle, LabelStyle, PErrorStyle } from '../../style/generalStyle'
 
 const RegisterStep2 = ({ register, watch, setFormSteps, errors }) => {
     const passwordsMatch = (password, confirmPassword) => {
@@ -9,8 +9,8 @@ const RegisterStep2 = ({ register, watch, setFormSteps, errors }) => {
         <>
             <legend>Protect your account</legend>
 
-            <div>
-                <label>
+            <DivInputStyle>
+                <LabelStyle>
                     Create your password
                     <InputStyle
                         type="password"
@@ -24,14 +24,14 @@ const RegisterStep2 = ({ register, watch, setFormSteps, errors }) => {
                             },
                         })}
                     />
-                </label>
+                </LabelStyle>
                 {errors.password?.message && (
                     <PErrorStyle>{errors.password?.message}</PErrorStyle>
                 )}
-            </div>
+            </DivInputStyle>
 
-            <div>
-                <label>
+            <DivInputStyle>
+                <LabelStyle>
                     Confirm your password
                     <InputStyle
                         type="password"
@@ -43,17 +43,17 @@ const RegisterStep2 = ({ register, watch, setFormSteps, errors }) => {
                                 passwordsMatch(watch('password'), confirmPassword),
                         })}
                     />
-                </label>
+                </LabelStyle>
                 {!passwordsMatch(watch('password'), watch('confirmPassword')) && (
                     <PErrorStyle>Passwords not matching</PErrorStyle>
                 )}
-            </div>
+            </DivInputStyle>
             <ButtonPrimaryStyle
-                onClick={() => setFormSteps(prev => prev = { thirdStep: true })}
+                onClick={() => setFormSteps(prev => prev = { step: '3',  thirdStep: true })}
             >
                 Next
             </ButtonPrimaryStyle>
-            <ButtonSecondaryStyle onClick={() => setFormSteps(prev => prev = { firstStep: true })}>Back</ButtonSecondaryStyle>
+            <ButtonSecondaryStyle onClick={() => setFormSteps(prev => prev = { step: '1', firstStep: true })}>Back</ButtonSecondaryStyle>
         </>
     )
 }

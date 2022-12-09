@@ -1,27 +1,30 @@
 import React from 'react'
-import { ButtonPrimaryStyle, ButtonSecondaryStyle, InputStyle, SelectStyle } from '../../style/generalStyle'
+import { ButtonPrimaryStyle, ButtonSecondaryStyle, DivInputStyle, InputStyle, LabelStyle, SelectStyle } from '../../style/generalStyle'
 
 const RegisterStep3 = ({register, setFormSteps }) => {
     return (
         <>
             <legend>Protect your account</legend>
 
-            <div>
-                <SelectStyle {...register('secretQuestion')}>
-                    <option value="What is your favourite song?">
-                        What is your favourite song?
-                    </option>
-                    <option value="What is your favourite pizza?">
-                        What is your favourite pizza?
-                    </option>
-                    <option value="What is your favourite city?">
-                        What is your favourite city?
-                    </option>
-                </SelectStyle>
-            </div>
+            <DivInputStyle>
+                <LabelStyle>
+                    Choose you secret question
+                    <SelectStyle {...register('secretQuestion')}>
+                        <option value="What is your favourite song?">
+                            What is your favourite song?
+                        </option>
+                        <option value="What is your favourite pizza?">
+                            What is your favourite pizza?
+                        </option>
+                        <option value="What is your favourite city?">
+                            What is your favourite city?
+                        </option>
+                    </SelectStyle>
+                </LabelStyle>
+            </DivInputStyle>
 
-            <div>
-                <label>
+            <DivInputStyle>
+                <LabelStyle>
                     Create your secret answer
                     <InputStyle
                         type="text"
@@ -30,15 +33,15 @@ const RegisterStep3 = ({register, setFormSteps }) => {
                         secretAnswer
                         {...register('secretAnswer')}
                     />
-                </label>
-            </div>
+                </LabelStyle>
+            </DivInputStyle>
 
             <ButtonPrimaryStyle
-                onClick={() => setFormSteps(prev => prev = { fourthStep: true })}
+                onClick={() => setFormSteps(prev => prev = { step: '4', fourthStep: true })}
             >
                 Next
             </ButtonPrimaryStyle>
-            <ButtonSecondaryStyle onClick={() => setFormSteps(prev => prev = { secondStep: true })}>Back</ButtonSecondaryStyle>
+            <ButtonSecondaryStyle onClick={() => setFormSteps(prev => prev = { step: '2',  secondStep: true })}>Back</ButtonSecondaryStyle>
         </>
     )
 }
