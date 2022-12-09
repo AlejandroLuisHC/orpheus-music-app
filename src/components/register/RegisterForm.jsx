@@ -11,7 +11,7 @@ import RegisterStep4 from './register_steps/registerStep4';
 import RegisterStep5 from './register_steps/RegisterStep5';
 
 const RegisterForm = () => {
-    const { data: users } = useQuery(['users'], fetchUsers);
+    const { data: users, status } = useQuery(['users'], fetchUsers);
 
     const {
         register,
@@ -58,6 +58,7 @@ const RegisterForm = () => {
     const [location, setLocation] = useState({ country: '', region: '' });
     const { country, region } = location;
 
+    const [avatar ,setAvatar] = useState('')
     const userDataAvailable = inputValue => {
         const findUser = users?.find(
             user =>
@@ -85,6 +86,7 @@ const RegisterForm = () => {
         userData.lastName       = lastName || '';
         userData.country        = country || '';
         userData.city           = region || '';
+        userData.avatar         = avatar || '' ;
         userData.favGenres      = selectedGenres || [];
 
         setRegisterData({
@@ -98,48 +100,55 @@ const RegisterForm = () => {
     return (
         //TODO: logo
         //TODO: process bar
-        <FormStyle onSubmit={handleSubmit(data => createUser(data))}>
-            <fieldset>
-                {formSteps.firstStep && 
-                    <RegisterStep1
-                        register = {register}
-                        watch = {watch}
-                        errors = {errors}
-                        userDataAvailable = {userDataAvailable}
-                        setFormSteps = {setFormSteps}
-                    />
-                }
-                {formSteps.secondStep && 
-                    <RegisterStep2 
-                        register = {register}
-                        watch = {watch}
-                        errors = {errors}
-                        setFormSteps = {setFormSteps}
-                    />
-                }
-                {formSteps.thirdStep && 
-                    <RegisterStep3 
-                        register = {register}
-                        setFormSteps = {setFormSteps}
-                    />
-                }
-                {formSteps.fourthStep && 
-                    <RegisterStep4 
-                        register = {register}
-                        setFormSteps = {setFormSteps}
-                        location = {location}
-                        setLocation = {setLocation}
-                    />
-                }
-                {formSteps.fifthStep && 
-                    <RegisterStep5
-                        setFormSteps = {setFormSteps}
-                        selectedGenres = {selectedGenres}
-                        setSelectedGenres = {setSelectedGenres}
-                    />
-                }
-            </fieldset>
-        </FormStyle>
+        status === "loading" 
+            ? <LogoSpinner />
+            : status === "error"
+                ? <p>Error</p>
+                : 
+                <FormStyle onSubmit={handleSubmit(data => createUser(data))}>
+                    <fieldset>
+                        {formSteps.firstStep && 
+                            <RegisterStep1
+                                register = {register}
+                                watch = {watch}
+                                errors = {errors}
+                                userDataAvailable = {userDataAvailable}
+                                setFormSteps = {setFormSteps}
+                            />
+                        }
+                        {formSteps.secondStep && 
+                            <RegisterStep2 
+                                register = {register}
+                                watch = {watch}
+                                errors = {errors}
+                                setFormSteps = {setFormSteps}
+                            />
+                        }
+                        {formSteps.thirdStep && 
+                            <RegisterStep3 
+                                register = {register}
+                                setFormSteps = {setFormSteps}
+                            />
+                        }
+                        {formSteps.fourthStep && 
+                            <RegisterStep4 
+                                register = {register}
+                                setFormSteps = {setFormSteps}
+                                location = {location}
+                                setLocation = {setLocation}
+                                setAvatar = {setAvatar}
+                            />
+                        }
+                        {formSteps.fifthStep && 
+                            <RegisterStep5
+                                setFormSteps = {setFormSteps}
+                                selectedGenres = {selectedGenres}
+                                setSelectedGenres = {setSelectedGenres}
+                            />
+                        }
+                    </fieldset>
+                </FormStyle>
+        
     );
 };
 
