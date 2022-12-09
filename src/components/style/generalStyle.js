@@ -59,7 +59,7 @@ export const Main = styled.main`
     grid-row: 1;
     @media ${device.desktop}{
         grid-column: 2;
-        grid-row: 1 / span 2;
+        grid-row: 1 / span 3;
         width: 100%;
         height: 100%;
     }
@@ -79,8 +79,6 @@ export const Footer = styled.footer`
         align-items: center;
         grid-row: 3;
         grid-column: 1 / span 2;
-        height: 100%;
-        display: block;
     }
 `
 

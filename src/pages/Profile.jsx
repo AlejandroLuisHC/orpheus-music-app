@@ -4,9 +4,6 @@ import ProfileDesktop from "../components/profile/ProfileDesktop";
 import { LOG_OUT } from "../redux/features/user_data/userSlice";
 
 const Profile = () => {
-    
-
-
     return (
         <ProfileDesktop />
     )
