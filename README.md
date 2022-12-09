@@ -18,7 +18,7 @@ program.
 _First clone the repository_
 
 ```
-git clone https://github.com/AlejandroLuisHC/react_project_e-commerce
+git clone https://github.com/AlejandroLuisHC/final-project-MERN
 ```
 
 _Then run 'npm install' in the base folder_
@@ -47,6 +47,13 @@ npm run dev
 - [Redux-toolkit](https://redux-toolkit.js.org/)
 - [React-hook-form](https://react-hook-form.com/)
 - [Styled-Components](https://styled-components.com/)
+
+## Other libraries ⚙️
+- [json-server](https://github.com/typicode/json-server)
+- [hero-slider](https://www.npmjs.com/package/hero-slider)
+- [react-content-loader](https://github.com/danilowoz/react-content-loader)
+- [react-country-region-selector](https://www.npmjs.com/package/react-country-region-selector)
+- [react-icons](https://react-icons.github.io/react-icons/)
 
 ## Contributing 🖇️
 
