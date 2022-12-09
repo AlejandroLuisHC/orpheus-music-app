@@ -8,7 +8,7 @@ export const DivFlexGenres = styled.div`
     width: 90vw;
     justify-content: center;
     @media ${device.desktop}{
-        width: 50vw;
+        width: 33vw;
     }
 `;
 

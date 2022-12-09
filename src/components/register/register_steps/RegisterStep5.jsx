@@ -24,7 +24,10 @@ const RegisterStep5 = ({ setFormSteps, selectedGenres, setSelectedGenres }) => {
     };
 
     function getRandomSize() {
-        return Math.random() * (135 - 75) + 75;
+        return Math.random() * (100 - 85) + 85;
+    }
+    function getRandomSizeSelected() {
+        return Math.random() * (125 - 110) + 110;
     }
 
     return (
@@ -45,7 +48,7 @@ const RegisterStep5 = ({ setFormSteps, selectedGenres, setSelectedGenres }) => {
                     ) : (
                         <DivSelectedGenreCircle
                             key={genre.id}
-                            size={`${getRandomSize()}px`}
+                            size={`${getRandomSizeSelected()}px`}
                             onClick={() => removeFromSelectedGenres(genre.id)}
                         >
                             <p>{genre.name}</p>
