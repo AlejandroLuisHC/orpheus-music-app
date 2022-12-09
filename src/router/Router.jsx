@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { lazy, Suspense} from 'react'
 import QueryProvider from "../helper/utils/reactQuery/QueryProvider"
 import StoreProvider from "../redux/provider/StoreProvider"
+import Register from "../pages/Register"
 
 const Layout  = lazy(() => import('./Layout'))
 const Home    = lazy(() => import('../pages/Home'))
@@ -18,7 +19,7 @@ const Router = () => {
                         <Route path='/' element={<Layout />}>
                             <Route index element={<Landing />} />
                             <Route path='/login' element={<p>Login</p>} />
-                            <Route path='/register' element={<p>Register</p>} />
+                            <Route path='/register' element={<Register/>} />
                             <Route path='/home' element={<p>Home</p>} />
                             <Route path='/search' element={<p>Search</p>} />
                             <Route path='/:username' element={<Profile />}>

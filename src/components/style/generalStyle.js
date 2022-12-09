@@ -203,3 +203,29 @@ export const DivImgRectangleL = styled.div`
         border-radius: 10px;
     }
 `
+export const FormStyle = styled.form`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    fieldset {
+        border: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    legend {
+        color: ${color.primaryYellow};
+        font-size: 20px;
+        font-weight:bold;
+        text-align: center;
+        margin: 1.5rem 0 1.5rem 0;
+    }
+    div {
+        margin-bottom: 1.5rem;
+    }
+    label {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: .5rem;
+    }
+`
