@@ -28,7 +28,7 @@
       "following": [],
       "isVerified": true,
       "isAdmin": true,
-      "isLoggedIn": false
+      "isLogged": false
     },
     {
       "id": 2,
@@ -58,70 +58,7 @@
       "following": [],
       "isVerified": true,
       "isAdmin": false,
-      "isLoggedIn": false
-    }
-  ],
-  "events": [
-    {
-      "id": 1,
-      "type": "Concert",
-      "uri": "",
-      "location": "Spain",
-      "name": "Viña rock",
-      "description": "...",
-      "genres": [1, 3],
-      "artists": [1, 2, 4],
-      "date": "13/4/2023",
-      "stock": 400,
-      "price": 25
-    }
-  ],
-  "playlists": [
-    {
-      "id": 1,
-      "name": "Rock in the morning",
-      "description": "...",
-      "img": "",
-      "tracks": [
-        { "id": 2, "added": "new Data()" },
-        { "id": 45, "added": "" },
-        { "id": 2, "added": "" },
-        { "id": 2, "added": "" }
-      ],
-      "followers": [2],
-      "genres": [2, 3],
-      "moods": ["relax", "focused"],
-      "owner": 1
-    }
-  ],
-  "albums": [
-    {
-      "id": 1,
-      "name": "Rock in the morning",
-      "description": "...",
-      "img": "",
-      "tracks": [1, 3, 45, 23, 18],
-      "followers": [2],
-      "genres": [2, 3],
-      "release": "",
-      "owner": "user.id"
-    }
-  ],
-  "tracks": [
-    {
-      "id": 1,
-      "name": "Rock in the morning",
-      "description": "...",
-      "album": [1],
-      "img": "",
-      "file": "",
-      "followers": [2],
-      "genres": [2, 3],
-      "release": "",
-      "owner": {
-        "id": "user.id",
-        "username": "user.username"
-      }
+      "isLogged": false
     }
   ],
   "genres": [
@@ -144,6 +81,34 @@
     {
       "id": 5,
       "name": "metal"
+    },
+    {
+      "id": 6,
+      "name": "hip-hop"
+    },
+    {
+      "id": 7,
+      "name": "punk"
+    },
+    {
+      "id": 8,
+      "name": "reggaeton"
+    },
+    {
+      "id": 9,
+      "name": "dembow"
+    },
+    {
+      "id": 10,
+      "name": "jazz"
+    },
+    {
+      "id": 11,
+      "name": "house"
+    },
+    {
+      "id": 12,
+      "name": "rap"
     }
   ],
   "moods": [

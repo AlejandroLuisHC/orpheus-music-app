@@ -3,8 +3,9 @@ const login = (state, action) => {
         ...action.payload,
         isLogged: true
     }
+    console.log(loggedUser)
     sessionStorage.setItem('user', JSON.stringify(loggedUser));
-    state = loggedUser;
+    state = { ...loggedUser };
 }
 
 export default login

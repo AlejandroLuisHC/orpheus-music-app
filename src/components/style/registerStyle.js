@@ -1,10 +1,15 @@
 import styled from 'styled-components';
 import { DivImgCircleM } from './generalStyle';
-import { device } from "./utils/styleConstants"
+import { color, device } from './utils/styleConstants';
+
 export const DivFlexGenres = styled.div`
     display: flex;
     flex-wrap: wrap;
+    width: 90vw;
     justify-content: center;
+    @media ${device.desktop}{
+        width: 50vw;
+    }
 `;
 
 export const DivGenreCircle = styled(DivImgCircleM)`
@@ -15,39 +20,21 @@ export const DivGenreCircle = styled(DivImgCircleM)`
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+    transition: 300ms;
+    &:hover{
+        transform: scale(1.2)
+    }
     p {
         color: white;
         text-shadow: 2px 2px 4px #000000;
     }
-`;
-export const CircleImgL = styled.img`
-    width:110px;
-    height:110px;
-    border-radius: 50%;
     @media ${device.desktop}{
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-    } 
-`
-export const CircleImgM = styled.img`
-    width:70px;
-    height:70px;
-    border-radius: 50%;
-    @media ${device.desktop}{
-        width: 130px;
-        height: 130px;
-        border-radius: 50%;
+        width: ${props => props.size || "85px"};
+        height: ${props => props.size || "85px"};
     }
-`
+`;
 
-export const CircleImgS= styled.img`
-    width:30px;
-    height:30px;
-    border-radius: 50%;
-    @media ${device.desktop}{
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-    }    
-`
+export const DivSelectedGenreCircle = styled(DivGenreCircle)`
+    border: 5px solid ${color.primaryYellow};
+`;
