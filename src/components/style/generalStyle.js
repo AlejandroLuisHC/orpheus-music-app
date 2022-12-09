@@ -373,7 +373,6 @@ export const DivImgRectangleL = styled.div`
         border-radius: 10px;
     }
 `
-
 export const FormStyle = styled.form`
     display: flex;
     flex-direction: column;

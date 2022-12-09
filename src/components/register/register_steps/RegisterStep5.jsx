@@ -58,7 +58,7 @@ const RegisterStep5 = ({ setFormSteps, selectedGenres, setSelectedGenres }) => {
             </DivFlexGenres>
 
             <ButtonPrimaryStyle type="submit" disabled={selectedGenres.length < 1}>I'm ready!</ButtonPrimaryStyle>
-            <ButtonSecondaryStyle onClick={() => setFormSteps(prev => prev = { fourthStep: true })}>Back</ButtonSecondaryStyle>
+            <ButtonSecondaryStyle onClick={() =>{setFormSteps(prev => prev = { fourthStep: true });setAvatar(prev=> prev = '')}}>Back</ButtonSecondaryStyle>
         </>
     )
 }

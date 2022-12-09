@@ -1,6 +1,9 @@
+import Avatar from 'boring-avatars'
 import { ButtonPrimaryStyle, ButtonSecondaryStyle, DivImgCircleL, DivImgCircleM, DivImgCircleS, InputStyle, LabelFilesStyle, SelectCountry, SelectRegion } from '../../style/generalStyle'
 
-const RegisterStep4 = ({register, setFormSteps, location, setLocation }) => {
+const RegisterStep4 = ({register, setFormSteps, location, setLocation , setAvatar}) => {
+    const avatarId = JSON.stringify(new Date())
+    
     return (
         <>
             <legend>Protect your account</legend>
@@ -57,26 +60,42 @@ const RegisterStep4 = ({register, setFormSteps, location, setLocation }) => {
                 <LabelFilesStyle style={{cursor: "pointer"}} htmlFor='uploadPic'> Upload a photo </LabelFilesStyle>
                 <input id="uploadPic" style={{visibility: "hidden"}} type="file" {...register('avatar')} />
             </div>
+            
             <div style={{display: "flex", flexWrap: "wrap"}}>
                 <DivImgCircleL>
-                    <img></img>
+                    <Avatar 
+                        size={110}
+                        name={avatarId}
+                        variant="beam"
+                        colors={["#EFB810", "#151515", "#F3C332", "#D9D9D9", "#3D3D3D"]}
+                    />
                 </DivImgCircleL>
 
                 <DivImgCircleM>
-                    <img></img>
+                    <Avatar 
+                        size={70}
+                        name={avatarId}
+                        variant="beam"
+                        colors={["#EFB810", "#151515", "#F3C332", "#D9D9D9", "#3D3D3D"]}
+                    />
                 </DivImgCircleM>
 
                 <DivImgCircleS>
-                    <img></img>
+                    <Avatar 
+                        size={30}
+                        name={avatarId}
+                        variant="beam"
+                        colors={["#EFB810", "#151515", "#F3C332", "#D9D9D9", "#3D3D3D"]}
+                    />
                 </DivImgCircleS>
             </div>
             <ButtonPrimaryStyle
                 // onClick={handleSubmit((x) => console.log(x.avatar))}
-                onClick={() => setFormSteps(prev => prev = { fifthStep: true })}
+                onClick={() => {setFormSteps(prev => prev = { fifthStep: true }); setAvatar(prev=> prev = avatarId)}}
             >
                 Next
             </ButtonPrimaryStyle>
-            <ButtonSecondaryStyle onClick={() => setFormSteps(prev => prev = { thirdStep: true })}>Back</ButtonSecondaryStyle>
+            <ButtonSecondaryStyle onClick={() =>{setFormSteps(prev => prev = { thirdStep: true })} }>Back</ButtonSecondaryStyle>
         </>
     )
 }
