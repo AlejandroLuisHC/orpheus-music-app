@@ -1,18 +1,20 @@
 import { useState, useEffect, memo } from 'react';
 import AsideDesktop from './AsideDesktop';
 import AsideMobile from './AsideMobile';
+import useWidth from '../../../helper/hooks/useWidth';
 
 const AsideMenu = () => {
-    const [windowDesk, setWindowDesk] = useState(innerWidth > 768 ? true : false);
+    const width = useWidth();
+    const [windowDesk, setWindowDesk] = useState(width > 768 ? true : false);
+
     useEffect(() => {
-        if(innerWidth > 768){
+        if(width > 768){
             setWindowDesk(prev => prev = true);
-        } else {
+        } else if (width < 768) {
             setWindowDesk(prev => prev = false);
         }
-    }, [innerWidth])
+    }, [width])
   
-    //It should render the component in the useEffect when the windows width change
     return (
         windowDesk
             ? 

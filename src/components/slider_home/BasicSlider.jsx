@@ -1,6 +1,6 @@
 import HeroSlider, { Overlay, Slide, MenuNav } from "hero-slider";
 import { slide0, slide1, slide2 } from "../../assets/img/gallery_slides";
-import { H2StyleHero, H4StyleHero } from "../style/homeStyle";
+import { DivHeroTitles, H2StyleHero, H4StyleHero } from "../style/homeStyle";
 
 export default function BasicSlider() {
     return (
@@ -25,12 +25,14 @@ export default function BasicSlider() {
             }}
         >
             <Overlay>
-                <H2StyleHero>
-                    Your favourite event <br/>just a click away
-                </H2StyleHero>
-                <H4StyleHero>
-                    Buy your tickets at Orpheus
-                </H4StyleHero>
+                <DivHeroTitles>
+                    <H2StyleHero>
+                        Your favourite event <br/>just a click away
+                    </H2StyleHero>
+                    <H4StyleHero>
+                        Buy your tickets at Orpheus
+                    </H4StyleHero>
+                </DivHeroTitles>
             </Overlay>
 
             <Slide

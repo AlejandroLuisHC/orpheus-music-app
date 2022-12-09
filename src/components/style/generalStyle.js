@@ -88,7 +88,7 @@ export const Aside = styled.aside`
     width: 100%;
     height: 50px;
     grid-row: 2; 
-    position: fixed;
+    position: static;
     bottom: 0;
     background-color: #121212aa;
     @media ${device.desktop}{
@@ -101,8 +101,13 @@ export const Aside = styled.aside`
 
 export const AsideMobileStyle = styled.aside`
     display: flex;
+    background-color: #121212dd;
     align-items: center;
     justify-content: space-evenly;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
 `
 
 export const AsideDesktopStyle = styled.aside`

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { color, device } from "./utils/styleConstants";
 import { ButtonSecondaryStyle } from "../style/generalStyle"
+import { Slide } from "hero-slider";
 
 /* DESKTOP DIV HERO */
 export const DivHero = styled.div`
@@ -19,31 +20,34 @@ export const DivUsernameButtons = styled.div`
 `
 
 /* HERO TITLES */
+export const DivHeroTitles = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding-left: 15vw;
+    height: 100%;
+    justify-content: center;
+`
 export const H2StyleHero = styled.h2`
     margin: 0 auto;
-    padding-left: 420px;
     color: ${color.primaryWhite};
     text-transform: uppercase;
     left:100px;
     width: 100%;
-    height: 30vh;
     font-size: 2.5em;
-    margin-bottom: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0 0.2em black;
+    text-shadow: 1px 1px 2px black, 0 0 20px black, 0 0 4px black;
+    transition: 300ms;
+    @media (max-height: ${'700px'}) {
+        font-size: 2em;
+    }
 `
 
 export const H4StyleHero = styled.h4`
-    margin: -150px auto 0;
-    padding-left: 420px;
     width: 100%;
     font-size: 1.25em;
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0 0.2em black;
+    text-shadow: 1px 1px 2px black, 0 0 20px black, 0 0 4px black;
+    @media (max-height: ${'700px'}) {
+        display: none;
+    }
 `
 
 /* BUTTONS  */
@@ -55,9 +59,12 @@ export const DivButtonsAction = styled.div`
 
 export const BtnAction = styled(ButtonSecondaryStyle)`
     width:50%;
-    
     margin: 10px 10px;
+`
 
+export const ButtonLogoutStyle = styled(ButtonSecondaryStyle)`
+    margin-left: 20px;
+    width: 130px;
 `
 
 

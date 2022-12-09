@@ -1,8 +1,15 @@
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router'
+import { LOG_OUT } from '../../../redux/features/user_data/userSlice'
 import { AsideDesktopStyle, LinkAside, Hr } from '../../style/generalStyle'
+import { ButtonLogoutStyle } from '../../style/homeStyle'
 import AsideProfile from './AsideProfile'
 import AsideRecentPlaylist from './AsideRecentPlaylist'
 
 const AsideDesktop = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    
     return (
         <AsideDesktopStyle>
             <div>
@@ -49,6 +56,8 @@ const AsideDesktop = () => {
             </div>
             <Hr/>
             <AsideProfile />
+            <Hr/>
+            <ButtonLogoutStyle onClick={() => {dispatch(LOG_OUT()); navigate('/')}}>Disconnect</ButtonLogoutStyle>
         </AsideDesktopStyle>
     )
 }

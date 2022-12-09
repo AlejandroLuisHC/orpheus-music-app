@@ -1,6 +1,6 @@
 const logout = (state) => {
     sessionStorage.removeItem('user');
-    state = { username: '', isLogged: false }
+    state = { user: {isLogged: false, isAdmin: false} }
 }
 
 export default logout

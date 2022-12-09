@@ -4,6 +4,7 @@ import QueryProvider from "../helper/utils/reactQuery/QueryProvider"
 import StoreProvider from "../redux/provider/StoreProvider"
 import LogoSpinner from "../components/loaders/spinner/LogoSpinner"
 import PrivateRoutes from "./PrivateRoutes"
+import NotConnectedRoutes from "./NotConnectedRoutes"
 
 const Layout   = lazy(() => import('./Layout'))
 const Home     = lazy(() => import('../pages/Home'))
@@ -19,9 +20,9 @@ const Router = () => {
                 <Suspense fallback={<LogoSpinner />}>
                     <Routes>
                         <Route path='/' element={<Layout />}>
-                            <Route index element={<Landing />} />
-                            <Route path='/register' element={<Register />} />
-                            <Route path='/home' element={<Home />} />
+                            <Route index element={<NotConnectedRoutes><Landing /></NotConnectedRoutes>} />
+                            <Route path='/register' element={<NotConnectedRoutes><Register /></NotConnectedRoutes>} />
+                            <Route path='/home' element={<PrivateRoutes><Home /></PrivateRoutes>} />
                             <Route path='/search' element={<PrivateRoutes><p>Search</p></PrivateRoutes>} />
                             <Route path='/:username' element={<PrivateRoutes><Profile /></PrivateRoutes>}>
                                 <Route path='/:username/information' element={<PrivateRoutes><p>Display user info</p></PrivateRoutes>} />
