@@ -8,6 +8,7 @@ const Home = () => {
             <DivHero>
                 <Slider/>
             </DivHero>
+
             <DivUsernameButtons>
                 <p>Welcome (name)</p>
                 <DivButtonsAction>
@@ -19,8 +20,6 @@ const Home = () => {
                     <BtnAction>New Releases</BtnAction>
                 </DivButtonsAction>
             </DivUsernameButtons>
-          
-            
 
             <div style={{margin:"20px 0 100px"}}>
                 <H2Style>Playlist</H2Style>

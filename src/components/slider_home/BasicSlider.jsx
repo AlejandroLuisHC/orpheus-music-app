@@ -1,74 +1,66 @@
 import HeroSlider, { Overlay, Slide, MenuNav } from "hero-slider";
+import { slide0, slide1, slide2 } from "../../assets/img/gallery_slides";
 import { H2StyleHero, H4StyleHero } from "../style/homeStyle";
-
-
-const slide1 = "src/assets/img/gallery_slides/slide0.jpg";
-const slide2 = "src/assets/img/gallery_slides/slide1.jpg";
-const slide3 = "src/assets/img/gallery_slides/slide2.jpg";
-
 
 export default function BasicSlider() {
     return (
-      <HeroSlider
-        height={"80vh"}
-        autoplay
-        controller={{
-          initialSlide: 1,
-          slidingDuration: 500,
-          slidingDelay: 100,
-          onSliding: (nextSlide) =>
-            console.debug("onSliding(nextSlide): ", nextSlide),
-          onBeforeSliding: (previousSlide, nextSlide) =>
-            console.debug(
-              "onBeforeSliding(previousSlide, nextSlide): ",
-              previousSlide,
-              nextSlide
-            ),
-          onAfterSliding: (nextSlide) =>
-            console.debug("onAfterSliding(nextSlide): ", nextSlide)
+        <HeroSlider
+            height={"33vh"}
+            autoplay
+            controller={{
+                initialSlide: 1,
+                slidingDuration: 500,
+                slidingDelay: 100,
+                onSliding: (nextSlide) =>
+                    console.debug("onSliding(nextSlide): ", nextSlide),
+                onBeforeSliding: (previousSlide, nextSlide) =>
+                    console.debug(
+                        "onBeforeSliding(previousSlide, nextSlide): ",
+                        previousSlide,
+                        nextSlide
+                    ),
+                onAfterSliding: (nextSlide) =>
+                    console.debug("onAfterSliding(nextSlide): ", nextSlide)
 
-        }}
-      >
-        <Overlay>
-          <div>
-            <H2StyleHero>
-              Your favourite event just a click away
-            </H2StyleHero>
-            <H4StyleHero>
-              Buy your tickets at Orpheus
-            </H4StyleHero>
-          </div>
-        </Overlay>
-  
-        <Slide
-          shouldRenderMask
-          label="Azkena Rock Festival 2023 - from April"
-          background={{
-            backgroundImageSrc: slide1
-          }}
-        />
-  
-        <Slide
-          shouldRenderMask
-          label="Primavera Sound Barcelona 2023 - 1 June"
-          background={{
-            backgroundImageSrc: slide2
-          }}
-        />
-  
-        <Slide
-          shouldRenderMask
-          label="Bruce Springsteen & The E Street Band - 30 August
-          "
-          background={{
-            backgroundImageSrc: slide3
-          }}
-        />
-  
+            }}
+        >
+            <Overlay>
+                <H2StyleHero>
+                    Your favourite event <br/>just a click away
+                </H2StyleHero>
+                <H4StyleHero>
+                    Buy your tickets at Orpheus
+                </H4StyleHero>
+            </Overlay>
 
-  
-        <MenuNav />
-      </HeroSlider>
+            <Slide
+                shouldRenderMask
+                label="Azkena Rock Festival 2023 - from April"
+                background={{
+                    backgroundImageSrc: slide1,
+                    backgroundAnimation: "zoom"
+                }}
+            />
+
+            <Slide
+                shouldRenderMask
+                label="Primavera Sound Barcelona 2023 - 1 June"
+                background={{
+                    backgroundImageSrc: slide2,
+                    backgroundAnimation: "zoom"
+                }}
+            />
+
+            <Slide
+                shouldRenderMask
+                label="Bruce Springsteen & The E Street Band - 30 August"
+                background={{
+                    backgroundImageSrc: slide0,
+                    backgroundAnimation: "zoom"
+                }}
+            />
+
+            <MenuNav />
+        </HeroSlider>
     );
-  }
-  
+}
