@@ -162,7 +162,7 @@ export const ButtonSecondaryStyle = styled.button`
     gap: 10px;
     justify-content: center;
     font-weight: bold;
-    border: 3px solid ${color.primaryYellow};
+    border: 1px solid ${color.primaryYellow};
     border-radius: calc(40px * .5);
     font-size: 10px;
     transition: 300ms;
