@@ -14,8 +14,8 @@ export const DivFlexGenres = styled.div`
 
 export const DivGenreCircle = styled(DivImgCircleM)`
     background: lightblue;
-    width: ${props => props.size || "85px"};
-    height: ${props => props.size || "85px"};
+    width: 85px;
+    height: 85px;
     margin: .7rem;
     display: flex;
     justify-content: center;
@@ -28,6 +28,10 @@ export const DivGenreCircle = styled(DivImgCircleM)`
     p {
         color: white;
         text-shadow: 2px 2px 4px #000000;
+    }
+    @media ${device.desktop}{
+        width: ${props => props.size || "85px"};
+        height: ${props => props.size || "85px"};
     }
 `;
 

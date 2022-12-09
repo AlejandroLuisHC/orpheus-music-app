@@ -28,7 +28,7 @@ const Login = () => {
                 foundUser = true;
                 dispatch(LOG_IN(user));
                 setLogged(prev => prev = true)
-                goHome("/home");
+                goHome('/home');
             }
         })
         foundUser === false && setInvalidLogin(prev => prev = true)

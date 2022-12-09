@@ -21,7 +21,7 @@ const Router = () => {
                         <Route path='/' element={<Layout />}>
                             <Route index element={<Landing />} />
                             <Route path='/register' element={<Register />} />
-                            <Route path='/home' element={<PrivateRoutes><Home /></PrivateRoutes>} />
+                            <Route path='/home' element={<Home />} />
                             <Route path='/search' element={<PrivateRoutes><p>Search</p></PrivateRoutes>} />
                             <Route path='/:username' element={<PrivateRoutes><Profile /></PrivateRoutes>}>
                                 <Route path='/:username/information' element={<PrivateRoutes><p>Display user info</p></PrivateRoutes>} />

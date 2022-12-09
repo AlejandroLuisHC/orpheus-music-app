@@ -122,7 +122,7 @@ export const LinkAside = styled(Link)`
     @media ${device.desktop}{
         display: flex;
         padding-left: 20px;
-        margin: 10px 0;
+        margin: 15px 0;
     }
 `
 

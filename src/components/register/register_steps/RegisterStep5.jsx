@@ -22,6 +22,7 @@ const RegisterStep5 = ({ setFormSteps, selectedGenres, setSelectedGenres }) => {
         //TODO: fix this function
         // setSelectedGenres([...selectedGenres].filter((genre) => genre === id))
     };
+
     function getRandomSize() {
         return Math.random() * (135 - 75) + 75;
     }
