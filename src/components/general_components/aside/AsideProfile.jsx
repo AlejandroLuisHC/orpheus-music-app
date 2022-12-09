@@ -1,16 +1,16 @@
+import { useSelector } from 'react-redux'
 import { LinkAside } from '../../style/generalStyle'
 
 const AsideProfile = () => {
-  return (
-    <>
-        <LinkAside>
-                Profile
-        </LinkAside>
-        {/* <LinkAside>
-            Settings
-        </LinkAside>    */}
-    </>
-  )
+    const { username } = useSelector(state => state.userData.user.userData)
+
+    return (
+        <>
+            <LinkAside>
+                {username}
+            </LinkAside>
+        </>
+    )
 }
 
 export default AsideProfile

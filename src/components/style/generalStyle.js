@@ -117,11 +117,16 @@ export const AsideDesktopStyle = styled.aside`
 `
 
 export const LinkAside = styled(Link)`
+    display: flex;
+    align-items: center;
+    padding-bottom: 3px;
     color: ${color.primaryWhite};
     text-decoration: none;
+    font-size: 1.3em;
     transition: 300ms;
     gap: 10px;
     &:hover{
+        color: ${color.primaryYellow};
         transform: scale(1.1);
     }
     @media ${device.desktop}{

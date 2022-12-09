@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { color, device } from "./utils/styleConstants";
 import { ButtonSecondaryStyle } from "../style/generalStyle"
-import { Slide } from "hero-slider";
 
 /* DESKTOP DIV HERO */
 export const DivHero = styled.div`
@@ -17,6 +16,9 @@ export const DivUsernameButtons = styled.div`
     @media ${device.desktop}{
         display:none; 
     } 
+`
+export const DivHomeStyle = styled.div`
+    padding: 0 20px;
 `
 
 /* HERO TITLES */
