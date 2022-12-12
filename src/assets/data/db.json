@@ -75,6 +75,40 @@
       "isVerified": true,
       "isAdmin": false,
       "isLogged": false
+    },
+    {
+      "userData": {
+        "username": "zzezequiel",
+        "firstName": "Ezequiel",
+        "lastName": "Zvirgzdins",
+        "email": "zzezequiel@hotmail.com.ar",
+        "country": "Spain",
+        "city": "Barcelona",
+        "password": "0000",
+        "secretQuestion": "What is your favourite pizza?",
+        "secretAnswer": "4quesos",
+        "avatar": "\"2022-12-12T15:57:48.477Z\"",
+        "banner": "",
+        "favGenres": [
+          9,
+          6,
+          8
+        ]
+      },
+      "work": {
+        "myAlbums": [],
+        "myTracks": []
+      },
+      "myPlaylists": [],
+      "favPlaylists": [],
+      "favAlbums": [],
+      "favTracks": [],
+      "followers": [],
+      "following": [],
+      "isVerified": false,
+      "isAdmin": false,
+      "isLoggedIn": false,
+      "id": 3
     }
   ],
   "events": [
