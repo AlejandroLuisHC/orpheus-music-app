@@ -18,8 +18,8 @@ export const GlobalStyle = createGlobalStyle`
         overflow-x: hidden;
         &::-webkit-scrollbar {
             cursor: pointer;
-            width: 6px;
-            height: 6px;
+            width: 4px;
+            height: 4px;
         }
         &::-webkit-scrollbar-track {
             border-radius: 10px;

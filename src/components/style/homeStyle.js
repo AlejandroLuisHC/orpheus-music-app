@@ -100,6 +100,10 @@ export const DivCard = styled.div`
     margin-right: 20px;
     background: hsla(0, 0%, 100%, 0.02);
     border-radius: 20px;
+    transition: 300ms;
+    &:hover{
+        background: rgba(255, 255, 255, .2);
+    }
     @media ${device.desktop}{
         min-width: 220px;
         height: 270px;
@@ -194,6 +198,11 @@ export const ImgCards = styled.img`
     height: 90px;
     display: flex;
     border-radius: 10px;
+    transition: 300ms;
+    &:hover{
+        border-radius: 50%;
+        /* transform: rotate(360deg); */
+    }
     @media ${device.desktop}{
         width: 180px;
         height: 180px;
