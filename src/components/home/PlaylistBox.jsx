@@ -1,37 +1,34 @@
 import { useQuery } from "@tanstack/react-query"
-import { fetchAlbums } from '../../api'
+import { fetchPlaylist } from '../../api'
 import { H6StyleHero, PStyleHero, ImgCards, DivSlider, DivCard, DivElementTitles, DivPicLists, DivInfoLists, LinkHome } from '../style/homeStyle'
 import { H2Style } from '../style/generalStyle'
 import HomeSlidersLoader from '../loaders/content_loader/HomeSlidersLoader'
 
-const AlbumBox = () => {
-    const { data, status: albumsStatus } = useQuery(['albums'], fetchAlbums)
-
-
+const PlaylistBox = () => {
+    const { data, status: playlistStatus } = useQuery(['playlists'], fetchPlaylist)
 
     return (
-        albumsStatus === "loading"
+        playlistStatus === "loading"
             ? <HomeSlidersLoader />
-            : albumsStatus === "error"
+            : playlistStatus === "error"
                 ? <p>Error</p>
                 :
                 <div>
                     <DivElementTitles>
-                        <H2Style> Albums </H2Style>
+                        <H2Style> Playlist </H2Style>
                         <LinkHome>View more</LinkHome>
                     </DivElementTitles>
 
                     <DivSlider>
                         {
-                            data?.map((album) => {
+                            data?.map((playlist) => {
                                 return (
-                                    <DivCard key={album.id}>
+                                    <DivCard key={playlist.id}>
                                         <DivPicLists>
-                                            <ImgCards src={album.img} />
+                                            <ImgCards src={playlist.img} />
                                         </DivPicLists>
                                         <DivInfoLists>
-                                            <H6StyleHero>{album.name}</H6StyleHero>
-                                            <PStyleHero>{album.description}</PStyleHero>
+                                            <H6StyleHero>{playlist.name}</H6StyleHero>
                                         </DivInfoLists>
                                     </DivCard>
                                 )
@@ -41,4 +38,4 @@ const AlbumBox = () => {
                 </div>
     )
 }
-export default AlbumBox
+export default PlaylistBox

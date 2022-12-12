@@ -7,16 +7,6 @@ import HomeSlidersLoader from '../loaders/content_loader/HomeSlidersLoader'
 const TrackBox = () => {
     const { data, status: tracksStatus } = useQuery(['tracks'], fetchTracks)
 
-    const slideLeft = () => {
-        let slider = document.getElementById('slider');
-        slider.scrollLeft = slider.scrollLeft - 500;
-    };
-
-    const slideRight = () => {
-        let slider = document.getElementById('slider');
-        slider.scrollLeft = slider.scrollLeft + 500;
-    };
-
     return (
         tracksStatus === "loading"
             ? <HomeSlidersLoader />

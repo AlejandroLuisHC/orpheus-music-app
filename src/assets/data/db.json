@@ -102,9 +102,157 @@
   "playlists": [
     {
       "id": 1,
-      "name": "Rock in the morning",
-      "description": "...",
-      "img": "",
+      "name": "Happy Songs",
+      "description": "songs by mood",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670861612/Final-Project-MERN/Playlist/ab67706c0000bebbe39142e42362f0d30b99a815_u1smnw.jpg",
+      "tracks": [
+        {
+          "id": 1,
+          "added": "new Data()"
+        },
+        {
+          "id": 2,
+          "added": ""
+        },
+        {
+          "id": 3,
+          "added": ""
+        },
+        {
+          "id": 4,
+          "added": ""
+        }
+      ],
+      "followers": [
+        5
+      ],
+      "genres": [
+        2,
+        3
+      ],
+      "moods": [
+        "relax",
+        "focused",
+        "happy"
+      ],
+      "owner": 1
+    },
+    {
+      "id": 2,
+      "name": "Car mood",
+      "description": "songs by mood",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670861613/Final-Project-MERN/Playlist/ab67706c0000bebbcd9bd13f71d8b16277e1092a_h52fvu.jpg",
+      "tracks": [
+        {
+          "id": 4,
+          "added": "new Data()"
+        },
+        {
+          "id": 5,
+          "added": ""
+        },
+        {
+          "id": 6,
+          "added": ""
+        },
+        {
+          "id": 7,
+          "added": ""
+        }
+      ],
+      "followers": [
+        21
+      ],
+      "genres": [
+        2,
+        3
+      ],
+      "moods": [
+        "relax",
+        "focused",
+        "happy"
+      ],
+      "owner": 1
+    },
+    {
+      "id": 3,
+      "name": "Dance Party ",
+      "description": "songs by mood",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670861613/Final-Project-MERN/Playlist/ab67706c0000bebb6c5db53da7585761f71553ae_sctyv0.jpg",
+      "tracks": [
+        {
+          "id": 6,
+          "added": "new Data()"
+        },
+        {
+          "id": 7,
+          "added": ""
+        },
+        {
+          "id": 8,
+          "added": ""
+        },
+        {
+          "id": 9,
+          "added": ""
+        }
+      ],
+      "followers": [
+        32
+      ],
+      "genres": [
+        2,
+        3
+      ],
+      "moods": [
+        "relax",
+        "focused",
+        "happy"
+      ],
+      "owner": 1
+    },
+    {
+      "id": 4,
+      "name": "Night Music",
+      "description": "songs by mood",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670861612/Final-Project-MERN/Playlist/ab67706c0000bebb236f93662a38855836724bbd_fum1em.jpg",
+      "tracks": [
+        {
+          "id": 8,
+          "added": "new Data()"
+        },
+        {
+          "id": 9,
+          "added": ""
+        },
+        {
+          "id": 10,
+          "added": ""
+        },
+        {
+          "id": 11,
+          "added": ""
+        }
+      ],
+      "followers": [
+        74
+      ],
+      "genres": [
+        2,
+        3
+      ],
+      "moods": [
+        "relax",
+        "focused",
+        "happy"
+      ],
+      "owner": 1
+    },
+    {
+      "id": 5,
+      "name": "Rap Life",
+      "description": "songs by mood",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670861612/Final-Project-MERN/Playlist/images_1_gexm1a.jpg",
       "tracks": [
         {
           "id": 2,
@@ -132,7 +280,8 @@
       ],
       "moods": [
         "relax",
-        "focused"
+        "focused",
+        "happy"
       ],
       "owner": 1
     }
