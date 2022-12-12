@@ -3,10 +3,15 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import fetchKey from '../api/fetchKey';
-import { FormStyle, InputStyle } from '../components/style/generalStyle';
+import {
+  DivImgSquareS,
+  FormStyle,
+  InputStyle,
+} from '../components/style/generalStyle';
 import {
   DivSearchResults,
   MainFlexContainer,
+  SearchResultItem,
 } from '../components/style/searchStyle';
 
 const Search = () => {
@@ -24,7 +29,6 @@ const Search = () => {
   console.log('searchResults', searchResults);
 
   const search = watch('search', '').toLowerCase();
-  console.log(search)
 
   useEffect(() => {
     if (!search) return setSearchResults([]);
@@ -32,14 +36,19 @@ const Search = () => {
     // let cancel = false;
     // if (cancel) return;
 
-    setSearchResults(playlists.map((playlist) => {
-      if (playlist.name.toLowerCase().includes(search) || playlist.description.toLowerCase().includes(search)) {
-        return {
-          name: playlist.name,
-          img: playlist.img
-        };
-      }
-    }));
+    const results = playlists?.filter(
+      (playlist) =>
+        playlist.name.toLowerCase().includes(search) ||
+        playlist.description.toLowerCase().includes(search)
+    );
+
+    setSearchResults(
+      results.map((result) => ({
+        id: result.id,
+        name: result.name,
+        img: result.img,
+      }))
+    );
 
     // return () => cancel = true;
   }, [search]);
@@ -55,8 +64,15 @@ const Search = () => {
       </FormStyle>
 
       <DivSearchResults>
-        {search === 'pop' && 'pop related results'}
-        {searchResults?.map((result) => result?.name)}
+        {searchResults?.map((result) => (
+          <SearchResultItem key={result.id}>
+            <img src={result.img} alt="" />
+            <div>
+              <p>{result.name}</p>
+              {/* <p>Playlist</p> */}
+            </div>
+          </SearchResultItem>
+        ))}
       </DivSearchResults>
     </MainFlexContainer>
   );
