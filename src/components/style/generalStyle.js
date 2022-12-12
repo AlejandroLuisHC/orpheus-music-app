@@ -15,6 +15,26 @@ export const GlobalStyle = createGlobalStyle`
         background-color: ${color.primaryBlack};
         font-family: 'Roboto', sans-serif;
         color: ${color.primaryWhite};
+        overflow-x: hidden;
+        &::-webkit-scrollbar {
+            cursor: pointer;
+            width: 6px;
+            height: 6px;
+        }
+        &::-webkit-scrollbar-track {
+            border-radius: 10px;
+            background: #9D9D9D;
+        }
+        &::-webkit-scrollbar-thumb{
+            border-radius: 10px;
+            background: ${color.secondaryYellow};
+        }
+        &::-webkit-scrollbar-thumb:hover{
+            background: ${color.secondaryBlack};
+        }
+        &::-webkit-scrollbar-thumb:active{
+            background: #484848;
+        }
     }
     @font-face {
         font-family: BoldblasterRegular;

@@ -16,41 +16,41 @@ const Home = () => {
                             ? "Good morning, "
                             : "Good afternoon, "
     return (
-        <>  
-            <DivHomeStyle>
-                <DivHero>
-                    <Slider/>
-                </DivHero>
-                
-                    <H1Welcome>{`${welcome}${username}!`}</H1Welcome>
-                    <HrStyle/>
+        <DivHomeStyle>
+            <DivHero>
+                <Slider/>
+            </DivHero>
+            
+            <H1Welcome>{`${welcome}${username}!`}</H1Welcome>
 
-                    <DivMobileButtons>
-                        <DivButtonsAction>
-                            <BtnAction>Playlist</BtnAction>
-                            <BtnAction>Events</BtnAction>
-                        </DivButtonsAction>
-                        <DivButtonsAction>
-                            <BtnAction>Social</BtnAction>
-                            <BtnAction>New Releases</BtnAction>
-                        </DivButtonsAction>
-                    </DivMobileButtons>
-                    
-                    <DivFavAndPlaylist>
-                        <DivBoxStyle>
-                            <div>
-                                <img src="src\assets\img\likedsongs.png" alt="" style={{
-                                width:"160px"}} />
-                                <H6StyleHero>Your Favorite Songs</H6StyleHero>
-                            </div>
-                                
-                            <div>
-                                <img src="src\assets\img\likedsongs.png" alt="" style={{
-                                width:"160px"}} />
-                                <H6StyleHero>Your last created Playlist</H6StyleHero>
-                            </div>
-                        </DivBoxStyle>
-                    </DivFavAndPlaylist>
+            <HrStyle/>
+
+            <DivMobileButtons>
+                <DivButtonsAction>
+                    <BtnAction>Playlist</BtnAction>
+                    <BtnAction>Events</BtnAction>
+                </DivButtonsAction>
+                <DivButtonsAction>
+                    <BtnAction>Social</BtnAction>
+                    <BtnAction>New Releases</BtnAction>
+                </DivButtonsAction>
+            </DivMobileButtons>
+            
+            <DivFavAndPlaylist>
+                <DivBoxStyle>
+                    <div>
+                        <img src="src\assets\img\likedsongs.png" alt="" style={{
+                        width:"160px"}} />
+                        <H6StyleHero>Your Favorite Songs</H6StyleHero>
+                    </div>
+                        
+                    <div>
+                        <img src="src\assets\img\likedsongs.png" alt="" style={{
+                        width:"160px"}} />
+                        <H6StyleHero>Your last created Playlist</H6StyleHero>
+                    </div>
+                </DivBoxStyle>
+            </DivFavAndPlaylist>
 
                     <DivHomeCarousels>
                         <PlaylistBox/>

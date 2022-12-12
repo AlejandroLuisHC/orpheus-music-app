@@ -7,8 +7,6 @@ import HomeSlidersLoader from '../loaders/content_loader/HomeSlidersLoader'
 const AlbumBox = () => {
     const { data, status: albumsStatus } = useQuery(['albums'], fetchAlbums)
 
-
-
     return (
         albumsStatus === "loading"
             ? <HomeSlidersLoader />
