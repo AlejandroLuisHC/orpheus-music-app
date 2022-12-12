@@ -51,15 +51,13 @@ const Home = () => {
                     </div>
                 </DivBoxStyle>
             </DivFavAndPlaylist>
-
                     <DivHomeCarousels>
                         <PlaylistBox/>
                         <AlbumBox/>
                         <TrackBox/>
                     </DivHomeCarousels>
-                    
             </DivHomeStyle>                                               
-        </>
+
     )
 }
 
