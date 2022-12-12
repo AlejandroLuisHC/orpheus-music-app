@@ -1,16 +1,21 @@
 import Slider from "../components/slider_home/BasicSlider"
-import { H2Style } from "../components/style/generalStyle"
-import { DivButtonsAction, BtnAction,DivHero, DivUsernameButtons, DivHomeStyle } from "../components/style/homeStyle"
-
+import { useSelector } from 'react-redux'
+import { H2Style, HrStyle } from "../components/style/generalStyle"
+import { DivButtonsAction, BtnAction,DivHero, DivMobileButtons, DivHomeStyle, } from "../components/style/homeStyle"
+import TrackBox from "../components/home/TrackBox"
 const Home = () => {
+    const {username} = useSelector (state => state.userData.user.userData)
     return (
         <>  
+            <div style={{width:"95vw"}}>
             <DivHero>
                 <Slider/>
             </DivHero>
+            
             <DivHomeStyle>
-                <DivUsernameButtons>
-                    <p>Welcome (name)</p>
+                <p>Welcome, {username}!</p>
+                <HrStyle/>
+                <DivMobileButtons>
                     <DivButtonsAction>
                         <BtnAction>Playlist</BtnAction>
                         <BtnAction>Events</BtnAction>
@@ -19,7 +24,7 @@ const Home = () => {
                         <BtnAction>Social</BtnAction>
                         <BtnAction>New Releases</BtnAction>
                     </DivButtonsAction>
-                </DivUsernameButtons>
+                </DivMobileButtons>
 
                 <div style={{margin:"20px 0 100px"}}>
                     <H2Style>Playlist</H2Style>
@@ -33,10 +38,19 @@ const Home = () => {
                     <H2Style>Albums</H2Style>
                 </div>
 
+
                 <div style={{margin:"20px 0 100px"}}>
+                    <div>
                     <H2Style>Tracks</H2Style>
+                    arrowleft
+                    arrowright
+                    </div>
+                    
+                    <TrackBox/>
                 </div>
             </DivHomeStyle>
+            </div>
+            
         </>
     )
 }
