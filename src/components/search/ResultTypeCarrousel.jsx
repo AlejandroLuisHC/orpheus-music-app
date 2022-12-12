@@ -47,7 +47,7 @@ const ResultTypeCarrousel = ({ apiKey, watch }) => {
   ) : status === 'error' ? (
     <p>Error</p>
   ) : (
-    // searchResults.length > 0 &&
+    searchResults.length > 0 &&
     <DivCarrousel>
       <DivCarrouselTitle>
         <H2Style>{apiKey}</H2Style>
