@@ -5,18 +5,24 @@ import { useState, memo } from "react"
 import Login from "../components/landing/Login"
 import { useEffect } from 'react';
 import FooterInfo from '../components/general_components/FooterInfo';
+import useWidth from '../helper/hooks/useWidth'
 
 const Landing = () => {
     const [loginView, setLoginView] = useState(false)
-    const [mobile, setMobile] = useState()
+    const width = useWidth();
+    const [windowDesk, setWindowDesk] = useState(width > 768 ? true : false);
+
     useEffect(() => {
-        window.innerWidth > 768 
-            ? setMobile(prev => prev = false)
-            : setMobile(prev => prev = true)
-    }, [window.innerWidth])
+        if(width > 768){
+            setWindowDesk(prev => prev = true);
+        } else if (width < 768) {
+            setWindowDesk(prev => prev = false);
+        }
+    }, [width])
+
 
     return (
-        mobile 
+        !windowDesk 
             ?
             <DivLanding>
                 <ImgLogoClick onClick={() => setLoginView(prev => prev = false)} src={logo} alt="Logo" />

@@ -38,3 +38,19 @@ export const DivGenreCircle = styled(DivImgCircleM)`
 export const DivSelectedGenreCircle = styled(DivGenreCircle)`
     border: 5px solid ${color.primaryYellow};
 `;
+
+export const PSkip = styled.p`
+    display: flex;
+    margin: 5px 0 20px;
+    justify-content: right;
+    align-items: center;
+    gap: 5px;
+    font-size: 13px;
+    `
+export const SpanSkip = styled.span`
+    cursor: pointer;
+    text-decoration: underline;
+    &:hover{
+        color: ${color.primaryYellow}
+    }
+`

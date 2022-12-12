@@ -4,7 +4,7 @@ export const color = {
     primaryWhite: '#D9D9D9',
     primaryError: '#F85858',
     secondaryBlack : '#3D3D3D',
-    secondaryYellow : '#F3C332',
+    secondaryYellow : '#F1CB58',
 }
 export const device = {
     desktop: `(min-width: ${'768px'})`,

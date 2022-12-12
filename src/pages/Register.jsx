@@ -3,18 +3,22 @@ import logo from '../assets/img/Logotipo.png'
 import RegisterForm from '../components/register/RegisterForm'
 import FooterInfo from '../components/general_components/FooterInfo'
 import { DivLanding, FooterLanding, ImgLogoClick, ImgLogoLanding, PSlogan } from '../components/style/landingStyle'
+import useWidth from '../helper/hooks/useWidth'
 
 const Register = () => {
-    const [loginView, setLoginView] = useState(false)
-    const [mobile, setMobile] = useState()
+    const width = useWidth();
+    const [windowDesk, setWindowDesk] = useState(width > 768 ? true : false);
+
     useEffect(() => {
-        window.innerWidth > 768 
-            ? setMobile(prev => prev = false)
-            : setMobile(prev => prev = true)
-    }, [window.innerWidth])
+        if(width > 768){
+            setWindowDesk(prev => prev = true);
+        } else if (width < 768) {
+            setWindowDesk(prev => prev = false);
+        }
+    }, [width])
 
     return (
-        mobile 
+        !windowDesk 
             ?
             <DivLanding>
                 <ImgLogoClick src={logo} alt="Logo" />

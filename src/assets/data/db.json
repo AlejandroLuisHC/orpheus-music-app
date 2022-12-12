@@ -13,7 +13,7 @@
         "password": "admin123",
         "secretQuestion": "",
         "secretAnswer": "",
-        "avatar": "",
+        "avatar": "admin1",
         "banner": "",
         "favGenres": []
       },
@@ -43,7 +43,7 @@
         "password": "user123",
         "secretQuestion": "",
         "secretAnswer": "",
-        "avatar": "",
+        "avatar": "user",
         "banner": "",
         "favGenres": [
           2,

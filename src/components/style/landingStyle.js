@@ -5,7 +5,7 @@ import { Footer, ImgLogoM, ImgLogoS } from "./generalStyle";
 export const DivLanding = styled.div`
     display: grid;
     height: 100vh;
-    grid-template: 1fr 1fr 8fr 40px / 1fr;
+    grid-template: 60px 45px 8fr 40px / 1fr;
     text-align: center;
     position: relative;
     z-index: 1;
@@ -16,25 +16,26 @@ export const DivLanding = styled.div`
         top: 0; 
         left: 0;
         width: 100%; 
-        height: 100%;  
+        height: 100vh;  
         opacity: .2; 
         z-index: -1;
         background: url(src/assets/img/gifs_background/BgBubblesMobile.gif);
-        background-size: cover;
-        background-repeat: no-repeat;
+        background-size: contain;
+        background-repeat: repeat-y;
     }
     @media ${device.desktop}{ 
+        grid-template: 1fr 90px 8fr 40px / 1fr;
         &::before{
             position: absolute;
             top: 0; 
             left: 0;
             width: 100%; 
-            height: 100%;  
+            height: 100vh;  
             opacity: .2; 
             z-index: -1;
             background: url(src/assets/img/gifs_background/BgBubbglesDesktop.gif);
             background-size: cover;
-            background-repeat: no-repeat;
+            background-repeat: repeat-y;
         }
     }
 `

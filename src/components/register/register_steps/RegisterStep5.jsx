@@ -3,7 +3,7 @@ import { fetchKey } from '../../../api';
 import { ButtonPrimaryStyle, ButtonSecondaryStyle } from '../../style/generalStyle';
 import { DivFlexGenres, DivGenreCircle, DivSelectedGenreCircle } from '../../style/registerStyle';
 
-const RegisterStep5 = ({ setFormSteps, selectedGenres, setSelectedGenres }) => {
+const RegisterStep5 = ({ setFormSteps, selectedGenres, setSelectedGenres, setAvatar }) => {
     const { data: genres } = useQuery(
         ['genres', 'genres'],
         () => fetchKey('genres')
@@ -58,7 +58,7 @@ const RegisterStep5 = ({ setFormSteps, selectedGenres, setSelectedGenres }) => {
             </DivFlexGenres>
 
             <ButtonPrimaryStyle type="submit" disabled={selectedGenres.length < 1}>I'm ready!</ButtonPrimaryStyle>
-            <ButtonSecondaryStyle onClick={() => setFormSteps(prev => prev = { fourthStep: true })}>Back</ButtonSecondaryStyle>
+            <ButtonSecondaryStyle onClick={() =>{setFormSteps(prev => prev = { step: '4', fourthStep: true }); setAvatar(prev=> prev = '')}}>Back</ButtonSecondaryStyle>
         </>
     )
 }

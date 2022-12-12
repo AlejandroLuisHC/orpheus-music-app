@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { ButtonPrimaryStyle, ButtonSecondaryStyle, InputStyle, PErrorStyle } from '../../style/generalStyle'
+import { ButtonPrimaryStyle, ButtonSecondaryStyle, DivInputStyle, InputStyle, LabelStyle, PErrorStyle } from '../../style/generalStyle'
 
 const RegisterStep1 = ({ register, watch, userDataAvailable, setFormSteps }) => {
     const navigate = useNavigate();
@@ -8,8 +8,8 @@ const RegisterStep1 = ({ register, watch, userDataAvailable, setFormSteps }) => 
         <>
             <legend>Basic info</legend>
 
-            <div>
-                <label>
+            <DivInputStyle>
+                <LabelStyle>
                     Let's start with your username
                     <InputStyle
                         type="text"
@@ -20,14 +20,14 @@ const RegisterStep1 = ({ register, watch, userDataAvailable, setFormSteps }) => 
                             validate: (username) => userDataAvailable(username)
                         })}
                     />
-                </label>
+                </LabelStyle>
                 {!userDataAvailable(watch('username')) && (
                     <PErrorStyle>Sorry! This username is already taken</PErrorStyle>
                 )}
-            </div>
+            </DivInputStyle>
 
-            <div>
-                <label>
+            <DivInputStyle>
+                <LabelStyle>
                     We need an email
                     <InputStyle
                         type="email"
@@ -38,14 +38,14 @@ const RegisterStep1 = ({ register, watch, userDataAvailable, setFormSteps }) => 
                             validate: (email) => userDataAvailable(email),
                         })}
                     />
-                </label>
+                </LabelStyle>
                 {!userDataAvailable(watch('email')) && (
                     <PErrorStyle>Sorry! This email is already taken</PErrorStyle>
                 )}
-            </div>
+            </DivInputStyle>
 
             <ButtonPrimaryStyle
-                onClick={() => setFormSteps(prev => prev = { secondStep: true })}
+                onClick={() => setFormSteps(prev => prev = { step: '2', secondStep: true })}
             >
                 Next
             </ButtonPrimaryStyle>
