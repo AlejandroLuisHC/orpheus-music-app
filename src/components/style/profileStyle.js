@@ -2,59 +2,83 @@ import styled from "styled-components";
 import DefaultBanner from '../../assets/img/profile/Banner.png'
 import { color } from "./utils/styleConstants";
 import { ButtonSecondaryStyle } from "./generalStyle";
-
+import { device } from "./utils/styleConstants"; 
 
 export const DivProfile = styled.div`
     display: grid;
-    height: 100%;
-    grid-template-rows: 1fr 5fr 40px;
+    @media ${device.desktop}{
+        height: 100%;
+        grid-template-rows: 1fr 5fr 40px;
+    }
 `
 export const DivProfileBanner = styled.div`
     z-index: 1;
     position: relative;
-    padding: 0 30px;
     width: 100%;
-    height: 40vh;
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    gap: 40px;
+    @media ${device.desktop}{
+        padding: 0 30px;
+        height: 40vh;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 50px;
+    }
     &::before { 
+        
         content: "";
         position: absolute;
         top: 0; 
         left: 0;
         width: 100%; 
-        height: 350px;
+        height: 240px;
         opacity: .25; 
         z-index: -1;
         background: url(${DefaultBanner});
         background-position: 50% 100%;
         background-size: cover;
+        @media ${device.desktop}{
+            height: 350px;
+        }
     }
 `
-export const DivUserAvatar = styled.div`
-    margin: auto 0 auto 20px;
+
+export const DivMobileUserAvatar = styled.div`
+   display: flex;
+   justify-content: center;
+   margin-top: 30px;
 `
 export const DivUserGeneralData = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    margin: auto 0;
+    margin-top: 10px;
 `
 export const DivUsernameWorks = styled.div`
     display: flex;
-    gap: 2vw;
+    gap: 80px;
+    justify-content: center;
+    @media ${device.desktop}{
+        justify-content: space-around;
+        margin-bottom: 30px;
+    }
 `
 export const DivProfileUserInfoContainer = styled.div`
     width: 100%;
     text-shadow: 0 0 20px black;
     display: flex;
-    gap: 20px;
+    justify-content: center;
+    gap: 50px;
+    margin:  20px 0 50px 0;
+    @media ${device.desktop}{
+        margin: 0;
+        justify-content: space-around;
+        gap: 20px;
+
+    }
 `
 export const H1Username = styled.h1`
-    font-size: 40px;
-    grid-column: 1 / span 2;
-    grid-row: 1;
+    font-size: 50px;
+    grid-column: 2;
+    grid-row: 1 / span 2;
     text-shadow: 0 0 20px black;
     transition: 300ms;
     @media (max-width: ${'1050px'}) {
@@ -62,17 +86,17 @@ export const H1Username = styled.h1`
     }
 `
 export const H2UserWorks = styled.h2`
-    font-size: 40px;
+    font-size: 50px;
     text-shadow: 0 0 20px black;
     grid-column: 2;
-    grid-row: 1;
+    grid-row: 1 / span 2;
     transition: 300ms;
     @media (max-width: ${'1050px'}) {
         font-size: 28px;
     }
 `
 export const PProfileUserInfo = styled.p`
-    font-size: 20px;
+    font-size: 30px;
     color: ${color.primaryYellow};
     display: flex;
     flex-direction: column;
@@ -99,6 +123,7 @@ export const ButtonProfileStyle = styled(ButtonSecondaryStyle)`
     width: 180px;
     height: 70px;
     transition: 300ms;
+    
     @media (max-width: ${'1050px'}) {
         width: 130px;
         height: 52.5px;
@@ -109,12 +134,83 @@ export const ButtonProfileStyle = styled(ButtonSecondaryStyle)`
     }
 `
 export const DivProfileActionsStyle = styled.div`
-    margin: auto 0;
+    width: 100%;
+    
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    /* margin-top: 20px; */
     gap: 50px;
-`
+` 
 
 export const SectionProfileMain = styled.section`
-    grid-row: 2;
+
+`
+export const ButtonEditUser = styled.div`
+    
+    width: fit-content;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    font-size: 20px;
+    transition: 300ms;
+    cursor: pointer;
+    &:hover{
+        color: ${color.primaryYellow};
+        transform: scale(1.1);
+    }
+    @media ${device.desktop}{
+        font-size: 25px;
+        right: 15px;
+        top: 15px;
+        
+    }
+    
+`
+
+
+// edit view
+
+export const SectionEditUser = styled.section`
+    margin-top: 10px;
+`
+export const DivEditUserContainer = styled.div`
+display: flex;
+justify-content: center;
+margin-top: 20px;
+`
+export const DivUserData = styled.div`
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 100px;
+
+`
+
+
+export const DivEditUserData = styled.div`
+    height: 40px;
+    width: 280px;
+    background-color: ${color.primaryWhite};
+    border: none;
+    font-size: 22px;
+    border-radius: calc(40px * .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+`
+export const InputEditStyle = styled.input`
+    background-color: ${color.primaryWhite};
+    border: none;
+    font-size: 18px;
+    margin-left: 10px;
+    text-align: center;
+    
+`
+export const PTextEdit = styled.p`
+font-size: 20px;
+`
+export const ButtonSubmitEdit = styled.label`
+position: absolute;
+
 `

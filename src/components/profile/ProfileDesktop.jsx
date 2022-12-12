@@ -1,25 +1,49 @@
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { IoMdCreate, IoMdReturnLeft } from 'react-icons/io';
 import { useSelector } from 'react-redux';
+import useWidth from '../../helper/hooks/useWidth';
 import AvatarImg from '../general_components/AvatarImg';
 import FooterInfo from '../general_components/FooterInfo';
 import { Footer } from '../style/generalStyle';
-import { DivProfileActionsStyle, DivProfileBanner, SectionProfileMain, PProfileUserInfo, DivProfileUserInfoContainer, SpanProfileUserNumbers, DivUserAvatar, DivUserGeneralData, H1Username, H2UserWorks, DivProfile, DivUsernameWorks } from '../style/profileStyle'
+import { DivProfileActionsStyle, DivProfileBanner, SectionProfileMain, PProfileUserInfo, DivProfileUserInfoContainer, SpanProfileUserNumbers, DivUserGeneralData, H1Username, H2UserWorks, DivProfile, DivUsernameWorks, ButtonEditUser, SectionEditUser } from '../style/profileStyle'
 import AddWork from './AddWork';
 import CreatePlaylist from './CreatePlaylist';
+import EditProfile from './EditProfile';
 
 
 const ProfileDesktop = () => {
-const userData = useSelector(state => state.userData.user.userData);
+    const userData = useSelector(state => state.userData.user.userData);
+    const width = useWidth();
+    const [editView, setEditView] = useState(false);
+    const [windowDesk, setWindowDesk] = useState(width > 768 ? true : false);
+    useEffect(() => {
+        if(width > 768){
+            setWindowDesk(prev => prev = true);
+        } else if (width < 768) {
+            setWindowDesk(prev => prev = false);
+        }
+    }, [width])
 
-console.log(userData)
+
     return (
         <DivProfile>
+            
             <DivProfileBanner>
-                <DivUserAvatar>
+                {!editView
+                ?
+                <ButtonEditUser onClick={() =>setEditView(prev => prev = true)}>
+                    <IoMdCreate />
+                </ButtonEditUser>
+                :
+                <ButtonEditUser onClick={() =>setEditView(prev => prev = false)}>
+                    <IoMdReturnLeft />
+                </ButtonEditUser>}
                     <AvatarImg
-                        size={200}
+                        size={width > 1050 ? 200 : 140}
                         avatarId={userData.avatar}
                     />
-                </DivUserAvatar>
+                
 
                 <DivUserGeneralData>
                     <DivUsernameWorks>
@@ -42,22 +66,24 @@ console.log(userData)
                     </DivProfileUserInfoContainer>
                 </DivUserGeneralData>
                 
-                {/* Erase when edit */}
-                <DivProfileActionsStyle>
-                    <AddWork />
-                    <CreatePlaylist />
-                </DivProfileActionsStyle>
 
             </DivProfileBanner>
 
             {/* Erase when edit     */}
-            <SectionProfileMain>
-                Some extra info
-            </SectionProfileMain>
-
-            {/* <SectionEdit>
-
-            </SectionEdit> */}
+            
+            {!editView
+            ? 
+                <SectionProfileMain>
+                    <DivProfileActionsStyle>
+                            <AddWork />
+                            <CreatePlaylist />
+                    </DivProfileActionsStyle>
+                        Some extra info
+                </SectionProfileMain>
+            :
+                <SectionEditUser>
+                    <EditProfile />
+                </SectionEditUser>}
 
             <Footer><FooterInfo /></Footer>
         </DivProfile>
