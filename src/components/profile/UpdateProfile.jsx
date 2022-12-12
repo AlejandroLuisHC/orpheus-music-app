@@ -9,7 +9,7 @@ import fetchUpdateUser from '../../api/fetchUpdateUser';
 import { UPDATE } from '../../redux/features/user_data/userSlice';
 import { FormStyle } from '../style/generalStyle';
 
-import { DivEditUserData, DivUserData, InputEditStyle, DivEditUserContainer, PTextEdit, ButtonSubmitEdit } from '../style/profileStyle';
+import { DivEditUserData, DivUserData, InputEditStyle, DivEditUserContainer, PTextEdit, ButtonSubmitEdit, SpanIconClick } from '../style/profileStyle';
 
 const UpdateProfile = () => {
     const initialState = {
@@ -19,18 +19,13 @@ const UpdateProfile = () => {
         location: false
     }
     const [openInput, setOpenInput] = useState(initialState)
-    
 
     const userActualData = useSelector(state => state.userData.user.userData);
     const userId = useSelector(state => state.userData.user.id);
     console.log(userId)
-    const { data: users, status } = useQuery(['users'], fetchUsers);
     const {
         register,
         handleSubmit,
-        watch,
-        setFocus,
-        formState: { errors },
     } = useForm();
 
     const [UpdateUserData, setUpdateUserData] = useState({
@@ -71,9 +66,9 @@ const UpdateProfile = () => {
         firstName,
         lastName,
     }) => {
-        userData.username       = username || userActualData.username;
-        userData.firstName      = firstName || userActualData.firstName;
-        userData.lastName       = lastName || userActualData.lastName;
+        userData.username = username || userActualData.username;
+        userData.firstName = firstName || userActualData.firstName;
+        userData.lastName = lastName || userActualData.lastName;
 
         setUpdateUserData({
             ...UpdateUserData,
@@ -85,96 +80,91 @@ const UpdateProfile = () => {
         setOpenInput(prev => prev = initialState)
     };
 
-  return (
-    <FormStyle onSubmit={handleSubmit(data => updateUser(data))}>
-        <DivEditUserContainer>
-            {!openInput.username
-                ?
+    return (
+        <FormStyle onSubmit={handleSubmit(data => updateUser(data))}>
+            <DivEditUserContainer>
+                {!openInput.username
+                    ?
                     <DivUserData>
                         <PTextEdit>{userActualData.username}</PTextEdit>
-                        <IoMdCreate onClick={()=> setOpenInput(prev=> prev = {...prev, username: true})}/>
+                        <SpanIconClick><IoMdCreate onClick={() => setOpenInput(prev => prev = { ...prev, username: true })} /></SpanIconClick>
                     </DivUserData>
-                :   
-
+                    :
                     <DivEditUserData>
                         <InputEditStyle
-                        autoFocus
-                        type='text'
-                        required
-                        {...register('username', {
-                            required: true
-                        })}
+                            autoFocus
+                            type='text'
+                            required
+                            {...register('username', {
+                                required: true
+                            })}
                         />
                         {/* SubmitButton ⬇️*/}
-                        <ButtonSubmitEdit type='submit'><IoMdCheckmarkCircle style={{color:'black'}} /></ButtonSubmitEdit>  
-                    </DivEditUserData>}
-            
-        </DivEditUserContainer>
-        <DivEditUserContainer>
-            {!openInput.firstName
-                ?
+                        <ButtonSubmitEdit type='submit'><IoMdCheckmarkCircle /></ButtonSubmitEdit>
+                    </DivEditUserData>
+                }
+            </DivEditUserContainer>
+            <DivEditUserContainer>
+                {!openInput.firstName
+                    ?
                     <DivUserData>
                         <PTextEdit>{userActualData.firstName}</PTextEdit>
-                        <IoMdCreate onClick={()=>setOpenInput(prev => prev = {...prev, firstName: true})}/>
+                        <SpanIconClick><IoMdCreate onClick={() => setOpenInput(prev => prev = { ...prev, firstName: true })} /></SpanIconClick>
                     </DivUserData>
-                :   
-
-                    <DivEditUserData>
-                        <InputEditStyle 
-                        autoFocus
-                        type='text'
-                        required
-                        {...register('firstName', {
-                            required: true
-                        })}
-                        />
-                        {/* SubmitButton ⬇️*/}
-                        <ButtonSubmitEdit type='submit'><IoMdCheckmarkCircle style={{color:'black'}}/></ButtonSubmitEdit>  
-                    </DivEditUserData>}
-            
-        </DivEditUserContainer>
-        <DivEditUserContainer>
-            {!openInput.lastName
-                ?
-                    <DivUserData>
-                        <PTextEdit>{userActualData.lastName}</PTextEdit>
-                        <IoMdCreate onClick={()=> setOpenInput(prev => prev = {...prev, lastName: true})}/>
-                    </DivUserData>
-                :   
-
+                    :
                     <DivEditUserData>
                         <InputEditStyle
-                        autoFocus
-                        type='text'
-                        required
-                        {...register('lastName', {
-                            required: true
-                        })}
+                            autoFocus
+                            type='text'
+                            required
+                            {...register('firstName', {
+                                required: true
+                            })}
                         />
                         {/* SubmitButton ⬇️*/}
-                        <ButtonSubmitEdit type='submit'><IoMdCheckmarkCircle style={{color:'black'}}/></ButtonSubmitEdit>  
-                    </DivEditUserData>}
-            
-        </DivEditUserContainer>
-        <DivEditUserContainer>
-            {!openInput.location
-                ?
+                        <ButtonSubmitEdit type='submit'><IoMdCheckmarkCircle /></ButtonSubmitEdit>
+                    </DivEditUserData>
+                }
+            </DivEditUserContainer>
+            <DivEditUserContainer>
+                {!openInput.lastName
+                    ?
+                    <DivUserData>
+                        <PTextEdit>{userActualData.lastName}</PTextEdit>
+                        <SpanIconClick><IoMdCreate onClick={() => setOpenInput(prev => prev = { ...prev, lastName: true })} /></SpanIconClick>
+                    </DivUserData>
+                    :
+                    <DivEditUserData>
+                        <InputEditStyle
+                            autoFocus
+                            type='text'
+                            required
+                            {...register('lastName', {
+                                required: true
+                            })}
+                        />
+                        {/* SubmitButton ⬇️*/}
+                        <ButtonSubmitEdit type='submit'><IoMdCheckmarkCircle /></ButtonSubmitEdit>
+                    </DivEditUserData>
+                }
+            </DivEditUserContainer>
+            <DivEditUserContainer>
+                {!openInput.location
+                    ?
                     <DivUserData>
                         <PTextEdit>{userActualData.country}</PTextEdit>
-                        <IoMdCreate onClick={()=>setOpenInput(prev => prev = {...prev, location: true})}/>
+                        <SpanIconClick><IoMdCreate onClick={() => setOpenInput(prev => prev = { ...prev, location: true })} /></SpanIconClick>
                     </DivUserData>
-                :   
-
+                    :
                     <DivEditUserData>
                         <InputEditStyle />
                         {/* SubmitButton ⬇️*/}
-                        <IoMdCheckmarkCircle style={{color:'black'}}/>  
-                    </DivEditUserData>}
-            
-        </DivEditUserContainer>
-        
-    </FormStyle>
-  )
+                        <ButtonSubmitEdit type='submit'><IoMdCheckmarkCircle /></ButtonSubmitEdit>
+                    </DivEditUserData>
+                }
+            </DivEditUserContainer>
+        </FormStyle>
+    )
 }
 
 export default UpdateProfile

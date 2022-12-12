@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../../assets/img/Logotipo.png'
 import { ImgLogoHome } from '../style/landingStyle'
@@ -8,4 +9,4 @@ const HeaderLogo = () => {
     )
 }
 
-export default HeaderLogo
+export default memo(HeaderLogo)

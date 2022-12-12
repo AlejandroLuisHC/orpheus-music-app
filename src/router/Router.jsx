@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { lazy, Suspense} from 'react'
 import QueryProvider from "../helper/utils/reactQuery/QueryProvider"
 import StoreProvider from "../redux/provider/StoreProvider"
-import LogoSpinner from "../components/loaders/spinner/LogoSpinner"
+import LogoSpinner from "../components/general_components/loaders/spinner/LogoSpinner"
 import PrivateRoutes from "./PrivateRoutes"
 import NotConnectedRoutes from "./NotConnectedRoutes"
 

@@ -1,8 +1,9 @@
 import HeroSlider, { Overlay, Slide, MenuNav } from "hero-slider";
-import { slide0, slide1, slide2 } from "../../assets/img/gallery_slides";
-import { DivHeroTitles, H2StyleHero, H4StyleHero } from "../style/homeStyle";
+import { memo } from "react";
+import { slide0, slide1, slide2 } from "../../../assets/img/gallery_slides";
+import { DivHeroTitles, H2StyleHero, H4StyleHero } from "../../style/homeStyle";
 
-export default function BasicSlider() {
+const Hero = () => {
     return (
         <HeroSlider
             height={"33vh"}
@@ -66,3 +67,5 @@ export default function BasicSlider() {
         </HeroSlider>
     );
 }
+
+export default memo(Hero)

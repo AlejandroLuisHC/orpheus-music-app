@@ -2,14 +2,10 @@ import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import fetchCreateUser from '../../api/fetchCreateUser';
+import { RegisterStep1, RegisterStep2, RegisterStep3, RegisterStep4, RegisterStep5 } from './register_steps'
 import { DivStepsContainer, DivStepsCounter, FormStyle } from '../style/generalStyle';
 import { fetchUsers } from './../../api/';
-import RegisterStep1 from './register_steps/registerStep1';
-import RegisterStep2 from './register_steps/registerStep2';
-import RegisterStep3 from './register_steps/registerStep3';
-import RegisterStep4 from './register_steps/registerStep4';
-import RegisterStep5 from './register_steps/RegisterStep5';
-import LogoSpinner from '../loaders/spinner/LogoSpinner';
+import LogoSpinner from '../general_components/loaders/spinner/LogoSpinner'
 
 const RegisterForm = () => {
     const { data: users, status } = useQuery(['users'], fetchUsers);

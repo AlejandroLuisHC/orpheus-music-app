@@ -2,7 +2,8 @@ import { useQuery } from "@tanstack/react-query"
 import { fetchTracks } from '../../api'
 import { H6StyleHero, PStyleHero, ImgCards, DivSlider, DivCard, DivElementTitles, DivPicLists, DivInfoLists, LinkHome } from '../style/homeStyle'
 import { H2Style } from '../style/generalStyle'
-import HomeSlidersLoader from '../loaders/content_loader/HomeSlidersLoader'
+import HomeSlidersLoader from '../general_components/loaders/content_loader/HomeSlidersLoader'
+import { memo } from "react"
 
 const TrackBox = () => {
     const { data, status: tracksStatus } = useQuery(['tracks'], fetchTracks)
@@ -39,4 +40,4 @@ const TrackBox = () => {
                 </div>
     )
 }
-export default TrackBox
+export default memo(TrackBox)

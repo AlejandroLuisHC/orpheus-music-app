@@ -17,7 +17,7 @@ export const DivProfileBanner = styled.div`
     width: 100%;
     @media ${device.desktop}{
         padding: 0 30px;
-        height: 40vh;
+        height: 350px;
         display: flex;
         justify-content: space-evenly;
         align-items: center;
@@ -41,7 +41,9 @@ export const DivProfileBanner = styled.div`
         }
     }
 `
-
+export const DivProfileMainContent = styled.div`
+    margin-top: 30px;
+`
 export const DivMobileUserAvatar = styled.div`
    display: flex;
    justify-content: center;
@@ -145,8 +147,7 @@ export const DivProfileActionsStyle = styled.div`
 export const SectionProfileMain = styled.section`
 
 `
-export const ButtonEditUser = styled.div`
-    
+export const ButtonEditUser = styled.div` 
     width: fit-content;
     position: absolute;
     right: 8px;
@@ -161,12 +162,10 @@ export const ButtonEditUser = styled.div`
     @media ${device.desktop}{
         font-size: 25px;
         right: 15px;
-        top: 15px;
-        
+        top: 15px;    
     }
     
 `
-
 
 // edit view
 
@@ -183,9 +182,7 @@ export const DivUserData = styled.div`
     justify-content: space-around;
     align-items: center;
     gap: 100px;
-
 `
-
 
 export const DivEditUserData = styled.div`
     height: 40px;
@@ -205,13 +202,26 @@ export const InputEditStyle = styled.input`
     font-size: 18px;
     margin-left: 10px;
     text-align: center;
-    
 `
 export const PTextEdit = styled.p`
-    font-size: 20px;
+    font-size: 24px;
+`
+export const SpanIconClick = styled.span`
+    cursor: pointer;
+    display: flex;
+    font-size: 24px;
+    align-items: center;
+    &:hover{
+        color: ${color.primaryYellow};
+    }
 `
 export const ButtonSubmitEdit = styled.button`
     all: unset;
+    display: flex;
+    align-items: center;
     cursor: pointer;
-
+    color: ${color.primaryBlack};
+    &:hover{
+        color: ${color.primaryYellow};
+    }
 `

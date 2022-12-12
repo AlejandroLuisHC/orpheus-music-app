@@ -199,6 +199,11 @@ export const ButtonSecondaryStyle = styled.button`
     }
 `
 
+export const ImgLogoL = styled.img`
+    object-fit: contain;
+    height: 110px;
+    margin: 0 auto 20px;
+`
 export const ImgLogoM = styled.img`
     object-fit: contain;
     height: 60px;

@@ -1,9 +1,11 @@
 import { LinkAside } from '../../style/generalStyle'
-
+import PlaylistsLoader from '../loaders/content_loader/PlaylistsLoader'
 const AsideRecentPlaylist = () => {
     return (
         <>
-            <LinkAside>
+            <PlaylistsLoader />
+            
+            {/* <LinkAside>
                 <p>Recent playlist...</p>
             </LinkAside>
             <LinkAside>
@@ -11,7 +13,7 @@ const AsideRecentPlaylist = () => {
             </LinkAside>
             <LinkAside>
                 <p>Recent playlist...</p>
-            </LinkAside>
+            </LinkAside> */}
         </>
     )
 }
