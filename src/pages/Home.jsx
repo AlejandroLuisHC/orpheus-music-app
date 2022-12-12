@@ -4,6 +4,7 @@ import { HrStyle } from "../components/style/generalStyle"
 import { DivHomeStyle, DivButtonsAction, BtnAction,DivHero, DivMobileButtons,DivBoxStyle, H6StyleHero, DivFavAndPlaylist, DivHomeCarousels, H1Welcome } from "../components/style/homeStyle"
 import TrackBox from "../components/home/TrackBox"
 import AlbumBox from "../components/home/AlbumBox"
+import PlaylistBox from "../components/home/PlaylistBox"
 
 const Home = () => {
     const { username } = useSelector (state => state.userData.user.userData)
@@ -50,12 +51,13 @@ const Home = () => {
                     </div>
                 </DivBoxStyle>
             </DivFavAndPlaylist>
+                    <DivHomeCarousels>
+                        <PlaylistBox/>
+                        <AlbumBox/>
+                        <TrackBox/>
+                    </DivHomeCarousels>
+            </DivHomeStyle>                                               
 
-            <DivHomeCarousels>
-                <AlbumBox/>
-                <TrackBox/>
-            </DivHomeCarousels>
-        </DivHomeStyle>                                               
     )
 }
 

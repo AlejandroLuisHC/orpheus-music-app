@@ -69,11 +69,11 @@ export const DivSlider = styled.div`
     overflow: auto;
     @media ${device.desktop}{
         width: calc(100vw - 200px);
-        height: 285px;
+        height: 285px;  
         &::-webkit-scrollbar {
-            cursor: pointer;
             width: 6px;
             height: 6px;
+            cursor: pointer;
         }
         &::-webkit-scrollbar-track {
             border-radius: 10px;
@@ -100,6 +100,7 @@ export const DivCard = styled.div`
     margin-right: 20px;
     background: hsla(0, 0%, 100%, 0.02);
     border-radius: 20px;
+    cursor: pointer;
     @media ${device.desktop}{
         min-width: 220px;
         height: 270px;
