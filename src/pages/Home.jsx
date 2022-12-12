@@ -1,13 +1,21 @@
 import Slider from "../components/slider_home/BasicSlider"
 import { useSelector } from 'react-redux'
 import { HrStyle } from "../components/style/generalStyle"
-import { DivHomeStyle, DivButtonsAction, BtnAction,DivHero, DivMobileButtons,DivBoxStyle, H6StyleHero, DivFavAndPlaylist, DivHomeCarousels } from "../components/style/homeStyle"
+import { DivHomeStyle, DivButtonsAction, BtnAction,DivHero, DivMobileButtons,DivBoxStyle, H6StyleHero, DivFavAndPlaylist, DivHomeCarousels, H1Welcome } from "../components/style/homeStyle"
 import TrackBox from "../components/home/TrackBox"
 import AlbumBox from "../components/home/AlbumBox"
+import TrackLoader from "../components/loaders/content_loader/loader_components/TrackLoader"
+import TitleLoader from "../components/loaders/content_loader/loader_components/TitleLoader"
 
 const Home = () => {
-    const {username} = useSelector (state => state.userData.user.userData)
-
+    const { username } = useSelector (state => state.userData.user.userData)
+    const date = new Date();
+    const hour = date.getHours();
+    const welcome = hour > 19 && hour < 6
+                        ? "Good evening, "
+                        : hour > 5 && hour < 13
+                            ? "Good morning, "
+                            : "Good afternoon, "
     return (
         <>  
             <DivHomeStyle>
@@ -15,7 +23,7 @@ const Home = () => {
                     <Slider/>
                 </DivHero>
                 
-                    <p>Welcome, {username}!</p>
+                    <H1Welcome>{`${welcome}${username}!`}</H1Welcome>
                     <HrStyle/>
 
                     <DivMobileButtons>

@@ -1,10 +1,8 @@
-import React from 'react'
 import { useQuery } from "@tanstack/react-query"
 import { fetchTracks } from '../../api'
-import LogoSpinner from "../loaders/spinner/LogoSpinner"
-import { H6StyleHero, PStyleHero, ImgCards, DivSlider, DivCard, DivElementTitles, DivPicLists, DivInfoLists } from '../style/homeStyle'
+import { H6StyleHero, PStyleHero, ImgCards, DivSlider, DivCard, DivElementTitles, DivPicLists, DivInfoLists, LinkHome } from '../style/homeStyle'
 import { H2Style } from '../style/generalStyle'
-import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from "react-icons/io";
+import HomeSlidersLoader from '../loaders/content_loader/HomeSlidersLoader'
 
 const TrackBox = () => {
     const { data, status: tracksStatus } = useQuery(['tracks'], fetchTracks)
@@ -21,22 +19,19 @@ const TrackBox = () => {
 
     return (
         tracksStatus === "loading"
-            ? <LogoSpinner />
+            ? <HomeSlidersLoader />
             : tracksStatus === "error"
                 ? <p>Error</p>
                 :
                 <div>
                     <DivElementTitles>
                         <H2Style> Tracks </H2Style>
-                        <div>
-                            <IoIosArrowDropleftCircle onClick={slideLeft} id="slider" />
-                            <IoIosArrowDroprightCircle onClick={slideRight} id="slider" />
-                        </div>
+                        <LinkHome>View more</LinkHome>
                     </DivElementTitles>
 
                     <DivSlider>
                         {
-                            data.map((track) => {
+                            data?.map((track) => {
                                 return (
                                     <DivCard key={track.id}>
                                         <DivPicLists>

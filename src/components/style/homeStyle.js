@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { color, device } from "./utils/styleConstants";
 import { ButtonSecondaryStyle } from "../style/generalStyle"
+import { Link } from "react-router-dom";
 
 /* DESKTOP DIV HERO */
 export const DivHero = styled.div`
@@ -23,7 +24,9 @@ export const DivHomeStyle = styled.div`
         padding: 0;
     } 
 `
-
+export const H1Welcome = styled.h1`
+    margin-top: 30px;
+`
 /* DIV CARDS */
 
 export const DivFavAndPlaylist = styled.div`
@@ -51,6 +54,14 @@ export const DivElementTitles = styled.div`
     padding-right: 20px;
     margin-bottom: 10px;
 `
+export const LinkHome = styled(Link)`
+    color: ${color.primaryWhite};
+    text-decoration: none;
+    font-size: 14px;
+    &:hover{
+        color: ${color.primaryYellow}
+    }
+`
 export const DivSlider = styled.div`
     display: flex;
     width: calc(100vw - 40px );
@@ -58,7 +69,7 @@ export const DivSlider = styled.div`
     overflow: auto;
     @media ${device.desktop}{
         width: calc(100vw - 200px);
-        height: 278px;
+        height: 285px;
         &::-webkit-scrollbar {
             cursor: pointer;
             width: 6px;
@@ -88,7 +99,7 @@ export const DivCard = styled.div`
     height: 190px;
     margin-right: 20px;
     background: hsla(0, 0%, 100%, 0.02);
-    border-radius: 15px;
+    border-radius: 20px;
     @media ${device.desktop}{
         min-width: 220px;
         height: 270px;

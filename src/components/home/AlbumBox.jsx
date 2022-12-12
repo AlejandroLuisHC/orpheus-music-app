@@ -1,10 +1,8 @@
-import React from 'react'
 import { useQuery } from "@tanstack/react-query"
 import { fetchAlbums } from '../../api'
-import LogoSpinner from "../loaders/spinner/LogoSpinner"
-import { H6StyleHero, PStyleHero, ImgCards, DivSlider, DivCard, DivElementTitles, DivPicLists, DivInfoLists } from '../style/homeStyle'
+import { H6StyleHero, PStyleHero, ImgCards, DivSlider, DivCard, DivElementTitles, DivPicLists, DivInfoLists, LinkHome } from '../style/homeStyle'
 import { H2Style } from '../style/generalStyle'
-import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from "react-icons/io";
+import HomeSlidersLoader from '../loaders/content_loader/HomeSlidersLoader'
 
 const AlbumBox = () => {
     const { data, status: albumsStatus } = useQuery(['albums'], fetchAlbums)
@@ -21,22 +19,19 @@ const AlbumBox = () => {
 
     return (
         albumsStatus === "loading"
-            ? <LogoSpinner />
+            ? <HomeSlidersLoader />
             : albumsStatus === "error"
                 ? <p>Error</p>
                 :
                 <div>
                     <DivElementTitles>
-                        <H2Style> Album </H2Style>
-                        <div>
-                            <IoIosArrowDropleftCircle onClick={slideLeft} id="slider" />
-                            <IoIosArrowDroprightCircle onClick={slideRight} id="slider" />
-                        </div>
+                        <H2Style> Albums </H2Style>
+                        <LinkHome>View more</LinkHome>
                     </DivElementTitles>
 
                     <DivSlider>
                         {
-                            data.map((album) => {
+                            data?.map((album) => {
                                 return (
                                     <DivCard key={album.id}>
                                         <DivPicLists>
