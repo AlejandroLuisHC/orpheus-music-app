@@ -208,9 +208,10 @@ export const InputEditStyle = styled.input`
     
 `
 export const PTextEdit = styled.p`
-font-size: 20px;
+    font-size: 20px;
 `
-export const ButtonSubmitEdit = styled.label`
-position: absolute;
+export const ButtonSubmitEdit = styled.button`
+    all: unset;
+    cursor: pointer;
 
 `

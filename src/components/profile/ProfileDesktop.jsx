@@ -9,7 +9,7 @@ import { Footer } from '../style/generalStyle';
 import { DivProfileActionsStyle, DivProfileBanner, SectionProfileMain, PProfileUserInfo, DivProfileUserInfoContainer, SpanProfileUserNumbers, DivUserGeneralData, H1Username, H2UserWorks, DivProfile, DivUsernameWorks, ButtonEditUser, SectionEditUser } from '../style/profileStyle'
 import AddWork from './AddWork';
 import CreatePlaylist from './CreatePlaylist';
-import EditProfile from './EditProfile';
+import UpdateProfile from './UpdateProfile';
 
 
 const ProfileDesktop = () => {
@@ -82,7 +82,7 @@ const ProfileDesktop = () => {
                 </SectionProfileMain>
             :
                 <SectionEditUser>
-                    <EditProfile />
+                    <UpdateProfile />
                 </SectionEditUser>}
 
             <Footer><FooterInfo /></Footer>

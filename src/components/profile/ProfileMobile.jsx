@@ -6,7 +6,8 @@ import AvatarImg from '../general_components/AvatarImg'
 import { ButtonEditUser, DivMobileUserAvatar, DivProfile, DivProfileActionsStyle, DivProfileBanner, DivProfileUserInfoContainer, DivUserGeneralData, DivUsernameWorks, H1Username, H2UserWorks, PProfileUserInfo, SectionEditUser, SectionProfileMain, SpanProfileUserNumbers } from '../style/profileStyle'
 import AddWork from './AddWork';
 import CreatePlaylist from './CreatePlaylist';
-import EditProfile from './EditProfile';
+import UpdateProfile from './UpdateProfile';
+
 
 const ProfileMobile = () => {
   const [editView, setEditView] = useState(false);
@@ -67,7 +68,7 @@ const ProfileMobile = () => {
                 </SectionProfileMain>
             :
                 <SectionEditUser>
-                    <EditProfile />
+                    <UpdateProfile />
                 </SectionEditUser>}
 
 

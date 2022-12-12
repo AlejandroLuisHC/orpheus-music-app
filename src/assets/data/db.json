@@ -74,6 +74,40 @@
       "isVerified": true,
       "isAdmin": false,
       "isLogged": false
+    },
+    {
+      "userData": {
+        "username": "zzezequiel",
+        "firstName": "Ezequiel",
+        "lastName": "Zvirgzdins",
+        "email": "zzezequiel@hotmail.com.ar",
+        "country": "Spain",
+        "city": "Barcelona",
+        "password": "0000",
+        "secretQuestion": "What is your favourite pizza?",
+        "secretAnswer": "4quesos",
+        "avatar": "\"2022-12-12T15:57:48.477Z\"",
+        "banner": "",
+        "favGenres": [
+          9,
+          6,
+          8
+        ]
+      },
+      "work": {
+        "myAlbums": [],
+        "myTracks": []
+      },
+      "myPlaylists": [],
+      "favPlaylists": [],
+      "favAlbums": [],
+      "favTracks": [],
+      "followers": [],
+      "following": [],
+      "isVerified": false,
+      "isAdmin": false,
+      "isLoggedIn": false,
+      "id": 3
     }
   ],
   "events": [
@@ -84,8 +118,15 @@
       "location": "Spain",
       "name": "Viña rock",
       "description": "...",
-      "genres": [1, 3],
-      "artists": [1, 2, 4],
+      "genres": [
+        1,
+        3
+      ],
+      "artists": [
+        1,
+        2,
+        4
+      ],
       "date": "13/4/2023",
       "stock": 400,
       "price": 25
@@ -98,14 +139,34 @@
       "description": "...",
       "img": "",
       "tracks": [
-        { "id": 2, "added": "new Data()" },
-        { "id": 45, "added": "" },
-        { "id": 2, "added": "" },
-        { "id": 2, "added": "" }
+        {
+          "id": 2,
+          "added": "new Data()"
+        },
+        {
+          "id": 45,
+          "added": ""
+        },
+        {
+          "id": 2,
+          "added": ""
+        },
+        {
+          "id": 2,
+          "added": ""
+        }
       ],
-      "followers": [2],
-      "genres": [2, 3],
-      "moods": ["relax", "focused"],
+      "followers": [
+        2
+      ],
+      "genres": [
+        2,
+        3
+      ],
+      "moods": [
+        "relax",
+        "focused"
+      ],
       "owner": 1
     }
   ],
@@ -115,9 +176,20 @@
       "name": "Rock in the morning",
       "description": "...",
       "img": "",
-      "tracks": [1, 3, 45, 23, 18],
-      "followers": [2],
-      "genres": [2, 3],
+      "tracks": [
+        1,
+        3,
+        45,
+        23,
+        18
+      ],
+      "followers": [
+        2
+      ],
+      "genres": [
+        2,
+        3
+      ],
       "release": "",
       "owner": "user.id"
     }
@@ -127,11 +199,18 @@
       "id": 1,
       "name": "Rock in the morning",
       "description": "...",
-      "album": [1],
+      "album": [
+        1
+      ],
       "img": "",
       "file": "",
-      "followers": [2],
-      "genres": [2, 3],
+      "followers": [
+        2
+      ],
+      "genres": [
+        2,
+        3
+      ],
       "release": "",
       "owner": {
         "id": "user.id",
