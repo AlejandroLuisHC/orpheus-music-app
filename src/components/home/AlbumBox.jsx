@@ -1,13 +1,13 @@
 import React from 'react'
 import { useQuery } from "@tanstack/react-query"
-import { fetchTracks } from '../../api'
+import { fetchAlbums } from '../../api'
 import LogoSpinner from "../loaders/spinner/LogoSpinner"
 import { H6StyleHero, PStyleHero, ImgCards, DivSlider, DivCard, DivElementTitles, DivPicLists, DivInfoLists } from '../style/homeStyle'
 import { H2Style } from '../style/generalStyle'
 import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from "react-icons/io";
 
-const TrackBox = () => {
-    const { data, status: tracksStatus } = useQuery(['tracks'], fetchTracks)
+const AlbumBox = () => {
+    const { data, status: albumsStatus } = useQuery(['albums'], fetchAlbums)
 
     const slideLeft = () => {
         let slider = document.getElementById('slider');
@@ -20,14 +20,14 @@ const TrackBox = () => {
     };
 
     return (
-        tracksStatus === "loading"
+        albumsStatus === "loading"
             ? <LogoSpinner />
-            : tracksStatus === "error"
+            : albumsStatus === "error"
                 ? <p>Error</p>
                 :
                 <div>
                     <DivElementTitles>
-                        <H2Style> Tracks </H2Style>
+                        <H2Style> Album </H2Style>
                         <div>
                             <IoIosArrowDropleftCircle onClick={slideLeft} id="slider" />
                             <IoIosArrowDroprightCircle onClick={slideRight} id="slider" />
@@ -36,15 +36,15 @@ const TrackBox = () => {
 
                     <DivSlider>
                         {
-                            data.map((track) => {
+                            data.map((album) => {
                                 return (
-                                    <DivCard key={track.id}>
+                                    <DivCard key={album.id}>
                                         <DivPicLists>
-                                            <ImgCards src={track.img} />
+                                            <ImgCards src={album.img} />
                                         </DivPicLists>
                                         <DivInfoLists>
-                                            <H6StyleHero>{track.name}</H6StyleHero>
-                                            <PStyleHero>{track.description}</PStyleHero>
+                                            <H6StyleHero>{album.name}</H6StyleHero>
+                                            <PStyleHero>{album.description}</PStyleHero>
                                         </DivInfoLists>
                                     </DivCard>
                                 )
@@ -54,4 +54,4 @@ const TrackBox = () => {
                 </div>
     )
 }
-export default TrackBox
+export default AlbumBox
