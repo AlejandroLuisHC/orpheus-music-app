@@ -15,7 +15,7 @@ const Login = () => {
 
     // Fetch existing users from DB
     const { data: users, status: usersStatus } = useQuery(['users'], fetchUsers)
-
+    
     // Manage form with useForm()
     const { register, handleSubmit, formState: { errors } } = useForm();
 
