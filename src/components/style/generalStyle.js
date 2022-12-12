@@ -33,7 +33,7 @@ export const GridStyle = styled.div`
     
     @media ${device.desktop}{
         height: 100%;
-        grid-template: 60px 1fr 50px / 200px 5fr; // Grid for desktop
+        grid-template: 60px 1fr 50px / 200px 1fr; // Grid for desktop
     };  
 `
 export const GridLandingStyle = styled.div`
@@ -192,7 +192,7 @@ export const ImgLogoS = styled.img`
 
 export const H2Style = styled.h2`
     color: ${color.primaryYellow};
-    font-size: 20px;
+    font-size: 24px;
     font-weight: bold;
 `
 export const FieldsetStyle = styled.fieldset`
