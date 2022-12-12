@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import AvatarImg from '../general_components/AvatarImg';
 import FooterInfo from '../general_components/FooterInfo';
 import { Footer } from '../style/generalStyle';
-import { DivProfileActionsStyle, DivProfileBanner, SectionProfileMain, PProfileUserInfo, DivProfileUserInfoContainer, SpanProfileUserNumbers, DivUserAvatar, DivUserGeneralData, H1Username, H2UserWorks, DivProfile } from '../style/profileStyle'
+import { DivProfileActionsStyle, DivProfileBanner, SectionProfileMain, PProfileUserInfo, DivProfileUserInfoContainer, SpanProfileUserNumbers, DivUserAvatar, DivUserGeneralData, H1Username, H2UserWorks, DivProfile, DivUsernameWorks } from '../style/profileStyle'
 import AddWork from './AddWork';
 import CreatePlaylist from './CreatePlaylist';
 
@@ -22,8 +22,10 @@ console.log(userData)
                 </DivUserAvatar>
 
                 <DivUserGeneralData>
-                    <H1Username>{userData.username}</H1Username>
-                    <H2UserWorks>23 works</H2UserWorks>
+                    <DivUsernameWorks>
+                        <H1Username>{userData.username}</H1Username>
+                        <H2UserWorks>23 works</H2UserWorks>
+                    </DivUsernameWorks>
                     <DivProfileUserInfoContainer>
                         <PProfileUserInfo>
                             <SpanProfileUserNumbers>22</SpanProfileUserNumbers>

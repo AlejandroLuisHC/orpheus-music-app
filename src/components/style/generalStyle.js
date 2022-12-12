@@ -78,7 +78,7 @@ export const Footer = styled.footer`
         justify-content: center;
         align-items: center;
         grid-row: 3;
-        grid-column: 1 / span 2;
+        grid-column: 1;
     }
 `
 
