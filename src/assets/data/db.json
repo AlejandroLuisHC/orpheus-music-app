@@ -157,13 +157,265 @@
   "tracks": [
     {
       "id": 1,
-      "name": "Rock in the morning",
-      "description": "...",
-      "album": [1],
-      "img": "",
+      "name": "Shape Of You",
+      "description": "Ed Sheeran",
+      "album": [
+        1
+      ],
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670822659/Final-Project-MERN/Tracks/Shape_Of_You_lyrhmo.jpg",
       "file": "",
-      "followers": [2],
-      "genres": [2, 3],
+      "followers": [
+        2
+      ],
+      "genres": [
+        2
+      ],
+      "release": "",
+      "owner": {
+        "id": "user.id",
+        "username": "user.username"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Hearts don't break around here",
+      "description": "rock",
+      "album": [
+        1
+      ],
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670822659/Final-Project-MERN/Tracks/Hearts_don_t_break_around_here_r2fyhl.jpg",
+      "file": "",
+      "followers": [
+        2
+      ],
+      "genres": [
+        2
+      ],
+      "release": "",
+      "owner": {
+        "id": "user.id",
+        "username": "user.username"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Barcelona",
+      "description": "Ed Sheeran",
+      "album": [
+        1
+      ],
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670822659/Final-Project-MERN/Tracks/Barcelona_mqcbzw.jpg",
+      "file": "",
+      "followers": [
+        2
+      ],
+      "genres": [
+        2
+      ],
+      "release": "",
+      "owner": {
+        "id": "user.id",
+        "username": "user.username"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Paranoid",
+      "description": "Beerbongs & Bentleys",
+      "album": [
+        2
+      ],
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670822659/Final-Project-MERN/Tracks/Paranoid_qold3t.jpg",
+      "file": "",
+      "followers": [
+        2
+      ],
+      "genres": [
+        1,
+        2,
+        6
+      ],
+      "release": "",
+      "owner": {
+        "id": "user.id",
+        "username": "user.username"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Spoil My Night",
+      "description": "Beerbongs & Bentleys",
+      "album": [
+        2
+      ],
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670822659/Final-Project-MERN/Tracks/Spoil_My_Night_rl0r27.jpg",
+      "file": "",
+      "followers": [
+        2
+      ],
+      "genres": [
+        1,
+        2,
+        6
+      ],
+      "release": "",
+      "owner": {
+        "id": "user.id",
+        "username": "user.username"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Rich & Sad",
+      "description": "Beerbongs & Bentleys",
+      "album": [
+        2
+      ],
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670822659/Final-Project-MERN/Tracks/Rich_Sad_cesckn.jpg",
+      "file": "",
+      "followers": [
+        2
+      ],
+      "genres": [
+        1,
+        2,
+        6
+      ],
+      "release": "",
+      "owner": {
+        "id": "user.id",
+        "username": "user.username"
+      }
+    },
+    {
+      "id": 7,
+      "name": "White America",
+      "description": "Eminem",
+      "album": [
+        5
+      ],
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670822659/Final-Project-MERN/Tracks/White_America_jwy7jt.jpg",
+      "file": "",
+      "followers": [
+        2
+      ],
+      "genres": [
+        6,
+        12
+      ],
+      "release": "",
+      "owner": {
+        "id": "user.id",
+        "username": "user.username"
+      }
+    },
+    {
+      "id": 8,
+      "name": "Business",
+      "description": "Eminem",
+      "album": [
+        5
+      ],
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670822659/Final-Project-MERN/Tracks/Business_ceq965.jpg",
+      "file": "",
+      "followers": [
+        2
+      ],
+      "genres": [
+        6,
+        12
+      ],
+      "release": "",
+      "owner": {
+        "id": "user.id",
+        "username": "user.username"
+      }
+    },
+    {
+      "id": 9,
+      "name": "Till I Collapse",
+      "description": "Eminem",
+      "album": [
+        5
+      ],
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670822659/Final-Project-MERN/Tracks/Till_I_Collapse_fsn6pg.jpg",
+      "file": "",
+      "followers": [
+        2
+      ],
+      "genres": [
+        6,
+        12
+      ],
+      "release": "",
+      "owner": {
+        "id": "user.id",
+        "username": "user.username"
+      }
+    },
+    {
+      "id": 10,
+      "name": "Survival",
+      "description": "Drake",
+      "album": [
+        4
+      ],
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670822659/Final-Project-MERN/Tracks/Survival_zmn6sj.jpg",
+      "file": "",
+      "followers": [
+        2
+      ],
+      "genres": [
+        2,
+        4,
+        6
+      ],
+      "release": "",
+      "owner": {
+        "id": "user.id",
+        "username": "user.username"
+      }
+    },
+    {
+      "id": 11,
+      "name": "Elevate",
+      "description": "Drake",
+      "album": [
+        4
+      ],
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670822659/Final-Project-MERN/Tracks/Elevate_dplrzi.jpg",
+      "file": "",
+      "followers": [
+        2
+      ],
+      "genres": [
+        2,
+        4,
+        6
+      ],
+      "release": "",
+      "owner": {
+        "id": "user.id",
+        "username": "user.username"
+      }
+    },
+    {
+      "id": 12,
+      "name": "Non Stop",
+      "description": "Drake",
+      "album": [
+        4
+      ],
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670822659/Final-Project-MERN/Tracks/Non_Stop_ohfxco.jpg",
+      "file": "",
+      "followers": [
+        2
+      ],
+      "genres": [
+        2,
+        4,
+        6
+      ],
       "release": "",
       "owner": {
         "id": "user.id",
