@@ -96,7 +96,39 @@
       "id": 1,
       "name": "Rock in the morning",
       "description": "...",
-      "img": "",
+      "img": "https://cdn1.iconfinder.com/data/icons/musical-instruments-12/128/guitar-electric-512.png",
+      "tracks": [
+        { "id": 2, "added": "new Data()" },
+        { "id": 45, "added": "" },
+        { "id": 2, "added": "" },
+        { "id": 2, "added": "" }
+      ],
+      "followers": [2],
+      "genres": [2, 3],
+      "moods": ["relax", "focused"],
+      "owner": 1
+    },
+    {
+      "id": 2,
+      "name": "Rock Classics",
+      "description": "...",
+      "img": "https://www.thisisdig.com/wp-content/uploads/2020/09/ROCK-CLASSICS-1_DIG-626x626.jpg",
+      "tracks": [
+        { "id": 2, "added": "new Data()" },
+        { "id": 45, "added": "" },
+        { "id": 2, "added": "" },
+        { "id": 2, "added": "" }
+      ],
+      "followers": [2],
+      "genres": [2, 3],
+      "moods": ["relax", "focused"],
+      "owner": 2
+    },
+    {
+      "id": 3,
+      "name": "Coding Focus",
+      "description": "...",
+      "img": "https://cdn-icons-png.flaticon.com/512/4191/4191039.png",
       "tracks": [
         { "id": 2, "added": "new Data()" },
         { "id": 45, "added": "" },
