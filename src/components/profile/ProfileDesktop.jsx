@@ -42,15 +42,22 @@ console.log(userData)
                     </DivProfileUserInfoContainer>
                 </DivUserGeneralData>
                 
+                {/* Erase when edit */}
                 <DivProfileActionsStyle>
                     <AddWork />
                     <CreatePlaylist />
                 </DivProfileActionsStyle>
+
             </DivProfileBanner>
-                
+
+            {/* Erase when edit     */}
             <SectionProfileMain>
                 Some extra info
             </SectionProfileMain>
+
+            {/* <SectionEdit>
+
+            </SectionEdit> */}
 
             <Footer><FooterInfo /></Footer>
         </DivProfile>
