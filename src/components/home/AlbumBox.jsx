@@ -7,16 +7,6 @@ import HomeSlidersLoader from '../loaders/content_loader/HomeSlidersLoader'
 const AlbumBox = () => {
     const { data, status: albumsStatus } = useQuery(['albums'], fetchAlbums)
 
-    const slideLeft = () => {
-        let slider = document.getElementById('slider');
-        slider.scrollLeft = slider.scrollLeft - 500;
-    };
-
-    const slideRight = () => {
-        let slider = document.getElementById('slider');
-        slider.scrollLeft = slider.scrollLeft + 500;
-    };
-
     return (
         albumsStatus === "loading"
             ? <HomeSlidersLoader />
