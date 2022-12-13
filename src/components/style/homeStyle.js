@@ -75,6 +75,25 @@ export const DivSlider = styled.div`
     width: calc(100vw - 40px );
     height: 190px;
     overflow: auto;
+    &::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+            cursor: pointer;
+        }
+        &::-webkit-scrollbar-track {
+            border-radius: 10px;
+            background: #3D3D3D77;
+        }
+        &::-webkit-scrollbar-thumb{
+            border-radius: 10px;
+            background: #353535;
+        }
+        &::-webkit-scrollbar-thumb:hover{
+            background: ${color.secondaryBlack};
+        }
+        &::-webkit-scrollbar-thumb:active{
+            background: #484848;
+        }
     @media ${device.desktop}{
         width: calc(100vw - 200px);
         height: 285px;  
