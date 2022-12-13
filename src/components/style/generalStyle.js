@@ -109,7 +109,7 @@ export const Aside = styled.aside`
     grid-row: 2; 
     position: static;
     bottom: 0;
-    background-color: #121212aa;
+    background-color: #121212CC;
     @media ${device.desktop}{
         width: 300px;
         height:100%;
