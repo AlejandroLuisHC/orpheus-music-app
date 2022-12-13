@@ -14,7 +14,7 @@ import UpdateProfile from './UpdateProfile';
 
 
 const ProfileDesktop = () => {
-    const userData = useSelector(state => state.userData.user.userData);
+    const {userData} = useSelector(state => state.userData.user);
     const width = useWidth();
     const [editView, setEditView] = useState(false);
     const [windowDesk, setWindowDesk] = useState(width > 768 ? true : false);
@@ -87,6 +87,7 @@ const ProfileDesktop = () => {
                 :
                 <SectionEditUser>
                     <UpdateProfile />
+                    
                 </SectionEditUser>
             }
             <Footer><FooterInfo /></Footer>
