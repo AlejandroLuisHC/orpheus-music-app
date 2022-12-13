@@ -26,6 +26,13 @@ export const DivHomeStyle = styled.div`
 `
 export const H1Welcome = styled.h1`
     margin-top: 30px;
+    font-size:20px;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    @media ${device.desktop}{
+        font-size:40px;
+    } 
 `
 /* DIV CARDS */
 
@@ -38,6 +45,7 @@ export const DivFavAndPlaylist = styled.div`
 export const DivBoxStyle = styled.div`
     display: flex;
     gap: 15px;
+    margin-bottom:25px;
 `
 
 /* CARDMUSIC */
@@ -67,6 +75,25 @@ export const DivSlider = styled.div`
     width: calc(100vw - 40px );
     height: 190px;
     overflow: auto;
+    &::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+            cursor: pointer;
+        }
+        &::-webkit-scrollbar-track {
+            border-radius: 10px;
+            background: #3D3D3D77;
+        }
+        &::-webkit-scrollbar-thumb{
+            border-radius: 10px;
+            background: #353535;
+        }
+        &::-webkit-scrollbar-thumb:hover{
+            background: ${color.secondaryBlack};
+        }
+        &::-webkit-scrollbar-thumb:active{
+            background: #484848;
+        }
     @media ${device.desktop}{
         width: calc(100vw - 200px);
         height: 285px;  
@@ -210,6 +237,16 @@ export const ImgCards = styled.img`
         border-radius: 15px;
     } 
 `
+export const ImgAvatarProfile = styled.img`
+    width: 50px;
+    height: 50px;
+    border-radius:50px;
+    @media ${device.desktop}{
+        display:none;
+    } 
+`
+
+
 
 
 
