@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import fetchKey from '../../api/fetchKey';
-import LogoSpinner from '../loaders/spinner/LogoSpinner';
+import LogoSpinner from '../general_components/loaders/spinner/LogoSpinner';
 import { H2Style } from '../style/generalStyle';
 import {
   DivCarrousel,
