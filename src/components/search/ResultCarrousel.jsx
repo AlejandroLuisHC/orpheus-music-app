@@ -8,8 +8,9 @@ import { H2Style } from '../style/generalStyle';
 import {
   DivCarrousel,
   DivCarrouselTitle,
-  DivResultCard,
+  DivCard,
   DivSlider,
+  ImgCard,
 } from '../style/searchStyle';
 
 const ResultCarrousel = ({ apiKey, search }) => {
@@ -17,6 +18,7 @@ const ResultCarrousel = ({ apiKey, search }) => {
   const { data, status } = useQuery([apiKey, apiKey], () => fetchKey(apiKey));
 
   const [searchResults, setSearchResults] = useState([]);
+  console.log(apiKey, searchResults)
 
   useEffect(() => {
     if (!search) return setSearchResults([]);
@@ -30,8 +32,8 @@ const ResultCarrousel = ({ apiKey, search }) => {
       setSearchResults(
         usersResults?.map((result) => ({
           id: result.id,
-          name: result.username,
-          img: result.avatar,
+          name: result.userData.username,
+          img: result.userData.avatar,
         }))
       );
 
@@ -66,12 +68,12 @@ const ResultCarrousel = ({ apiKey, search }) => {
 
           <DivSlider>
             {searchResults?.map((result) => (
-              <DivResultCard /* as={Link} to={`/${apiKey}/${result.name}`} */ key={result.id}>
-                <img src={result.img} alt="" />
+              <DivCard resultType={apiKey} /* as={Link} to={`/${apiKey}/${result.name}`} */ key={result.id}>
+                <ImgCard resultType={apiKey} src={result.img} alt="" />
                 <div>
                   <p>{result.name}</p>
                 </div>
-              </DivResultCard>
+              </DivCard>
             ))}
           </DivSlider>
         </DivCarrousel>

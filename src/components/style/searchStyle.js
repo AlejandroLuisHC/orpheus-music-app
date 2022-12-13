@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { InputStyle } from "./generalStyle";
 import { color, device } from "./utils/styleConstants";
 
 export const MainFlexContainer = styled.main`
@@ -6,6 +7,24 @@ export const MainFlexContainer = styled.main`
     flex-direction: column;
     height: 100vh;
 `;
+
+export const FormSearchStyle = styled.form`
+    display: flex;
+    justify-content: center;
+
+    @media ${device.desktop}{      
+        justify-content: flex-start;
+    }
+`
+
+export const InputSearchStyle = styled(InputStyle)`
+    width: 92%;
+    margin: 1rem;
+    padding: 1rem;
+    max-width: 360px;
+    font-size: 14px;
+    text-align: left;
+`
 
 export const DivSearchResults = styled.div`
     flex-grow: 1;
@@ -54,7 +73,7 @@ export const DivSlider = styled.div`
     }
 `
 
-export const DivResultCard = styled.div`
+export const DivCard = styled.div`
     display: flex;
     flex-direction: column;
     width: 9rem;
@@ -64,30 +83,26 @@ export const DivResultCard = styled.div`
     text-decoration: none;
     color: ${color.primaryWhite};
 
-    @media ${device.desktop}{
-        min-width: 220px;
-        height: 270px;
-    }
+    width: ${props => props.resultType === 'events' && '14rem'};
 
-    img {
-        background: ${color.primaryWhite};
-        height: 8rem;
-        width: 8rem;
-        object-fit: cover;
-        border-radius: 20px;
-        margin-bottom: .3rem
-    }
-
-    p {
-        font-size: .8em;
-
+    @media ${device.desktop}{      
+        width: ${props => props.resultType === 'events' ? '420px' : '220px'};
+        height: ${props => props.resultType === 'events' ? '300px' : '270px'};
     }
 `;
 
+export const ImgCard = styled.img`
+    background: ${color.primaryWhite};
+    height: 8rem;
+    width: 8rem;
+    object-fit: cover;
+    border-radius: 20px;
+    border-radius: ${props => props.resultType === 'users' && "50%"};
+    width: ${props => props.resultType === 'events' && '100%'};
+    margin-bottom: .3rem;
 
-// export const DivSearchRestultsCarrousel = styled.div`
-//     background: darkblue;
-//     display: flex;
-//     flex-direction: column;
-//     gap: 3rem;
-// `;
+    @media ${device.desktop}{      
+        width: ${props => props.resultType === 'events' ? '400px' : '200px'};
+        height: ${props => props.resultType === 'events' ? '240px' : '200px'};
+    }
+`
