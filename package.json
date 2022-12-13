@@ -14,7 +14,9 @@
     "@tanstack/react-query": "^4.18.0",
     "boring-avatars": "^1.7.0",
     "hero-slider": "^3.1.0",
+    "i": "^0.3.7",
     "json-server": "^0.17.1",
+    "npm": "^9.2.0",
     "react": "^18.2.0",
     "react-content-loader": "^6.2.0",
     "react-country-region-selector": "^3.6.1",
@@ -23,6 +25,7 @@
     "react-icons": "^4.7.1",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.4",
+    "react-simple-player": "^1.1.0",
     "react-spinners": "^0.13.6",
     "styled-components": "^5.3.6"
   },

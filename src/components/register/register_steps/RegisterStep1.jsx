@@ -49,7 +49,7 @@ const RegisterStep1 = ({ register, watch, userDataAvailable, setFormSteps }) => 
             >
                 Next
             </ButtonPrimaryStyle>
-            <ButtonSecondaryStyle onClick={() => navigate(-1)}>Back</ButtonSecondaryStyle>
+            <ButtonSecondaryStyle onClick={() => navigate('/')}>Back</ButtonSecondaryStyle>
         </>
     )
 }
