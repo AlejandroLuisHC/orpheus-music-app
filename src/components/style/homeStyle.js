@@ -139,14 +139,13 @@ export const DivSlider = styled.div`
 export const DivSliderUser = styled.div`
     display:flex;
     width: calc(100vw - 40px );
-    height: 190px;
+    height: 155px;
     cursor:pointer;
     overflow: auto;
     gap:20px;
-
     @media ${device.desktop}{
         width: calc(100vw - 200px);
-        height: 285px;  
+        height: 235px;  
         &::-webkit-scrollbar {
             width: 6px;
             height: 6px;
@@ -169,12 +168,39 @@ export const DivSliderUser = styled.div`
     }
 `
 export const DivSliderEvents = styled.div`
-
+    display:flex;
+    width: calc(100vw - 40px );
+    height: 239px;
+    cursor:pointer;
+    overflow: auto;
+    gap:20px;
+    @media ${device.desktop}{
+        width: calc(100vw - 200px);
+        height: 305px;  
+        &::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+            cursor: pointer;
+        }
+        &::-webkit-scrollbar-track {
+            border-radius: 10px;
+            background: #3D3D3D77;
+        }
+        &::-webkit-scrollbar-thumb{
+            border-radius: 10px;
+            background: #353535;
+        }
+        &::-webkit-scrollbar-thumb:hover{
+            background: ${color.secondaryBlack};
+        }
+        &::-webkit-scrollbar-thumb:active{
+            background: #484848;
+        }
+    }
 `
 
 export const DivSliderEvent = styled.div`
     display:none;
-
     @media ${device.desktop}{
         width: calc(100vw - 200px);
         height: 285px;  
@@ -201,9 +227,9 @@ export const DivSliderEvent = styled.div`
 `
 
 export const DivCardUser = styled.div`
+    position: relative;
     min-width: 140px; 
     max-width: 140px;
-    margin-top:-45px;
     overflow: hidden ;
     @media ${device.desktop}{
         min-width: 220px;
@@ -212,7 +238,8 @@ export const DivCardUser = styled.div`
 `
 export const DivCardEvent = styled.div`
     @media ${device.desktop}{
-
+        min-width: 420px;
+        height: 300px;
     } 
 `
 
@@ -366,30 +393,27 @@ export const ImgAvatarUser = styled.img`
     }
 `
 export const H3NameUser = styled.h3`
-    font-size:24px;
-    position:relative;
-    left:10px;
-    top:130px;
+    font-size: 24px;
+    position: absolute;
+    left: 0;
+    top: 90px;
     text-shadow: 1px 1px 2px black, 0 0 20px black, 0 0 4px black;
     @media ${device.desktop}{
-        font-size:34px;
-        left:20px;
-        top:200px;
-        
+        font-size: 34px;
+        left: 0;
+        top: 140px;
     } 
 `
 export const H4NameUser = styled.h4`
-    font-size:16px;
-    position:relative;
-    left:10px;
-    top:130px;
-
+    font-size: 16px;
+    position: absolute;
+    left: 5px;
+    top: 120px;
     text-shadow: 1px 1px 2px black, 0 0 20px black, 0 0 4px black;
     @media ${device.desktop}{
-        font-size:16px;
-        left:20px;
-        top:200px;
-        
+        font-size: 16px;
+        left: 5px;
+        top: 180px; 
     } 
 `
 

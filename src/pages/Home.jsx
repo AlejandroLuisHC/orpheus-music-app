@@ -7,7 +7,7 @@ import PlaylistBox from "../components/home/PlaylistBox"
 import Hero from '../components/home/hero/Hero'
 import AsideProfile from '../components/general_components/aside/AsideProfile'
 import AvatarImg from '../components/general_components/AvatarImg'
-import FollowUsersBox from '../components/home/FollowUsersBox'
+import UsersBox from '../components/home/UsersBox'
 import EventsBox from '../components/home/EventsBox'
 
 const Home = () => {
@@ -62,10 +62,10 @@ const Home = () => {
             {/* View in Desktop */}
             <DivHomeCarousels>
                 <EventsBox/>
-                <FollowUsersBox/>
                 <PlaylistBox/>
                 <AlbumBox/>
                 <TrackBox/>
+                <UsersBox/>
             </DivHomeCarousels>
             {/* View in Desktop */}
         </DivHomeStyle>                                               

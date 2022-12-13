@@ -6,7 +6,7 @@ import { memo } from "react"
 import { DivCardUser, DivElementTitles, DivSliderUser, H3NameUser, H4NameUser, ImgAvatarUser, LinkHome } from "../style/homeStyle"
 
 
-const FollowUsersBox = () => {
+const UsersBox = () => {
     const { data, status: followUsersStatus } = useQuery(['users', 'users'], () => fetchKey("users"))
 
     return (
@@ -17,24 +17,22 @@ const FollowUsersBox = () => {
                 :
                 <div>
                     <DivElementTitles>
-                        <H2Style> Most Follow Users </H2Style>
+                        <H2Style>Users</H2Style>
                         <LinkHome>View more</LinkHome>
                     </DivElementTitles>
 
                     <DivSliderUser>
-                        {
-                            data?.map((user) =>
-                                <DivCardUser key={user.id}>                                    
-                                        <H3NameUser>{user.userData.username} </H3NameUser>
-                                        <H4NameUser>{user.followers.length} followers</H4NameUser>
-                                    <ImgAvatarUser src={user.userData.avatar} />
-                                </DivCardUser>
-                            )
-                        }
+                        {data?.map((user) =>
+                            <DivCardUser key={user.id}>                                    
+                                <ImgAvatarUser src={user.userData.avatar} />
+                                <H3NameUser>{user.userData.username} </H3NameUser>
+                                <H4NameUser>{user.followers.length} followers</H4NameUser>
+                            </DivCardUser>
+                        )}
                     </DivSliderUser>
 
                 </div>
 
     )
 }
-export default memo(FollowUsersBox)
+export default memo(UsersBox)
