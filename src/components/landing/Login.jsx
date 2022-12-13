@@ -88,7 +88,7 @@ const Login = () => {
                                 <ButtonPrimaryStyle type="submit">Login<IoMdLogIn /></ButtonPrimaryStyle>
                                 {invalidLogin && <PErrorStyle>Incorrect Username or Password</PErrorStyle>}
                             </form>
-                            <HrStyle style={{margin: "30px auto", width: "25vw"}} />
+                            <HrStyle />
                         </FieldsetStyle>
                     </div>
 

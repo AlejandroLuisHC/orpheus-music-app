@@ -220,7 +220,27 @@ export const H2Style = styled.h2`
     color: ${color.primaryYellow};
     font-size: 24px;
     font-weight: bold;
+    cursor:pointer;
+    @media ${device.desktop}{
+        font-size: 36px;
+    }
+    &:hover{
+        color:${color.primaryWhite}
+    }
 `
+export const H2StyleWhite = styled.h2`
+    color: ${color.primaryWhite};
+    font-size: 24px;
+    font-weight: bold;
+    cursor:pointer;
+    @media ${device.desktop}{
+        font-size: 36px;
+    }
+    &:hover{
+        color:${color.primaryYellow}
+    }
+`
+
 export const FieldsetStyle = styled.fieldset`
     border: none;  
 `
@@ -412,12 +432,17 @@ export const DivImgBannerSliderHome = styled.div`
 `
 
 /* RECTANGLE */
-export const DivImgRectangleL = styled.div`
+export const DivImgRectangleL = styled.img`
+    display:none;
+    transition: 300;
     @media ${device.desktop}{
-        width: 400px;
-        heigth: 250px;
+        display:block;
+        width: 420px;
+        height:250px;
         border-radius: 10px;
+        object-fit:cover;
     }
+   
 `
 export const FormStyle = styled.form`
     display: flex;
