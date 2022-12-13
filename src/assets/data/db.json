@@ -12,7 +12,7 @@
         "password": "admin123",
         "secretQuestion": "",
         "secretAnswer": "",
-        "avatar": "admin1",
+        "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670929861/Final-Project-MERN/Tracks/Lovelace_team_vl79eo.jpg",
         "banner": "",
         "favGenres": []
       },
@@ -43,7 +43,7 @@
         "password": "user123",
         "secretQuestion": "",
         "secretAnswer": "",
-        "avatar": "user",
+        "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670937923/Final-Project-MERN/Users/avatar-716d761a69eb183869ac189301ed6cc4_porhhq.jpg",
         "banner": "",
         "favGenres": [
           2,
@@ -70,7 +70,7 @@
       "favPlaylists": [],
       "favAlbums": [],
       "favTracks": [],
-      "followers": [],
+      "followers": [1, 1, 1, 1, 1 ],
       "following": [],
       "isVerified": true,
       "isAdmin": false,
@@ -88,7 +88,7 @@
         "password": "0000",
         "secretQuestion": "What is your favourite pizza?",
         "secretAnswer": "4quesos",
-        "avatar": "\"2022-12-12T15:57:48.477Z\"",
+        "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670937861/Final-Project-MERN/Users/1658342188376_ccgwky.jpg",
         "banner": "",
         "favGenres": [
           9,
@@ -113,7 +113,7 @@
     {
       "id": 4,
       "userData": {
-        "username": "edSheeran",
+        "username": "EdSheeran",
         "firstName": "Edward ",
         "lastName": "Christopher Sheeran ",
         "email": "SheeranEd@gmail.com",
@@ -138,7 +138,7 @@
       "favPlaylists": [1],
       "favAlbums": [1,2,3],
       "favTracks": [1,2,3,4,5],
-      "followers": [673],
+      "followers": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
       "following": [100],
       "isVerified": false,
       "isAdmin": false,
@@ -147,7 +147,7 @@
     {
     "id": 5,
     "userData": {
-      "username": "eminem",
+      "username": "Eminem",
       "firstName": "Marshall  ",
       "lastName": "Bruce Mathers ",
       "email": "marshaleminem@gmail.com",
@@ -172,8 +172,8 @@
     "favPlaylists": [1, 2],
     "favAlbums": [1, 2, 3],
     "favTracks": [1, 2, 3, 4, 5],
-    "followers": [18299],
-    "following": [322],
+    "followers": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    "following": [3,22],
     "isVerified": false,
     "isAdmin": false,
     "isLoggedIn": false
@@ -182,7 +182,7 @@
     {
     "id": 6,
     "userData": {
-      "username": "drake",
+      "username": "Drake",
       "firstName": "Aubrey   ",
       "lastName": "Drake Graham ",
       "email": "drake@gmail.com",
@@ -207,8 +207,8 @@
     "favPlaylists": [1,2],
     "favAlbums": [1,2,3],
     "favTracks": [1,2,3,4,5],
-    "followers": [12299],
-    "following": [122],
+    "followers": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    "following": [1,22],
     "isVerified": false,
     "isAdmin": false,
     "isLoggedIn": false
@@ -218,7 +218,7 @@
     {
       "id": 1,
       "type": "Concert",
-      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670925171/Final-Project-MERN/Events/Vinya_Final_Total-pastilla_zao9kd.png",
+      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670945363/Final-Project-MERN/Events/vina-rock-festival-1658130161.2789404.2560x1440_yoanoy.jpg",
       "location": "Spain / Barcelona",
       "name": "Viña rock",
       "description": "...",
@@ -238,7 +238,7 @@
     {
       "id": 2,
       "type": "Concert",
-      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670925171/Final-Project-MERN/Events/images_1_vru1ye.jpg",
+      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670943481/Final-Project-MERN/Events/4b983aec43ff233ffa7972bc53f7cfe5_dzyjhf.jpg",
       "location": "Spain / Madrid",
       "name": "VV- Neon Noir Tour 2023",
       "description": "...",
@@ -250,12 +250,12 @@
       ],
       "date": "24/2/2023",
       "stock": 600,
-      "price": 45
+      "price": 35
     },
     {
       "id": 3,
       "type": "Concert",
-      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670925171/Final-Project-MERN/Events/images_2_djdd9r.jpg",
+      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670943453/Final-Project-MERN/Events/maneskin._a6j8tm.jpg",
       "location": "Spain / Sevilla",
       "name": "Måneskin",
       "description": "...",
@@ -266,15 +266,15 @@
         1
       ],
       "date": "24/2/2023",
-      "stock": 600,
+      "stock": 900,
       "price": 45
     },
     {
       "id":4 ,
-      "type": "Concert",
-      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670925171/Final-Project-MERN/Events/images_opbx6k.jpg",
-      "location": "Spain / Barcelona",
-      "name": "Tokio Hotel",
+      "type": "Festival",
+      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670943435/Final-Project-MERN/Events/resurrection_fest2023cartel_1_500x267_njuytk.jpg",
+      "location": "Spain / Galicia",
+      "name": "Resurrection Fest",
       "description": "...",
       "genres": [
         1
@@ -282,9 +282,9 @@
       "artists": [
         1
       ],
-      "date": "24/2/2023",
-      "stock": 600,
-      "price": 45
+      "date": "28/6/2023",
+      "stock": 1900,
+      "price": 55
     }
   ],
   "playlists": [
