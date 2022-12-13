@@ -144,7 +144,18 @@
   "albums": [
     {
       "id": 1,
-      "name": "Rock in the morning",
+      "name": "Albun name 1",
+      "description": "...",
+      "img": "",
+      "tracks": [1, 3, 45, 23, 18],
+      "followers": [2],
+      "genres": [2, 3],
+      "release": "",
+      "owner": "user.id"
+    },
+    {
+      "id": 2,
+      "name": "Albun name 2",
       "description": "...",
       "img": "",
       "tracks": [1, 3, 45, 23, 18],

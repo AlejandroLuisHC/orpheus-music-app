@@ -13,28 +13,22 @@ export const DivSearchResults = styled.div`
 `;
 
 export const DivCarrousel = styled.div`
-    /* background: darkblue; */
-    height: 14rem;
     margin: .5rem;
     align-items: space-around;
 `
 
 export const DivCarrouselTitle = styled.div`
-    /* background: darkgreen; */
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: .5rem;
-    /* padding-right: 20px;
-    margin-bottom: 10px; */
 `
 
 export const DivSlider = styled.div`
     display: flex;
-    /* width: calc(100vw - 40px); */
-    width: 100%;
-    max-height: 100%;
-    /* overflow: auto; */
+    width: calc(100vw - 40px);
+    height: 13rem;
+    overflow: auto;
     @media ${device.desktop}{
         width: calc(100vw - 200px);
         height: 285px;
@@ -63,11 +57,11 @@ export const DivSlider = styled.div`
 export const DivResultCard = styled.div`
     display: flex;
     flex-direction: column;
-    width: 9rem;
-    height: 11rem;
+    height: 100%;
     padding: .5rem;
-    background: hsla(0, 0%, 100%, 0.02);
     border-radius: 20px;
+    text-decoration: none;
+    color: ${color.primaryWhite};
 
     @media ${device.desktop}{
         min-width: 220px;
@@ -76,9 +70,16 @@ export const DivResultCard = styled.div`
 
     img {
         background: ${color.primaryWhite};
-        /* height: 100%; */
+        height: 8rem;
+        width: 8rem;
         object-fit: cover;
         border-radius: 20px;
+        margin-bottom: .3rem
+    }
+
+    p {
+        font-size: .8em;
+
     }
 `;
 

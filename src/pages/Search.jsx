@@ -1,9 +1,5 @@
-import { useQuery } from '@tanstack/react-query';
-import React from 'react';
-import { useState, useEffect } from 'react';
-import { useForm } from 'react-hook-form';
-import fetchKey from '../api/fetchKey';
-import ResultTypeCarrousel from '../components/search/ResultTypeCarrousel';
+import { useParams, useSearchParams } from 'react-router-dom';
+import ResultCarrousel from '../components/search/ResultCarrousel';
 import { FormStyle, InputStyle } from '../components/style/generalStyle';
 import {
   DivSearchResults,
@@ -11,66 +7,27 @@ import {
 } from '../components/style/searchStyle';
 
 const Search = () => {
-  // const { data: playlists } = useQuery(['playlists', 'playlists'], () =>
-  //   fetchKey('playlists')
-  // );
+  //TODO: ¿empezar a buscar a las 3 letras?
 
-  const {
-    register,
-    watch,
-    formState: { errors },
-  } = useForm();
-
-  // const [searchResults, setSearchResults] = useState([]);
-  // console.log('searchResults', searchResults);
-
-  // const search = watch('search', '').toLowerCase();
-
-  // useEffect(() => {
-  //   if (!search) return setSearchResults([]);
-  //   fetchKey('playlists');
-  //   // let cancel = false;
-  //   // if (cancel) return;
-
-  //   const results = playlists?.filter(
-  //     (playlist) =>
-  //       playlist.name.toLowerCase().includes(search) ||
-  //       playlist.description.toLowerCase().includes(search)
-  //   );
-
-  //   setSearchResults(
-  //     results.map((result) => ({
-  //       id: result.id,
-  //       name: result.name,
-  //       img: result.img,
-  //     }))
-  //   );
-
-  //   // return () => cancel = true;
-  // }, [search]);
+  const [searchParmams, setSearchParams] = useSearchParams();
+  const search = searchParmams.get('q') || '';
 
   return (
     <MainFlexContainer>
       <FormStyle>
         <InputStyle
           type="search"
+          onChange={(e) => setSearchParams({ q: e.target.value })}
+          value={search}
           placeholder="Users, songs, playlists, events, genres or moods"
-          {...register('search')}
         ></InputStyle>
       </FormStyle>
 
       <DivSearchResults>
-        <ResultTypeCarrousel apiKey={'playlists'} watch={watch} />
-        <ResultTypeCarrousel apiKey={'tracks'} watch={watch} />
-
-        {/* {searchResults?.map((result) => (
-          <DivResultCard key={result.id}>
-            <img src={result.img} alt="" />
-            <div>
-              <p>{result.name}</p>
-            </div>
-          </DivResultCard>
-        ))} */}
+        <ResultCarrousel apiKey={'tracks'} search={search} />
+        <ResultCarrousel apiKey={'playlists'} search={search} />
+        <ResultCarrousel apiKey={'albums'} search={search} />
+        <ResultCarrousel apiKey={'events'} search={search} />
       </DivSearchResults>
     </MainFlexContainer>
   );
