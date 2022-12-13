@@ -30,6 +30,9 @@ export const H1Welcome = styled.h1`
     display:flex;
     justify-content: space-between;
     align-items:center;
+    @media ${device.desktop}{
+        font-size:40px;
+    } 
 `
 /* DIV CARDS */
 
@@ -42,7 +45,7 @@ export const DivFavAndPlaylist = styled.div`
 export const DivBoxStyle = styled.div`
     display: flex;
     gap: 15px;
-    margin-bottom:25px
+    margin-bottom:25px;
 `
 
 /* CARDMUSIC */
@@ -215,6 +218,16 @@ export const ImgCards = styled.img`
         border-radius: 15px;
     } 
 `
+export const ImgAvatarProfile = styled.img`
+    width: 50px;
+    height: 50px;
+    border-radius:50px;
+    @media ${device.desktop}{
+        display:none;
+    } 
+`
+
+
 
 
 
