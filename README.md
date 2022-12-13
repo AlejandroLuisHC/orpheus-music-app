@@ -47,13 +47,16 @@ npm run dev
 - [Redux-toolkit](https://redux-toolkit.js.org/)
 - [React-hook-form](https://react-hook-form.com/)
 - [Styled-Components](https://styled-components.com/)
+- [npm](https://www.npmjs.com/)
 
 ## Other libraries ⚙️
 - [json-server](https://github.com/typicode/json-server)
 - [hero-slider](https://www.npmjs.com/package/hero-slider)
 - [react-content-loader](https://github.com/danilowoz/react-content-loader)
 - [react-country-region-selector](https://www.npmjs.com/package/react-country-region-selector)
-- [react-icons](https://react-icons.github.io/react-icons/)
+- [react-icons](https://react-icons.github.io/react-icons)
+- [react-simple-player](https://github.com/streamich/react-simple-player)
+- [boring-avatars](https://boringavatars.com/)
 
 ## Contributing 🖇️
 
