@@ -78,7 +78,6 @@ export const Header = styled.header`
 
 export const Main = styled.main`
     grid-row: 1;
-    padding-bottom: 40px;
     @media ${device.desktop}{
         grid-column: 2;
         grid-row: 1 / span 3;
@@ -452,7 +451,7 @@ export const DivMusicPlayerInfo = styled.div`
     width: 240px;
     height: 40px;
     display: flex;
-    color: white
+    color: white;
 `
             
 export const DivInfoTrack = styled.div`
@@ -464,27 +463,30 @@ export const DivInfoTrack = styled.div`
     width: 120px;
     overflow: hidden;
     border-radius: 3px 0 0 3px;
- @media ${device.desktop}{
-    width: 200px;
+    @media ${device.desktop}{
+        width: 200px;
     }
  `
 
- export const ButtonClosePlayer = styled.button`
+export const ButtonClosePlayer = styled.button`
     border: none;
     color: ${color.primaryWhite};
+    background-color: #12121299;
     font-size: 24px;
-    cursor: pointer;
     width: 40px;
-    background-color: #12121288;
     border-radius: 0 3px 3px 0;
+    cursor: pointer;
     &:hover{
         color: ${color.primaryYellow};
     }
- `
- export const SpanPlayerUser = styled.span`
+    @media ${device.desktop}{
+        background-color: #121212;
+    }
+`
+export const SpanPlayerUser = styled.span`
     font-size: .8em;
     color: ${color.secondaryYellow}
- `
+`
 
 export const SpanPlayerName = styled.span`
 font-size: .9em;

@@ -21,7 +21,7 @@ export const DivHomeStyle = styled.div`
     padding: 20px 20px 40px 20px;
     width: 100%;
     @media ${device.desktop}{
-        padding-bottom: 40px
+        padding: 0 0 40px 0;
     } 
 `
 export const H1Welcome = styled.h1`
