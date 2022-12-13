@@ -57,6 +57,7 @@ export const DivSlider = styled.div`
 export const DivResultCard = styled.div`
     display: flex;
     flex-direction: column;
+    width: 9rem;
     height: 100%;
     padding: .5rem;
     border-radius: 20px;

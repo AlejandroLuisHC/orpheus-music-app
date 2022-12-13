@@ -21,20 +21,34 @@ const ResultCarrousel = ({ apiKey, search }) => {
   useEffect(() => {
     if (!search) return setSearchResults([]);
 
-    const results = data?.filter(
-      (item) =>
+    if (apiKey === 'users') {
+      const usersResults = data?.filter(({userData}) => 
+        userData.username.toLowerCase().includes(search) ||
+        userData.firstName.toLowerCase().includes(search)
+      );
+
+      setSearchResults(
+        usersResults?.map((result) => ({
+          id: result.id,
+          name: result.username,
+          img: result.avatar,
+        }))
+      );
+
+    } else {
+      const results = data?.filter((item) =>
         item.name.toLowerCase().includes(search) ||
         item.description.toLowerCase().includes(search)
-    );
+      );
 
-    setSearchResults(
-      results?.map((result) => ({
-        id: result.id,
-        name: result.name,
-        // owner: result.owner,
-        img: result.img,
-      }))
-    );
+      setSearchResults(
+        results?.map((result) => ({
+          id: result.id,
+          name: result.name,
+          img: result.img,
+        }))
+      );
+    }
   }, [search, data]);
 
   return (
@@ -52,11 +66,10 @@ const ResultCarrousel = ({ apiKey, search }) => {
 
           <DivSlider>
             {searchResults?.map((result) => (
-              <DivResultCard as={Link} /* to={`/${apiKey}/${result.name}`} */ key={result.id}>
+              <DivResultCard /* as={Link} to={`/${apiKey}/${result.name}`} */ key={result.id}>
                 <img src={result.img} alt="" />
                 <div>
                   <p>{result.name}</p>
-                  {/* <p>{result.owner}</p> */}
                 </div>
               </DivResultCard>
             ))}

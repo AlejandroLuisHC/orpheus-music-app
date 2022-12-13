@@ -1,4 +1,4 @@
-import { useParams, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import ResultCarrousel from '../components/search/ResultCarrousel';
 import { FormStyle, InputStyle } from '../components/style/generalStyle';
 import {
@@ -7,7 +7,6 @@ import {
 } from '../components/style/searchStyle';
 
 const Search = () => {
-  //TODO: ¿empezar a buscar a las 3 letras?
 
   const [searchParmams, setSearchParams] = useSearchParams();
   const search = searchParmams.get('q') || '';
@@ -28,6 +27,7 @@ const Search = () => {
         <ResultCarrousel apiKey={'playlists'} search={search} />
         <ResultCarrousel apiKey={'albums'} search={search} />
         <ResultCarrousel apiKey={'events'} search={search} />
+        <ResultCarrousel apiKey={'users'} search={search} />
       </DivSearchResults>
     </MainFlexContainer>
   );
