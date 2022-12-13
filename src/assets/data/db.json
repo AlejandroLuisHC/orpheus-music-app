@@ -20,7 +20,18 @@
         "myAlbums": [],
         "myTracks": []
       },
-      "myPlaylists": [],
+      "myPlaylists": [
+        {
+          "id": 1,
+          "name": "Happy Songs",
+          "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670861612/Final-Project-MERN/Playlist/ab67706c0000bebbe39142e42362f0d30b99a815_u1smnw.jpg"
+        },
+        {
+          "id": 2,
+          "name": "Happy Songs",
+          "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670861612/Final-Project-MERN/Playlist/ab67706c0000bebbe39142e42362f0d30b99a815_u1smnw.jpg"
+        }
+      ],
       "favPlaylists": [],
       "favAlbums": [],
       "favTracks": [],
@@ -43,28 +54,42 @@
         "secretAnswer": "",
         "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670937923/Final-Project-MERN/Users/avatar-716d761a69eb183869ac189301ed6cc4_porhhq.jpg",
         "banner": "",
-        "favGenres": [
-          2,
-          3,
-          1,
-          4
-        ]
+        "favGenres": [2, 3, 1, 4]
       },
       "work": {
-        "myAlbums": [
-          16
-        ],
-        "myTracks": [
-          58,
-          59,
-          60,
-          61
-        ]
+        "myAlbums": [16],
+        "myTracks": [58, 59, 60, 61]
       },
-      "myPlaylists": [
-        23,
-        21
-      ],
+      "myPlaylists": [23, 21],
+      "favPlaylists": [],
+      "favAlbums": [],
+      "favTracks": [],
+      "followers": [1, 1, 1, 1, 1],
+      "following": [],
+      "isVerified": true,
+      "isAdmin": false
+    },
+    {
+      "id": 3,
+      "userData": {
+        "username": "zzezequiel",
+        "firstName": "Ezequiel",
+        "lastName": "Zvirgzdins",
+        "email": "zzezequiel@hotmail.com.ar",
+        "country": "Spain",
+        "city": "Barcelona",
+        "password": "0000",
+        "secretQuestion": "What is your favourite pizza?",
+        "secretAnswer": "4quesos",
+        "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670937861/Final-Project-MERN/Users/1658342188376_ccgwky.jpg",
+        "banner": "",
+        "favGenres": [9, 6, 8]
+      },
+      "work": {
+        "myAlbums": [],
+        "myTracks": []
+      },
+      "myPlaylists": [],
       "favPlaylists": [],
       "favAlbums": [],
       "favTracks": [],
@@ -212,6 +237,7 @@
       "id": 1,
       "type": "Concert",
       "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670945363/Final-Project-MERN/Events/vina-rock-festival-1658130161.2789404.2560x1440_yoanoy.jpg",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670945363/Final-Project-MERN/Events/vina-rock-festival-1658130161.2789404.2560x1440_yoanoy.jpg",
       "location": "Spain / Barcelona",
       "name": "Viña rock",
       "description": "...",
@@ -231,6 +257,7 @@
     {
       "id": 2,
       "type": "Concert",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670943481/Final-Project-MERN/Events/4b983aec43ff233ffa7972bc53f7cfe5_dzyjhf.jpg",
       "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670943481/Final-Project-MERN/Events/4b983aec43ff233ffa7972bc53f7cfe5_dzyjhf.jpg",
       "location": "Spain / Madrid",
       "name": "VV- Neon Noir Tour 2023",
@@ -248,6 +275,7 @@
     {
       "id": 3,
       "type": "Concert",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670943453/Final-Project-MERN/Events/maneskin._a6j8tm.jpg",
       "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670943453/Final-Project-MERN/Events/maneskin._a6j8tm.jpg",
       "location": "Spain / Sevilla",
       "name": "Måneskin",
@@ -265,6 +293,7 @@
     {
       "id":4 ,
       "type": "Festival",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670943435/Final-Project-MERN/Events/resurrection_fest2023cartel_1_500x267_njuytk.jpg",
       "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670943435/Final-Project-MERN/Events/resurrection_fest2023cartel_1_500x267_njuytk.jpg",
       "location": "Spain / Galicia",
       "name": "Resurrection Fest",
@@ -464,6 +493,178 @@
         "focused",
         "happy"
       ],
+      "owner": 1
+    },
+    {
+      "id": 2,
+      "name": "Rock Classics",
+      "description": "...",
+      "img": "https://www.thisisdig.com/wp-content/uploads/2020/09/ROCK-CLASSICS-1_DIG-626x626.jpg",
+      "tracks": [
+        { "id": 2, "added": "new Data()" },
+        { "id": 45, "added": "" },
+        { "id": 2, "added": "" },
+        { "id": 2, "added": "" }
+      ],
+      "followers": [2],
+      "genres": [2, 3],
+      "moods": ["relax", "focused"],
+      "owner": 2
+    },
+    {
+      "id": 3,
+      "name": "Coding Focus",
+      "description": "...",
+      "img": "https://cdn-icons-png.flaticon.com/512/4191/4191039.png",
+      "tracks": [
+        { "id": 2, "added": "new Data()" },
+        { "id": 45, "added": "" },
+        { "id": 2, "added": "" },
+        { "id": 2, "added": "" }
+      ],
+      "followers": [2],
+      "genres": [2, 3],
+      "moods": ["relax", "focused"],
+      "owner": 1
+    },
+    {
+      "id": 4,
+      "name": "Happy Songs",
+      "description": "songs by mood",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670861612/Final-Project-MERN/Playlist/ab67706c0000bebbe39142e42362f0d30b99a815_u1smnw.jpg",
+      "tracks": [
+        {
+          "id": 1,
+          "added": "new Data()"
+        },
+        {
+          "id": 2,
+          "added": ""
+        },
+        {
+          "id": 3,
+          "added": ""
+        },
+        {
+          "id": 4,
+          "added": ""
+        }
+      ],
+      "followers": [5],
+      "genres": [2, 3],
+      "moods": ["relax", "focused", "happy"],
+      "owner": 1
+    },
+    {
+      "id": 5,
+      "name": "Car mood",
+      "description": "songs by mood",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670861613/Final-Project-MERN/Playlist/ab67706c0000bebbcd9bd13f71d8b16277e1092a_h52fvu.jpg",
+      "tracks": [
+        {
+          "id": 4,
+          "added": "new Data()"
+        },
+        {
+          "id": 5,
+          "added": ""
+        },
+        {
+          "id": 6,
+          "added": ""
+        },
+        {
+          "id": 7,
+          "added": ""
+        }
+      ],
+      "followers": [21],
+      "genres": [2, 3],
+      "moods": ["relax", "focused", "happy"],
+      "owner": 1
+    },
+    {
+      "id": 6,
+      "name": "Dance Party ",
+      "description": "songs by mood",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670861613/Final-Project-MERN/Playlist/ab67706c0000bebb6c5db53da7585761f71553ae_sctyv0.jpg",
+      "tracks": [
+        {
+          "id": 6,
+          "added": "new Data()"
+        },
+        {
+          "id": 7,
+          "added": ""
+        },
+        {
+          "id": 8,
+          "added": ""
+        },
+        {
+          "id": 9,
+          "added": ""
+        }
+      ],
+      "followers": [32],
+      "genres": [2, 3],
+      "moods": ["relax", "focused", "happy"],
+      "owner": 1
+    },
+    {
+      "id": 7,
+      "name": "Night Music",
+      "description": "songs by mood",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670861612/Final-Project-MERN/Playlist/ab67706c0000bebb236f93662a38855836724bbd_fum1em.jpg",
+      "tracks": [
+        {
+          "id": 8,
+          "added": "new Data()"
+        },
+        {
+          "id": 9,
+          "added": ""
+        },
+        {
+          "id": 10,
+          "added": ""
+        },
+        {
+          "id": 11,
+          "added": ""
+        }
+      ],
+      "followers": [74],
+      "genres": [2, 3],
+      "moods": ["relax", "focused", "happy"],
+      "owner": 1
+    },
+    {
+      "id": 8,
+      "name": "Rap Life",
+      "description": "songs by mood",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670861612/Final-Project-MERN/Playlist/images_1_gexm1a.jpg",
+      "tracks": [
+        {
+          "id": 2,
+          "added": "new Data()"
+        },
+        {
+          "id": 45,
+          "added": ""
+        },
+        {
+          "id": 2,
+          "added": ""
+        },
+        {
+          "id": 2,
+          "added": ""
+        }
+      ],
+      "followers": [2],
+      "genres": [2, 3],
+      "moods": ["relax", "focused", "happy"],
       "owner": 1
     }
   ],
