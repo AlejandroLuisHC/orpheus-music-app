@@ -18,10 +18,10 @@ export const DivMobileButtons = styled.div`
     } 
 `
 export const DivHomeStyle = styled.div`
-    padding: 20px 20px 0 20px;
+    padding: 20px 20px 40px 20px;
     width: 100%;
     @media ${device.desktop}{
-        padding: 0;
+        padding: 0 0 40px 0;
     } 
 `
 export const H1Welcome = styled.h1`
@@ -47,8 +47,26 @@ export const DivBoxStyle = styled.div`
     gap: 15px;
     margin-bottom:25px;
 `
+/* DIV FLEX */
+export const DivFlex = styled.div`
+    display:flex;
+    justify-content:space-between;
+`
 
 /* CARDMUSIC */
+export const DivDisplayMobile = styled.div`
+    display:block;
+    @media ${device.desktop}{
+        display:none; 
+    } 
+`
+export const DivDisplayDesktop = styled.div`
+        display:none;
+    @media ${device.desktop}{
+        display:block; 
+    }
+`
+   
 export const DivStyle = styled.div`
     position: relative;
     display: flex;
@@ -73,7 +91,7 @@ export const LinkHome = styled(Link)`
 export const DivSlider = styled.div`
     display: flex;
     width: calc(100vw - 40px );
-    height: 190px;
+    height: 196px;
     overflow: auto;
     &::-webkit-scrollbar {
             width: 6px;
@@ -94,6 +112,69 @@ export const DivSlider = styled.div`
         &::-webkit-scrollbar-thumb:active{
             background: #484848;
         }
+    @media ${device.desktop}{
+        width: calc(100vw - 200px);
+        height: 291px;  
+        &::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+            cursor: pointer;
+        }
+        &::-webkit-scrollbar-track {
+            border-radius: 10px;
+            background: #3D3D3D77;
+        }
+        &::-webkit-scrollbar-thumb{
+            border-radius: 10px;
+            background: #353535;
+        }
+        &::-webkit-scrollbar-thumb:hover{
+            background: ${color.secondaryBlack};
+        }
+        &::-webkit-scrollbar-thumb:active{
+            background: #484848;
+        }
+    }
+`
+export const DivSliderUser = styled.div`
+    display:flex;
+    width: calc(100vw - 40px );
+    height: 190px;
+    cursor:pointer;
+    overflow: auto;
+    gap:20px;
+
+    @media ${device.desktop}{
+        width: calc(100vw - 200px);
+        height: 285px;  
+        &::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+            cursor: pointer;
+        }
+        &::-webkit-scrollbar-track {
+            border-radius: 10px;
+            background: #3D3D3D77;
+        }
+        &::-webkit-scrollbar-thumb{
+            border-radius: 10px;
+            background: #353535;
+        }
+        &::-webkit-scrollbar-thumb:hover{
+            background: ${color.secondaryBlack};
+        }
+        &::-webkit-scrollbar-thumb:active{
+            background: #484848;
+        }
+    }
+`
+export const DivSliderEvents = styled.div`
+
+`
+
+export const DivSliderEvent = styled.div`
+    display:none;
+
     @media ${device.desktop}{
         width: calc(100vw - 200px);
         height: 285px;  
@@ -119,6 +200,22 @@ export const DivSlider = styled.div`
     }
 `
 
+export const DivCardUser = styled.div`
+    min-width: 140px; 
+    max-width: 140px;
+    margin-top:-45px;
+    overflow: hidden ;
+    @media ${device.desktop}{
+        min-width: 220px;
+        max-width: 220px;
+    } 
+`
+export const DivCardEvent = styled.div`
+    @media ${device.desktop}{
+
+    } 
+`
+
 export const DivCard = styled.div`
     display: flex;
     flex-direction: column;
@@ -137,6 +234,11 @@ export const DivCard = styled.div`
         height: 270px;
     } 
 `
+export const DivCardUsersFol = styled.div`
+    display:flex;
+
+`
+
 export const DivPicLists = styled.div`
     display: flex;
     padding: 15px 15px 0 15px;
@@ -245,6 +347,52 @@ export const ImgAvatarProfile = styled.img`
         display:none;
     } 
 `
+
+export const ImgAvatarUser = styled.img`
+    min-width: 140px;
+    max-width:140px;
+    object-fit:cover;
+    height: 140px;
+    border-radius: 50%;
+    transition: 300ms;
+    @media ${device.desktop}{
+        min-width: 220px;
+        max-width:220px;
+        height: 220px;
+
+    } 
+    &:hover{
+        border-radius:15px;
+    }
+`
+export const H3NameUser = styled.h3`
+    font-size:24px;
+    position:relative;
+    left:10px;
+    top:130px;
+    text-shadow: 1px 1px 2px black, 0 0 20px black, 0 0 4px black;
+    @media ${device.desktop}{
+        font-size:34px;
+        left:20px;
+        top:200px;
+        
+    } 
+`
+export const H4NameUser = styled.h4`
+    font-size:16px;
+    position:relative;
+    left:10px;
+    top:130px;
+
+    text-shadow: 1px 1px 2px black, 0 0 20px black, 0 0 4px black;
+    @media ${device.desktop}{
+        font-size:16px;
+        left:20px;
+        top:200px;
+        
+    } 
+`
+
 
 
 

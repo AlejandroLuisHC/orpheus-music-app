@@ -5,7 +5,10 @@ import TrackBox from "../components/home/TrackBox"
 import AlbumBox from "../components/home/AlbumBox"
 import PlaylistBox from "../components/home/PlaylistBox"
 import Hero from '../components/home/hero/Hero'
+import AsideProfile from '../components/general_components/aside/AsideProfile'
 import AvatarImg from '../components/general_components/AvatarImg'
+import FollowUsersBox from '../components/home/FollowUsersBox'
+import EventsBox from '../components/home/EventsBox'
 
 const Home = () => {
     const userData = useSelector(state => state.userData.user.userData)
@@ -28,7 +31,7 @@ const Home = () => {
 
             <HrStyle/>
 
-{/* Only seen in mobile */}
+            {/* Only seen in mobile */}
             <DivMobileButtons>
                 <DivButtonsAction>
                     <BtnAction>Playlist</BtnAction>
@@ -54,15 +57,17 @@ const Home = () => {
                     </div>
                 </DivBoxStyle>
             </DivFavAndPlaylist>
-{/* Only seen in mobile */}
+            {/* Only seen in mobile */}
 
-{/* View in Desktop */}
+            {/* View in Desktop */}
             <DivHomeCarousels>
+                <EventsBox/>
+                <FollowUsersBox/>
                 <PlaylistBox/>
                 <AlbumBox/>
                 <TrackBox/>
             </DivHomeCarousels>
-{/* View in Desktop */}
+            {/* View in Desktop */}
         </DivHomeStyle>                                               
 
     )

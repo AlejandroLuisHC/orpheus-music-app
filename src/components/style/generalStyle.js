@@ -1,5 +1,6 @@
 import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 import { Link } from "react-router-dom";
+import { Player } from "react-simple-player";
 import styled, { createGlobalStyle } from "styled-components";
 import { color, device } from "./utils/styleConstants";
 
@@ -108,7 +109,7 @@ export const Aside = styled.aside`
     grid-row: 2; 
     position: static;
     bottom: 0;
-    background-color: #121212aa;
+    background-color: #121212CC;
     @media ${device.desktop}{
         width: 300px;
         height:100%;
@@ -219,7 +220,27 @@ export const H2Style = styled.h2`
     color: ${color.primaryYellow};
     font-size: 24px;
     font-weight: bold;
+    cursor:pointer;
+    @media ${device.desktop}{
+        font-size: 36px;
+    }
+    &:hover{
+        color:${color.primaryWhite}
+    }
 `
+export const H2StyleWhite = styled.h2`
+    color: ${color.primaryWhite};
+    font-size: 24px;
+    font-weight: bold;
+    cursor:pointer;
+    @media ${device.desktop}{
+        font-size: 36px;
+    }
+    &:hover{
+        color:${color.primaryYellow}
+    }
+`
+
 export const FieldsetStyle = styled.fieldset`
     border: none;  
 `
@@ -411,12 +432,17 @@ export const DivImgBannerSliderHome = styled.div`
 `
 
 /* RECTANGLE */
-export const DivImgRectangleL = styled.div`
+export const DivImgRectangleL = styled.img`
+    display:none;
+    transition: 300;
     @media ${device.desktop}{
-        width: 400px;
-        heigth: 250px;
+        display:block;
+        width: 420px;
+        height:250px;
         border-radius: 10px;
+        object-fit:cover;
     }
+   
 `
 export const FormStyle = styled.form`
     display: flex;
@@ -435,4 +461,58 @@ export const FormStyle = styled.form`
         text-align: center;
     }
 
+`
+export const DivMusicPlayer = styled.div`
+    display: flex;
+    position: fixed;
+    width: 100vw;
+    bottom: 23.8px;
+    @media ${device.desktop}{
+        width: calc(100vw - 204px);
+        bottom: 0;
+    }
+`
+export const DivMusicPlayerInfo = styled.div`
+    width: 240px;
+    height: 40px;
+    display: flex;
+    color: white;
+`
+            
+export const DivInfoTrack = styled.div`
+    display: flex;
+    background-color: ${color.primaryBlack};
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    overflow: hidden;
+    border-radius: 3px 0 0 3px;
+    @media ${device.desktop}{
+        width: 200px;
+    }
+ `
+
+export const ButtonClosePlayer = styled.button`
+    border: none;
+    color: ${color.primaryWhite};
+    background-color: #12121299;
+    font-size: 24px;
+    width: 40px;
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+    &:hover{
+        color: ${color.primaryYellow};
+    }
+    @media ${device.desktop}{
+        background-color: #121212;
+    }
+`
+export const SpanPlayerUser = styled.span`
+    font-size: .8em;
+    color: ${color.secondaryYellow}
+`
+
+export const SpanPlayerName = styled.span`
+font-size: .9em;
 `

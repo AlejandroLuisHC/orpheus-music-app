@@ -4,10 +4,11 @@ import { H6StyleHero, PStyleHero, ImgCards, DivSlider, DivCard, DivElementTitles
 import { H2Style } from '../style/generalStyle'
 import HomeSlidersLoader from '../general_components/loaders/content_loader/HomeSlidersLoader'
 import { memo } from "react"
+import { useOutletContext } from 'react-router'
 
 const TrackBox = () => {
-    const { data, status: tracksStatus } = useQuery(['tracks', "tracks"], ()=>fetchKey("tracks"))
-
+    const { data, status: tracksStatus } = useQuery(['tracks','tracks'],()=>fetchKey('tracks'))
+    const [setPlayer] = useOutletContext()
     return (
         tracksStatus === "loading"
             ? <HomeSlidersLoader />
@@ -25,7 +26,14 @@ const TrackBox = () => {
                             data?.map((track) => {
                                 return (
                                     <DivCard key={track.id}>
-                                        <DivPicLists>
+                                        <DivPicLists 
+                                            onClick={() => setPlayer(prev => prev = {
+                                            playerOn: true ,
+                                            audio: track.file,
+                                            name:track.name,
+                                            user:track.description
+                                        })}
+                                        >
                                             <ImgCards src={track.img} />
                                         </DivPicLists>
                                         <DivInfoLists>
