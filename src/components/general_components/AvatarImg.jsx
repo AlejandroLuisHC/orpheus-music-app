@@ -1,6 +1,7 @@
 import Avatar from "boring-avatars"
 
 const AvatarImg = ({ avatarId, size }) => {
+  
   return (
         <Avatar 
             size={size}

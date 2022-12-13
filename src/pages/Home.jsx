@@ -1,13 +1,15 @@
 import { useSelector } from 'react-redux'
 import { HrStyle } from "../components/style/generalStyle"
-import { DivHomeStyle, DivButtonsAction, BtnAction,DivHero, DivMobileButtons,DivBoxStyle, H6StyleHero, DivFavAndPlaylist, DivHomeCarousels, H1Welcome } from "../components/style/homeStyle"
+import { DivHomeStyle, DivButtonsAction, BtnAction,DivHero, DivMobileButtons,DivBoxStyle, H6StyleHero, DivFavAndPlaylist, DivHomeCarousels, H1Welcome, ImgAvatarProfile } from "../components/style/homeStyle"
 import TrackBox from "../components/home/TrackBox"
 import AlbumBox from "../components/home/AlbumBox"
 import PlaylistBox from "../components/home/PlaylistBox"
 import Hero from '../components/home/hero/Hero'
+import AsideProfile from '../components/general_components/aside/AsideProfile'
+import AvatarImg from '../components/general_components/AvatarImg'
 
 const Home = () => {
-    const { username } = useSelector (state => state.userData.user.userData)
+    const userData = useSelector(state => state.userData.user.userData)
     const date = new Date();
     const hour = date.getHours();
     console.log(hour);
@@ -22,10 +24,14 @@ const Home = () => {
                 <Hero/>
             </DivHero>
             
-            <H1Welcome>{`${welcome}${username}!`}</H1Welcome>
+            <H1Welcome>
+                {`${welcome}${userData.username}!`}
+                <ImgAvatarProfile src={userData.avatar} alt="" />
+            </H1Welcome>
 
             <HrStyle/>
 
+{/* Only seen in mobile */}
             <DivMobileButtons>
                 <DivButtonsAction>
                     <BtnAction>Playlist</BtnAction>
@@ -36,15 +42,14 @@ const Home = () => {
                     <BtnAction>New Releases</BtnAction>
                 </DivButtonsAction>
             </DivMobileButtons>
-            
+
             <DivFavAndPlaylist>
                 <DivBoxStyle>
                     <div>
                         <img src="src\assets\img\likedsongs.png" alt="" style={{
                         width:"160px"}} />
                         <H6StyleHero>Your Favorite Songs</H6StyleHero>
-                    </div>
-                        
+                    </div> 
                     <div>
                         <img src="src\assets\img\likedsongs.png" alt="" style={{
                         width:"160px"}} />
@@ -52,12 +57,16 @@ const Home = () => {
                     </div>
                 </DivBoxStyle>
             </DivFavAndPlaylist>
-                    <DivHomeCarousels>
-                        <PlaylistBox/>
-                        <AlbumBox/>
-                        <TrackBox/>
-                    </DivHomeCarousels>
-            </DivHomeStyle>                                               
+{/* Only seen in mobile */}
+
+{/* View in Desktop */}
+            <DivHomeCarousels>
+                <PlaylistBox/>
+                <AlbumBox/>
+                <TrackBox/>
+            </DivHomeCarousels>
+{/* View in Desktop */}
+        </DivHomeStyle>                                               
 
     )
 }
