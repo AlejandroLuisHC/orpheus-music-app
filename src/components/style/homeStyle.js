@@ -26,6 +26,10 @@ export const DivHomeStyle = styled.div`
 `
 export const H1Welcome = styled.h1`
     margin-top: 30px;
+    font-size:20px;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
 `
 /* DIV CARDS */
 
@@ -38,6 +42,7 @@ export const DivFavAndPlaylist = styled.div`
 export const DivBoxStyle = styled.div`
     display: flex;
     gap: 15px;
+    margin-bottom:25px
 `
 
 /* CARDMUSIC */

@@ -5,9 +5,11 @@ import TrackBox from "../components/home/TrackBox"
 import AlbumBox from "../components/home/AlbumBox"
 import PlaylistBox from "../components/home/PlaylistBox"
 import Hero from '../components/home/hero/Hero'
+import AsideProfile from '../components/general_components/aside/AsideProfile'
+import AvatarImg from '../components/general_components/AvatarImg'
 
 const Home = () => {
-    const { username } = useSelector (state => state.userData.user.userData)
+    const userData = useSelector(state => state.userData.user.userData)
     const date = new Date();
     const hour = date.getHours();
     console.log(hour);
@@ -22,7 +24,10 @@ const Home = () => {
                 <Hero/>
             </DivHero>
             
-            <H1Welcome>{`${welcome}${username}!`}</H1Welcome>
+            <H1Welcome>
+                {`${welcome}${userData.username}!`}
+                <AvatarImg />
+            </H1Welcome>
 
             <HrStyle/>
 
