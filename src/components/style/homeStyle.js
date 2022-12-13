@@ -18,10 +18,10 @@ export const DivMobileButtons = styled.div`
     } 
 `
 export const DivHomeStyle = styled.div`
-    padding: 20px 20px 0 20px;
+    padding: 20px 20px 40px 20px;
     width: 100%;
     @media ${device.desktop}{
-        padding: 0;
+        padding-bottom: 40px
     } 
 `
 export const H1Welcome = styled.h1`
@@ -73,7 +73,7 @@ export const LinkHome = styled(Link)`
 export const DivSlider = styled.div`
     display: flex;
     width: calc(100vw - 40px );
-    height: 190px;
+    height: 196px;
     overflow: auto;
     &::-webkit-scrollbar {
             width: 6px;
@@ -96,7 +96,7 @@ export const DivSlider = styled.div`
         }
     @media ${device.desktop}{
         width: calc(100vw - 200px);
-        height: 285px;  
+        height: 291px;  
         &::-webkit-scrollbar {
             width: 6px;
             height: 6px;

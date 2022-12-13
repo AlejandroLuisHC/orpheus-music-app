@@ -2,7 +2,7 @@ import { Player } from "react-simple-player"
 import { ButtonClosePlayer, DivInfoTrack, DivMusicPlayer, DivMusicPlayerInfo, SpanPlayerName, SpanPlayerUser } from "../style/generalStyle"
 import { IoMdClose } from "react-icons/io"
 
-const MusicPlayer = ({audio,name,user,setPlayer}) => {
+const MusicPlayer = ({audio,name,user,setPlayer,hideVolume}) => {
   return (
 
     <DivMusicPlayer>
@@ -11,7 +11,7 @@ const MusicPlayer = ({audio,name,user,setPlayer}) => {
             height={40} 
             grey={[18, 18, 18]} 
             accent={[239, 184, 16]} 
-            // autoPlay={true}
+            hideVolume={hideVolume}
         />
         <DivMusicPlayerInfo>
             <DivInfoTrack>

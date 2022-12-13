@@ -1,5 +1,6 @@
 import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 import { Link } from "react-router-dom";
+import { Player } from "react-simple-player";
 import styled, { createGlobalStyle } from "styled-components";
 import { color, device } from "./utils/styleConstants";
 
@@ -77,6 +78,7 @@ export const Header = styled.header`
 
 export const Main = styled.main`
     grid-row: 1;
+    padding-bottom: 40px;
     @media ${device.desktop}{
         grid-column: 2;
         grid-row: 1 / span 3;
@@ -435,4 +437,55 @@ export const FormStyle = styled.form`
         text-align: center;
     }
 
+`
+export const DivMusicPlayer = styled.div`
+    display: flex;
+    position: fixed;
+    width: 100vw;
+    bottom: 23.8px;
+    @media ${device.desktop}{
+        width: calc(100vw - 204px);
+        bottom: 0;
+    }
+`
+export const DivMusicPlayerInfo = styled.div`
+    width: 240px;
+    height: 40px;
+    display: flex;
+    color: white
+`
+            
+export const DivInfoTrack = styled.div`
+    display: flex;
+    background-color: ${color.primaryBlack};
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    overflow: hidden;
+    border-radius: 3px 0 0 3px;
+ @media ${device.desktop}{
+    width: 200px;
+    }
+ `
+
+ export const ButtonClosePlayer = styled.button`
+    border: none;
+    color: ${color.primaryWhite};
+    font-size: 24px;
+    cursor: pointer;
+    width: 40px;
+    background-color: #12121288;
+    border-radius: 0 3px 3px 0;
+    &:hover{
+        color: ${color.primaryYellow};
+    }
+ `
+ export const SpanPlayerUser = styled.span`
+    font-size: .8em;
+    color: ${color.secondaryYellow}
+ `
+
+export const SpanPlayerName = styled.span`
+font-size: .9em;
 `
