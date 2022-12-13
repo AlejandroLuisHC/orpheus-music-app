@@ -3,8 +3,7 @@ import { fetchKey } from '../../api'
 import { DivImgRectangleL, H2Style} from '../style/generalStyle'
 import HomeSlidersLoader from '../general_components/loaders/content_loader/HomeSlidersLoader'
 import { memo } from "react"
-import { DivCardEvent, DivDisplayDesktop, DivElementTitles, DivFlex, DivSliderUser, H6StyleHero, LinkHome, PStyleHero } from "../style/homeStyle"
-
+import { DivCardEvent, DivDisplayDesktop, DivElementTitles, DivFlex, DivSliderEvents, H6StyleHero, LinkHome, PStyleHero } from "../style/homeStyle"
 
 const EventsBox = () => {
     const { data, status: eventsStatus } = useQuery(['events', 'events'], () => fetchKey("events"))
@@ -21,7 +20,7 @@ const EventsBox = () => {
                         <LinkHome>View more</LinkHome>
                     </DivElementTitles>
 
-                    <DivSliderUser>
+                    <DivSliderEvents>
                         {
                             data?.map((event) =>
                                 <DivCardEvent key={event.id}> 
@@ -36,10 +35,8 @@ const EventsBox = () => {
                                 </DivCardEvent>
                             )
                         }
-                    </DivSliderUser>
-
+                    </DivSliderEvents>
                 </DivDisplayDesktop>
-
     )
 }
 export default memo(EventsBox)
