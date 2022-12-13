@@ -27,9 +27,7 @@
       "followers": [],
       "following": [],
       "isVerified": false,
-      "isAdmin": false,
-      "isLogged": false,
-      "isLoggedIn": false
+      "isAdmin": false
     },
     {
       "id": 2,
@@ -73,8 +71,7 @@
       "followers": [],
       "following": [],
       "isVerified": true,
-      "isAdmin": false,
-      "isLogged": false
+      "isAdmin": false
     },
     {
       "id": 3,
@@ -107,8 +104,7 @@
       "followers": [],
       "following": [],
       "isVerified": false,
-      "isAdmin": false,
-      "isLoggedIn": false
+      "isAdmin": false
     },
     {
       "id": 4,
@@ -141,8 +137,7 @@
       "followers": [673],
       "following": [100],
       "isVerified": false,
-      "isAdmin": false,
-      "isLoggedIn": false
+      "isAdmin": false
     },
     {
     "id": 5,
@@ -175,8 +170,7 @@
     "followers": [18299],
     "following": [322],
     "isVerified": false,
-    "isAdmin": false,
-    "isLoggedIn": false
+    "isAdmin": false
   }
   ,
     {
@@ -210,8 +204,7 @@
     "followers": [12299],
     "following": [122],
     "isVerified": false,
-    "isAdmin": false,
-    "isLoggedIn": false
+    "isAdmin": false
   }
   ],
   "events": [
@@ -802,6 +795,98 @@
       ],
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670822659/Final-Project-MERN/Tracks/Non_Stop_ohfxco.jpg",
       "file": "",
+      "followers": [
+        2
+      ],
+      "genres": [
+        2,
+        4,
+        6
+      ],
+      "release": "",
+      "owner": {
+        "id": "user.id",
+        "username": "user.username"
+      }
+    },
+    {
+      "id": 13,
+      "name": "Helvegen",
+      "description": "Alejandro L. Herrero",
+      "album": [
+        4
+      ],
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670929861/Final-Project-MERN/Tracks/Lovelace_team_vl79eo.jpg",
+      "file": "https://res.cloudinary.com/drghk9p6q/video/upload/v1670928277/Final-Project-MERN/Tracks/Music%20samples/Helvegen_-_Wardruna_Cover_vppfxw.mp3",
+      "followers": [
+        2
+      ],
+      "genres": [
+        2,
+        4,
+        6
+      ],
+      "release": "",
+      "owner": {
+        "id": "user.id",
+        "username": "user.username"
+      }
+    },
+    {
+      "id": 14,
+      "name": "Baby on board",
+      "description": "Alejandro L. Herrero",
+      "album": [
+        4
+      ],
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670929861/Final-Project-MERN/Tracks/Lovelace_team_vl79eo.jpg",
+      "file": "https://res.cloudinary.com/drghk9p6q/video/upload/v1670928276/Final-Project-MERN/Tracks/Music%20samples/Simpsons_baby_on_board_uqoupe.mp3",
+      "followers": [
+        2
+      ],
+      "genres": [
+        2,
+        4,
+        6
+      ],
+      "release": "",
+      "owner": {
+        "id": "user.id",
+        "username": "user.username"
+      }
+    },
+    {
+      "id": 15,
+      "name": "Alberta",
+      "description": "Alejandro L. Herrero",
+      "album": [
+        4
+      ],
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670929861/Final-Project-MERN/Tracks/Lovelace_team_vl79eo.jpg",
+      "file": "https://res.cloudinary.com/drghk9p6q/video/upload/v1670928277/Final-Project-MERN/Tracks/Music%20samples/Alberta_Cover_chusta_r%C3%A1pida_rb2pey.mp3",
+      "followers": [
+        2
+      ],
+      "genres": [
+        2,
+        4,
+        6
+      ],
+      "release": "",
+      "owner": {
+        "id": "user.id",
+        "username": "user.username"
+      }
+    },
+    {
+      "id": 16,
+      "name": "Wellerman",
+      "description": "Alejandro L. Herrero",
+      "album": [
+        4
+      ],
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670929861/Final-Project-MERN/Tracks/Lovelace_team_vl79eo.jpg",
+      "file": "https://res.cloudinary.com/drghk9p6q/video/upload/v1670928276/Final-Project-MERN/Tracks/Music%20samples/Wellerman_bqfrui.mp3",
       "followers": [
         2
       ],

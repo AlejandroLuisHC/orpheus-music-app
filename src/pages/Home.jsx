@@ -5,14 +5,12 @@ import TrackBox from "../components/home/TrackBox"
 import AlbumBox from "../components/home/AlbumBox"
 import PlaylistBox from "../components/home/PlaylistBox"
 import Hero from '../components/home/hero/Hero'
-import AsideProfile from '../components/general_components/aside/AsideProfile'
 import AvatarImg from '../components/general_components/AvatarImg'
 
 const Home = () => {
     const userData = useSelector(state => state.userData.user.userData)
     const date = new Date();
     const hour = date.getHours();
-    console.log(hour);
     const welcome = hour < 6 || hour > 18
                         ? "Good evening, "
                         : hour > 5 && hour < 13
@@ -26,7 +24,6 @@ const Home = () => {
             
             <H1Welcome>
                 {`${welcome}${userData.username}!`}
-                <ImgAvatarProfile src={userData.avatar} alt="" />
             </H1Welcome>
 
             <HrStyle/>
