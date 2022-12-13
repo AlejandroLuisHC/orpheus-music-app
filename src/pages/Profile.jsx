@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import { Outlet } from "react-router-dom";
 import ProfileDesktop from "../components/profile/ProfileDesktop";
 import ProfileMobile from "../components/profile/ProfileMobile";
 import useWidth from "../helper/hooks/useWidth";
@@ -17,9 +18,15 @@ const Profile = () => {
     return (
        windowDesk
        ?
-       <ProfileDesktop />
+       <>
+        <ProfileDesktop />
+        <Outlet />
+       </>
        :
-       <ProfileMobile />
+       <>
+        <ProfileMobile />       
+        <Outlet />
+       </>
     )
 }
 

@@ -1,4 +1,3 @@
-import { useQuery } from '@tanstack/react-query';
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form';
@@ -190,7 +189,7 @@ const UpdateProfile = () => {
             
                 <DivUserData>
                         <PTextEdit>Change password</PTextEdit>
-                        <SpanIconClick><IoMdCreate onClick={() => {goPassword('/password')}} /></SpanIconClick>
+                        <SpanIconClick><IoMdCreate onClick={() => goPassword('./password')} /></SpanIconClick>
                 </DivUserData>
                    
                 <HrEditProfile/>

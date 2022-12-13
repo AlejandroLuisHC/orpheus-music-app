@@ -77,7 +77,7 @@
       "id": 3,
       "userData": {
         "username": "zzezequiel",
-        "firstName": "Ezequiel",
+        "firstName": "Carlos",
         "lastName": "Zvirgzdins",
         "email": "zzezequiel@hotmail.com.ar",
         "country": "Spain",
@@ -104,7 +104,8 @@
       "followers": [],
       "following": [],
       "isVerified": false,
-      "isAdmin": false
+      "isAdmin": false,
+      "isLoggedIn": false
     },
     {
       "id": 4,
@@ -127,85 +128,161 @@
         ]
       },
       "work": {
-        "myAlbums": [1],
-        "myTracks": [1,2,3]
+        "myAlbums": [
+          1
+        ],
+        "myTracks": [
+          1,
+          2,
+          3
+        ]
       },
-      "myPlaylists": [1,2],
-      "favPlaylists": [1],
-      "favAlbums": [1,2,3],
-      "favTracks": [1,2,3,4,5],
-      "followers": [673],
-      "following": [100],
+      "myPlaylists": [
+        1,
+        2
+      ],
+      "favPlaylists": [
+        1
+      ],
+      "favAlbums": [
+        1,
+        2,
+        3
+      ],
+      "favTracks": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "followers": [
+        673
+      ],
+      "following": [
+        100
+      ],
       "isVerified": false,
       "isAdmin": false
     },
     {
-    "id": 5,
-    "userData": {
-      "username": "eminem",
-      "firstName": "Marshall  ",
-      "lastName": "Bruce Mathers ",
-      "email": "marshaleminem@gmail.com",
-      "country": "USA",
-      "city": "St. Joseph",
-      "password": "0000",
-      "secretQuestion": "What is your favourite pizza?",
-      "secretAnswer": "4cheese",
-      "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670927118/Final-Project-MERN/Users/b201f9fe39858f4e6f778b5235ad2607_ilib2g.jpg",
-      "banner": "",
-      "favGenres": [
+      "id": 5,
+      "userData": {
+        "username": "eminem",
+        "firstName": "Marshall  ",
+        "lastName": "Bruce Mathers ",
+        "email": "marshaleminem@gmail.com",
+        "country": "USA",
+        "city": "St. Joseph",
+        "password": "0000",
+        "secretQuestion": "What is your favourite pizza?",
+        "secretAnswer": "4cheese",
+        "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670927118/Final-Project-MERN/Users/b201f9fe39858f4e6f778b5235ad2607_ilib2g.jpg",
+        "banner": "",
+        "favGenres": [
+          4,
+          6,
+          12
+        ]
+      },
+      "work": {
+        "myAlbums": [
+          5
+        ],
+        "myTracks": [
+          7,
+          8,
+          9
+        ]
+      },
+      "myPlaylists": [
         4,
-        6,
-        12
-      ]
+        3
+      ],
+      "favPlaylists": [
+        1,
+        2
+      ],
+      "favAlbums": [
+        1,
+        2,
+        3
+      ],
+      "favTracks": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "followers": [
+        18299
+      ],
+      "following": [
+        322
+      ],
+      "isVerified": false,
+      "isAdmin": false
     },
-    "work": {
-      "myAlbums": [5],
-      "myTracks": [7, 8, 9]
-    },
-    "myPlaylists": [4, 3],
-    "favPlaylists": [1, 2],
-    "favAlbums": [1, 2, 3],
-    "favTracks": [1, 2, 3, 4, 5],
-    "followers": [18299],
-    "following": [322],
-    "isVerified": false,
-    "isAdmin": false
-  }
-  ,
     {
-    "id": 6,
-    "userData": {
-      "username": "drake",
-      "firstName": "Aubrey   ",
-      "lastName": "Drake Graham ",
-      "email": "drake@gmail.com",
-      "country": "USA",
-      "city": "Toronto",
-      "password": "0000",
-      "secretQuestion": "What is your favourite pizza?",
-      "secretAnswer": "4cheese",
-      "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670925756/Final-Project-MERN/Users/119700226_4257622987641667_4778006258121329624_n_du7rt6.jpg",
-      "banner": "",
-      "favGenres": [
+      "id": 6,
+      "userData": {
+        "username": "drake",
+        "firstName": "Aubrey   ",
+        "lastName": "Drake Graham ",
+        "email": "drake@gmail.com",
+        "country": "USA",
+        "city": "Toronto",
+        "password": "0000",
+        "secretQuestion": "What is your favourite pizza?",
+        "secretAnswer": "4cheese",
+        "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670925756/Final-Project-MERN/Users/119700226_4257622987641667_4778006258121329624_n_du7rt6.jpg",
+        "banner": "",
+        "favGenres": [
+          4,
+          6,
+          12
+        ]
+      },
+      "work": {
+        "myAlbums": [
+          4
+        ],
+        "myTracks": [
+          10,
+          11,
+          12
+        ]
+      },
+      "myPlaylists": [
         4,
-        6,
-        12
-      ]
-    },
-    "work": {
-      "myAlbums": [4],
-      "myTracks": [10, 11, 12]
-    },
-    "myPlaylists": [4,3],
-    "favPlaylists": [1,2],
-    "favAlbums": [1,2,3],
-    "favTracks": [1,2,3,4,5],
-    "followers": [12299],
-    "following": [122],
-    "isVerified": false,
-    "isAdmin": false
-  }
+        3
+      ],
+      "favPlaylists": [
+        1,
+        2
+      ],
+      "favAlbums": [
+        1,
+        2,
+        3
+      ],
+      "favTracks": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "followers": [
+        12299
+      ],
+      "following": [
+        122
+      ],
+      "isVerified": false,
+      "isAdmin": false
+    }
   ],
   "events": [
     {
@@ -263,7 +340,7 @@
       "price": 45
     },
     {
-      "id":4 ,
+      "id": 4,
       "type": "Concert",
       "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670925171/Final-Project-MERN/Events/images_opbx6k.jpg",
       "location": "Spain / Barcelona",
