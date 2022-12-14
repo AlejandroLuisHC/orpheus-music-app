@@ -30,6 +30,7 @@ const Home = () => {
                 : 'Good afternoon, ';
     return (
         <DivHomeStyle>
+            <LinkProfile to={userData.username}><HeaderProfile /></LinkProfile>
             <DivHero>
                 <Hero />
             </DivHero>
