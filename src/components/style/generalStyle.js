@@ -179,6 +179,14 @@ export const ButtonPrimaryStyle = styled.button`
     &:hover{
         transform: scale(1.1);
     }
+    &:disabled {
+        color: ${color.secondaryBlack};
+        background-color: ${color.secondaryYellow};
+        cursor: default;
+        &:hover{ 
+            transform: none;
+            }
+    }
 `
 
 export const ButtonSecondaryStyle = styled.button`
