@@ -8,7 +8,7 @@ const DisconnectBtn = () => {
     const navigate = useNavigate();
     
     return (
-        <ButtonLogoutStyle onClick={() => { dispatch(LOG_OUT()); navigate('/') }}>Disconnect</ButtonLogoutStyle>
+        <ButtonLogoutStyle onClick={() => { dispatch(LOG_OUT()); navigate('/') }}>Log out</ButtonLogoutStyle>
     )
 }
 

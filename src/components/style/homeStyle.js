@@ -344,7 +344,8 @@ export const BtnAction = styled(ButtonSecondaryStyle)`
 `
 export const ButtonLogoutStyle = styled(ButtonSecondaryStyle)`
     margin-left: 20px;
-    width: 130px;
+    width: 110px;
+    height: 30px;
 `
 
 
