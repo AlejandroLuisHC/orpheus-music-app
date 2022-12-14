@@ -220,6 +220,7 @@ export const H2Style = styled.h2`
     color: ${color.primaryYellow};
     font-size: 24px;
     font-weight: bold;
+    
     cursor:pointer;
     @media ${device.desktop}{
         font-size: 36px;

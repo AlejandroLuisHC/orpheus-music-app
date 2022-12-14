@@ -5,11 +5,14 @@ import { fetchKey } from '../../api';
 import { capitalizeFirstLetter } from '../../helper/utils';
 import HomeSlidersLoader from '../general_components/loaders/content_loader/HomeSlidersLoader';
 import { H2Style } from '../style/generalStyle';
+import { H6StyleHero, PStyleHero } from '../style/homeStyle';
 import {
     DivCard,
     DivContainerSlider,
+    DivImg,
     DivSilderHeader,
     DivSliderBody,
+    DivText,
     ImgCard,
 } from '../style/searchStyle';
 
@@ -34,11 +37,14 @@ const HomeSlider = ({ apiKey }) => {
                                 resultType={apiKey}
                                 key={item.id}
                             /* as={Link} to={`/${apiKey}/${result.name}`} */
-                            >
-                                <ImgCard resultType={apiKey} src={item.img} alt="" />
-                                <div>
-                                    <p>{item.name}</p>
-                                </div>
+                            >   
+                                <DivImg>
+                                    <ImgCard resultType={apiKey} src={item.img} alt="" />
+                                </DivImg>
+                                <DivText>
+                                    <H6StyleHero>{item.name}</H6StyleHero>
+                                    <PStyleHero>{item.description}</PStyleHero>
+                                </DivText>
                             </DivCard>
                         ))}
                     </DivSliderBody>
