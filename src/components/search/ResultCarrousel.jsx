@@ -25,8 +25,8 @@ const ResultCarrousel = ({ apiKey, search }) => {
 
     if (apiKey === 'users') {
       const usersResults = data?.filter(({userData}) => 
-        userData.username.toLowerCase().includes(search) ||
-        userData.firstName.toLowerCase().includes(search)
+        userData.username.toLowerCase().includes(search.toLowerCase()) ||
+        userData.firstName.toLowerCase().includes(search.toLowerCase())
       );
 
       setSearchResults(
@@ -39,8 +39,8 @@ const ResultCarrousel = ({ apiKey, search }) => {
 
     } else {
       const results = data?.filter((item) =>
-        item.name.toLowerCase().includes(search) ||
-        item.description.toLowerCase().includes(search)
+        item.name.toLowerCase().includes(search.toLowerCase()) ||
+        item.description.toLowerCase().includes(search.toLowerCase())
       );
 
       setSearchResults(
