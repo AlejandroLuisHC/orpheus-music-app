@@ -80,7 +80,7 @@ const ProfileDesktop = () => {
                     
                 </SectionEditUser>
             }
-            <Footer><FooterInfo /></Footer>
+            
         </DivProfile>
     )
 }
