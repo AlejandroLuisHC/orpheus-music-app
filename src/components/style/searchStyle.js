@@ -71,7 +71,7 @@ export const DivSlider = styled.div`
             background: #484848;
         }
     }
-`
+`;
 
 export const DivCard = styled.div`
     display: flex;
@@ -88,6 +88,14 @@ export const DivCard = styled.div`
     @media ${device.desktop}{      
         width: ${props => props.resultType === 'events' ? '420px' : '220px'};
         height: ${props => props.resultType === 'events' ? '300px' : '270px'};
+        margin: .5rem;
+        background: hsla(0, 0%, 100%, 0.02);
+        border-radius: 20px;
+        cursor: pointer;
+        transition: 300ms;
+        &:hover{
+            background: rgba(255, 255, 255, .2);
+        }
     }
 `;
 
@@ -100,9 +108,13 @@ export const ImgCard = styled.img`
     border-radius: ${props => props.resultType === 'users' && "50%"};
     width: ${props => props.resultType === 'events' && '100%'};
     margin-bottom: .3rem;
+    transition: 300ms;
+    &:hover{
+        border-radius: ${props => props.resultType !== 'events' && '50%'};
+    }
 
     @media ${device.desktop}{      
         width: ${props => props.resultType === 'events' ? '400px' : '200px'};
         height: ${props => props.resultType === 'events' ? '240px' : '200px'};
     }
-`
+`;
