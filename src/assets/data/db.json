@@ -73,7 +73,7 @@
       "id": 3,
       "userData": {
         "username": "zzezequiel",
-        "firstName": "Ezequiel",
+        "firstName": "Carlos",
         "lastName": "Zvirgzdins",
         "email": "zzezequiel@hotmail.com.ar",
         "country": "Spain",
@@ -96,7 +96,8 @@
       "followers": [],
       "following": [],
       "isVerified": false,
-      "isAdmin": false
+      "isAdmin": false,
+      "isLoggedIn": false
     },
     {
       "id": 4,

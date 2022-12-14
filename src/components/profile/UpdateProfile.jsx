@@ -1,22 +1,22 @@
-import { useQuery } from '@tanstack/react-query';
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { IoMdCheckmarkCircle, IoMdCreate } from 'react-icons/io';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchUsers } from '../../api';
+import { useNavigate } from 'react-router-dom';
 import fetchUpdateUser from '../../api/fetchUpdateUser';
 import { UPDATE } from '../../redux/features/user_data/userSlice';
 import { FormStyle } from '../style/generalStyle';
 
-import { DivEditUserData, DivUserData, InputEditStyle, DivEditUserContainer, PTextEdit, ButtonSubmitEdit, SpanIconClick } from '../style/profileStyle';
+import { DivEditUserData, DivUserData, InputEditStyle, DivEditUserContainer, PTextEdit, ButtonSubmitEdit, SpanIconClick, HrEditProfile } from '../style/profileStyle';
 
 const UpdateProfile = () => {
     const initialState = {
         username: false,
         firstName: false,
         lastName: false,
-        location: false
+        location: false,
+        password: false
     }
     const [openInput, setOpenInput] = useState(initialState)
 
@@ -28,6 +28,7 @@ const UpdateProfile = () => {
         handleSubmit,
     } = useForm();
 
+   
     const [UpdateUserData, setUpdateUserData] = useState({
         id: userId,
         userData: {
@@ -58,27 +59,44 @@ const UpdateProfile = () => {
         isAdmin: false,
         isLoggedIn: false,
     });
-
+    
     const { userData } = UpdateUserData;
     const dispatch = useDispatch();
     const updateUser = ({
         username,
         firstName,
         lastName,
-    }) => {
-        userData.username = username || userActualData.username;
-        userData.firstName = firstName || userActualData.firstName;
-        userData.lastName = lastName || userActualData.lastName;
+        password
 
+    }) => {
+
+    const data = {  username: username ?? userActualData.username,
+                    firstName: firstName ?? userActualData.firstName,
+                    lastName: lastName ?? userActualData.lastName,
+                    password: password ?? userActualData.password}
+        
         setUpdateUserData({
             ...UpdateUserData,
+            userData: { ...userData,
+                        username: data.username,
+                        firstName: data.firstName,
+                        lastName: data.lastName,
+                        password: data.password}
         });
 
-        console.log(UpdateUserData);
-        fetchUpdateUser(UpdateUserData, userId);
-        dispatch(UPDATE(UpdateUserData))
+
+        console.log('New data', UpdateUserData);
+        console.log('userData', userData);
         setOpenInput(prev => prev = initialState)
     };
+
+    //I use the hook useEfect to fetch the new user data when the state change. using the same logic to store the new data in the redux store for visualice the changes in the moment
+    useEffect(() => {
+        fetchUpdateUser(UpdateUserData, userId);
+        dispatch(UPDATE(UpdateUserData));
+    }, [UpdateUserData])
+
+    const goPassword = useNavigate();
 
     return (
         <FormStyle onSubmit={handleSubmit(data => updateUser(data))}>
@@ -86,7 +104,7 @@ const UpdateProfile = () => {
                 {!openInput.username
                     ?
                     <DivUserData>
-                        <PTextEdit>{userActualData.username}</PTextEdit>
+                        <PTextEdit>{UpdateUserData.userData.username}</PTextEdit>
                         <SpanIconClick><IoMdCreate onClick={() => setOpenInput(prev => prev = { ...prev, username: true })} /></SpanIconClick>
                     </DivUserData>
                     :
@@ -103,12 +121,13 @@ const UpdateProfile = () => {
                         <ButtonSubmitEdit type='submit'><IoMdCheckmarkCircle /></ButtonSubmitEdit>
                     </DivEditUserData>
                 }
+                <HrEditProfile/>
             </DivEditUserContainer>
             <DivEditUserContainer>
                 {!openInput.firstName
                     ?
                     <DivUserData>
-                        <PTextEdit>{userActualData.firstName}</PTextEdit>
+                        <PTextEdit>{UpdateUserData.userData.firstName}</PTextEdit>
                         <SpanIconClick><IoMdCreate onClick={() => setOpenInput(prev => prev = { ...prev, firstName: true })} /></SpanIconClick>
                     </DivUserData>
                     :
@@ -125,12 +144,13 @@ const UpdateProfile = () => {
                         <ButtonSubmitEdit type='submit'><IoMdCheckmarkCircle /></ButtonSubmitEdit>
                     </DivEditUserData>
                 }
+                <HrEditProfile/>
             </DivEditUserContainer>
             <DivEditUserContainer>
                 {!openInput.lastName
                     ?
                     <DivUserData>
-                        <PTextEdit>{userActualData.lastName}</PTextEdit>
+                        <PTextEdit>{UpdateUserData.userData.lastName}</PTextEdit>
                         <SpanIconClick><IoMdCreate onClick={() => setOpenInput(prev => prev = { ...prev, lastName: true })} /></SpanIconClick>
                     </DivUserData>
                     :
@@ -147,12 +167,13 @@ const UpdateProfile = () => {
                         <ButtonSubmitEdit type='submit'><IoMdCheckmarkCircle /></ButtonSubmitEdit>
                     </DivEditUserData>
                 }
+                <HrEditProfile/>
             </DivEditUserContainer>
             <DivEditUserContainer>
                 {!openInput.location
                     ?
                     <DivUserData>
-                        <PTextEdit>{userActualData.country}</PTextEdit>
+                        <PTextEdit>{UpdateUserData.userData.country}</PTextEdit>
                         <SpanIconClick><IoMdCreate onClick={() => setOpenInput(prev => prev = { ...prev, location: true })} /></SpanIconClick>
                     </DivUserData>
                     :
@@ -162,6 +183,16 @@ const UpdateProfile = () => {
                         <ButtonSubmitEdit type='submit'><IoMdCheckmarkCircle /></ButtonSubmitEdit>
                     </DivEditUserData>
                 }
+                <HrEditProfile/>
+            </DivEditUserContainer>
+            <DivEditUserContainer>
+            
+                <DivUserData>
+                        <PTextEdit>Change password</PTextEdit>
+                        <SpanIconClick><IoMdCreate onClick={() => goPassword('./password')} /></SpanIconClick>
+                </DivUserData>
+                   
+                <HrEditProfile/>
             </DivEditUserContainer>
         </FormStyle>
     )
