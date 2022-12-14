@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { login, logout, update } from "./reducers";
+import { login, logout, recoverPassword, update } from "./reducers";
 
 export const userSlice = createSlice({
     name: 'userData',
@@ -9,14 +9,16 @@ export const userSlice = createSlice({
     reducers: {
         LOG_IN: login,
         LOG_OUT: logout,
-        UPDATE: update
+        UPDATE: update,
+        RECOVER: recoverPassword
     }
 })
 
 export const {
     LOG_IN,
     LOG_OUT,
-    UPDATE
+    UPDATE,
+    RECOVER
 } = userSlice.actions;
 
 export default userSlice.reducer;
