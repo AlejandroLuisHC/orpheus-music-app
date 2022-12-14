@@ -383,7 +383,7 @@
     {
       "id": 1,
       "type": "Concert",
-      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670945363/Final-Project-MERN/Events/vina-rock-festival-1658130161.2789404.2560x1440_yoanoy.jpg",
+      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671012774/Final-Project-MERN/Events/vi%C3%B1arock_vo3ooe.webp",
       "location": "Spain / Barcelona",
       "name": "Viña rock",
       "description": "...",
@@ -403,7 +403,7 @@
     {
       "id": 2,
       "type": "Concert",
-      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670943481/Final-Project-MERN/Events/4b983aec43ff233ffa7972bc53f7cfe5_dzyjhf.jpg",
+      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671012774/Final-Project-MERN/Events/VV_vi29er.webp",
       "location": "Spain / Madrid",
       "name": "VV- Neon Noir Tour 2023",
       "description": "...",
@@ -420,7 +420,7 @@
     {
       "id": 3,
       "type": "Concert",
-      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670943453/Final-Project-MERN/Events/maneskin._a6j8tm.jpg",
+      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671012774/Final-Project-MERN/Events/Maneskin_yoshok.webp",
       "location": "Spain / Sevilla",
       "name": "Måneskin",
       "description": "...",
@@ -437,7 +437,7 @@
     {
       "id": 4,
       "type": "Festival",
-      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670943435/Final-Project-MERN/Events/resurrection_fest2023cartel_1_500x267_njuytk.jpg",
+      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671012774/Final-Project-MERN/Events/resurrection_aomjsv.webp",
       "location": "Spain / Galicia",
       "name": "Resurrection Fest",
       "description": "...",
@@ -644,7 +644,7 @@
       "id": 1,
       "name": "÷ (Deluxe)",
       "description": "Ed Sheeran",
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670822683/Final-Project-MERN/Albums/Sheeran_cw0u6d.jpg",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671012283/Final-Project-MERN/Albums/Sheeran_uxdlzr.webp",
       "tracks": [
         1,
         2,
@@ -661,7 +661,7 @@
       "id": 2,
       "name": "Beerbongs & Bentleys",
       "description": "Post Malone",
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670822683/Final-Project-MERN/Albums/Beerbongs_Bentleys_q0bhrx.jpg",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671012283/Final-Project-MERN/Albums/Beerbong_kk1id1.webp",
       "tracks": [],
       "followers": [],
       "genres": [
@@ -676,7 +676,7 @@
       "id": 3,
       "name": "Dua Lipa Edition",
       "description": "Dua Lipa",
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670822683/Final-Project-MERN/Albums/Dua_Lipa_tplqqc.jpg",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671012283/Final-Project-MERN/Albums/DuaLipa_z5ucsg.webp",
       "tracks": [],
       "followers": [],
       "genres": [],
@@ -687,7 +687,7 @@
       "id": 4,
       "name": "Scorpion",
       "description": "Drake",
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670822683/Final-Project-MERN/Albums/drake_l38cju.jpg",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671012283/Final-Project-MERN/Albums/Drake_laofzz.webp",
       "tracks": [],
       "followers": [],
       "genres": [
@@ -702,7 +702,7 @@
       "id": 5,
       "name": "The Eminem Show",
       "description": "Eminem",
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670822683/Final-Project-MERN/Albums/descarga_qij2rk.jpg",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671012283/Final-Project-MERN/Albums/Eminem_dmn1fo.webp",
       "tracks": [],
       "followers": [],
       "genres": [
