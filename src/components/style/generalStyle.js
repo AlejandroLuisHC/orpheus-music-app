@@ -236,6 +236,18 @@ export const H2Style = styled.h2`
         color:${color.primaryWhite}
     }
 `
+export const H3Style = styled.h3`
+    color: ${color.primaryYellow};
+    font-size: 22px;
+    font-weight: bold;
+    justify-content: center;
+    @media ${device.desktop}{
+        font-size: 30px;
+    }
+    &:hover{
+        color:${color.primaryWhite}
+    }
+`
 export const H2StyleWhite = styled.h2`
     color: ${color.primaryWhite};
     font-size: 24px;
@@ -346,6 +358,7 @@ export const SelectRegion = styled(RegionDropdown)`
 export const PErrorStyle = styled.p`
     color: ${color.primaryError};
     font-size: 14px;
+    
 `
 
 export const HrStyle = styled.hr`

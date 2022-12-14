@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
 import { HrStyle } from "../components/style/generalStyle"
-import { DivHomeStyle, DivButtonsAction, BtnAction,DivHero, DivMobileButtons,DivBoxStyle, H6StyleHero, DivFavAndPlaylist, DivHomeCarousels, H1Welcome, ImgAvatarProfile } from "../components/style/homeStyle"
+import { DivHomeStyle, DivButtonsAction, BtnAction,DivHero, DivMobileButtons,DivBoxStyle, H6StyleHero, DivFavAndPlaylist, DivHomeCarousels, H1Welcome, ImgAvatarProfile, LinkProfile } from "../components/style/homeStyle"
 import TrackBox from "../components/home/TrackBox"
 import AlbumBox from "../components/home/AlbumBox"
 import PlaylistBox from "../components/home/PlaylistBox"
@@ -9,6 +9,7 @@ import AsideProfile from '../components/general_components/aside/AsideProfile'
 import AvatarImg from '../components/general_components/AvatarImg'
 import UsersBox from '../components/home/UsersBox'
 import EventsBox from '../components/home/EventsBox'
+import HeaderProfile from '../components/home/HeaderProfile'
 
 const Home = () => {
     const userData = useSelector(state => state.userData.user.userData)
@@ -21,6 +22,7 @@ const Home = () => {
                             : "Good afternoon, "
     return (
         <DivHomeStyle>
+            <LinkProfile to={userData.username}><HeaderProfile /></LinkProfile>
             <DivHero>
                 <Hero/>
             </DivHero>
@@ -28,6 +30,8 @@ const Home = () => {
             <H1Welcome>
                 {`${welcome}${userData.username}!`}
             </H1Welcome>
+
+            
 
             <HrStyle/>
 

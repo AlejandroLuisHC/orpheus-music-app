@@ -7,7 +7,7 @@ const ChangePasswordStep2 = ({register, watch, setFormSteps, errors}) => {
     };
   return (
     <>
-        <legend>Create your new password</legend>
+        
         <DivInputStyle>
                       <LabelStyle>
                       <p>New Password:</p>
@@ -18,7 +18,7 @@ const ChangePasswordStep2 = ({register, watch, setFormSteps, errors}) => {
                           {...register("password", {
                               required: true,
                               pattern: {
-                                value: /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/,
+                                
                                 message: 'This password is not strong enough',
                             },
                           })}
