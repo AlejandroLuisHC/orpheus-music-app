@@ -179,6 +179,14 @@ export const ButtonPrimaryStyle = styled.button`
     &:hover{
         transform: scale(1.1);
     }
+    &:disabled {
+        color: ${color.secondaryBlack};
+        background-color: ${color.secondaryYellow};
+        cursor: default;
+        &:hover{ 
+            transform: none;
+            }
+    }
 `
 
 export const ButtonSecondaryStyle = styled.button`
@@ -224,6 +232,18 @@ export const H2Style = styled.h2`
     cursor:pointer;
     @media ${device.desktop}{
         font-size: 36px;
+    }
+    &:hover{
+        color:${color.primaryWhite}
+    }
+`
+export const H3Style = styled.h3`
+    color: ${color.primaryYellow};
+    font-size: 22px;
+    font-weight: bold;
+    justify-content: center;
+    @media ${device.desktop}{
+        font-size: 30px;
     }
     &:hover{
         color:${color.primaryWhite}
@@ -339,6 +359,7 @@ export const SelectRegion = styled(RegionDropdown)`
 export const PErrorStyle = styled.p`
     color: ${color.primaryError};
     font-size: 14px;
+    
 `
 
 export const HrStyle = styled.hr`

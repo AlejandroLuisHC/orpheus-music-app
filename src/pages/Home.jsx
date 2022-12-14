@@ -7,6 +7,7 @@ import {
     DivMobileButtons,
     DivHomeCarousels,
     H1Welcome,
+    LinkProfile,
 } from '../components/style/homeStyle';
 import TrackBox from '../components/home/TrackBox';
 import AlbumBox from '../components/home/AlbumBox';
@@ -17,6 +18,7 @@ import EventsBox from '../components/home/EventsBox';
 import { DivSliders } from '../components/style/searchStyle';
 import SearchSlider from '../components/search/SearchSlider';
 import HomeSlider from '../components/home/HomeSlider';
+import HeaderProfile from '../components/home/HeaderProfile';
 
 const Home = () => {
     const userData = useSelector((state) => state.userData.user.userData);
@@ -30,6 +32,7 @@ const Home = () => {
                 : 'Good afternoon, ';
     return (
         <DivHomeStyle>
+            <LinkProfile to={`../${userData.username}`}><HeaderProfile /></LinkProfile>
             <DivHero>
                 <Hero />
             </DivHero>

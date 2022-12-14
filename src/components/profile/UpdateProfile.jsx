@@ -7,6 +7,7 @@ import { UPDATE } from '../../redux/features/user_data/userSlice';
 import { FormStyle } from '../style/generalStyle';
 import { fetchUpdateUser } from '../../api'
 import { DivEditUserData, DivUserData, InputEditStyle, DivEditUserContainer, PTextEdit, ButtonSubmitEdit, SpanIconClick, HrEditProfile } from '../style/profileStyle';
+import ChangePassword from './ChangePassword';
 
 const UpdateProfile = () => {
     const initialState = {
@@ -20,10 +21,12 @@ const UpdateProfile = () => {
 
     const userDataStore = useSelector(state => state.userData.user.userData);
     const userId = useSelector(state => state.userData.user.id);
-    console.log(userId)
+    
     const {
         register,
         handleSubmit,
+        watch,
+        formState: { errors },
     } = useForm();
 
    
@@ -60,6 +63,7 @@ const UpdateProfile = () => {
     
     const { userData } = UpdateUserData;
     const dispatch = useDispatch();
+    
     const updateUser = ({
         username,
         firstName,
@@ -94,7 +98,6 @@ const UpdateProfile = () => {
         dispatch(UPDATE(UpdateUserData));
     }, [UpdateUserData])
 
-    const goPassword = useNavigate();
 
     return (
         <FormStyle onSubmit={handleSubmit(data => updateUser(data))}>
@@ -185,10 +188,19 @@ const UpdateProfile = () => {
             </DivEditUserContainer>
             <DivEditUserContainer>
             
-                <DivUserData>
-                        <PTextEdit>Change password</PTextEdit>
-                        <SpanIconClick><IoMdCreate onClick={() => goPassword('./password')} /></SpanIconClick>
-                </DivUserData>
+            {!openInput.password
+            ?
+            <DivUserData>
+                <PTextEdit>Change password</PTextEdit>
+                <SpanIconClick><IoMdCreate onClick={() => setOpenInput(prev => prev = { ...prev, password: true })}/></SpanIconClick>
+            </DivUserData>
+            : 
+            <ChangePassword 
+                register = {register}
+                watch = {watch}
+                formState = {errors}
+
+            />}
                    
                 <HrEditProfile/>
             </DivEditUserContainer>

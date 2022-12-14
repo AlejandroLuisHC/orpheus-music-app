@@ -140,64 +140,18 @@
         ]
       },
       "work": {
-        "myAlbums": [
-          5
-        ],
-        "myTracks": [
-          7,
-          8,
-          9
-        ]
+        "myAlbums": [],
+        "myTracks": []
       },
-      "myPlaylists": [
-        {
-          "id": 4,
-          "name": "Top Hits",
-          "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-trinity-kubassek-341858_hnsidm.webp"
-        },
-        {
-          "id": 2,
-          "name": "Electro",
-          "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-sebastiaan-stam-1482476_ls41gi.webp"
-        }
-      ],
-      "favPlaylists": [
-        1,
-        2
-      ],
-      "favAlbums": [
-        1,
-        2,
-        3
-      ],
-      "favTracks": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
-      "followers": [
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1
-      ],
-      "following": [
-        3,
-        22
-      ],
+      "myPlaylists": [],
+      "favPlaylists": [],
+      "favAlbums": [],
+      "favTracks": [],
+      "followers": [],
+      "following": [],
       "isVerified": false,
-      "isAdmin": false
+      "isAdmin": false,
+      "isLoggedIn": false
     },
     {
       "id": 4,
