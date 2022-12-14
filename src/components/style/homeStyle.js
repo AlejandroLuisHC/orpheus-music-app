@@ -5,14 +5,13 @@ import { Link } from "react-router-dom";
 
 /* DESKTOP DIV HERO */
 export const DivHero = styled.div`
-    display: none;
-    @media ${device.desktop}{
-        display: block; 
-    } 
+    margin: -20px -20px 0;
+    display: block; 
 `
 /* MOBILE DIV WELCOME NAV BUTTONS  */
 export const DivMobileButtons = styled.div`
     margin: 30px 0;
+    display: flex;
     @media ${device.desktop}{
         display: none; 
     } 
@@ -26,7 +25,7 @@ export const DivHomeStyle = styled.div`
 `
 export const H1Welcome = styled.h1`
     margin-top: 30px;
-    font-size:20px;
+    font-size:25px;
     display:flex;
     justify-content: space-between;
     align-items:center;
@@ -61,10 +60,7 @@ export const DivDisplayMobile = styled.div`
     } 
 `
 export const DivDisplayDesktop = styled.div`
-        display:none;
-    @media ${device.desktop}{
-        display:block; 
-    }
+    display:block; 
 `
    
 export const DivStyle = styled.div`
@@ -283,46 +279,42 @@ export const DivInfoLists = styled.div`
 /* HERO TITLES */
 export const DivHeroTitles = styled.div`
     display: flex;
-    flex-direction: column;
-    padding-left: 15vw;
     height: 100%;
+    margin-left: 40px;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 `
 export const H2StyleHero = styled.h2`
-    margin: 0 auto;
     color: ${color.primaryWhite};
     text-transform: uppercase;
-    left:100px;
     width: 100%;
-    font-size: 2.5em;
+    font-size: 1.8em;
     text-shadow: 1px 1px 2px black, 0 0 20px black, 0 0 4px black;
     transition: 300ms;
-    @media (max-height: ${'700px'}) {
-        font-size: 2em;
+    @media ${device.desktop} {
+        font-size: 2.5em;
     }
 `
 export const H4StyleHero = styled.h4`
     width: 100%;
-    font-size: 1.25em;
+    font-size: 1em;
     text-shadow: 1px 1px 2px black, 0 0 20px black, 0 0 4px black;
-    @media (max-height: ${'700px'}) {
-        display: none;
+    @media ${device.desktop} {
+        font-size: 1.25em;
     }
 `
 export const H6StyleHero = styled.h6`
-    font-size:0.80rem;
+    font-size:.8rem;
     font-weight:700;
-   
-   
     @media ${device.desktop}{
         font-size:1rem;
     }
 `
 export const PStyleHero = styled.p`
-    font-size:0.60rem;
-
+    font-size:.6rem;
     @media ${device.desktop}{
-        font-size:0.87rem;
+        font-size:.87rem;
     }
 `
 
@@ -351,8 +343,8 @@ export const ButtonLogoutStyle = styled(ButtonSecondaryStyle)`
 
 /* IMAGE  */
 export const ImgCards = styled.img`
-    width: 90px;
-    height: 90px;
+    width: 115px;
+    height:115px;
     display: flex;
     border-radius: 10px;
     transition: 300ms;

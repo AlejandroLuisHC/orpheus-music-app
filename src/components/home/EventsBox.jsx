@@ -21,20 +21,18 @@ const EventsBox = () => {
                     </DivElementTitles>
 
                     <DivSliderEvents>
-                        {
-                            data?.map((event) =>
-                                <DivCardEvent key={event.id}> 
-                                    <DivImgRectangleL src={event.uri}/>
-                                    <DivFlex>
-                                        <div>
-                                            <H6StyleHero>{event.name}</H6StyleHero>
-                                            <PStyleHero>{event.location} - {event.date}</PStyleHero>
-                                        </div>
-                                        <H2Style>{event.price}€</H2Style>
-                                    </DivFlex>
-                                </DivCardEvent>
-                            )
-                        }
+                        {data?.map((event) =>
+                            <DivCardEvent key={event.id}> 
+                                <DivImgRectangleL src={event.uri}/>
+                                <DivFlex>
+                                    <div>
+                                        <H6StyleHero>{event.name}</H6StyleHero>
+                                        <PStyleHero>{event.location} - {event.date}</PStyleHero>
+                                    </div>
+                                    <H2Style>{event.price}€</H2Style>
+                                </DivFlex>
+                            </DivCardEvent>
+                        )}
                     </DivSliderEvents>
                 </DivDisplayDesktop>
     )

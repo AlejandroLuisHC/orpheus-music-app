@@ -6,9 +6,9 @@ const fetchUpdateUser = async (newData, id) => {
             body: JSON.stringify(newData)
         }
         const res = await fetch(`http://localhost:4000/users/${id}`, options)
-        console.log('User successfully Updated:', await res.json())
+        console.log('User successfully updated:', await res.json())
     } catch (err) {
-        console.warn('An error occurred while updateing the user');
+        console.warn('An error occurred while updating the user');
     }
 }
 

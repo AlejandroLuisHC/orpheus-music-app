@@ -1,12 +1,10 @@
 import { useSelector } from 'react-redux'
 import { HrStyle } from "../components/style/generalStyle"
-import { DivHomeStyle, DivButtonsAction, BtnAction,DivHero, DivMobileButtons,DivBoxStyle, H6StyleHero, DivFavAndPlaylist, DivHomeCarousels, H1Welcome, ImgAvatarProfile } from "../components/style/homeStyle"
+import { DivHomeStyle, BtnAction,DivHero, DivMobileButtons, DivHomeCarousels, H1Welcome } from "../components/style/homeStyle"
 import TrackBox from "../components/home/TrackBox"
 import AlbumBox from "../components/home/AlbumBox"
 import PlaylistBox from "../components/home/PlaylistBox"
 import Hero from '../components/home/hero/Hero'
-import AsideProfile from '../components/general_components/aside/AsideProfile'
-import AvatarImg from '../components/general_components/AvatarImg'
 import UsersBox from '../components/home/UsersBox'
 import EventsBox from '../components/home/EventsBox'
 
@@ -30,20 +28,16 @@ const Home = () => {
             </H1Welcome>
 
             <HrStyle/>
-
-            {/* Only seen in mobile */}
+            
+            {/* // Only seen mobile  */}
             <DivMobileButtons>
-                <DivButtonsAction>
                     <BtnAction>Playlist</BtnAction>
                     <BtnAction>Events</BtnAction>
-                </DivButtonsAction>
-                <DivButtonsAction>
                     <BtnAction>Social</BtnAction>
                     <BtnAction>New Releases</BtnAction>
-                </DivButtonsAction>
             </DivMobileButtons>
 
-            <DivFavAndPlaylist>
+            {/* <DivFavAndPlaylist>
                 <DivBoxStyle>
                     <div>
                         <img src="src\assets\img\likedsongs.png" alt="" style={{
@@ -56,10 +50,9 @@ const Home = () => {
                         <H6StyleHero>Your last created Playlist</H6StyleHero>
                     </div>
                 </DivBoxStyle>
-            </DivFavAndPlaylist>
-            {/* Only seen in mobile */}
+            </DivFavAndPlaylist> */}
+            {/* // ...................... */}
 
-            {/* View in Desktop */}
             <DivHomeCarousels>
                 <EventsBox/>
                 <PlaylistBox/>
@@ -67,7 +60,6 @@ const Home = () => {
                 <TrackBox/>
                 <UsersBox/>
             </DivHomeCarousels>
-            {/* View in Desktop */}
         </DivHomeStyle>                                               
 
     )
