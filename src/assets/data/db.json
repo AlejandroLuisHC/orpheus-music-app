@@ -256,7 +256,7 @@
     {
       "id": 1,
       "type": "Concert",
-      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671029874/Final-Project-MERN/Events/vi%C3%B1a_dkq0yz.webp",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671029874/Final-Project-MERN/Events/vi%C3%B1a_dkq0yz.webp",
       "location": "Spain / Barcelona",
       "name": "Viña rock",
       "description": "...",
@@ -269,7 +269,7 @@
     {
       "id": 2,
       "type": "Concert",
-      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671029874/Final-Project-MERN/Events/maneskin_elvxs2.webp",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671029874/Final-Project-MERN/Events/maneskin_elvxs2.webp",
       "location": "Spain / Sevilla",
       "name": "Måneskin",
       "description": "...",
@@ -282,7 +282,7 @@
     {
       "id": 3,
       "type": "Fest",
-      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671029874/Final-Project-MERN/Events/resurrection_co4czd.webp",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671029874/Final-Project-MERN/Events/resurrection_co4czd.webp",
       "location": "Spain / Galicia",
       "name": "Resurrection Fest",
       "description": "...",
@@ -295,7 +295,7 @@
     {
       "id": 4,
       "type": "Concert",
-      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671029874/Final-Project-MERN/Events/Duki_ptv4kb.webp",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671029874/Final-Project-MERN/Events/Duki_ptv4kb.webp",
       "location": "Spain / Madrid",
       "name": "Duki - Desde el fin del mundo",
       "description": "...",
@@ -308,7 +308,7 @@
     {
       "id": 5,
       "type": "Fest",
-      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671029874/Final-Project-MERN/Events/benidorm_uvgsra.webp",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671029874/Final-Project-MERN/Events/benidorm_uvgsra.webp",
       "location": "Spain / Madrid",
       "name": "Benidorm Fest",
       "description": "...",
@@ -323,7 +323,7 @@
     {
       "id": 1,
       "name": "Coding Focus",
-      "description": "songs by mood",
+      "description": "",
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017430/Final-Project-MERN/Playlist/pexels-mikhail-nilov-7988087_etxcyo.webp",
       "tracks": [
         { "id": 2, "added": "new Data()" },
@@ -339,7 +339,7 @@
     {
       "id": 2,
       "name": "Electro",
-      "description": "songs by mood",
+      "description": "",
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-sebastiaan-stam-1482476_ls41gi.webp",
       "tracks": [
         { "id": 2, "added": "new Data()" },
@@ -355,7 +355,7 @@
     {
       "id": 3,
       "name": "Winter Time",
-      "description": "songs by mood",
+      "description": "",
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-simon-berger-688660_qlxydb.webp",
       "tracks": [
         { "id": 2, "added": "new Data()" },
@@ -371,7 +371,7 @@
     {
       "id": 4,
       "name": "Top Hits",
-      "description": "songs by mood",
+      "description": "",
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-trinity-kubassek-341858_hnsidm.webp",
       "tracks": [
         { "id": 2, "added": "new Data()" },
@@ -387,7 +387,7 @@
     {
       "id": 5,
       "name": "Best Voice",
-      "description": "songs by mood",
+      "description": "",
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-foteros-352505_yeozpe.webp",
       "tracks": [
         { "id": 2, "added": "new Data()" },
@@ -403,7 +403,7 @@
     {
       "id": 6,
       "name": "Hip Hop",
-      "description": "...",
+      "description": "",
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-dmitry-demidov-3783471_rw50ne.webp",
       "tracks": [
         { "id": 2, "added": "new Data()" },
@@ -419,7 +419,7 @@
     {
       "id": 7,
       "name": "Acoustic Moments",
-      "description": "...",
+      "description": "",
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-pixabay-33597_pelqsx.webp",
       "tracks": [
         { "id": 2, "added": "new Data()" },
@@ -435,7 +435,7 @@
     {
       "id": 8,
       "name": "Summer Time",
-      "description": "songs by mood",
+      "description": "",
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-pixabay-210205_hv8fbc.webp",
       "tracks": [
         { "id": 2, "added": "new Data()" },
@@ -451,7 +451,7 @@
     {
       "id": 9,
       "name": "Rock",
-      "description": "songs by mood",
+      "description": "",
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-vishnu-r-nair-1105666_fcpxli.webp",
       "tracks": [
         { "id": 2, "added": "new Data()" },
@@ -467,7 +467,7 @@
     {
       "id": 10,
       "name": "Relax Time",
-      "description": "songs by mood",
+      "description": "",
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017285/Final-Project-MERN/Playlist/pexels-aron-visuals-1643113_jcbkru.webp",
       "tracks": [
         { "id": 2, "added": "new Data()" },

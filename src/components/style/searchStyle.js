@@ -75,14 +75,13 @@ export const DivSliderBody = styled.div`
 export const DivCard = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
-    /* width: 9rem; */
-    height: 100%;
+    min-width: 140px;
+    height: 190px;
     margin: 10px 20px 0 0;
     border-radius: 20px;
     text-decoration: none;
     color: ${color.primaryWhite};
-    width: ${props => props.resultType === 'events' ? '280px' : '14rem'};
+    width: ${props => props.resultType === 'events' ? '280px' : '224px'};
 
     @media ${device.desktop}{      
         min-width: ${props => props.resultType === 'events' ? '420px' : '220px'};
@@ -96,14 +95,26 @@ export const DivCard = styled.div`
             background: ${props => props.resultType !== 'events' && 'rgba(255, 255, 255, .2)'};
         }
     }
-`;
+`
+
+export const DivImg = styled.div`
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    padding: 15px 15px 0 15px;
+    height: 210px;
+`
+
+export const DivText = styled.div`
+    padding: 10px;
+`
 
 export const ImgCard = styled.img`
     background: ${color.primaryWhite};
-    min-height: ${props => props.resultType === 'events' ? '190px' : '200px'};
-    min-width: ${props => props.resultType === 'events' ? '280px' : '200px'};
+    height: ${props => props.resultType === 'events' ? '190px' : '115px'};
+    min-width: ${props => props.resultType === 'events' ? '280px' : '115px'};
     object-fit: cover;
-    border-radius: 20px;
+    border-radius: 10px;
     border-radius: ${props => props.resultType === 'users' && "50%"};
     width: ${props => props.resultType === 'events' && '100%'};
     margin-bottom: .3rem;
@@ -112,8 +123,9 @@ export const ImgCard = styled.img`
         border-radius: ${props => props.resultType !== 'events' && '50%'};
     }
 
-    @media ${device.desktop}{      
-        width: ${props => props.resultType === 'events' ? '420px' : '200px'};
-        height: ${props => props.resultType === 'events' ? '250px' : '200px'};
+    @media ${device.desktop}{
+        width: ${props => props.resultType === 'events' ? '420px' : '180px'};
+        height: ${props => props.resultType === 'events' ? '250px' : '180px'};
+        border-radius: 15px;
     }
 `;

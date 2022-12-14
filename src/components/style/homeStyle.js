@@ -307,6 +307,7 @@ export const H4StyleHero = styled.h4`
 export const H6StyleHero = styled.h6`
     font-size:.8rem;
     font-weight:700;
+    
     @media ${device.desktop}{
         font-size:1rem;
     }

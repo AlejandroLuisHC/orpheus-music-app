@@ -44,27 +44,10 @@ const Home = () => {
                 <BtnAction>Social</BtnAction>
                 <BtnAction>New Releases</BtnAction>
             </DivMobileButtons>
-
-            <HrStyle />
-
-            {/* // Only seen mobile  */}
-            <DivMobileButtons>
-                <BtnAction>Playlist</BtnAction>
-                <BtnAction>Events</BtnAction>
-                <BtnAction>Social</BtnAction>
-                <BtnAction>New Releases</BtnAction>
-            </DivMobileButtons>
-
-            {/* <DivHomeCarousels>
-                <EventsBox/>
-                <PlaylistBox/>
-                <AlbumBox/>
-                <TrackBox/>
-                <UsersBox/>
-            </DivHomeCarousels> */}
-
+            
             <DivSliders>
                 <HomeSlider apiKey={'events'} />
+                <AlbumBox />
                 <HomeSlider apiKey={'playlists'} />
                 <HomeSlider apiKey={'albums'} />
                 <HomeSlider apiKey={'tracks'} />
