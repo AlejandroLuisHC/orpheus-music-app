@@ -14,9 +14,7 @@ import {
 } from '../style/searchStyle';
 
 const ResultCarrousel = ({ apiKey, search }) => {
-
   const { data, status } = useQuery([apiKey, apiKey], () => fetchKey(apiKey));
-
   const [searchResults, setSearchResults] = useState([]);
   console.log(apiKey, searchResults)
 

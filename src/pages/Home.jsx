@@ -31,10 +31,10 @@ const Home = () => {
             
             {/* // Only seen mobile  */}
             <DivMobileButtons>
-                    <BtnAction>Playlist</BtnAction>
-                    <BtnAction>Events</BtnAction>
-                    <BtnAction>Social</BtnAction>
-                    <BtnAction>New Releases</BtnAction>
+                <BtnAction>Playlist</BtnAction>
+                <BtnAction>Events</BtnAction>
+                <BtnAction>Social</BtnAction>
+                <BtnAction>New Releases</BtnAction>
             </DivMobileButtons>
 
             {/* <DivFavAndPlaylist>
