@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { UPDATE } from '../../redux/features/user_data/userSlice';
 import { FormStyle } from '../style/generalStyle';
-import fetchUpdateUser from '../../api'
+import { fetchUpdateUser } from '../../api'
 import { DivEditUserData, DivUserData, InputEditStyle, DivEditUserContainer, PTextEdit, ButtonSubmitEdit, SpanIconClick, HrEditProfile } from '../style/profileStyle';
 
 const UpdateProfile = () => {
