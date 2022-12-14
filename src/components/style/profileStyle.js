@@ -173,15 +173,15 @@ export const SectionEditUser = styled.section`
     margin-top: 10px;
 `
 export const DivEditUserContainer = styled.div`
-display: flex;
-justify-content: center;
 margin-top: 20px;
 `
 export const DivUserData = styled.div`
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 100px;
+    width: 300px;
+    justify-content: space-between;
+    @media ${device.desktop} {
+        width: 650px;
+    }
 `
 
 export const DivEditUserData = styled.div`
@@ -195,6 +195,10 @@ export const DivEditUserData = styled.div`
     justify-content: center;
     align-items: center;
     gap: 10px;
+    @media ${device.desktop}{
+        justify-content: space-between;
+        width: 650px;
+    }
 `
 export const InputEditStyle = styled.input`
     background-color: ${color.primaryWhite};
@@ -202,17 +206,29 @@ export const InputEditStyle = styled.input`
     font-size: 18px;
     margin-left: 10px;
     text-align: center;
+    @media ${device.desktop}{
+        width: 600px;
+        justify-content: start;
+    }
 `
 export const PTextEdit = styled.p`
     font-size: 24px;
+    justify-content: start;
+    @media ${device.desktop}{
+        font-size: 30px;
+    }
 `
 export const SpanIconClick = styled.span`
+    justify-content: end;
     cursor: pointer;
     display: flex;
     font-size: 24px;
     align-items: center;
     &:hover{
         color: ${color.primaryYellow};
+    }
+    @media ${device.desktop}{
+        font-size: 28px;
     }
 `
 export const ButtonSubmitEdit = styled.button`
@@ -224,4 +240,13 @@ export const ButtonSubmitEdit = styled.button`
     &:hover{
         color: ${color.primaryYellow};
     }
+    @media ${device.desktop}{
+        font-size: 28px;
+        margin-right: 5px;
+    }
+`
+export const HrEditProfile = styled.hr`
+margin-top: 8px;
+width: 100%;
+opacity: .5;
 `
