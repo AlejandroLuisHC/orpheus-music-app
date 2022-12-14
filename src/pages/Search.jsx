@@ -1,16 +1,15 @@
 import { useSearchParams } from 'react-router-dom';
-import ResultCarrousel from '../components/search/ResultCarrousel';
+import SearchSlider from '../components/search/SearchSlider';
 import {
-    DivSearchResults,
-    FormSearchStyle,
-    InputSearchStyle,
-    MainFlexContainer,
+  DivSliders,
+  FormSearchStyle,
+  InputSearchStyle,
+  MainFlexContainer,
 } from '../components/style/searchStyle';
 
 const Search = () => {
-
-    const [searchParmams, setSearchParams] = useSearchParams();
-    const search = searchParmams.get('q') || '';
+  const [searchParmams, setSearchParams] = useSearchParams();
+  const search = searchParmams.get('q') || '';
 
     return (
         <MainFlexContainer>
@@ -23,15 +22,17 @@ const Search = () => {
                 ></InputSearchStyle>
             </FormSearchStyle>
 
-            <DivSearchResults>
-                <ResultCarrousel apiKey={'events'} search={search} />
-                <ResultCarrousel apiKey={'playlists'} search={search} />
-                <ResultCarrousel apiKey={'albums'} search={search} />
-                <ResultCarrousel apiKey={'tracks'} search={search} />
-                <ResultCarrousel apiKey={'users'} search={search} />
-            </DivSearchResults>
-        </MainFlexContainer>
-    );
+      {search.length > 2 && (
+        <DivSliders>
+          <SearchSlider apiKey={'events'} search={search} />
+          <SearchSlider apiKey={'playlists'} search={search} />
+          <SearchSlider apiKey={'albums'} search={search} />
+          <SearchSlider apiKey={'tracks'} search={search} />
+          <SearchSlider apiKey={'users'} search={search} />
+        </DivSliders>
+      )}
+    </MainFlexContainer>
+  );
 };
 
 export default Search;
