@@ -62,27 +62,30 @@ const Map = ({ filter, data }) => {
                })
           }) 
      }
+     const findAll = () => {
+          return data?.map(d => 
+               <DivCard key={d.id}>
+                    <DivPicLists 
+                         onClick={() => setPlayer(prev => prev = {
+                              playerOn: true ,
+                              audio: d.file,
+                              name:d.name,
+                              user:d.description
+                         })}
+                    >
+                         <ImgCards src={d.img} />
+                    </DivPicLists>
+                    <DivInfoLists>
+                         <H6StyleHero>{d.name}</H6StyleHero>
+                         <PStyleHero>{d.description}</PStyleHero>
+                    </DivInfoLists>
+               </DivCard> 
+          )
+     }
 
      return (
           !filter 
-               ? data?.map(d => 
-                    <DivCard key={d.id}>
-                         <DivPicLists 
-                              onClick={() => setPlayer(prev => prev = {
-                                   playerOn: true ,
-                                   audio: d.file,
-                                   name:d.name,
-                                   user:d.description
-                              })}
-                         >
-                              <ImgCards src={d.img} />
-                         </DivPicLists>
-                         <DivInfoLists>
-                              <H6StyleHero>{d.name}</H6StyleHero>
-                              <PStyleHero>{d.description}</PStyleHero>
-                         </DivInfoLists>
-                    </DivCard> 
-               )
+               ? findAll()
                : findByGenre()
      )
 }
