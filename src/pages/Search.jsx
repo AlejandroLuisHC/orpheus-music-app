@@ -1,6 +1,5 @@
 import { useSearchParams } from 'react-router-dom';
 import ResultCarrousel from '../components/search/ResultCarrousel';
-import { FormStyle, InputStyle } from '../components/style/generalStyle';
 import {
   DivSearchResults,
   FormSearchStyle,
