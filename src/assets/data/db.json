@@ -12,7 +12,7 @@
         "password": "admin123",
         "secretQuestion": "",
         "secretAnswer": "",
-        "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670929861/Final-Project-MERN/Tracks/Lovelace_team_vl79eo.jpg",
+        "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030889/Final-Project-MERN/Users/avatar-716d761a69eb183869ac189301ed6cc4_porhhq_ryz8kz.webp",
         "banner": "",
         "favGenres": [4, 6, 12]
       },
@@ -47,7 +47,7 @@
         "password": "user123",
         "secretQuestion": "",
         "secretAnswer": "",
-        "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670937923/Final-Project-MERN/Users/avatar-716d761a69eb183869ac189301ed6cc4_porhhq.jpg",
+        "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030889/Final-Project-MERN/Users/avatar-716d761a69eb183869ac189301ed6cc4_porhhq_ryz8kz.webp",
         "banner": "",
         "favGenres": [4, 6, 12]
       },
@@ -92,7 +92,7 @@
         "password": "0000",
         "secretQuestion": "What is your favourite pizza?",
         "secretAnswer": "4quesos",
-        "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670937861/Final-Project-MERN/Users/1658342188376_ccgwky.jpg",
+        "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030889/Final-Project-MERN/Users/1658342188376_ccgwky_hf3rz9.webp",
         "banner": "",
         "favGenres": [4, 6, 12]
       },
@@ -132,7 +132,7 @@
         "password": "0000",
         "secretQuestion": "What is your favourite pizza?",
         "secretAnswer": "4cheese",
-        "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670925756/Final-Project-MERN/Users/Ed-Sheeran_j1cbft.jpg",
+        "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030889/Final-Project-MERN/Users/Ed-Sheeran_j1cbft_rzg0xr.webp",
         "banner": "",
         "favGenres": [4, 6, 12]
       },
@@ -172,7 +172,7 @@
         "password": "0000",
         "secretQuestion": "What is your favourite pizza?",
         "secretAnswer": "4cheese",
-        "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670927118/Final-Project-MERN/Users/b201f9fe39858f4e6f778b5235ad2607_ilib2g.jpg",
+        "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030889/Final-Project-MERN/Users/b201f9fe39858f4e6f778b5235ad2607_ilib2g_ugz4qa.webp",
         "banner": "",
         "favGenres": [4, 6, 12]
       },
@@ -217,7 +217,7 @@
         "password": "0000",
         "secretQuestion": "What is your favourite pizza?",
         "secretAnswer": "4cheese",
-        "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670925756/Final-Project-MERN/Users/119700226_4257622987641667_4778006258121329624_n_du7rt6.jpg",
+        "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030889/Final-Project-MERN/Users/119700226_4257622987641667_4778006258121329624_n_du7rt6_sh7zai.webp",
         "banner": "",
         "favGenres": [4, 6, 12]
       },
@@ -256,7 +256,7 @@
     {
       "id": 1,
       "type": "Concert",
-      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671019443/Final-Project-MERN/Events/vi%C3%B1arock_zd2v2u.webp",
+      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671029874/Final-Project-MERN/Events/vi%C3%B1a_dkq0yz.webp",
       "location": "Spain / Barcelona",
       "name": "Viña rock",
       "description": "...",
@@ -269,20 +269,7 @@
     {
       "id": 2,
       "type": "Concert",
-      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671012774/Final-Project-MERN/Events/VV_vi29er.webp",
-      "location": "Spain / Madrid",
-      "name": "VV- Neon Noir Tour 2023",
-      "description": "...",
-      "genres": [1],
-      "artists": [1],
-      "date": "28/6/2023",
-      "stock": 1900,
-      "price": 55
-    },
-    {
-      "id": 3,
-      "type": "Concert",
-      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671019286/Final-Project-MERN/Events/Maneskin_stldcl.webp",
+      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671029874/Final-Project-MERN/Events/maneskin_elvxs2.webp",
       "location": "Spain / Sevilla",
       "name": "Måneskin",
       "description": "...",
@@ -293,9 +280,9 @@
       "price": 45
     },
     {
-      "id": 4,
+      "id": 3,
       "type": "Fest",
-      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671012774/Final-Project-MERN/Events/resurrection_aomjsv.webp",
+      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671029874/Final-Project-MERN/Events/resurrection_co4czd.webp",
       "location": "Spain / Galicia",
       "name": "Resurrection Fest",
       "description": "...",
@@ -306,9 +293,9 @@
       "price": 55
     },
     {
-      "id": 5,
+      "id": 4,
       "type": "Concert",
-      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671018747/Final-Project-MERN/Events/Duki_wxtytd.png",
+      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671029874/Final-Project-MERN/Events/Duki_ptv4kb.webp",
       "location": "Spain / Madrid",
       "name": "Duki - Desde el fin del mundo",
       "description": "...",
@@ -319,28 +306,15 @@
       "price": 25
     },
     {
-      "id": 6,
+      "id": 5,
       "type": "Fest",
-      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671018746/Final-Project-MERN/Events/RutaBenidorm_mxmzkg.jpg",
+      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671029874/Final-Project-MERN/Events/benidorm_uvgsra.webp",
       "location": "Spain / Madrid",
-      "name": "Ruta Benidorm",
+      "name": "Benidorm Fest",
       "description": "...",
       "genres": [1],
       "artists": [1],
       "date": "10/6/2023",
-      "stock": 900,
-      "price": 35
-    },
-    {
-      "id": 7,
-      "type": "Concert",
-      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671018746/Final-Project-MERN/Events/sabina_-_contra_todo_pronostico_jbpxa9.png",
-      "location": "Spain / Madrid",
-      "name": "Sabina - Contra todo pronóstico",
-      "description": "...",
-      "genres": [1],
-      "artists": [1],
-      "date": "23/5/2023",
       "stock": 900,
       "price": 35
     }
@@ -589,7 +563,7 @@
       "album": [
         1
       ],
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670822659/Final-Project-MERN/Tracks/Shape_Of_You_lyrhmo.jpg",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030477/Final-Project-MERN/Tracks/Shape_Of_You_lyrhmo_jlpbvp.webp",
       "file": "",
       "followers": [
         2
@@ -610,7 +584,7 @@
       "album": [
         1
       ],
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670822659/Final-Project-MERN/Tracks/Hearts_don_t_break_around_here_r2fyhl.jpg",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030478/Final-Project-MERN/Tracks/Hearts_don_t_break_around_here_r2fyhl_sfigty.webp",
       "file": "",
       "followers": [
         2
@@ -631,7 +605,7 @@
       "album": [
         1
       ],
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670822659/Final-Project-MERN/Tracks/Barcelona_mqcbzw.jpg",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030477/Final-Project-MERN/Tracks/Barcelona_mqcbzw_uwcklk.webp",
       "file": "",
       "followers": [
         2
@@ -652,7 +626,7 @@
       "album": [
         2
       ],
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670822659/Final-Project-MERN/Tracks/Paranoid_qold3t.jpg",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030478/Final-Project-MERN/Tracks/Paranoid_qold3t_idk87a.webp",
       "file": "",
       "followers": [
         2
@@ -675,7 +649,7 @@
       "album": [
         2
       ],
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670822659/Final-Project-MERN/Tracks/Spoil_My_Night_rl0r27.jpg",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030477/Final-Project-MERN/Tracks/Spoil_My_Night_rl0r27_akiwgk.webp",
       "file": "",
       "followers": [
         2
@@ -698,7 +672,7 @@
       "album": [
         2
       ],
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670822659/Final-Project-MERN/Tracks/Rich_Sad_cesckn.jpg",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030477/Final-Project-MERN/Tracks/Rich_Sad_cesckn_u1whpb.webp",
       "file": "",
       "followers": [
         2
@@ -721,7 +695,7 @@
       "album": [
         5
       ],
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670822659/Final-Project-MERN/Tracks/White_America_jwy7jt.jpg",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030477/Final-Project-MERN/Tracks/White_America_jwy7jt_lrcoox.webp",
       "file": "",
       "followers": [
         2
@@ -743,7 +717,7 @@
       "album": [
         5
       ],
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670822659/Final-Project-MERN/Tracks/Business_ceq965.jpg",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030477/Final-Project-MERN/Tracks/Business_ceq965_bps0m0.webp",
       "file": "",
       "followers": [
         2
@@ -765,7 +739,7 @@
       "album": [
         5
       ],
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670822659/Final-Project-MERN/Tracks/Till_I_Collapse_fsn6pg.jpg",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030477/Final-Project-MERN/Tracks/Till_I_Collapse_fsn6pg_smrzih.webp",
       "file": "",
       "followers": [
         2
@@ -787,7 +761,7 @@
       "album": [
         4
       ],
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670822659/Final-Project-MERN/Tracks/Survival_zmn6sj.jpg",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030477/Final-Project-MERN/Tracks/Survival_zmn6sj_pswo2o.webp",
       "file": "",
       "followers": [
         2
@@ -810,7 +784,7 @@
       "album": [
         4
       ],
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670822659/Final-Project-MERN/Tracks/Elevate_dplrzi.jpg",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030477/Final-Project-MERN/Tracks/Elevate_dplrzi_vh5fme.webp",
       "file": "",
       "followers": [
         2
@@ -833,7 +807,7 @@
       "album": [
         4
       ],
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670822659/Final-Project-MERN/Tracks/Non_Stop_ohfxco.jpg",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030478/Final-Project-MERN/Tracks/Non_Stop_ohfxco_yruveg.webp",
       "file": "",
       "followers": [
         2
@@ -856,7 +830,7 @@
       "album": [
         4
       ],
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670929861/Final-Project-MERN/Tracks/Lovelace_team_vl79eo.jpg",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030478/Final-Project-MERN/Tracks/Lovelace_team_vl79eo_n9xfsn.webp",
       "file": "https://res.cloudinary.com/drghk9p6q/video/upload/v1670928277/Final-Project-MERN/Tracks/Music%20samples/Helvegen_-_Wardruna_Cover_vppfxw.mp3",
       "followers": [
         2
@@ -879,7 +853,7 @@
       "album": [
         4
       ],
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670929861/Final-Project-MERN/Tracks/Lovelace_team_vl79eo.jpg",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030478/Final-Project-MERN/Tracks/Lovelace_team_vl79eo_n9xfsn.webp",
       "file": "https://res.cloudinary.com/drghk9p6q/video/upload/v1670928276/Final-Project-MERN/Tracks/Music%20samples/Simpsons_baby_on_board_uqoupe.mp3",
       "followers": [
         2
@@ -902,7 +876,7 @@
       "album": [
         4
       ],
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670929861/Final-Project-MERN/Tracks/Lovelace_team_vl79eo.jpg",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030478/Final-Project-MERN/Tracks/Lovelace_team_vl79eo_n9xfsn.webp",
       "file": "https://res.cloudinary.com/drghk9p6q/video/upload/v1670928277/Final-Project-MERN/Tracks/Music%20samples/Alberta_Cover_chusta_r%C3%A1pida_rb2pey.mp3",
       "followers": [
         2
@@ -925,7 +899,7 @@
       "album": [
         4
       ],
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670929861/Final-Project-MERN/Tracks/Lovelace_team_vl79eo.jpg",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030478/Final-Project-MERN/Tracks/Lovelace_team_vl79eo_n9xfsn.webp",
       "file": "https://res.cloudinary.com/drghk9p6q/video/upload/v1670928276/Final-Project-MERN/Tracks/Music%20samples/Wellerman_bqfrui.mp3",
       "followers": [
         2
