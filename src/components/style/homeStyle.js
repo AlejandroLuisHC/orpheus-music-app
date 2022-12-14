@@ -263,7 +263,6 @@ export const DivCard = styled.div`
 `
 export const DivCardUsersFol = styled.div`
     display:flex;
-
 `
 
 export const DivPicLists = styled.div`
@@ -386,7 +385,6 @@ export const ImgAvatarUser = styled.img`
         min-width: 220px;
         max-width:220px;
         height: 220px;
-
     } 
     &:hover{
         border-radius:15px;
