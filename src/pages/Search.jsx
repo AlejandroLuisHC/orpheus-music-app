@@ -1,15 +1,15 @@
 import { useSearchParams } from 'react-router-dom';
 import SearchSlider from '../components/search/SearchSlider';
 import {
-  DivSliders,
-  FormSearchStyle,
-  InputSearchStyle,
-  MainFlexContainer,
+    DivSliders,
+    FormSearchStyle,
+    InputSearchStyle,
+    MainFlexContainer,
 } from '../components/style/searchStyle';
 
 const Search = () => {
-  const [searchParmams, setSearchParams] = useSearchParams();
-  const search = searchParmams.get('q') || '';
+    const [searchParmams, setSearchParams] = useSearchParams();
+    const search = searchParmams.get('q') || '';
 
     return (
         <MainFlexContainer>
@@ -22,17 +22,17 @@ const Search = () => {
                 ></InputSearchStyle>
             </FormSearchStyle>
 
-      {search.length > 2 && (
-        <DivSliders>
-          <SearchSlider apiKey={'events'} search={search} />
-          <SearchSlider apiKey={'playlists'} search={search} />
-          <SearchSlider apiKey={'albums'} search={search} />
-          <SearchSlider apiKey={'tracks'} search={search} />
-          <SearchSlider apiKey={'users'} search={search} />
-        </DivSliders>
-      )}
-    </MainFlexContainer>
-  );
+            {search.length > 2 && (
+                <DivSliders>
+                    <SearchSlider apiKey={'events'} search={search} />
+                    <SearchSlider apiKey={'playlists'} search={search} />
+                    <SearchSlider apiKey={'albums'} search={search} />
+                    <SearchSlider apiKey={'tracks'} search={search} />
+                    <SearchSlider apiKey={'users'} search={search} />
+                </DivSliders>
+            )}
+        </MainFlexContainer>
+    );
 };
 
 export default Search;
