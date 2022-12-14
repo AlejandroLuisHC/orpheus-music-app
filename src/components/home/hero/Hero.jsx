@@ -1,12 +1,12 @@
 import HeroSlider, { Overlay, Slide, MenuNav } from "hero-slider";
 import { memo } from "react";
-import { slide0, slide1, slide2 } from "../../../assets/img/gallery_slides";
+import { slide1, slide2, slide3 } from "../../../assets/img/gallery_slides";
 import { DivHeroTitles, H2StyleHero, H4StyleHero } from "../../style/homeStyle";
 
 const Hero = () => {
     return (
         <HeroSlider
-            height={"33vh"}
+            height={"60vh"}
             autoplay
             controller={{
                 initialSlide: 1,
@@ -22,7 +22,6 @@ const Hero = () => {
                     ),
                 onAfterSliding: (nextSlide) =>
                     console.debug("onAfterSliding(nextSlide): ", nextSlide)
-
             }}
         >
             <Overlay>
@@ -41,7 +40,8 @@ const Hero = () => {
                 label="Azkena Rock Festival 2023 - from April"
                 background={{
                     backgroundImageSrc: slide1,
-                    backgroundAnimation: "zoom"
+                    backgroundSize:cover
+
                 }}
             />
 
@@ -50,7 +50,7 @@ const Hero = () => {
                 label="Primavera Sound Barcelona 2023 - 1 June"
                 background={{
                     backgroundImageSrc: slide2,
-                    backgroundAnimation: "zoom"
+                    backgroundSize:cover
                 }}
             />
 
@@ -58,8 +58,9 @@ const Hero = () => {
                 shouldRenderMask
                 label="Bruce Springsteen & The E Street Band - 30 August"
                 background={{
-                    backgroundImageSrc: slide0,
-                    backgroundAnimation: "zoom"
+                    backgroundImageSrc: slide3,
+                    backgroundSize:cover
+
                 }}
             />
 

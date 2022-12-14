@@ -14,18 +14,24 @@
         "secretAnswer": "",
         "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670929861/Final-Project-MERN/Tracks/Lovelace_team_vl79eo.jpg",
         "banner": "",
-        "favGenres": []
+        "favGenres": [4, 6, 12]
       },
       "work": {
-        "myAlbums": [],
-        "myTracks": []
+        "myAlbums": [5],
+        "myTracks": [7, 8, 9]
       },
-      "myPlaylists": [],
-      "favPlaylists": [],
-      "favAlbums": [],
-      "favTracks": [],
-      "followers": [],
-      "following": [],
+      "myPlaylists": [
+        {
+          "id": 1,
+          "name": "Coding Focus",
+          "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017430/Final-Project-MERN/Playlist/pexels-mikhail-nilov-7988087_etxcyo.webp"
+        }
+      ],
+      "favPlaylists": [1, 2],
+      "favAlbums": [1, 2, 3],
+      "favTracks": [1, 2, 3, 4, 5],
+      "followers": [1],
+      "following": [3, 22],
       "isVerified": false,
       "isAdmin": false
     },
@@ -43,40 +49,35 @@
         "secretAnswer": "",
         "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670937923/Final-Project-MERN/Users/avatar-716d761a69eb183869ac189301ed6cc4_porhhq.jpg",
         "banner": "",
-        "favGenres": [
-          2,
-          3,
-          1,
-          4
-        ]
+        "favGenres": [4, 6, 12]
       },
       "work": {
-        "myAlbums": [
-          16
-        ],
-        "myTracks": [
-          58,
-          59,
-          60,
-          61
-        ]
+        "myAlbums": [5],
+        "myTracks": [7, 8, 9]
       },
       "myPlaylists": [
-        23,
-        21
+        {
+          "id": 1,
+          "name": "Coding Focus",
+          "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017430/Final-Project-MERN/Playlist/pexels-mikhail-nilov-7988087_etxcyo.webp"
+        },
+        {
+          "id": 2,
+          "name": "Electro",
+          "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-sebastiaan-stam-1482476_ls41gi.webp"
+        },
+        {
+          "id": 4,
+          "name": "Top Hits",
+          "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-trinity-kubassek-341858_hnsidm.webp"
+        }
       ],
-      "favPlaylists": [],
-      "favAlbums": [],
-      "favTracks": [],
-      "followers": [
-        1,
-        1,
-        1,
-        1,
-        1
-      ],
-      "following": [],
-      "isVerified": true,
+      "favPlaylists": [1, 2],
+      "favAlbums": [1, 2, 3],
+      "favTracks": [1, 2, 3, 4, 5],
+      "followers": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      "following": [3, 22],
+      "isVerified": false,
       "isAdmin": false
     },
     {
@@ -93,25 +94,31 @@
         "secretAnswer": "4quesos",
         "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670937861/Final-Project-MERN/Users/1658342188376_ccgwky.jpg",
         "banner": "",
-        "favGenres": [
-          9,
-          6,
-          8
-        ]
+        "favGenres": [4, 6, 12]
       },
       "work": {
-        "myAlbums": [],
-        "myTracks": []
+        "myAlbums": [5],
+        "myTracks": [7, 8, 9]
       },
-      "myPlaylists": [],
-      "favPlaylists": [],
-      "favAlbums": [],
-      "favTracks": [],
-      "followers": [],
-      "following": [],
+      "myPlaylists": [
+        {
+          "id": 4,
+          "name": "Top Hits",
+          "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-trinity-kubassek-341858_hnsidm.webp"
+        },
+        {
+          "id": 2,
+          "name": "Electro",
+          "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-sebastiaan-stam-1482476_ls41gi.webp"
+        }
+      ],
+      "favPlaylists": [1, 2],
+      "favAlbums": [1, 2, 3],
+      "favTracks": [1, 2, 3, 4, 5],
+      "followers": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      "following": [3, 22],
       "isVerified": false,
-      "isAdmin": false,
-      "isLoggedIn": false
+      "isAdmin": false
     },
     {
       "id": 4,
@@ -127,63 +134,29 @@
         "secretAnswer": "4cheese",
         "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670925756/Final-Project-MERN/Users/Ed-Sheeran_j1cbft.jpg",
         "banner": "",
-        "favGenres": [
-          9,
-          6,
-          8
-        ]
+        "favGenres": [4, 6, 12]
       },
       "work": {
-        "myAlbums": [
-          1
-        ],
-        "myTracks": [
-          1,
-          2,
-          3
-        ]
+        "myAlbums": [5],
+        "myTracks": [7, 8, 9]
       },
       "myPlaylists": [
-        1,
-        2
+        {
+          "id": 1,
+          "name": "Coding Focus",
+          "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017430/Final-Project-MERN/Playlist/pexels-mikhail-nilov-7988087_etxcyo.webp"
+        },
+        {
+          "id": 2,
+          "name": "Electro",
+          "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-sebastiaan-stam-1482476_ls41gi.webp"
+        }
       ],
-      "favPlaylists": [
-        1
-      ],
-      "favAlbums": [
-        1,
-        2,
-        3
-      ],
-      "favTracks": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
-      "followers": [
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1
-      ],
-      "following": [
-        100
-      ],
+      "favPlaylists": [1, 2],
+      "favAlbums": [1, 2, 3],
+      "favTracks": [1, 2, 3, 4, 5],
+      "followers": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      "following": [3, 22],
       "isVerified": false,
       "isAdmin": false
     },
@@ -201,96 +174,34 @@
         "secretAnswer": "4cheese",
         "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670927118/Final-Project-MERN/Users/b201f9fe39858f4e6f778b5235ad2607_ilib2g.jpg",
         "banner": "",
-        "favGenres": [
-          4,
-          6,
-          12
-        ]
+        "favGenres": [4, 6, 12]
       },
       "work": {
-        "myAlbums": [
-          5
-        ],
-        "myTracks": [
-          7,
-          8,
-          9
-        ]
+        "myAlbums": [5],
+        "myTracks": [7, 8, 9]
       },
       "myPlaylists": [
-        4,
-        3
+        {
+          "id": 1,
+          "name": "Coding Focus",
+          "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017430/Final-Project-MERN/Playlist/pexels-mikhail-nilov-7988087_etxcyo.webp"
+        },
+        {
+          "id": 2,
+          "name": "Electro",
+          "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-sebastiaan-stam-1482476_ls41gi.webp"
+        },
+        {
+            "id": 10,
+          "name": "Relax Time",
+          "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017285/Final-Project-MERN/Playlist/pexels-aron-visuals-1643113_jcbkru.webp"
+        }
       ],
-      "favPlaylists": [
-        1,
-        2
-      ],
-      "favAlbums": [
-        1,
-        2,
-        3
-      ],
-      "favTracks": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
-      "followers": [
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1
-      ],
-      "following": [
-        3,
-        22
-      ],
+      "favPlaylists": [1, 2],
+      "favAlbums": [1, 2, 3],
+      "favTracks": [1, 2, 3, 4, 5],
+      "followers": [1, 1, 1, 1, 1, 1, 1],
+      "following": [3, 22],
       "isVerified": false,
       "isAdmin": false
     },
@@ -308,73 +219,35 @@
         "secretAnswer": "4cheese",
         "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670925756/Final-Project-MERN/Users/119700226_4257622987641667_4778006258121329624_n_du7rt6.jpg",
         "banner": "",
-        "favGenres": [
-          4,
-          6,
-          12
-        ]
+        "favGenres": [4, 6, 12]
       },
       "work": {
-        "myAlbums": [
-          4
-        ],
-        "myTracks": [
-          10,
-          11,
-          12
-        ]
+        "myAlbums": [5],
+        "myTracks": [7, 8, 9]
       },
       "myPlaylists": [
-        4,
-        3
+        {
+          "id": 1,
+          "name": "Coding Focus",
+          "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017430/Final-Project-MERN/Playlist/pexels-mikhail-nilov-7988087_etxcyo.webp"
+        },
+        {
+          "id": 10,
+          "name": "Relax Time",
+          "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017285/Final-Project-MERN/Playlist/pexels-aron-visuals-1643113_jcbkru.webp"
+        },
+        {
+          "id": 3,
+          "name": "Winter Time",
+          "description": "songs by mood",
+          "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-simon-berger-688660_qlxydb.webp"
+        }
       ],
-      "favPlaylists": [
-        1,
-        2
-      ],
-      "favAlbums": [
-        1,
-        2,
-        3
-      ],
-      "favTracks": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
-      "followers": [
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1
-      ],
-      "following": [
-        1,
-        22
-      ],
+      "favPlaylists": [1, 2],
+      "favAlbums": [1, 2, 3],
+      "favTracks": [1, 2, 3, 4, 5],
+      "followers": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      "following": [3, 22],
       "isVerified": false,
       "isAdmin": false
     }
@@ -383,270 +256,117 @@
     {
       "id": 1,
       "type": "Concert",
-      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670945363/Final-Project-MERN/Events/vina-rock-festival-1658130161.2789404.2560x1440_yoanoy.jpg",
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670945363/Final-Project-MERN/Events/vina-rock-festival-1658130161.2789404.2560x1440_yoanoy.jpg",
+      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671019443/Final-Project-MERN/Events/vi%C3%B1arock_zd2v2u.webp",
       "location": "Spain / Barcelona",
       "name": "Viña rock",
       "description": "...",
-      "genres": [
-        1,
-        3
-      ],
-      "artists": [
-        1,
-        2,
-        4
-      ],
-      "date": "13/4/2023",
-      "stock": 400,
-      "price": 25
+      "genres": [1],
+      "artists": [1],
+      "date": "28/4/2023",
+      "stock": 5900,
+      "price": 50
     },
     {
       "id": 2,
       "type": "Concert",
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670943481/Final-Project-MERN/Events/4b983aec43ff233ffa7972bc53f7cfe5_dzyjhf.jpg",
-      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670943481/Final-Project-MERN/Events/4b983aec43ff233ffa7972bc53f7cfe5_dzyjhf.jpg",
+      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671012774/Final-Project-MERN/Events/VV_vi29er.webp",
       "location": "Spain / Madrid",
       "name": "VV- Neon Noir Tour 2023",
       "description": "...",
-      "genres": [
-        1
-      ],
-      "artists": [
-        1
-      ],
-      "date": "24/2/2023",
-      "stock": 600,
-      "price": 35
+      "genres": [1],
+      "artists": [1],
+      "date": "28/6/2023",
+      "stock": 1900,
+      "price": 55
     },
     {
       "id": 3,
       "type": "Concert",
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670943453/Final-Project-MERN/Events/maneskin._a6j8tm.jpg",
-      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670943453/Final-Project-MERN/Events/maneskin._a6j8tm.jpg",
+      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671019286/Final-Project-MERN/Events/Maneskin_stldcl.webp",
       "location": "Spain / Sevilla",
       "name": "Måneskin",
       "description": "...",
-      "genres": [
-        1
-      ],
-      "artists": [
-        1
-      ],
-      "date": "24/2/2023",
-      "stock": 900,
+      "genres": [1],
+      "artists": [1],
+      "date": "11/4/2023",
+      "stock": 2300,
       "price": 45
     },
     {
       "id": 4,
-      "type": "Festival",
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670943435/Final-Project-MERN/Events/resurrection_fest2023cartel_1_500x267_njuytk.jpg",
-      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670943435/Final-Project-MERN/Events/resurrection_fest2023cartel_1_500x267_njuytk.jpg",
+      "type": "Fest",
+      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671012774/Final-Project-MERN/Events/resurrection_aomjsv.webp",
       "location": "Spain / Galicia",
       "name": "Resurrection Fest",
       "description": "...",
-      "genres": [
-        1
-      ],
-      "artists": [
-        1
-      ],
+      "genres": [1],
+      "artists": [1],
       "date": "28/6/2023",
       "stock": 1900,
       "price": 55
+    },
+    {
+      "id": 5,
+      "type": "Concert",
+      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671018747/Final-Project-MERN/Events/Duki_wxtytd.png",
+      "location": "Spain / Madrid",
+      "name": "Duki - Desde el fin del mundo",
+      "description": "...",
+      "genres": [1],
+      "artists": [1],
+      "date": "24/2/2023",
+      "stock": 3900,
+      "price": 25
+    },
+    {
+      "id": 6,
+      "type": "Fest",
+      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671018746/Final-Project-MERN/Events/RutaBenidorm_mxmzkg.jpg",
+      "location": "Spain / Madrid",
+      "name": "Ruta Benidorm",
+      "description": "...",
+      "genres": [1],
+      "artists": [1],
+      "date": "10/6/2023",
+      "stock": 900,
+      "price": 35
+    },
+    {
+      "id": 7,
+      "type": "Concert",
+      "uri": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671018746/Final-Project-MERN/Events/sabina_-_contra_todo_pronostico_jbpxa9.png",
+      "location": "Spain / Madrid",
+      "name": "Sabina - Contra todo pronóstico",
+      "description": "...",
+      "genres": [1],
+      "artists": [1],
+      "date": "23/5/2023",
+      "stock": 900,
+      "price": 35
     }
   ],
   "playlists": [
     {
       "id": 1,
-      "name": "Happy Songs",
+      "name": "Coding Focus",
       "description": "songs by mood",
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670861612/Final-Project-MERN/Playlist/ab67706c0000bebbe39142e42362f0d30b99a815_u1smnw.jpg",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017430/Final-Project-MERN/Playlist/pexels-mikhail-nilov-7988087_etxcyo.webp",
       "tracks": [
-        {
-          "id": 1,
-          "added": "new Data()"
-        },
-        {
-          "id": 2,
-          "added": ""
-        },
-        {
-          "id": 3,
-          "added": ""
-        },
-        {
-          "id": 4,
-          "added": ""
-        }
+        { "id": 2, "added": "new Data()" },
+        { "id": 45, "added": "" },
+        { "id": 2, "added": "" },
+        { "id": 2, "added": "" }
       ],
-      "followers": [
-        5
-      ],
-      "genres": [
-        2,
-        3
-      ],
-      "moods": [
-        "relax",
-        "focused",
-        "happy"
-      ],
-      "owner": 1
+      "followers": [2],
+      "genres": [2, 3],
+      "moods": ["relax", "focused"],
+      "owner": 2
     },
     {
       "id": 2,
-      "name": "Car mood",
+      "name": "Electro",
       "description": "songs by mood",
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670861613/Final-Project-MERN/Playlist/ab67706c0000bebbcd9bd13f71d8b16277e1092a_h52fvu.jpg",
-      "tracks": [
-        {
-          "id": 4,
-          "added": "new Data()"
-        },
-        {
-          "id": 5,
-          "added": ""
-        },
-        {
-          "id": 6,
-          "added": ""
-        },
-        {
-          "id": 7,
-          "added": ""
-        }
-      ],
-      "followers": [
-        21
-      ],
-      "genres": [
-        2,
-        3
-      ],
-      "moods": [
-        "relax",
-        "focused",
-        "happy"
-      ],
-      "owner": 1
-    },
-    {
-      "id": 3,
-      "name": "Dance Party ",
-      "description": "songs by mood",
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670861613/Final-Project-MERN/Playlist/ab67706c0000bebb6c5db53da7585761f71553ae_sctyv0.jpg",
-      "tracks": [
-        {
-          "id": 6,
-          "added": "new Data()"
-        },
-        {
-          "id": 7,
-          "added": ""
-        },
-        {
-          "id": 8,
-          "added": ""
-        },
-        {
-          "id": 9,
-          "added": ""
-        }
-      ],
-      "followers": [
-        32
-      ],
-      "genres": [
-        2,
-        3
-      ],
-      "moods": [
-        "relax",
-        "focused",
-        "happy"
-      ],
-      "owner": 1
-    },
-    {
-      "id": 4,
-      "name": "Night Music",
-      "description": "songs by mood",
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670861612/Final-Project-MERN/Playlist/ab67706c0000bebb236f93662a38855836724bbd_fum1em.jpg",
-      "tracks": [
-        {
-          "id": 8,
-          "added": "new Data()"
-        },
-        {
-          "id": 9,
-          "added": ""
-        },
-        {
-          "id": 10,
-          "added": ""
-        },
-        {
-          "id": 11,
-          "added": ""
-        }
-      ],
-      "followers": [
-        74
-      ],
-      "genres": [
-        2,
-        3
-      ],
-      "moods": [
-        "relax",
-        "focused",
-        "happy"
-      ],
-      "owner": 1
-    },
-    {
-      "id": 5,
-      "name": "Rap Life",
-      "description": "songs by mood",
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670861612/Final-Project-MERN/Playlist/images_1_gexm1a.jpg",
-      "tracks": [
-        {
-          "id": 2,
-          "added": "new Data()"
-        },
-        {
-          "id": 45,
-          "added": ""
-        },
-        {
-          "id": 2,
-          "added": ""
-        },
-        {
-          "id": 2,
-          "added": ""
-        }
-      ],
-      "followers": [
-        2
-      ],
-      "genres": [
-        2,
-        3
-      ],
-      "moods": [
-        "relax",
-        "focused",
-        "happy"
-      ],
-      "owner": 1
-    },
-    {
-      "id": 2,
-      "name": "Rock Classics",
-      "description": "...",
-      "img": "https://www.thisisdig.com/wp-content/uploads/2020/09/ROCK-CLASSICS-1_DIG-626x626.jpg",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-sebastiaan-stam-1482476_ls41gi.webp",
       "tracks": [
         { "id": 2, "added": "new Data()" },
         { "id": 45, "added": "" },
@@ -660,9 +380,73 @@
     },
     {
       "id": 3,
-      "name": "Coding Focus",
+      "name": "Winter Time",
+      "description": "songs by mood",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-simon-berger-688660_qlxydb.webp",
+      "tracks": [
+        { "id": 2, "added": "new Data()" },
+        { "id": 45, "added": "" },
+        { "id": 2, "added": "" },
+        { "id": 2, "added": "" }
+      ],
+      "followers": [2],
+      "genres": [2, 3],
+      "moods": ["relax", "focused"],
+      "owner": 2
+    },
+    {
+      "id": 4,
+      "name": "Top Hits",
+      "description": "songs by mood",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-trinity-kubassek-341858_hnsidm.webp",
+      "tracks": [
+        { "id": 2, "added": "new Data()" },
+        { "id": 45, "added": "" },
+        { "id": 2, "added": "" },
+        { "id": 2, "added": "" }
+      ],
+      "followers": [2],
+      "genres": [2, 3],
+      "moods": ["relax", "focused"],
+      "owner": 2
+    },
+    {
+      "id": 5,
+      "name": "Best Voice",
+      "description": "songs by mood",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-foteros-352505_yeozpe.webp",
+      "tracks": [
+        { "id": 2, "added": "new Data()" },
+        { "id": 45, "added": "" },
+        { "id": 2, "added": "" },
+        { "id": 2, "added": "" }
+      ],
+      "followers": [2],
+      "genres": [2, 3],
+      "moods": ["relax", "focused"],
+      "owner": 2
+    },
+    {
+      "id": 6,
+      "name": "Hip Hop",
       "description": "...",
-      "img": "https://cdn-icons-png.flaticon.com/512/4191/4191039.png",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-dmitry-demidov-3783471_rw50ne.webp",
+      "tracks": [
+        { "id": 2, "added": "new Data()" },
+        { "id": 45, "added": "" },
+        { "id": 2, "added": "" },
+        { "id": 2, "added": "" }
+      ],
+      "followers": [2],
+      "genres": [2, 3],
+      "moods": ["relax", "focused"],
+      "owner": 2
+    },
+    {
+      "id": 7,
+      "name": "Acoustic Moments",
+      "description": "...",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-pixabay-33597_pelqsx.webp",
       "tracks": [
         { "id": 2, "added": "new Data()" },
         { "id": 45, "added": "" },
@@ -675,27 +459,15 @@
       "owner": 1
     },
     {
-      "id": 4,
-      "name": "Happy Songs",
+      "id": 8,
+      "name": "Summer Time",
       "description": "songs by mood",
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670861612/Final-Project-MERN/Playlist/ab67706c0000bebbe39142e42362f0d30b99a815_u1smnw.jpg",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-pixabay-210205_hv8fbc.webp",
       "tracks": [
-        {
-          "id": 1,
-          "added": "new Data()"
-        },
-        {
-          "id": 2,
-          "added": ""
-        },
-        {
-          "id": 3,
-          "added": ""
-        },
-        {
-          "id": 4,
-          "added": ""
-        }
+        { "id": 2, "added": "new Data()" },
+        { "id": 45, "added": "" },
+        { "id": 2, "added": "" },
+        { "id": 2, "added": "" }
       ],
       "followers": [5],
       "genres": [2, 3],
@@ -703,27 +475,15 @@
       "owner": 1
     },
     {
-      "id": 5,
-      "name": "Car mood",
+      "id": 9,
+      "name": "Rock",
       "description": "songs by mood",
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670861613/Final-Project-MERN/Playlist/ab67706c0000bebbcd9bd13f71d8b16277e1092a_h52fvu.jpg",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-vishnu-r-nair-1105666_fcpxli.webp",
       "tracks": [
-        {
-          "id": 4,
-          "added": "new Data()"
-        },
-        {
-          "id": 5,
-          "added": ""
-        },
-        {
-          "id": 6,
-          "added": ""
-        },
-        {
-          "id": 7,
-          "added": ""
-        }
+        { "id": 2, "added": "new Data()" },
+        { "id": 45, "added": "" },
+        { "id": 2, "added": "" },
+        { "id": 2, "added": "" }
       ],
       "followers": [21],
       "genres": [2, 3],
@@ -731,85 +491,17 @@
       "owner": 1
     },
     {
-      "id": 6,
-      "name": "Dance Party ",
+      "id": 10,
+      "name": "Relax Time",
       "description": "songs by mood",
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670861613/Final-Project-MERN/Playlist/ab67706c0000bebb6c5db53da7585761f71553ae_sctyv0.jpg",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017285/Final-Project-MERN/Playlist/pexels-aron-visuals-1643113_jcbkru.webp",
       "tracks": [
-        {
-          "id": 6,
-          "added": "new Data()"
-        },
-        {
-          "id": 7,
-          "added": ""
-        },
-        {
-          "id": 8,
-          "added": ""
-        },
-        {
-          "id": 9,
-          "added": ""
-        }
+        { "id": 2, "added": "new Data()" },
+        { "id": 45, "added": "" },
+        { "id": 2, "added": "" },
+        { "id": 2, "added": "" }
       ],
       "followers": [32],
-      "genres": [2, 3],
-      "moods": ["relax", "focused", "happy"],
-      "owner": 1
-    },
-    {
-      "id": 7,
-      "name": "Night Music",
-      "description": "songs by mood",
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670861612/Final-Project-MERN/Playlist/ab67706c0000bebb236f93662a38855836724bbd_fum1em.jpg",
-      "tracks": [
-        {
-          "id": 8,
-          "added": "new Data()"
-        },
-        {
-          "id": 9,
-          "added": ""
-        },
-        {
-          "id": 10,
-          "added": ""
-        },
-        {
-          "id": 11,
-          "added": ""
-        }
-      ],
-      "followers": [74],
-      "genres": [2, 3],
-      "moods": ["relax", "focused", "happy"],
-      "owner": 1
-    },
-    {
-      "id": 8,
-      "name": "Rap Life",
-      "description": "songs by mood",
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670861612/Final-Project-MERN/Playlist/images_1_gexm1a.jpg",
-      "tracks": [
-        {
-          "id": 2,
-          "added": "new Data()"
-        },
-        {
-          "id": 45,
-          "added": ""
-        },
-        {
-          "id": 2,
-          "added": ""
-        },
-        {
-          "id": 2,
-          "added": ""
-        }
-      ],
-      "followers": [2],
       "genres": [2, 3],
       "moods": ["relax", "focused", "happy"],
       "owner": 1
@@ -820,7 +512,7 @@
       "id": 1,
       "name": "÷ (Deluxe)",
       "description": "Ed Sheeran",
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670822683/Final-Project-MERN/Albums/Sheeran_cw0u6d.jpg",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671012283/Final-Project-MERN/Albums/Sheeran_uxdlzr.webp",
       "tracks": [
         1,
         2,
@@ -837,7 +529,7 @@
       "id": 2,
       "name": "Beerbongs & Bentleys",
       "description": "Post Malone",
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670822683/Final-Project-MERN/Albums/Beerbongs_Bentleys_q0bhrx.jpg",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671012283/Final-Project-MERN/Albums/Beerbong_kk1id1.webp",
       "tracks": [],
       "followers": [],
       "genres": [
@@ -852,7 +544,7 @@
       "id": 3,
       "name": "Dua Lipa Edition",
       "description": "Dua Lipa",
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670822683/Final-Project-MERN/Albums/Dua_Lipa_tplqqc.jpg",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671012283/Final-Project-MERN/Albums/DuaLipa_z5ucsg.webp",
       "tracks": [],
       "followers": [],
       "genres": [],
@@ -863,7 +555,7 @@
       "id": 4,
       "name": "Scorpion",
       "description": "Drake",
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670822683/Final-Project-MERN/Albums/drake_l38cju.jpg",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671012283/Final-Project-MERN/Albums/Drake_laofzz.webp",
       "tracks": [],
       "followers": [],
       "genres": [
@@ -878,7 +570,7 @@
       "id": 5,
       "name": "The Eminem Show",
       "description": "Eminem",
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670822683/Final-Project-MERN/Albums/descarga_qij2rk.jpg",
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671012283/Final-Project-MERN/Albums/Eminem_dmn1fo.webp",
       "tracks": [],
       "followers": [],
       "genres": [
