@@ -23,6 +23,7 @@ const Search = () => {
         ></InputSearchStyle>
       </FormSearchStyle>
 
+    
       <DivSearchResults>
         <ResultCarrousel apiKey={'events'} search={search} />
         <ResultCarrousel apiKey={'playlists'} search={search} />
