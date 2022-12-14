@@ -24,8 +24,6 @@ export const DivHomeStyle = styled.div`
     } 
 `
 export const H1Welcome = styled.h1`
-    
-    margin-top: 30px;
     font-size:25px;
     display:flex;
     justify-content: space-between;
@@ -86,17 +84,26 @@ export const LinkHome = styled(Link)`
         color: ${color.primaryYellow}
     }
 `
+export const DivWelcomingHome = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+    `
 export const LinkProfile = styled(Link)`
     display: flex;
-    justify-content: end;
     align-items: center;
-    padding-bottom: 3px;
+    gap: 5px;
+    z-index: 3;
     color: ${color.primaryWhite};
     text-decoration: none;
-    font-size: 1.3em;
-    transition: 300ms;
-    gap: 10px;
-   
+    font-size: 18px;
+    &:hover {
+        color: ${color.primaryYellow};
+    }
+    @media ${device.desktop}{
+        display: none;
+    }
 `
 export const DivSlider = styled.div`
     display: flex;

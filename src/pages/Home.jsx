@@ -8,6 +8,7 @@ import {
     DivHomeCarousels,
     H1Welcome,
     LinkProfile,
+    DivWelcomingHome,
 } from '../components/style/homeStyle';
 import TrackBox from '../components/home/TrackBox';
 import AlbumBox from '../components/home/AlbumBox';
@@ -32,12 +33,13 @@ const Home = () => {
                 : 'Good afternoon, ';
     return (
         <DivHomeStyle>
-            <LinkProfile to={`../${userData.username}`}><HeaderProfile /></LinkProfile>
             <DivHero>
                 <Hero />
             </DivHero>
-
-            <H1Welcome>{`${welcome}${userData.username}!`}</H1Welcome>
+            <DivWelcomingHome>
+                <H1Welcome>{`${welcome}${userData.username}!`}</H1Welcome>
+                <LinkProfile to={`../${userData.username}`}>Profile <HeaderProfile /></LinkProfile>
+            </DivWelcomingHome>
             <HrStyle />
 
             {/* // Only seen mobile  */}
@@ -47,7 +49,7 @@ const Home = () => {
                 <BtnAction>Social</BtnAction>
                 <BtnAction>New Releases</BtnAction>
             </DivMobileButtons>
-            
+
             <DivSliders>
                 <HomeSlider apiKey={'events'} />
                 <AlbumBox />
