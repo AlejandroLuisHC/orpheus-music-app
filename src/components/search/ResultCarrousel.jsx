@@ -63,7 +63,7 @@ const ResultCarrousel = ({ apiKey, search }) => {
         <DivCarrousel>
           <DivCarrouselTitle>
             <H2Style>{apiKey}</H2Style>
-            <Link>View more</Link>
+            <Link to={`${apiKey}`} >View more</Link>
           </DivCarrouselTitle>
 
           <DivSlider>

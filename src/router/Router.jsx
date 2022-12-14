@@ -6,6 +6,7 @@ import LogoSpinner from "../components/general_components/loaders/spinner/LogoSp
 import PrivateRoutes from "./PrivateRoutes"
 import NotConnectedRoutes from "./NotConnectedRoutes"
 import Search from "../pages/Search"
+import ViewMore from "../pages/ViewMore"
 
 const Layout   = lazy(() => import('./Layout'))
 const Home     = lazy(() => import('../pages/Home'))
@@ -13,8 +14,8 @@ const Landing  = lazy(() => import('../pages/Landing'))
 const Profile  = lazy(() => import('../pages/Profile'))
 const Register = lazy(() => import('../pages/Register'))
 const Password = lazy(() => import("../pages/Password"))
-
-const Router = () => {
+//TODO Preguntar por si hay que poner lazy y si el path esta bien puesto o hay que pner más
+const Router = () => { 
     return (
         <QueryProvider>
         <StoreProvider>
@@ -25,9 +26,10 @@ const Router = () => {
                             <Route index element={<NotConnectedRoutes><Landing /></NotConnectedRoutes>} />
                             <Route path='/register' element={<NotConnectedRoutes><Register /></NotConnectedRoutes>} />
                             <Route path='/home' element={<PrivateRoutes><Home /></PrivateRoutes>} />
+                            <Route path= '/:viewMore' element={<PrivateRoutes><ViewMore></ViewMore></PrivateRoutes>} /> 
                             <Route path='/search' element={<PrivateRoutes><Search /></PrivateRoutes>} />
                             <Route path='/:username' element={<PrivateRoutes><Profile /></PrivateRoutes>}>
-                                <Route path='/:username/information' element={<PrivateRoutes><p>Display user info</p></PrivateRoutes>} />
+                                <Route path='/:username/information' element={<PrivateRoutes ><p>Display user info</p></PrivateRoutes>} />
                                 <Route path='/:username/work' element={<PrivateRoutes><p>Display user work</p></PrivateRoutes>} />
                                 <Route path='/:username/followers' element={<PrivateRoutes><p>Display user followers</p></PrivateRoutes>} />
                                 <Route path='/:username/following' element={<PrivateRoutes><p>Display users followed</p></PrivateRoutes>} />
