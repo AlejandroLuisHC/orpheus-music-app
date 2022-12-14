@@ -45,16 +45,6 @@ const Home = () => {
                 <BtnAction>New Releases</BtnAction>
             </DivMobileButtons>
 
-            <HrStyle />
-
-            {/* // Only seen mobile  */}
-            <DivMobileButtons>
-                <BtnAction>Playlist</BtnAction>
-                <BtnAction>Events</BtnAction>
-                <BtnAction>Social</BtnAction>
-                <BtnAction>New Releases</BtnAction>
-            </DivMobileButtons>
-
             {/* <DivHomeCarousels>
                 <EventsBox/>
                 <PlaylistBox/>

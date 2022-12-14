@@ -16,6 +16,26 @@ import {
 const HomeSlider = ({ apiKey }) => {
     const { data, status } = useQuery([apiKey, apiKey], () => fetchKey(apiKey));
 
+    // if (apiKey === 'users') {
+    //     data?.map((item) => console.log(item))
+    // } 
+
+    const items = () => (
+        data?.map((item) => 
+            apiKey === 'users'
+            ? {
+                id: item.id,
+                name: item.userData.username,
+                img: item.userData.avatar
+            } 
+            : {
+                id: item.id,
+                name: item.name,
+                img: item.img
+            }
+        )
+    )
+
     return (
         status === 'loading' 
             ? <HomeSlidersLoader />
@@ -29,7 +49,7 @@ const HomeSlider = ({ apiKey }) => {
                     </DivSilderHeader>
 
                     <DivSliderBody>
-                        {data?.map((item) => (
+                        {items()?.map((item) => (
                             <DivCard
                                 resultType={apiKey}
                                 key={item.id}
