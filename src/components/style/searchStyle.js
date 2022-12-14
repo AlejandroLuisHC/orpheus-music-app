@@ -26,31 +26,31 @@ export const InputSearchStyle = styled(InputStyle)`
     text-align: left;
 `
 
-export const DivSearchResults = styled.div`
+export const DivSliders = styled.div`
     flex-grow: 1;
     overflow-y: auto;
 `;
 
-export const DivCarrousel = styled.div`
-    margin: .5rem;
+export const DivContainerSlider = styled.div`
+    /* margin: .5rem; */
     align-items: space-around;
 `
 
-export const DivCarrouselTitle = styled.div`
+export const DivSilderHeader = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: .5rem;
 `
 
-export const DivSlider = styled.div`
+export const DivSliderBody = styled.div`
     display: flex;
     width: calc(100vw - 40px);
-    height: 13rem;
+    /* height: 13rem; */
     overflow: auto;
     @media ${device.desktop}{
-        width: calc(100vw - 200px);
-        height: 285px;
+        /* width: calc(100vw - 200px); */
+
         &::-webkit-scrollbar {
             cursor: pointer;
             width: 6px;
@@ -86,23 +86,23 @@ export const DivCard = styled.div`
     width: ${props => props.resultType === 'events' && '14rem'};
 
     @media ${device.desktop}{      
-        width: ${props => props.resultType === 'events' ? '420px' : '220px'};
+        min-width: ${props => props.resultType === 'events' ? '420px' : '220px'};
         height: ${props => props.resultType === 'events' ? '300px' : '270px'};
         margin: .5rem;
-        background: hsla(0, 0%, 100%, 0.02);
+        background: ${props => props.resultType !== 'events' && 'hsla(0, 0%, 100%, 0.02)'};
         border-radius: 20px;
         cursor: pointer;
         transition: 300ms;
         &:hover{
-            background: rgba(255, 255, 255, .2);
+            background: ${props => props.resultType !== 'events' && 'rgba(255, 255, 255, .2)'};
         }
     }
 `;
 
 export const ImgCard = styled.img`
     background: ${color.primaryWhite};
-    height: 8rem;
-    width: 8rem;
+    min-height: ${props => props.resultType === 'events' ? '190px' : '200px'};
+    min-width: ${props => props.resultType === 'events' ? '280px' : '200px'};
     object-fit: cover;
     border-radius: 20px;
     border-radius: ${props => props.resultType === 'users' && "50%"};
@@ -114,7 +114,7 @@ export const ImgCard = styled.img`
     }
 
     @media ${device.desktop}{      
-        width: ${props => props.resultType === 'events' ? '400px' : '200px'};
-        height: ${props => props.resultType === 'events' ? '240px' : '200px'};
+        width: ${props => props.resultType === 'events' ? '420px' : '200px'};
+        height: ${props => props.resultType === 'events' ? '250px' : '200px'};
     }
 `;

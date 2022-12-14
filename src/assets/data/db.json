@@ -643,7 +643,7 @@
       "owner": 1
     },
     {
-      "id": 2,
+      "id": 6,
       "name": "Rock Classics",
       "description": "...",
       "img": "https://www.thisisdig.com/wp-content/uploads/2020/09/ROCK-CLASSICS-1_DIG-626x626.jpg",
@@ -659,7 +659,7 @@
       "owner": 2
     },
     {
-      "id": 3,
+      "id": 7,
       "name": "Coding Focus",
       "description": "...",
       "img": "https://cdn-icons-png.flaticon.com/512/4191/4191039.png",
@@ -675,7 +675,7 @@
       "owner": 1
     },
     {
-      "id": 4,
+      "id": 8,
       "name": "Happy Songs",
       "description": "songs by mood",
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670861612/Final-Project-MERN/Playlist/ab67706c0000bebbe39142e42362f0d30b99a815_u1smnw.jpg",
@@ -703,7 +703,7 @@
       "owner": 1
     },
     {
-      "id": 5,
+      "id": 9,
       "name": "Car mood",
       "description": "songs by mood",
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670861613/Final-Project-MERN/Playlist/ab67706c0000bebbcd9bd13f71d8b16277e1092a_h52fvu.jpg",
@@ -731,7 +731,7 @@
       "owner": 1
     },
     {
-      "id": 6,
+      "id": 10,
       "name": "Dance Party ",
       "description": "songs by mood",
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670861613/Final-Project-MERN/Playlist/ab67706c0000bebb6c5db53da7585761f71553ae_sctyv0.jpg",
@@ -759,7 +759,7 @@
       "owner": 1
     },
     {
-      "id": 7,
+      "id": 11,
       "name": "Night Music",
       "description": "songs by mood",
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670861612/Final-Project-MERN/Playlist/ab67706c0000bebb236f93662a38855836724bbd_fum1em.jpg",
@@ -787,7 +787,7 @@
       "owner": 1
     },
     {
-      "id": 8,
+      "id": 12,
       "name": "Rap Life",
       "description": "songs by mood",
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1670861612/Final-Project-MERN/Playlist/images_1_gexm1a.jpg",

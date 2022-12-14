@@ -1,7 +1,7 @@
 import { useSearchParams } from 'react-router-dom';
-import ResultCarrousel from '../components/search/ResultCarrousel';
+import SearchSlider from '../components/search/SearchSlider';
 import {
-  DivSearchResults,
+  DivSliders,
   FormSearchStyle,
   InputSearchStyle,
   MainFlexContainer,
@@ -23,13 +23,13 @@ const Search = () => {
       </FormSearchStyle>
 
       {/* {search.length > 2 && ( */}
-        <DivSearchResults>
-          <ResultCarrousel apiKey={'events'} search={search} />
-          <ResultCarrousel apiKey={'playlists'} search={search} />
-          <ResultCarrousel apiKey={'albums'} search={search} />
-          <ResultCarrousel apiKey={'tracks'} search={search} />
-          <ResultCarrousel apiKey={'users'} search={search} />
-        </DivSearchResults>
+        <DivSliders>
+          <SearchSlider apiKey={'events'} search={search} />
+          <SearchSlider apiKey={'playlists'} search={search} />
+          <SearchSlider apiKey={'albums'} search={search} />
+          <SearchSlider apiKey={'tracks'} search={search} />
+          <SearchSlider apiKey={'users'} search={search} />
+        </DivSliders>
       {/* )} */}
     </MainFlexContainer>
   );
