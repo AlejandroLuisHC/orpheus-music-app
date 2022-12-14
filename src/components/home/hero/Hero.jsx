@@ -6,7 +6,7 @@ import { DivHeroTitles, H2StyleHero, H4StyleHero } from "../../style/homeStyle";
 const Hero = () => {
     return (
         <HeroSlider
-            height={"60vh"}
+            height={"33vh"}
             autoplay
             controller={{
                 initialSlide: 1,
@@ -27,7 +27,7 @@ const Hero = () => {
             <Overlay>
                 <DivHeroTitles>
                     <H2StyleHero>
-                        Your favourite event <br/>just a click away
+                        Your favourite event <br />just a click away
                     </H2StyleHero>
                     <H4StyleHero>
                         Buy your tickets at Orpheus
@@ -40,8 +40,6 @@ const Hero = () => {
                 label="Azkena Rock Festival 2023 - from April"
                 background={{
                     backgroundImageSrc: slide1,
-                    backgroundSize:cover
-
                 }}
             />
 
@@ -50,7 +48,6 @@ const Hero = () => {
                 label="Primavera Sound Barcelona 2023 - 1 June"
                 background={{
                     backgroundImageSrc: slide2,
-                    backgroundSize:cover
                 }}
             />
 
@@ -59,8 +56,6 @@ const Hero = () => {
                 label="Bruce Springsteen & The E Street Band - 30 August"
                 background={{
                     backgroundImageSrc: slide3,
-                    backgroundSize:cover
-
                 }}
             />
 
