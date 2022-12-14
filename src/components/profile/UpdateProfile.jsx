@@ -1,10 +1,8 @@
-import React, { useEffect } from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form';
 import { IoMdCheckmarkCircle, IoMdCreate } from 'react-icons/io';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import fetchUpdateUser from '../../api/fetchUpdateUser';
 import { UPDATE } from '../../redux/features/user_data/userSlice';
 import { FormStyle } from '../style/generalStyle';
 
@@ -20,7 +18,7 @@ const UpdateProfile = () => {
     }
     const [openInput, setOpenInput] = useState(initialState)
 
-    const userActualData = useSelector(state => state.userData.user.userData);
+    const userDataStore = useSelector(state => state.userData.user.userData);
     const userId = useSelector(state => state.userData.user.id);
     console.log(userId)
     const {
@@ -32,18 +30,18 @@ const UpdateProfile = () => {
     const [UpdateUserData, setUpdateUserData] = useState({
         id: userId,
         userData: {
-            username: userActualData.username,
-            firstName: userActualData.firstName,
-            lastName: userActualData.lastName,
-            email: userActualData.email,
-            country: userActualData.country,
-            city: userActualData.city,
-            password: userActualData.password,
-            secretQuestion: userActualData.secretQuestion,
-            secretAnswer: userActualData.secretAnswer,
-            avatar: userActualData.avatar,
-            banner: userActualData.banner,
-            favGenres: userActualData.favGenres,
+            username: userDataStore.username,
+            firstName: userDataStore.firstName,
+            lastName: userDataStore.lastName,
+            email: userDataStore.email,
+            country: userDataStore.country,
+            city: userDataStore.city,
+            password: userDataStore.password,
+            secretQuestion: userDataStore.secretQuestion,
+            secretAnswer: userDataStore.secretAnswer,
+            avatar: userDataStore.avatar,
+            banner: userDataStore.banner,
+            favGenres: userDataStore.favGenres,
         },
         work: {
             myAlbums: [],
@@ -70,10 +68,10 @@ const UpdateProfile = () => {
 
     }) => {
 
-    const data = {  username: username ?? userActualData.username,
-                    firstName: firstName ?? userActualData.firstName,
-                    lastName: lastName ?? userActualData.lastName,
-                    password: password ?? userActualData.password}
+    const data = {  username: username ?? userDataStore.username,
+                    firstName: firstName ?? userDataStore.firstName,
+                    lastName: lastName ?? userDataStore.lastName,
+                    password: password ?? userDataStore.password}
         
         setUpdateUserData({
             ...UpdateUserData,

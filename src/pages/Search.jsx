@@ -22,7 +22,7 @@ const Search = () => {
         ></InputSearchStyle>
       </FormSearchStyle>
 
-      {/* {search.length > 2 && ( */}
+      {search.length > 2 && (
         <DivSliders>
           <SearchSlider apiKey={'events'} search={search} />
           <SearchSlider apiKey={'playlists'} search={search} />
@@ -30,7 +30,7 @@ const Search = () => {
           <SearchSlider apiKey={'tracks'} search={search} />
           <SearchSlider apiKey={'users'} search={search} />
         </DivSliders>
-      {/* )} */}
+      )}
     </MainFlexContainer>
   );
 };

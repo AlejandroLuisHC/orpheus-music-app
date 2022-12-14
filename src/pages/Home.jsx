@@ -35,6 +35,15 @@ const Home = () => {
       </DivHero>
 
       <H1Welcome>{`${welcome}${userData.username}!`}</H1Welcome>
+      <HrStyle />
+
+      {/* // Only seen mobile  */}
+      <DivMobileButtons>
+        <BtnAction>Playlist</BtnAction>
+        <BtnAction>Events</BtnAction>
+        <BtnAction>Social</BtnAction>
+        <BtnAction>New Releases</BtnAction>
+      </DivMobileButtons>
 
       <HrStyle />
 
