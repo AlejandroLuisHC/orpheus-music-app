@@ -40,7 +40,6 @@ export const DivSilderHeader = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: .5rem;
 `
 
 export const DivSliderBody = styled.div`
@@ -76,14 +75,14 @@ export const DivSliderBody = styled.div`
 export const DivCard = styled.div`
     display: flex;
     flex-direction: column;
-    width: 9rem;
+    align-items: center;
+    /* width: 9rem; */
     height: 100%;
-    padding: .5rem;
+    margin: 10px 20px 0 0;
     border-radius: 20px;
     text-decoration: none;
     color: ${color.primaryWhite};
-
-    width: ${props => props.resultType === 'events' && '14rem'};
+    width: ${props => props.resultType === 'events' ? '280px' : '14rem'};
 
     @media ${device.desktop}{      
         min-width: ${props => props.resultType === 'events' ? '420px' : '220px'};

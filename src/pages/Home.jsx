@@ -56,7 +56,6 @@ const Home = () => {
 
       <DivSliders>
         <HomeSlider apiKey={'events'} />
-        <EventsBox/>
         <HomeSlider apiKey={'playlists'} />
         <HomeSlider apiKey={'albums'} />
         <HomeSlider apiKey={'tracks'} />
