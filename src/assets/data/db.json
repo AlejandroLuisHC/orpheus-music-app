@@ -10,8 +10,8 @@
         "country": "Spain",
         "city": "Barcelona",
         "password": "admin123",
-        "secretQuestion": "",
-        "secretAnswer": "",
+        "secretQuestion": "What is your squad?",
+        "secretAnswer": "Lovelace",
         "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030889/Final-Project-MERN/Users/avatar-716d761a69eb183869ac189301ed6cc4_porhhq_ryz8kz.webp",
         "banner": "",
         "favGenres": [
