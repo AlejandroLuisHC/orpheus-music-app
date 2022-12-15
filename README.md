@@ -1,6 +1,7 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
-# final-project-MERN
-  ... 
+# Orpheus 
+![This is an image](https://res.cloudinary.com/drghk9p6q/image/upload/v1671122043/Final-Project-MERN/Readme/WhatsApp_Image_2022-12-15_at_17.29.42_c8gara.jpg)
+Audio streaming webpage centered around social interactions that provide freedom to all the users to upload their own work and create playlists as a way to communicate with each other. This project was born to improve the skills of the team around MERN stack technologies. 
 
 ## Start 🚀
 
@@ -42,21 +43,34 @@ npm run dev
 ```
 
 ## Built with 🛠️
-
+- [ViteJS](https://vitejs.dev/)
 - [ReactJS](https://es.reactjs.org/)
+  - useState()
+  - useEffect()
+  - memo() 
+  - lazy()
+  - Supense
+  - custom hooks...
 - [Redux-toolkit](https://redux-toolkit.js.org/)
+- [@tanstack/react-query](https://tanstack.com/query/v4/?from=reactQueryV3&original=https://react-query-v3.tanstack.com/)
+- [React-router-dom](https://reactrouter.com/en/main)
+  - useNavigate()
+  - useSearchParams()
+  - useParams()
+  - Outlet()
+  - useOutletContext()
 - [React-hook-form](https://react-hook-form.com/)
 - [Styled-Components](https://styled-components.com/)
 - [npm](https://www.npmjs.com/)
 
 ## Other libraries ⚙️
-- [json-server](https://github.com/typicode/json-server)
 - [hero-slider](https://www.npmjs.com/package/hero-slider)
 - [react-content-loader](https://github.com/danilowoz/react-content-loader)
 - [react-country-region-selector](https://www.npmjs.com/package/react-country-region-selector)
 - [react-icons](https://react-icons.github.io/react-icons)
 - [react-simple-player](https://github.com/streamich/react-simple-player)
 - [boring-avatars](https://boringavatars.com/)
+- [json-server](https://github.com/typicode/json-server)
 
 ## Contributing 🖇️
 
@@ -80,7 +94,6 @@ your contribution, and push the branch as a pull requests. Thank you.
     <td align="center"><a href="https://github.com/AlejandroLuisHC"><img src="https://avatars.githubusercontent.com/u/57948901?v=4" width="100px;" alt="AlejandroLuisHC"/><br /><sub><b>Alejandro L. Herrero</b></sub></a></td>
   </tr>
 </table>
-
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
 
