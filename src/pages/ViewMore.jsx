@@ -26,6 +26,7 @@ const ViewMore = () => {
                     <FilterElements
                          filter = {filter}
                          data = {data}
+                         viewMore = {viewMore}
                     />
                </DivElementsViewMore>
           </DivViewMore> 
