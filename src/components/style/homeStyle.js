@@ -24,7 +24,6 @@ export const DivHomeStyle = styled.div`
     } 
 `
 export const H1Welcome = styled.h1`
-    margin-top: 30px;
     font-size:25px;
     display:flex;
     justify-content: space-between;
@@ -33,6 +32,7 @@ export const H1Welcome = styled.h1`
         font-size:40px;
     } 
 `
+
 /* DIV CARDS */
 
 export const DivFavAndPlaylist = styled.div`
@@ -82,6 +82,27 @@ export const LinkHome = styled(Link)`
     font-size: 14px;
     &:hover{
         color: ${color.primaryYellow}
+    }
+`
+export const DivWelcomingHome = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+    `
+export const LinkProfile = styled(Link)`
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    z-index: 3;
+    color: ${color.primaryWhite};
+    text-decoration: none;
+    font-size: 18px;
+    &:hover {
+        color: ${color.primaryYellow};
+    }
+    @media ${device.desktop}{
+        display: none;
     }
 `
 export const DivSlider = styled.div`

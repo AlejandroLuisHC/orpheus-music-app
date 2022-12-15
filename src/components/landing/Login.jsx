@@ -84,7 +84,7 @@ const Login = () => {
                                         })}
                                     />
                                 </DivInputStyle>
-
+                               
                                 <ButtonPrimaryStyle type="submit">Login<IoMdLogIn /></ButtonPrimaryStyle>
                                 {invalidLogin && <PErrorStyle>Incorrect Username or Password</PErrorStyle>}
                             </form>
@@ -95,6 +95,9 @@ const Login = () => {
                     <div>
                         <p>Don't have an Orpheus account? <br />
                         <LinkPrimaryStyle to="/register">Register free</LinkPrimaryStyle></p>
+                        <br></br>
+                        <p>Did you forget your password?</p>
+                        <LinkPrimaryStyle to="/recover-password">Reestore password</LinkPrimaryStyle>
                     </div>
                     </>
             }

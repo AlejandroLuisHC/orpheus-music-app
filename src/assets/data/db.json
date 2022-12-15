@@ -10,30 +10,29 @@
         "country": "Spain",
         "city": "Barcelona",
         "password": "admin123",
-        "secretQuestion": "",
-        "secretAnswer": "",
+        "secretQuestion": "What is your squad?",
+        "secretAnswer": "Lovelace",
         "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030889/Final-Project-MERN/Users/avatar-716d761a69eb183869ac189301ed6cc4_porhhq_ryz8kz.webp",
         "banner": "",
-        "favGenres": [4, 6, 12]
+        "favGenres": [
+          4,
+          6,
+          12
+        ]
       },
       "work": {
-        "myAlbums": [5],
-        "myTracks": [7, 8, 9]
+        "myAlbums": [],
+        "myTracks": []
       },
-      "myPlaylists": [
-        {
-          "id": 1,
-          "name": "Coding Focus",
-          "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017430/Final-Project-MERN/Playlist/pexels-mikhail-nilov-7988087_etxcyo.webp"
-        }
-      ],
-      "favPlaylists": [1, 2],
-      "favAlbums": [1, 2, 3],
-      "favTracks": [1, 2, 3, 4, 5],
-      "followers": [1],
-      "following": [3, 22],
+      "myPlaylists": [],
+      "favPlaylists": [],
+      "favAlbums": [],
+      "favTracks": [],
+      "followers": [],
+      "following": [],
       "isVerified": false,
-      "isAdmin": false
+      "isAdmin": false,
+      "isLoggedIn": false
     },
     {
       "id": 2,
@@ -49,11 +48,21 @@
         "secretAnswer": "",
         "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030889/Final-Project-MERN/Users/avatar-716d761a69eb183869ac189301ed6cc4_porhhq_ryz8kz.webp",
         "banner": "",
-        "favGenres": [4, 6, 12]
+        "favGenres": [
+          4,
+          6,
+          12
+        ]
       },
       "work": {
-        "myAlbums": [5],
-        "myTracks": [7, 8, 9]
+        "myAlbums": [
+          5
+        ],
+        "myTracks": [
+          7,
+          8,
+          9
+        ]
       },
       "myPlaylists": [
         {
@@ -72,11 +81,41 @@
           "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-trinity-kubassek-341858_hnsidm.webp"
         }
       ],
-      "favPlaylists": [1, 2],
-      "favAlbums": [1, 2, 3],
-      "favTracks": [1, 2, 3, 4, 5],
-      "followers": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      "following": [3, 22],
+      "favPlaylists": [
+        1,
+        2
+      ],
+      "favAlbums": [
+        1,
+        2,
+        3
+      ],
+      "favTracks": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "followers": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "following": [
+        3,
+        22
+      ],
       "isVerified": false,
       "isAdmin": false
     },
@@ -94,31 +133,25 @@
         "secretAnswer": "4quesos",
         "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030889/Final-Project-MERN/Users/1658342188376_ccgwky_hf3rz9.webp",
         "banner": "",
-        "favGenres": [4, 6, 12]
+        "favGenres": [
+          4,
+          6,
+          12
+        ]
       },
       "work": {
-        "myAlbums": [5],
-        "myTracks": [7, 8, 9]
+        "myAlbums": [],
+        "myTracks": []
       },
-      "myPlaylists": [
-        {
-          "id": 4,
-          "name": "Top Hits",
-          "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-trinity-kubassek-341858_hnsidm.webp"
-        },
-        {
-          "id": 2,
-          "name": "Electro",
-          "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-sebastiaan-stam-1482476_ls41gi.webp"
-        }
-      ],
-      "favPlaylists": [1, 2],
-      "favAlbums": [1, 2, 3],
-      "favTracks": [1, 2, 3, 4, 5],
-      "followers": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      "following": [3, 22],
+      "myPlaylists": [],
+      "favPlaylists": [],
+      "favAlbums": [],
+      "favTracks": [],
+      "followers": [],
+      "following": [],
       "isVerified": false,
-      "isAdmin": false
+      "isAdmin": false,
+      "isLoggedIn": false
     },
     {
       "id": 4,
@@ -134,11 +167,21 @@
         "secretAnswer": "4cheese",
         "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030889/Final-Project-MERN/Users/Ed-Sheeran_j1cbft_rzg0xr.webp",
         "banner": "",
-        "favGenres": [4, 6, 12]
+        "favGenres": [
+          4,
+          6,
+          12
+        ]
       },
       "work": {
-        "myAlbums": [5],
-        "myTracks": [7, 8, 9]
+        "myAlbums": [
+          5
+        ],
+        "myTracks": [
+          7,
+          8,
+          9
+        ]
       },
       "myPlaylists": [
         {
@@ -152,11 +195,80 @@
           "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-sebastiaan-stam-1482476_ls41gi.webp"
         }
       ],
-      "favPlaylists": [1, 2],
-      "favAlbums": [1, 2, 3],
-      "favTracks": [1, 2, 3, 4, 5],
-      "followers": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      "following": [3, 22],
+      "favPlaylists": [
+        1,
+        2
+      ],
+      "favAlbums": [
+        1,
+        2,
+        3
+      ],
+      "favTracks": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "followers": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "following": [
+        3,
+        22
+      ],
       "isVerified": false,
       "isAdmin": false
     },
@@ -174,11 +286,21 @@
         "secretAnswer": "4cheese",
         "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030889/Final-Project-MERN/Users/b201f9fe39858f4e6f778b5235ad2607_ilib2g_ugz4qa.webp",
         "banner": "",
-        "favGenres": [4, 6, 12]
+        "favGenres": [
+          4,
+          6,
+          12
+        ]
       },
       "work": {
-        "myAlbums": [5],
-        "myTracks": [7, 8, 9]
+        "myAlbums": [
+          5
+        ],
+        "myTracks": [
+          7,
+          8,
+          9
+        ]
       },
       "myPlaylists": [
         {
@@ -192,16 +314,40 @@
           "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-sebastiaan-stam-1482476_ls41gi.webp"
         },
         {
-            "id": 10,
+          "id": 10,
           "name": "Relax Time",
           "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017285/Final-Project-MERN/Playlist/pexels-aron-visuals-1643113_jcbkru.webp"
         }
       ],
-      "favPlaylists": [1, 2],
-      "favAlbums": [1, 2, 3],
-      "favTracks": [1, 2, 3, 4, 5],
-      "followers": [1, 1, 1, 1, 1, 1, 1],
-      "following": [3, 22],
+      "favPlaylists": [
+        1,
+        2
+      ],
+      "favAlbums": [
+        1,
+        2,
+        3
+      ],
+      "favTracks": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "followers": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "following": [
+        3,
+        22
+      ],
       "isVerified": false,
       "isAdmin": false
     },
@@ -219,11 +365,21 @@
         "secretAnswer": "4cheese",
         "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030889/Final-Project-MERN/Users/119700226_4257622987641667_4778006258121329624_n_du7rt6_sh7zai.webp",
         "banner": "",
-        "favGenres": [4, 6, 12]
+        "favGenres": [
+          4,
+          6,
+          12
+        ]
       },
       "work": {
-        "myAlbums": [5],
-        "myTracks": [7, 8, 9]
+        "myAlbums": [
+          5
+        ],
+        "myTracks": [
+          7,
+          8,
+          9
+        ]
       },
       "myPlaylists": [
         {
@@ -243,11 +399,67 @@
           "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-simon-berger-688660_qlxydb.webp"
         }
       ],
-      "favPlaylists": [1, 2],
-      "favAlbums": [1, 2, 3],
-      "favTracks": [1, 2, 3, 4, 5],
-      "followers": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      "following": [3, 22],
+      "favPlaylists": [
+        1,
+        2
+      ],
+      "favAlbums": [
+        1,
+        2,
+        3
+      ],
+      "favTracks": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "followers": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "following": [
+        3,
+        22
+      ],
       "isVerified": false,
       "isAdmin": false
     }
@@ -260,8 +472,12 @@
       "location": "Spain / Barcelona",
       "name": "Viña rock",
       "description": "...",
-      "genres": [1],
-      "artists": [1],
+      "genres": [
+        1
+      ],
+      "artists": [
+        1
+      ],
       "date": "28/4/2023",
       "stock": 5900,
       "price": 50
@@ -273,8 +489,12 @@
       "location": "Spain / Sevilla",
       "name": "Måneskin",
       "description": "...",
-      "genres": [1],
-      "artists": [1],
+      "genres": [
+        1
+      ],
+      "artists": [
+        1
+      ],
       "date": "11/4/2023",
       "stock": 2300,
       "price": 45
@@ -286,8 +506,12 @@
       "location": "Spain / Galicia",
       "name": "Resurrection Fest",
       "description": "...",
-      "genres": [1],
-      "artists": [1],
+      "genres": [
+        1
+      ],
+      "artists": [
+        1
+      ],
       "date": "28/6/2023",
       "stock": 1900,
       "price": 55
@@ -299,8 +523,12 @@
       "location": "Spain / Madrid",
       "name": "Duki - Desde el fin del mundo",
       "description": "...",
-      "genres": [1],
-      "artists": [1],
+      "genres": [
+        1
+      ],
+      "artists": [
+        1
+      ],
       "date": "24/2/2023",
       "stock": 3900,
       "price": 25
@@ -312,8 +540,12 @@
       "location": "Spain / Madrid",
       "name": "Benidorm Fest",
       "description": "...",
-      "genres": [1],
-      "artists": [1],
+      "genres": [
+        1
+      ],
+      "artists": [
+        1
+      ],
       "date": "10/6/2023",
       "stock": 900,
       "price": 35
@@ -326,14 +558,34 @@
       "description": "",
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017430/Final-Project-MERN/Playlist/pexels-mikhail-nilov-7988087_etxcyo.webp",
       "tracks": [
-        { "id": 2, "added": "new Data()" },
-        { "id": 45, "added": "" },
-        { "id": 2, "added": "" },
-        { "id": 2, "added": "" }
+        {
+          "id": 2,
+          "added": "new Data()"
+        },
+        {
+          "id": 45,
+          "added": ""
+        },
+        {
+          "id": 2,
+          "added": ""
+        },
+        {
+          "id": 2,
+          "added": ""
+        }
       ],
-      "followers": [2],
-      "genres": [2, 3],
-      "moods": ["relax", "focused"],
+      "followers": [
+        2
+      ],
+      "genres": [
+        2,
+        3
+      ],
+      "moods": [
+        "relax",
+        "focused"
+      ],
       "owner": 2
     },
     {
@@ -342,14 +594,34 @@
       "description": "",
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-sebastiaan-stam-1482476_ls41gi.webp",
       "tracks": [
-        { "id": 2, "added": "new Data()" },
-        { "id": 45, "added": "" },
-        { "id": 2, "added": "" },
-        { "id": 2, "added": "" }
+        {
+          "id": 2,
+          "added": "new Data()"
+        },
+        {
+          "id": 45,
+          "added": ""
+        },
+        {
+          "id": 2,
+          "added": ""
+        },
+        {
+          "id": 2,
+          "added": ""
+        }
       ],
-      "followers": [2],
-      "genres": [2, 3],
-      "moods": ["relax", "focused"],
+      "followers": [
+        2
+      ],
+      "genres": [
+        2,
+        3
+      ],
+      "moods": [
+        "relax",
+        "focused"
+      ],
       "owner": 2
     },
     {
@@ -358,14 +630,34 @@
       "description": "",
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-simon-berger-688660_qlxydb.webp",
       "tracks": [
-        { "id": 2, "added": "new Data()" },
-        { "id": 45, "added": "" },
-        { "id": 2, "added": "" },
-        { "id": 2, "added": "" }
+        {
+          "id": 2,
+          "added": "new Data()"
+        },
+        {
+          "id": 45,
+          "added": ""
+        },
+        {
+          "id": 2,
+          "added": ""
+        },
+        {
+          "id": 2,
+          "added": ""
+        }
       ],
-      "followers": [2],
-      "genres": [2, 3],
-      "moods": ["relax", "focused"],
+      "followers": [
+        2
+      ],
+      "genres": [
+        2,
+        3
+      ],
+      "moods": [
+        "relax",
+        "focused"
+      ],
       "owner": 2
     },
     {
@@ -374,14 +666,34 @@
       "description": "",
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-trinity-kubassek-341858_hnsidm.webp",
       "tracks": [
-        { "id": 2, "added": "new Data()" },
-        { "id": 45, "added": "" },
-        { "id": 2, "added": "" },
-        { "id": 2, "added": "" }
+        {
+          "id": 2,
+          "added": "new Data()"
+        },
+        {
+          "id": 45,
+          "added": ""
+        },
+        {
+          "id": 2,
+          "added": ""
+        },
+        {
+          "id": 2,
+          "added": ""
+        }
       ],
-      "followers": [2],
-      "genres": [2, 3],
-      "moods": ["relax", "focused"],
+      "followers": [
+        2
+      ],
+      "genres": [
+        2,
+        3
+      ],
+      "moods": [
+        "relax",
+        "focused"
+      ],
       "owner": 2
     },
     {
@@ -390,14 +702,34 @@
       "description": "",
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-foteros-352505_yeozpe.webp",
       "tracks": [
-        { "id": 2, "added": "new Data()" },
-        { "id": 45, "added": "" },
-        { "id": 2, "added": "" },
-        { "id": 2, "added": "" }
+        {
+          "id": 2,
+          "added": "new Data()"
+        },
+        {
+          "id": 45,
+          "added": ""
+        },
+        {
+          "id": 2,
+          "added": ""
+        },
+        {
+          "id": 2,
+          "added": ""
+        }
       ],
-      "followers": [2],
-      "genres": [2, 3],
-      "moods": ["relax", "focused"],
+      "followers": [
+        2
+      ],
+      "genres": [
+        2,
+        3
+      ],
+      "moods": [
+        "relax",
+        "focused"
+      ],
       "owner": 2
     },
     {
@@ -406,14 +738,34 @@
       "description": "",
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-dmitry-demidov-3783471_rw50ne.webp",
       "tracks": [
-        { "id": 2, "added": "new Data()" },
-        { "id": 45, "added": "" },
-        { "id": 2, "added": "" },
-        { "id": 2, "added": "" }
+        {
+          "id": 2,
+          "added": "new Data()"
+        },
+        {
+          "id": 45,
+          "added": ""
+        },
+        {
+          "id": 2,
+          "added": ""
+        },
+        {
+          "id": 2,
+          "added": ""
+        }
       ],
-      "followers": [2],
-      "genres": [2, 3],
-      "moods": ["relax", "focused"],
+      "followers": [
+        2
+      ],
+      "genres": [
+        2,
+        3
+      ],
+      "moods": [
+        "relax",
+        "focused"
+      ],
       "owner": 2
     },
     {
@@ -422,14 +774,34 @@
       "description": "",
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-pixabay-33597_pelqsx.webp",
       "tracks": [
-        { "id": 2, "added": "new Data()" },
-        { "id": 45, "added": "" },
-        { "id": 2, "added": "" },
-        { "id": 2, "added": "" }
+        {
+          "id": 2,
+          "added": "new Data()"
+        },
+        {
+          "id": 45,
+          "added": ""
+        },
+        {
+          "id": 2,
+          "added": ""
+        },
+        {
+          "id": 2,
+          "added": ""
+        }
       ],
-      "followers": [2],
-      "genres": [2, 3],
-      "moods": ["relax", "focused"],
+      "followers": [
+        2
+      ],
+      "genres": [
+        2,
+        3
+      ],
+      "moods": [
+        "relax",
+        "focused"
+      ],
       "owner": 1
     },
     {
@@ -438,14 +810,35 @@
       "description": "",
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-pixabay-210205_hv8fbc.webp",
       "tracks": [
-        { "id": 2, "added": "new Data()" },
-        { "id": 45, "added": "" },
-        { "id": 2, "added": "" },
-        { "id": 2, "added": "" }
+        {
+          "id": 2,
+          "added": "new Data()"
+        },
+        {
+          "id": 45,
+          "added": ""
+        },
+        {
+          "id": 2,
+          "added": ""
+        },
+        {
+          "id": 2,
+          "added": ""
+        }
       ],
-      "followers": [5],
-      "genres": [2, 3],
-      "moods": ["relax", "focused", "happy"],
+      "followers": [
+        5
+      ],
+      "genres": [
+        2,
+        3
+      ],
+      "moods": [
+        "relax",
+        "focused",
+        "happy"
+      ],
       "owner": 1
     },
     {
@@ -454,14 +847,35 @@
       "description": "",
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-vishnu-r-nair-1105666_fcpxli.webp",
       "tracks": [
-        { "id": 2, "added": "new Data()" },
-        { "id": 45, "added": "" },
-        { "id": 2, "added": "" },
-        { "id": 2, "added": "" }
+        {
+          "id": 2,
+          "added": "new Data()"
+        },
+        {
+          "id": 45,
+          "added": ""
+        },
+        {
+          "id": 2,
+          "added": ""
+        },
+        {
+          "id": 2,
+          "added": ""
+        }
       ],
-      "followers": [21],
-      "genres": [2, 3],
-      "moods": ["relax", "focused", "happy"],
+      "followers": [
+        21
+      ],
+      "genres": [
+        2,
+        3
+      ],
+      "moods": [
+        "relax",
+        "focused",
+        "happy"
+      ],
       "owner": 1
     },
     {
@@ -470,14 +884,35 @@
       "description": "",
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017285/Final-Project-MERN/Playlist/pexels-aron-visuals-1643113_jcbkru.webp",
       "tracks": [
-        { "id": 2, "added": "new Data()" },
-        { "id": 45, "added": "" },
-        { "id": 2, "added": "" },
-        { "id": 2, "added": "" }
+        {
+          "id": 2,
+          "added": "new Data()"
+        },
+        {
+          "id": 45,
+          "added": ""
+        },
+        {
+          "id": 2,
+          "added": ""
+        },
+        {
+          "id": 2,
+          "added": ""
+        }
       ],
-      "followers": [32],
-      "genres": [2, 3],
-      "moods": ["relax", "focused", "happy"],
+      "followers": [
+        32
+      ],
+      "genres": [
+        2,
+        3
+      ],
+      "moods": [
+        "relax",
+        "focused",
+        "happy"
+      ],
       "owner": 1
     }
   ],

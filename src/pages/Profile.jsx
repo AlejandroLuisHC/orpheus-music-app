@@ -20,12 +20,13 @@ const Profile = () => {
        ?
        <>
         <ProfileDesktop />
-        <Outlet />
+        
+        
        </>
        :
        <>
         <ProfileMobile />       
-        <Outlet />
+        
        </>
     )
 }
