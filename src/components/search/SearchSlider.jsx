@@ -8,21 +8,20 @@ import LogoSpinner from '../general_components/loaders/spinner/LogoSpinner';
 import { DivImgRectangleL, H2Style } from '../style/generalStyle';
 
 import {
-    DivFlex,
-    DivInfoLists,
-    DivPicLists,
-    H3NameUser,
-    H4NameUser,
-    H6StyleHero,
+    DivEventInfo,
+    DivInfoMusic,
+    DivImageMusic,
+    PFollowersUser,
+    PTitle,
     ImgAvatarUser,
-    ImgCards,
-    PStyleHero,
+    ImgCardMusic,
     DivContainerSlider,
     DivEventCard,
     DivMusicCard,
     DivSilderHeader,
     DivSliderBody,
     DivUserCard,
+    PNameUser,
 } from '../style/homeStyle';
 
 const SearchSlider = ({ apiKey, search }) => {
@@ -101,20 +100,20 @@ const SearchSlider = ({ apiKey, search }) => {
                                 apiKey === 'events' ? (
                                     <DivEventCard key={result.id}>
                                         <DivImgRectangleL src={result.img} />
-                                        <DivFlex>
+                                        <DivEventInfo>
                                             <div>
-                                                <H6StyleHero>{result.name}</H6StyleHero>
-                                                <PStyleHero>{result.location} - {result.date}</PStyleHero>
+                                                <PTitle>{result.name}</PTitle>
+                                                <PTitle>{result.location} - {result.date}</PTitle>
                                             </div>
                                             <H2Style>{result.price}€</H2Style>
-                                        </DivFlex>
+                                        </DivEventInfo>
                                     </DivEventCard>
             
                                 ) : apiKey === 'users' ? (
                                     <DivUserCard key={result.id}>
                                         <ImgAvatarUser src={result.img} />
-                                        <H3NameUser>{result.name}</H3NameUser>
-                                        <H4NameUser>{result.followers} followers</H4NameUser>
+                                        <PNameUser>{result.name}</PNameUser>
+                                        <PFollowersUser>{result.followers} followers</PFollowersUser>
                                     </DivUserCard>
             
                                 ) : (
@@ -123,7 +122,7 @@ const SearchSlider = ({ apiKey, search }) => {
                                         key={result.id}
                                         /* as={Link} to={`/${apiKey}/${result.name}`} */
                                     >
-                                        <DivPicLists onClick={() =>
+                                        <DivImageMusic onClick={() =>
                                             setPlayer(
                                                 (prev) => (prev = {
                                                     playerOn: true,
@@ -133,12 +132,12 @@ const SearchSlider = ({ apiKey, search }) => {
                                                 })
                                             )
                                         }>
-                                            <ImgCards src={result.img} />
-                                        </DivPicLists>
-                                        <DivInfoLists>
-                                            <H6StyleHero>{result.name}</H6StyleHero>
-                                            <PStyleHero>{result.description}</PStyleHero>
-                                        </DivInfoLists>
+                                            <ImgCardMusic src={result.img} />
+                                        </DivImageMusic>
+                                        <DivInfoMusic>
+                                            <PTitle>{result.name}</PTitle>
+                                            <PTitle>{result.description}</PTitle>
+                                        </DivInfoMusic>
                                     </DivMusicCard>
                                 )
                             ))}

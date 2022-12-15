@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux';
 import { HrStyle } from '../components/style/generalStyle';
 import {
-    DivHomeStyle,
+    MainStyle,
     BtnAction,
     DivHero,
-    DivMobileButtons,
+    NavHomeMobile,
     H1Welcome,
     LinkProfile,
     DivWelcomingHome,
@@ -26,24 +26,25 @@ const Home = () => {
                 ? 'Good morning, '
                 : 'Good afternoon, ';
     return (
-        <DivHomeStyle>
-            
+        <MainStyle>
             <DivHero>
                 <Hero />
             </DivHero>
             <DivWelcomingHome>
                 <H1Welcome>{`${welcome}${userData.username}!`}</H1Welcome>
-                <LinkProfile to={`../${userData.username}`}> <HeaderProfile /></LinkProfile>
+                <LinkProfile to={`../${userData.username}`}> 
+                    <HeaderProfile />
+                </LinkProfile>
             </DivWelcomingHome>
             <HrStyle />
 
             {/* // Only seen mobile  */}
-            <DivMobileButtons>
+            <NavHomeMobile>
                 <BtnAction>Playlist</BtnAction>
                 <BtnAction>Events</BtnAction>
                 <BtnAction>Social</BtnAction>
                 <BtnAction>New Releases</BtnAction>
-            </DivMobileButtons>
+            </NavHomeMobile>
 
             <DivSliders>
                 <HomeSlider apiKey={'events'} />
@@ -52,7 +53,7 @@ const Home = () => {
                 <HomeSlider apiKey={'tracks'} />
                 <HomeSlider apiKey={'users'} />
             </DivSliders>
-        </DivHomeStyle>
+        </MainStyle>
     );
 };
 

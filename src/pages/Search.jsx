@@ -7,14 +7,14 @@ import {
     MainFlexContainer,
 } from '../components/style/searchStyle';
 
-import { DivHomeStyle, DivSliders } from '../components/style/homeStyle';
+import { MainStyle, DivSliders } from '../components/style/homeStyle';
 
 const Search = () => {
     const [searchParmams, setSearchParams] = useSearchParams();
     const search = searchParmams.get('q') || '';
 
     return (
-        <DivHomeStyle>
+        <MainStyle>
             <MainFlexContainer>
                 <FormSearchStyle>
                     <InputSearchStyle
@@ -44,7 +44,7 @@ const Search = () => {
                     </DivSliders>
                 }
             </MainFlexContainer>
-        </DivHomeStyle>
+        </MainStyle>
     );
 };
 
