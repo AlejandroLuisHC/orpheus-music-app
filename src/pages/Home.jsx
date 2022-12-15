@@ -16,6 +16,7 @@ import HomeSlider from '../components/home/HomeSlider';
 import HeaderProfile from '../components/home/HeaderProfile';
 
 const Home = () => {
+    const apiKeys = ['events', 'playlists', 'albums', 'tracks', 'users']
     const userData = useSelector((state) => state.userData.user.userData);
     const date = new Date();
     const hour = date.getHours();
@@ -47,11 +48,7 @@ const Home = () => {
             </NavHomeMobile>
 
             <DivSliders>
-                <HomeSlider apiKey={'events'} />
-                <HomeSlider apiKey={'playlists'} />
-                <HomeSlider apiKey={'albums'} />
-                <HomeSlider apiKey={'tracks'} />
-                <HomeSlider apiKey={'users'} />
+                {apiKeys.map(key => <HomeSlider key={key} apiKey={key} />)}
             </DivSliders>
         </MainStyle>
     );

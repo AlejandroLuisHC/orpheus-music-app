@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom'
 import Aside from '../components/general_components/aside/Aside';
 import HeaderLogo from '../components/general_components/HeaderLogo';
-import MusicPlayer from '../components/music_player/MusicPlayer';
+import MusicPlayer from '../components/general_components/music_player/MusicPlayer';
 import { GridStyle, GridLandingStyle, Header, Main, MainLandingStyle } from '../components/style/generalStyle'
 import useWidth from '../helper/hooks/useWidth';
 const Layout = () => {
