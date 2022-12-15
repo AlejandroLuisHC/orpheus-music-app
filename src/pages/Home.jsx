@@ -48,6 +48,14 @@ const Home = () => {
                 <BtnAction>New Releases</BtnAction>
             </DivMobileButtons>
             
+            {/* <DivHomeCarousels>
+                <EventsBox/>
+                <PlaylistBox/>
+                <AlbumBox/>
+                <TrackBox/>
+                <UsersBox/>
+            </DivHomeCarousels> */}
+
             <DivSliders>
                 <HomeSlider apiKey={'events'} />
                 <AlbumBox />
