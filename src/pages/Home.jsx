@@ -33,13 +33,13 @@ const Home = () => {
                 : 'Good afternoon, ';
     return (
         <DivHomeStyle>
-            <LinkProfile to={userData.username}><HeaderProfile /></LinkProfile>
+            
             <DivHero>
                 <Hero />
             </DivHero>
             <DivWelcomingHome>
                 <H1Welcome>{`${welcome}${userData.username}!`}</H1Welcome>
-                <LinkProfile to={`../${userData.username}`}>Profile <HeaderProfile /></LinkProfile>
+                <LinkProfile to={`../${userData.username}`}> <HeaderProfile /></LinkProfile>
             </DivWelcomingHome>
             <HrStyle />
 
