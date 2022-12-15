@@ -66,10 +66,12 @@ export const GridLandingStyle = styled.div`
 export const Header = styled.header`
     display: none; 
     @media ${device.desktop} {
+        position: fixed;
+        top: 0;
         grid-column: 1;
         grid-row: 1;
-        width: 100%;
-        height: 100%;
+        width: 200px;
+        height: 50px;
         display: flex;
         align-items: center;
         padding: 20px;
@@ -130,6 +132,8 @@ export const AsideMobileStyle = styled.aside`
 `
 
 export const AsideDesktopStyle = styled.aside`
+    position: fixed;
+    top: 50px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -141,9 +145,8 @@ export const LinkAside = styled(Link)`
     padding-bottom: 3px;
     color: ${color.primaryWhite};
     text-decoration: none;
-    font-size: 1.3em;
+    font-size: 1.2em;
     transition: 300ms;
-    gap: 10px;
     &:hover{
         color: ${color.primaryYellow};
         transform: scale(1.1);
@@ -157,7 +160,7 @@ export const LinkAside = styled(Link)`
 
 export const Hr = styled.hr`
     opacity: .1;
-    width: 80%;
+    width: 100%;
 `
 
 export const ButtonPrimaryStyle = styled.button`
@@ -252,7 +255,7 @@ export const H2StyleWhite = styled.h2`
     color: ${color.primaryWhite};
     font-size: 24px;
     font-weight: bold;
-    cursor:pointer;
+    cursor: pointer;
     @media ${device.desktop}{
         font-size: 36px;
     }
@@ -260,7 +263,26 @@ export const H2StyleWhite = styled.h2`
         color:${color.primaryYellow}
     }
 `
-
+export const H4Style = styled.h4`
+    color: ${color.primaryWhite};
+    font-size: 20px;
+    font-weight: bold;
+    color:${color.primaryYellow};
+    @media ${device.desktop}{
+        font-size: 24px;
+    }
+`
+export const H5StyleAside = styled.h5`
+    color: ${color.primaryWhite};
+    font-size: 18px;
+    font-weight: bold;
+    color:${color.primaryYellow};
+    padding-left: 20px;
+    cursor: pointer;
+    @media ${device.desktop}{
+        font-size: 20px;
+    }
+`
 export const FieldsetStyle = styled.fieldset`
     border: none;  
 `

@@ -4,7 +4,7 @@ import SearchSlider from '../components/search/SearchSlider';
 import {
     FormSearchStyle,
     InputSearchStyle,
-    MainFlexContainer,
+    DivSearchContainer,
 } from '../components/style/searchStyle';
 
 import { MainStyle, DivSliders } from '../components/style/homeStyle';
@@ -14,8 +14,7 @@ const Search = () => {
     const search = searchParmams.get('q') || '';
 
     return (
-        <MainStyle>
-            <MainFlexContainer>
+            <DivSearchContainer>
                 <FormSearchStyle>
                     <InputSearchStyle
                         type="search"
@@ -43,8 +42,7 @@ const Search = () => {
                         <SearchSlider apiKey={'users'} search={search} />
                     </DivSliders>
                 }
-            </MainFlexContainer>
-        </MainStyle>
+            </DivSearchContainer>
     );
 };
 

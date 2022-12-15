@@ -8,35 +8,35 @@ import { DivFilterContainer, H2StyleViewMore, DivElementsViewMore, DivViewMore }
 import LogoSpinner from "../components/general_components/loaders/spinner/LogoSpinner"
 
 const ViewMore = () => {
-     const { viewMore } = useParams()
-     const [filter,setFilter] = useState(false)
-     const { data, status } = useQuery([viewMore, viewMore], () => fetchKey(viewMore))
-     return (
-          status === "loading" 
-               ? <LogoSpinner />
-               : status === "error"
-                    ? <p>Error</p>
-                    :
-                    <DivViewMore>
-                         <H2StyleViewMore>All {viewMore}</H2StyleViewMore>
-                         <DivFilterContainer>
-                              <FilterButtons 
-                                   param={viewMore}
-                                   setFilter={setFilter}
-                                   filter = {filter}
-                              />
-                         </DivFilterContainer>
-                    
-                         <DivElementsViewMore>
-                              <FilterElements
-                                   filter = {filter}
-                                   data = {data}
-                                   viewMore = {viewMore}
-                              />
-                         </DivElementsViewMore>
-                    </DivViewMore> 
-          
-     )
+    const { viewMore } = useParams()
+    const [filter, setFilter] = useState(false)
+    const { data, status } = useQuery([viewMore, viewMore], () => fetchKey(viewMore))
+    return (
+        status === "loading"
+            ? <LogoSpinner />
+            : status === "error"
+                ? <p>Error</p>
+                :
+                <DivViewMore>
+                    <H2StyleViewMore>All {viewMore}</H2StyleViewMore>
+                    <DivFilterContainer>
+                        <FilterButtons
+                            param={viewMore}
+                            setFilter={setFilter}
+                            filter={filter}
+                        />
+                    </DivFilterContainer>
+
+                    <DivElementsViewMore>
+                        <FilterElements
+                            filter={filter}
+                            data={data}
+                            viewMore={viewMore}
+                        />
+                    </DivElementsViewMore>
+                </DivViewMore>
+
+    )
 }
 
 export default ViewMore

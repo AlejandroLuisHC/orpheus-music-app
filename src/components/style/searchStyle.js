@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { InputStyle } from "./generalStyle";
-import { color, device } from "./utils/styleConstants";
+import { device } from "./utils/styleConstants";
 
-export const MainFlexContainer = styled.main`
+export const DivSearchContainer = styled.div`
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    padding-bottom: 40px;
 `;
 
 export const FormSearchStyle = styled.form`

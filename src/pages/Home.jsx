@@ -2,12 +2,12 @@ import { useSelector } from 'react-redux';
 import { HrStyle } from '../components/style/generalStyle';
 import {
     MainStyle,
-    BtnAction,
     DivHero,
     NavHomeMobile,
     H1Welcome,
     LinkProfile,
     DivWelcomingHome,
+    LinkBtnAction,
 } from '../components/style/homeStyle';
 import Hero from '../components/home/hero/Hero';
 import { DivSliders } from '../components/style/homeStyle';
@@ -41,10 +41,10 @@ const Home = () => {
 
             {/* // Only seen mobile  */}
             <NavHomeMobile>
-                <BtnAction>Playlist</BtnAction>
-                <BtnAction>Events</BtnAction>
-                <BtnAction>Social</BtnAction>
-                <BtnAction>New Releases</BtnAction>
+                <LinkBtnAction to="home/playlists">Playlist</LinkBtnAction>
+                <LinkBtnAction to="home/events">Events</LinkBtnAction>
+                <LinkBtnAction>Social</LinkBtnAction>
+                <LinkBtnAction>New Releases</LinkBtnAction>
             </NavHomeMobile>
 
             <DivSliders>

@@ -10,7 +10,7 @@ const AsideMobile = () => {
             <LinkAside to={'/search'}>
                 <IoMdSearch />
             </LinkAside>
-            <LinkAside to={'/library'}>
+            <LinkAside to={'/home/playlists'}>
                 <IoMdMusicalNotes />
             </LinkAside>
         </AsideMobileStyle>

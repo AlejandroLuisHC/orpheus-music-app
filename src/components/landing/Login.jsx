@@ -97,7 +97,7 @@ const Login = () => {
                         <LinkPrimaryStyle to="/register">Register free</LinkPrimaryStyle></p>
                         <br></br>
                         <p>Did you forget your password?</p>
-                        <LinkPrimaryStyle to="/recover-password">Reestore password</LinkPrimaryStyle>
+                        <LinkPrimaryStyle to="/recover-password">Restore password</LinkPrimaryStyle>
                     </div>
                     </>
             }

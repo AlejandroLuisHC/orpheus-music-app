@@ -2,16 +2,16 @@ import { IoIosLogOut } from "react-icons/io";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import { LOG_OUT } from "../../redux/features/user_data/userSlice";
-import { ButtonLogoutStyle } from "../style/homeStyle";
+import { ListItem } from "../style/profileStyle";
 
 const DisconnectIcon = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     
     return (
-        <>
-        log Out <IoIosLogOut onClick={() => { dispatch(LOG_OUT()); navigate('/') }} /> 
-        </>
+        <ListItem onClick={() => { dispatch(LOG_OUT()); navigate('/') }}>
+            <span>Log out</span> <IoIosLogOut /> 
+        </ListItem>
     )
 }
 

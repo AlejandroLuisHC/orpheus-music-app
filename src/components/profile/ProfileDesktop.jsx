@@ -4,52 +4,58 @@ import { useSelector } from 'react-redux';
 import useWidth from '../../helper/hooks/useWidth';
 import AvatarImg from '../general_components/AvatarImg';
 import FooterInfo from '../general_components/FooterInfo';
-import HomeSlidersLoader from '../general_components/loaders/content_loader/HomeSlidersLoader';
 import { Footer } from '../style/generalStyle';
+import { DivSliders } from '../style/homeStyle';
 import { DivProfile, DivProfileActionsStyle, DivProfileBanner, DivProfileMainContent, DivProfileUserInfoContainer, DivUserGeneralData, DivUsernameWorks, DropdownContainer, DropdownHeader, DropdownListContainer, H1Username, H2UserWorks, ListItem, PProfileUserInfo, SectionEditUser, SectionProfileMain, SpanProfileUserNumbers } from '../style/profileStyle';
 import AddWork from './AddWork';
 import CreatePlaylist from './CreatePlaylist';
 import DisconnectIcon from './DisconnectIcon';
+import ProfileSlider from './profile_main/ProfileSlider';
 import UpdateProfile from './UpdateProfile';
 
 const ProfileDesktop = () => {
-    const {userData} = useSelector(state => state.userData.user);
+    const user = useSelector(state => state.userData.user);
     const width = useWidth();
     const [editView, setEditView] = useState(false);
-
-
     const [isOpen, setIsOpen] = useState(false);
     const toggling = () => setIsOpen(!isOpen);
-
+    const dataKey = [
+        {id: 1, name:"My playlists", type: "playlist", data: user.myPlaylists}, 
+        {id: 2, name:"Fav. playlists", type: "playlist", data: user.favPlaylists}, 
+        {id: 3, name:"Fav. albums", type: "albums", data: user.favAlbums}, 
+        {id: 4, name:"Fav. tracks", type: "tracks", data: user.favTracks}, 
+        {id: 5, name:"Followers", type: "users", data: user.followers}, 
+        {id: 6, name:"Following", type: "users", data: user.following}
+    ]
+    
     return (
         <DivProfile>
             <DivProfileBanner>
                 <DropdownContainer>
                     <DropdownHeader onClick={toggling}><IoIosMore /></DropdownHeader>
                     {isOpen && (
-                    <DropdownListContainer>
-                        <ListItem >
-                            {!editView
-                            ?
-                            <>Edit <IoMdCreate onClick={() => setEditView(prev => prev = true)} /> </> 
-                            :
-                            <>Return <IoMdReturnLeft onClick={() => setEditView(prev => prev = false)}/></>}
-                        </ListItem >
-                        <ListItem >
+                        <DropdownListContainer>
+                            <ListItem >
+                                {!editView
+                                    ?
+                                    <span onClick={() => setEditView(prev => prev = true)}>Edit <IoMdCreate /> </span>
+                                    :
+                                    <span onClick={() => setEditView(prev => prev = false)}>Return <IoMdReturnLeft /></span>
+                                }
+                            </ListItem >
                             <DisconnectIcon />
-                        </ListItem >
-                    </DropdownListContainer>
+                        </DropdownListContainer>
                     )}
                 </DropdownContainer>
-                
+
                 <AvatarImg
                     size={width > 1050 ? 200 : 140}
-                    avatarId={userData.avatar}
+                    avatarId={user.userData.avatar}
                 />
 
                 <DivUserGeneralData>
                     <DivUsernameWorks>
-                        <H1Username>{userData.username}</H1Username>
+                        <H1Username>{user.userData.username}</H1Username>
                         <H2UserWorks>23 works</H2UserWorks>
                     </DivUsernameWorks>
                     <DivProfileUserInfoContainer>
@@ -70,8 +76,6 @@ const ProfileDesktop = () => {
 
             </DivProfileBanner>
 
-            {/* Erase when edit     */}
-
             {!editView
                 ?
                 <SectionProfileMain>
@@ -80,20 +84,22 @@ const ProfileDesktop = () => {
                         <CreatePlaylist />
                     </DivProfileActionsStyle>
 
-                    {/* Future user's playlists */}
-                    <DivProfileMainContent>
-                        <HomeSlidersLoader />
-                        <HomeSlidersLoader />
-                        <HomeSlidersLoader />
-                    </DivProfileMainContent>
+                    <DivSliders>
+                        {dataKey.map(key => {
+                            if (key.data.length > 0){
+                                return <ProfileSlider key={key.id} dataKey={key} />
+                            }
+                        })}
+                    </DivSliders>
+
                 </SectionProfileMain>
                 :
                 <SectionEditUser>
                     <UpdateProfile />
-                    
+
                 </SectionEditUser>
             }
-            
+            <Footer><FooterInfo /></Footer>
         </DivProfile>
     )
 }

@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import { memo } from 'react';
+import { useNavigate, useOutletContext } from 'react-router-dom';
 import { fetchKey } from '../../api';
 import { capitalizeFirstLetter } from '../../helper/utils';
 import HomeSlidersLoader from '../general_components/loaders/content_loader/HomeSlidersLoader';
@@ -14,7 +15,6 @@ import {
     ImgAvatarUser,
     ImgCardMusic,
     PDescription,
-    DivContainerSlider,
     DivEventCard,
     DivMusicCard,
     DivSilderHeader,
@@ -22,47 +22,43 @@ import {
     DivUserCard,
     PEventPrice,
     LinkViewMore,
-    
+
 } from '../style/homeStyle';
 
 const HomeSlider = ({ apiKey }) => {
-  const { data, status } = useQuery([apiKey, apiKey], () => fetchKey(apiKey));
-
-  const items = () =>
-    data?.map((item) =>
-        apiKey === 'events'
-            ? {
-                id: item.id,
-                name: item.name,
-                img: item.img,
-                location: item.location,
-                date: item.date,
-                price: item.price
-            }
-        : apiKey === 'users'
-            ? {
-                id: item.id,
-                name: item.userData.username,
-                img: item.userData.avatar,
-                followers: item.followers.length
-            }
-        : {
-            id: item.id,
-            name: item.name,
-            img: item.img,
-            description:item.description,
-        }
-    );
+    const { data, status } = useQuery([apiKey, apiKey], () => fetchKey(apiKey));
+    const navigate = useNavigate();
+    const [setPlayer] = useOutletContext();
+    const items = () =>
+        data?.map((item) =>
+            apiKey === 'events'
+                ? {
+                    id: item.id,
+                    name: item.name,
+                    img: item.img,
+                    location: item.location,
+                    date: item.date,
+                    price: item.price
+                }
+                : apiKey === 'users'
+                    ? {
+                        id: item.id,
+                        name: item.userData.username,
+                        img: item.userData.avatar,
+                        followers: item.followers.length
+                    }
+                    : item
+        );
 
     return status === 'loading' ? (
         <HomeSlidersLoader />
     ) : status === 'error' ? (
         <p>Error</p>
     ) : (
-        <DivContainerSlider>
+        <>
             <DivSilderHeader>
-                <H2Style>{capitalizeFirstLetter(apiKey)}</H2Style>
-                <LinkViewMore to= {`${apiKey}`} >View more</LinkViewMore>
+                <H2Style onClick={() => navigate(`/home/${apiKey}`)}>{capitalizeFirstLetter(apiKey)}</H2Style>
+                <LinkViewMore to={`/home/${apiKey}`} >View more</LinkViewMore>
             </DivSilderHeader>
 
             <DivSliderBody>
@@ -90,17 +86,19 @@ const HomeSlider = ({ apiKey }) => {
                         <DivMusicCard
                             resultType={apiKey}
                             key={item.id}
-                            /* as={Link} to={`/${apiKey}/${result.name}`} */
+                        /* as={Link} to={`/${apiKey}/${result.name}`} */
                         >
-                            <DivImageMusic onClick={() =>
+                            <DivImageMusic onClick={() => {
+                                console.log(item);
                                 setPlayer(
-                                    (prev) => (prev = {
+                                    prev => prev = {
                                         playerOn: true,
-                                        audio: track.file,
-                                        name: track.name,
-                                        user: track.description,
-                                    })
+                                        audio: item.file,
+                                        name: item.name,
+                                        user: item.description,
+                                    }
                                 )
+                            }
                             }>
                                 <ImgCardMusic src={item.img} />
                             </DivImageMusic>
@@ -112,8 +110,8 @@ const HomeSlider = ({ apiKey }) => {
                     )
                 )}
             </DivSliderBody>
-        </DivContainerSlider>
+        </>
     );
 };
 
-export default HomeSlider;
+export default memo(HomeSlider);

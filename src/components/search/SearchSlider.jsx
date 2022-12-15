@@ -15,7 +15,6 @@ import {
     PTitle,
     ImgAvatarUser,
     ImgCardMusic,
-    DivContainerSlider,
     DivEventCard,
     DivMusicCard,
     DivSilderHeader,
@@ -84,65 +83,65 @@ const SearchSlider = ({ apiKey, search }) => {
     }, [search, data]);
 
     return (
-        status === 'loading' 
+        status === 'loading'
             ? <LogoSpinner />
-            : status === 'error' 
+            : status === 'error'
                 ? <p>Error</p>
-                : searchResults?.length > 0 && 
-                    <DivContainerSlider>
-                        <DivSilderHeader>
-                            <H2Style>{capitalizeFirstLetter(apiKey)}</H2Style>
-                            <Link>View more</Link>
-                        </DivSilderHeader>
+                : searchResults?.length > 0 &&
+                <>
+                    <DivSilderHeader>
+                        <H2Style>{capitalizeFirstLetter(apiKey)}</H2Style>
+                        <Link>View more</Link>
+                    </DivSilderHeader>
 
-                        <DivSliderBody>
-                            {searchResults?.map((result) => (
-                                apiKey === 'events' ? (
-                                    <DivEventCard key={result.id}>
-                                        <DivImgRectangleL src={result.img} />
-                                        <DivEventInfo>
-                                            <div>
-                                                <PTitle>{result.name}</PTitle>
-                                                <PTitle>{result.location} - {result.date}</PTitle>
-                                            </div>
-                                            <H2Style>{result.price}€</H2Style>
-                                        </DivEventInfo>
-                                    </DivEventCard>
-            
-                                ) : apiKey === 'users' ? (
-                                    <DivUserCard key={result.id}>
-                                        <ImgAvatarUser src={result.img} />
-                                        <PNameUser>{result.name}</PNameUser>
-                                        <PFollowersUser>{result.followers} followers</PFollowersUser>
-                                    </DivUserCard>
-            
-                                ) : (
-                                    <DivMusicCard
-                                        resultType={apiKey}
-                                        key={result.id}
-                                        /* as={Link} to={`/${apiKey}/${result.name}`} */
-                                    >
-                                        <DivImageMusic onClick={() =>
-                                            setPlayer(
-                                                (prev) => (prev = {
-                                                    playerOn: true,
-                                                    audio: track.file,
-                                                    name: track.name,
-                                                    user: track.description,
-                                                })
-                                            )
-                                        }>
-                                            <ImgCardMusic src={result.img} />
-                                        </DivImageMusic>
-                                        <DivInfoMusic>
+                    <DivSliderBody>
+                        {searchResults?.map((result) => (
+                            apiKey === 'events' ? (
+                                <DivEventCard key={result.id}>
+                                    <DivImgRectangleL src={result.img} />
+                                    <DivEventInfo>
+                                        <div>
                                             <PTitle>{result.name}</PTitle>
-                                            <PTitle>{result.description}</PTitle>
-                                        </DivInfoMusic>
-                                    </DivMusicCard>
-                                )
-                            ))}
-                        </DivSliderBody>
-                    </DivContainerSlider>
+                                            <PTitle>{result.location} - {result.date}</PTitle>
+                                        </div>
+                                        <H2Style>{result.price}€</H2Style>
+                                    </DivEventInfo>
+                                </DivEventCard>
+
+                            ) : apiKey === 'users' ? (
+                                <DivUserCard key={result.id}>
+                                    <ImgAvatarUser src={result.img} />
+                                    <PNameUser>{result.name}</PNameUser>
+                                    <PFollowersUser>{result.followers} followers</PFollowersUser>
+                                </DivUserCard>
+
+                            ) : (
+                                <DivMusicCard
+                                    resultType={apiKey}
+                                    key={result.id}
+                                /* as={Link} to={`/${apiKey}/${result.name}`} */
+                                >
+                                    <DivImageMusic onClick={() =>
+                                        setPlayer(
+                                            (prev) => (prev = {
+                                                playerOn: true,
+                                                audio: track.file,
+                                                name: track.name,
+                                                user: track.description,
+                                            })
+                                        )
+                                    }>
+                                        <ImgCardMusic src={result.img} />
+                                    </DivImageMusic>
+                                    <DivInfoMusic>
+                                        <PTitle>{result.name}</PTitle>
+                                        <PTitle>{result.description}</PTitle>
+                                    </DivInfoMusic>
+                                </DivMusicCard>
+                            )
+                        ))}
+                    </DivSliderBody>
+                </>
     )
 };
 

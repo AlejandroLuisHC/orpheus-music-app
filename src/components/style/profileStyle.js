@@ -25,7 +25,6 @@ export const DivProfileBanner = styled.div`
         gap: 50px;
     }
     &::before { 
-        
         content: "";
         position: absolute;
         top: 0; 
@@ -267,6 +266,7 @@ export const DropdownContainer = styled.div`
     right: 10px ;
     top: 10px; 
     width: 75px;
+    cursor: pointer;
     @media ${device.desktop}{
         width: 100px;
     }
@@ -292,6 +292,9 @@ export const DropDownList = styled.ul`
 
 export const ListItem = styled.li`
     list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
     margin-bottom: 0.8em;
     cursor: pointer;
     font-size: 16px;

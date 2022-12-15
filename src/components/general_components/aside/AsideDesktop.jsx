@@ -1,11 +1,11 @@
 import { IoMdHome, IoMdSearch, IoMdHeart, IoMdPeople, IoMdCheckbox, IoMdMusicalNotes } from 'react-icons/io'
+import { useSelector } from 'react-redux'
 import { AsideDesktopStyle, LinkAside, Hr } from '../../style/generalStyle'
-import DisconnectBtn from '../DisconnectBtn'
 import AsideProfile from './AsideProfile'
 import AsideRecentPlaylist from './AsideRecentPlaylist'
 
 const AsideDesktop = () => {
-
+    const { username } = useSelector(state => state.userData.user.userData)
     return (
         <AsideDesktopStyle>
             <div>
@@ -17,9 +17,9 @@ const AsideDesktop = () => {
                     <IoMdSearch />
                     <p>Search</p>
                 </LinkAside>
-                <LinkAside to={'/library'}>
+                <LinkAside to={username}>
                     <IoMdMusicalNotes />
-                    <p>Your Library</p>
+                    <p>My playlists</p>
                 </LinkAside>
                 <LinkAside to={'/profile/favorites'}>
                     <IoMdHeart />
@@ -29,19 +29,19 @@ const AsideDesktop = () => {
                     <IoMdPeople />
                     <p>Social</p>
                 </LinkAside>
-                <LinkAside to={'/events'}>
+                <LinkAside to={'/home/events'}>
                     <IoMdCheckbox />
                     <p>Events</p>
                 </LinkAside>
             </div>
-            <Hr/>
+            <Hr />
             <div>
                 <AsideRecentPlaylist />
             </div>
-            <Hr/>
+            <Hr />
             <AsideProfile />
-            <Hr/>
-            
+            <Hr />
+
         </AsideDesktopStyle>
     )
 }

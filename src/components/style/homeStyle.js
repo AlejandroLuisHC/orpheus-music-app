@@ -68,8 +68,24 @@ export const NavHomeMobile = styled.nav`
         display: none; 
     } 
 `
-export const BtnAction = styled(ButtonSecondaryStyle)`
-    width:50%;
+export const LinkBtnAction = styled(Link)`
+    text-decoration: none;
+    background: #3d3d3d77;
+    color: ${color.primaryYellow};
+    height: 40px;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    font-weight: bold;
+    border: 2px solid ${color.primaryYellow};
+    border-radius: calc(40px * .5);
+    font-size: 10px;
+    transition: 300ms;
+    &:hover{
+        transform: scale(1.1);
+    }
 `
 
 /* SLIDERS */
@@ -77,14 +93,14 @@ export const DivSliders = styled.div`
     flex-grow: 1;
     overflow-y: auto;
 `
-export const DivContainerSlider = styled.div`
-    align-items: space-around;
-`
 export const DivSilderHeader = styled.div`
     display: flex;
+    background-color: #3d3d3d22;
     justify-content: space-between;
     align-items: center;
-    margin: 20px 20px 10px 0;
+    margin: 20px 10px 20px 0;
+    padding: 3px 20px;
+    border-radius: 10px; 
 `
 
 export const LinkViewMore = styled(LinkSecondaryStyle)`
@@ -340,9 +356,7 @@ export const DivHeroTitles = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    @media ${device.desktop}{
-        
-    }
+    cursor: pointer;
 `
 export const H2StyleHero = styled.h2`
     color: ${color.primaryWhite};
@@ -350,7 +364,7 @@ export const H2StyleHero = styled.h2`
     width: 100%;
     font-size: 1.8em;
     text-align:center;
-    text-shadow: 1px 1px 2px black, 0 0 20px black, 0 0 5px black;
+    text-shadow: 0px 0px 7px black, 0 0 20px black, 0 0 5px black;
     transition: 300ms;
     @media ${device.desktop} {
         font-size: 3em;
@@ -368,219 +382,6 @@ export const H4StyleHero = styled.h4`
         background:none;
     }
 `
-
-//TODO: ¿ESTO SE UTILIZA EN ALGUN SITIO?
-
-/* export const DivFavAndPlaylist = styled.div`
-    display: flex;
-    @media ${device.desktop}{
-        display:none; 
-    } 
-` */
-/* export const DivBoxStyle = styled.div`
-    display: flex;
-    gap: 15px;
-    margin-bottom:25px;
-` */
-
-
-/* CARDMUSIC */
-/* export const DivDisplayMobile = styled.div`
-    display:block;
-    @media ${device.desktop}{
-        display:none; 
-    } 
-` */
-/* export const DivDisplayDesktop = styled.div`
-    display:block; 
-` */
-   
-/* export const DivStyle = styled.div`
-    position: relative;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-` */
-
-/* export const LinkHome = styled(Link)`
-    color: ${color.primaryWhite};
-    text-decoration: none;
-    font-size: 14px;
-    &:hover{
-        color: ${color.primaryYellow}
-    }
-` */
-
-
-/* export const DivSliderUser = styled.div`
-    display:flex;
-    width: calc(100vw - 40px );
-    height: 155px;
-    cursor:pointer;
-    overflow: auto;
-    gap:20px;
-    @media ${device.desktop}{
-        width: calc(100vw - 200px);
-        height: 235px;  
-        &::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-            cursor: pointer;
-        }
-        &::-webkit-scrollbar-track {
-            border-radius: 10px;
-            background: #3D3D3D77;
-        }
-        &::-webkit-scrollbar-thumb{
-            border-radius: 10px;
-            background: #353535;
-        }
-        &::-webkit-scrollbar-thumb:hover{
-            background: ${color.secondaryBlack};
-        }
-        &::-webkit-scrollbar-thumb:active{
-            background: #484848;
-        }
-    }
-` */
-/* export const DivSliderEvents = styled.div`
-    display:flex;
-    width: calc(100vw - 40px );
-    height: 239px;
-    cursor:pointer;
-    overflow: auto;
-    gap:20px;
-    @media ${device.desktop}{
-        width: calc(100vw - 200px);
-        height: 305px;  
-        &::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-            cursor: pointer;
-        }
-        &::-webkit-scrollbar-track {
-            border-radius: 10px;
-            background: #3D3D3D77;
-        }
-        &::-webkit-scrollbar-thumb{
-            border-radius: 10px;
-            background: #353535;
-        }
-        &::-webkit-scrollbar-thumb:hover{
-            background: ${color.secondaryBlack};
-        }
-        &::-webkit-scrollbar-thumb:active{
-            background: #484848;
-        }
-    }
-` */
-
-/* export const DivSliderEvent = styled.div`
-    display:none;
-    @media ${device.desktop}{
-        width: calc(100vw - 200px);
-        height: 285px;  
-        &::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-            cursor: pointer;
-        }
-        &::-webkit-scrollbar-track {
-            border-radius: 10px;
-            background: #3D3D3D77;
-        }
-        &::-webkit-scrollbar-thumb{
-            border-radius: 10px;
-            background: #353535;
-        }
-        &::-webkit-scrollbar-thumb:hover{
-            background: ${color.secondaryBlack};
-        }
-        &::-webkit-scrollbar-thumb:active{
-            background: #484848;
-        }
-    }
-` */
-
-// export const DivCardUser = styled.div`
-//     position: relative;
-//     min-width: 140px; 
-//     max-width: 140px;
-//     overflow: hidden ;
-//     @media ${device.desktop}{
-//         min-width: 220px;
-//         max-width: 220px;
-//     } 
-// `
-// export const DivCardEvent = styled.div`
-//     @media ${device.desktop}{
-//         min-width: 420px;
-//         height: 300px;
-//     } 
-// `
-
-// export const DivCard = styled.div`
-//     display: flex;
-//     flex-direction: column;
-//     min-width: 140px;
-//     height: 190px;
-//     margin-right: 20px;
-//     background: hsla(0, 0%, 100%, 0.02);
-//     border-radius: 20px;
-//     cursor: pointer;
-//     transition: 300ms;
-//     &:hover{
-//         background: rgba(255, 255, 255, .2);
-//     }
-//     @media ${device.desktop}{
-//         min-width: 220px;
-//         height: 270px;
-//     } 
-// `
-
-// export const DivCardUsersFol = styled.div`
-//     display:flex;
-// `
-
-
-// export const DivInfoLists = styled.div`
-//     display: flex;
-//     flex-direction: column;
-//     overflow: hidden;
-//     padding: 15px 15px 15px 15px;
-//     justify-content: center;
-//     gap: 7px;
-// `
-
-
-// export const DivHomeCarousels =styled.div`
-//     display:flex;
-//     flex-direction:column;
-//     gap:30px;
-// `
-
-/* BUTTONS  */
-// export const DivButtonsAction = styled.div`
-//     display: flex;
-//     justify-content: space-between;
-  
-// `
-
-/* IMAGE  */
-
-// export const ImgAvatarProfile = styled.img`
-//     width: 50px;
-//     height: 50px;
-//     border-radius:50px;
-//     @media ${device.desktop}{
-//         display:none;
-//     } 
-// `
-
-
-
-
-
 
 
 

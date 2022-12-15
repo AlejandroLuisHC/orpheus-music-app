@@ -1,9 +1,12 @@
-import HeroSlider, { Overlay, Slide, MenuNav, ButtonsNav } from "hero-slider";
+import HeroSlider, { Overlay, Slide, ButtonsNav } from "hero-slider";
 import { memo } from "react";
+import { useNavigate } from "react-router-dom";
 import { slide1, slide2, slide3, slide4 } from "../../../assets/img/gallery_slides";
 import { DivHeroTitles, H2StyleHero, H4StyleHero } from "../../style/homeStyle";
 
 const Hero = () => {
+    const navigate = useNavigate()
+
     return (
         <HeroSlider
             height={"40vh"}
@@ -25,7 +28,7 @@ const Hero = () => {
             }}
         >
             <Overlay>
-                <DivHeroTitles>
+                <DivHeroTitles onClick={() => navigate('/home/events')}>
                     <H2StyleHero>
                         Your favourite event <br />just a click away
                     </H2StyleHero>

@@ -12,20 +12,35 @@
         "password": "admin123",
         "secretQuestion": "What is your squad?",
         "secretAnswer": "Lovelace",
-        "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030889/Final-Project-MERN/Users/avatar-716d761a69eb183869ac189301ed6cc4_porhhq_ryz8kz.webp",
+        "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671122547/Final-Project-MERN/Readme/Lovelace_team_gz7bor.jpg",
         "banner": "",
-        "favGenres": [
-          4,
-          6,
-          12
-        ]
+        "favGenres": [4, 6, 12]
       },
       "work": {
         "myAlbums": [],
         "myTracks": []
       },
-      "myPlaylists": [],
-      "favPlaylists": [],
+      "myPlaylists": [
+        {
+          "id": 1,
+          "name": "Coding Focus",
+          "description": "",
+          "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017430/Final-Project-MERN/Playlist/pexels-mikhail-nilov-7988087_etxcyo.webp"
+        }
+      ],
+      "favPlaylists": [
+        {
+          "id": 9,
+          "name": "Rock",
+          "description": "",
+          "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-vishnu-r-nair-1105666_fcpxli.webp"
+        },
+        {
+          "id": 2,
+          "name": "Electro",
+          "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-sebastiaan-stam-1482476_ls41gi.webp"
+        }
+      ],
       "favAlbums": [],
       "favTracks": [],
       "followers": [],
@@ -46,23 +61,13 @@
         "password": "user123",
         "secretQuestion": "",
         "secretAnswer": "",
-        "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030889/Final-Project-MERN/Users/avatar-716d761a69eb183869ac189301ed6cc4_porhhq_ryz8kz.webp",
+        "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671122547/Final-Project-MERN/Readme/Lovelace_team_gz7bor.jpg",
         "banner": "",
-        "favGenres": [
-          4,
-          6,
-          12
-        ]
+        "favGenres": [4, 6, 12]
       },
       "work": {
-        "myAlbums": [
-          5
-        ],
-        "myTracks": [
-          7,
-          8,
-          9
-        ]
+        "myAlbums": [5],
+        "myTracks": [7, 8, 9]
       },
       "myPlaylists": [
         {
@@ -81,41 +86,11 @@
           "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-trinity-kubassek-341858_hnsidm.webp"
         }
       ],
-      "favPlaylists": [
-        1,
-        2
-      ],
-      "favAlbums": [
-        1,
-        2,
-        3
-      ],
-      "favTracks": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
-      "followers": [
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1
-      ],
-      "following": [
-        3,
-        22
-      ],
+      "favPlaylists": [1, 2],
+      "favAlbums": [1, 2, 3],
+      "favTracks": [1, 2, 3, 4, 5],
+      "followers": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      "following": [3, 22],
       "isVerified": false,
       "isAdmin": false
     },
@@ -132,11 +107,7 @@
         "secretAnswer": "4quesos",
         "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030889/Final-Project-MERN/Users/1658342188376_ccgwky_hf3rz9.webp",
         "banner": "",
-        "favGenres": [
-          4,
-          6,
-          12
-        ]
+        "favGenres": [4, 6, 12]
       },
       "work": {
         "myAlbums": [],
@@ -166,21 +137,11 @@
         "secretAnswer": "4cheese",
         "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030889/Final-Project-MERN/Users/Ed-Sheeran_j1cbft_rzg0xr.webp",
         "banner": "",
-        "favGenres": [
-          4,
-          6,
-          12
-        ]
+        "favGenres": [4, 6, 12]
       },
       "work": {
-        "myAlbums": [
-          5
-        ],
-        "myTracks": [
-          7,
-          8,
-          9
-        ]
+        "myAlbums": [5],
+        "myTracks": [7, 8, 9]
       },
       "myPlaylists": [
         {
@@ -194,80 +155,15 @@
           "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-sebastiaan-stam-1482476_ls41gi.webp"
         }
       ],
-      "favPlaylists": [
-        1,
-        2
-      ],
-      "favAlbums": [
-        1,
-        2,
-        3
-      ],
-      "favTracks": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
+      "favPlaylists": [1, 2],
+      "favAlbums": [1, 2, 3],
+      "favTracks": [1, 2, 3, 4, 5],
       "followers": [
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1
       ],
-      "following": [
-        3,
-        22
-      ],
+      "following": [3, 22],
       "isVerified": false,
       "isAdmin": false
     },
@@ -285,70 +181,21 @@
         "secretAnswer": "4cheese",
         "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030889/Final-Project-MERN/Users/b201f9fe39858f4e6f778b5235ad2607_ilib2g_ugz4qa.webp",
         "banner": "",
-        "favGenres": [
-          4,
-          6,
-          12
-        ]
+        "favGenres": [4, 6, 12]
       },
       "work": {
-        "myAlbums": [
-          5
-        ],
-        "myTracks": [
-          7,
-          8,
-          9
-        ]
+        "myAlbums": [],
+        "myTracks": []
       },
-      "myPlaylists": [
-        {
-          "id": 1,
-          "name": "Coding Focus",
-          "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017430/Final-Project-MERN/Playlist/pexels-mikhail-nilov-7988087_etxcyo.webp"
-        },
-        {
-          "id": 2,
-          "name": "Electro",
-          "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-sebastiaan-stam-1482476_ls41gi.webp"
-        },
-        {
-          "id": 10,
-          "name": "Relax Time",
-          "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017285/Final-Project-MERN/Playlist/pexels-aron-visuals-1643113_jcbkru.webp"
-        }
-      ],
-      "favPlaylists": [
-        1,
-        2
-      ],
-      "favAlbums": [
-        1,
-        2,
-        3
-      ],
-      "favTracks": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
-      "followers": [
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1
-      ],
-      "following": [
-        3,
-        22
-      ],
+      "myPlaylists": [],
+      "favPlaylists": [],
+      "favAlbums": [],
+      "favTracks": [],
+      "followers": [],
+      "following": [],
       "isVerified": false,
-      "isAdmin": false
+      "isAdmin": false,
+      "isLoggedIn": false
     },
     {
       "id": 6,
@@ -364,21 +211,11 @@
         "secretAnswer": "4cheese",
         "avatar": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030889/Final-Project-MERN/Users/119700226_4257622987641667_4778006258121329624_n_du7rt6_sh7zai.webp",
         "banner": "",
-        "favGenres": [
-          4,
-          6,
-          12
-        ]
+        "favGenres": [4, 6, 12]
       },
       "work": {
-        "myAlbums": [
-          5
-        ],
-        "myTracks": [
-          7,
-          8,
-          9
-        ]
+        "myAlbums": [5],
+        "myTracks": [7, 8, 9]
       },
       "myPlaylists": [
         {
@@ -398,67 +235,14 @@
           "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671017291/Final-Project-MERN/Playlist/pexels-simon-berger-688660_qlxydb.webp"
         }
       ],
-      "favPlaylists": [
-        1,
-        2
-      ],
-      "favAlbums": [
-        1,
-        2,
-        3
-      ],
-      "favTracks": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
+      "favPlaylists": [1, 2],
+      "favAlbums": [1, 2, 3],
+      "favTracks": [1, 2, 3, 4, 5],
       "followers": [
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
       ],
-      "following": [
-        3,
-        22
-      ],
+      "following": [3, 22],
       "isVerified": false,
       "isAdmin": false
     }
@@ -471,15 +255,11 @@
       "location": "Spain / Barcelona",
       "name": "Viña rock",
       "description": "...",
-      "genres": [
-        1
-      ],
-      "artists": [
-        1
-      ],
+      "genres": [1, 5, 7],
+      "artists": [1],
       "date": "28/4/2023",
       "stock": 5900,
-      "price": 50
+      "price": 70
     },
     {
       "id": 2,
@@ -488,12 +268,8 @@
       "location": "Spain / Sevilla",
       "name": "Måneskin",
       "description": "...",
-      "genres": [
-        1
-      ],
-      "artists": [
-        1
-      ],
+      "genres": [1, 2],
+      "artists": [1],
       "date": "11/4/2023",
       "stock": 2300,
       "price": 45
@@ -505,15 +281,11 @@
       "location": "Spain / Galicia",
       "name": "Resurrection Fest",
       "description": "...",
-      "genres": [
-        1
-      ],
-      "artists": [
-        1
-      ],
+      "genres": [1, 5],
+      "artists": [1],
       "date": "28/6/2023",
       "stock": 1900,
-      "price": 55
+      "price": 180
     },
     {
       "id": 4,
@@ -522,12 +294,8 @@
       "location": "Spain / Madrid",
       "name": "Duki - Desde el fin del mundo",
       "description": "...",
-      "genres": [
-        1
-      ],
-      "artists": [
-        1
-      ],
+      "genres": [4],
+      "artists": [1],
       "date": "24/2/2023",
       "stock": 3900,
       "price": 25
@@ -539,12 +307,8 @@
       "location": "Spain / Madrid",
       "name": "Benidorm Fest",
       "description": "...",
-      "genres": [
-        1
-      ],
-      "artists": [
-        1
-      ],
+      "genres": [2],
+      "artists": [1],
       "date": "10/6/2023",
       "stock": 900,
       "price": 35
@@ -574,17 +338,9 @@
           "added": ""
         }
       ],
-      "followers": [
-        2
-      ],
-      "genres": [
-        2,
-        3
-      ],
-      "moods": [
-        "relax",
-        "focused"
-      ],
+      "followers": [2],
+      "genres": [2, 3],
+      "moods": ["relax", "focused", "working"],
       "owner": 2
     },
     {
@@ -610,17 +366,9 @@
           "added": ""
         }
       ],
-      "followers": [
-        2
-      ],
-      "genres": [
-        2,
-        3
-      ],
-      "moods": [
-        "relax",
-        "focused"
-      ],
+      "followers": [2],
+      "genres": [2, 3],
+      "moods": ["relax", "focused"],
       "owner": 2
     },
     {
@@ -646,17 +394,9 @@
           "added": ""
         }
       ],
-      "followers": [
-        2
-      ],
-      "genres": [
-        2,
-        3
-      ],
-      "moods": [
-        "relax",
-        "focused"
-      ],
+      "followers": [2],
+      "genres": [2, 3],
+      "moods": ["relax", "focused"],
       "owner": 2
     },
     {
@@ -682,17 +422,9 @@
           "added": ""
         }
       ],
-      "followers": [
-        2
-      ],
-      "genres": [
-        2,
-        3
-      ],
-      "moods": [
-        "relax",
-        "focused"
-      ],
+      "followers": [2],
+      "genres": [2, 3],
+      "moods": ["active", "training"],
       "owner": 2
     },
     {
@@ -718,17 +450,9 @@
           "added": ""
         }
       ],
-      "followers": [
-        2
-      ],
-      "genres": [
-        2,
-        3
-      ],
-      "moods": [
-        "relax",
-        "focused"
-      ],
+      "followers": [2],
+      "genres": [2, 3],
+      "moods": ["relax"],
       "owner": 2
     },
     {
@@ -754,17 +478,9 @@
           "added": ""
         }
       ],
-      "followers": [
-        2
-      ],
-      "genres": [
-        2,
-        3
-      ],
-      "moods": [
-        "relax",
-        "focused"
-      ],
+      "followers": [2],
+      "genres": [2, 3],
+      "moods": ["focused", "active", "training"],
       "owner": 2
     },
     {
@@ -790,17 +506,9 @@
           "added": ""
         }
       ],
-      "followers": [
-        2
-      ],
-      "genres": [
-        2,
-        3
-      ],
-      "moods": [
-        "relax",
-        "focused"
-      ],
+      "followers": [2],
+      "genres": [2, 3],
+      "moods": ["relax", "focused", "working"],
       "owner": 1
     },
     {
@@ -826,18 +534,9 @@
           "added": ""
         }
       ],
-      "followers": [
-        5
-      ],
-      "genres": [
-        2,
-        3
-      ],
-      "moods": [
-        "relax",
-        "focused",
-        "happy"
-      ],
+      "followers": [5],
+      "genres": [2, 3],
+      "moods": ["relax", "happy"],
       "owner": 1
     },
     {
@@ -863,18 +562,9 @@
           "added": ""
         }
       ],
-      "followers": [
-        21
-      ],
-      "genres": [
-        2,
-        3
-      ],
-      "moods": [
-        "relax",
-        "focused",
-        "happy"
-      ],
+      "followers": [21],
+      "genres": [2, 3],
+      "moods": ["focused", "active", "happy"],
       "owner": 1
     },
     {
@@ -900,18 +590,9 @@
           "added": ""
         }
       ],
-      "followers": [
-        32
-      ],
-      "genres": [
-        2,
-        3
-      ],
-      "moods": [
-        "relax",
-        "focused",
-        "happy"
-      ],
+      "followers": [32],
+      "genres": [2, 3],
+      "moods": ["relax"],
       "owner": 1
     }
   ],
@@ -921,15 +602,9 @@
       "name": "÷ (Deluxe)",
       "description": "Ed Sheeran",
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671012283/Final-Project-MERN/Albums/Sheeran_uxdlzr.webp",
-      "tracks": [
-        1,
-        2,
-        3
-      ],
+      "tracks": [1, 2, 3],
       "followers": [],
-      "genres": [
-        2
-      ],
+      "genres": [2],
       "release": "",
       "owner": "user.id"
     },
@@ -940,11 +615,7 @@
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671012283/Final-Project-MERN/Albums/Beerbong_kk1id1.webp",
       "tracks": [],
       "followers": [],
-      "genres": [
-        1,
-        2,
-        6
-      ],
+      "genres": [1, 2, 6],
       "release": "",
       "owner": "user.id"
     },
@@ -966,11 +637,7 @@
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671012283/Final-Project-MERN/Albums/Drake_laofzz.webp",
       "tracks": [],
       "followers": [],
-      "genres": [
-        2,
-        4,
-        6
-      ],
+      "genres": [2, 4, 6],
       "release": "",
       "owner": "user.id"
     },
@@ -981,10 +648,7 @@
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671012283/Final-Project-MERN/Albums/Eminem_dmn1fo.webp",
       "tracks": [],
       "followers": [],
-      "genres": [
-        6,
-        12
-      ],
+      "genres": [6, 12],
       "release": "",
       "owner": "user.id"
     }
@@ -994,17 +658,11 @@
       "id": 1,
       "name": "Shape Of You",
       "description": "Ed Sheeran",
-      "album": [
-        1
-      ],
+      "album": [1],
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030477/Final-Project-MERN/Tracks/Shape_Of_You_lyrhmo_jlpbvp.webp",
       "file": "",
-      "followers": [
-        2
-      ],
-      "genres": [
-        2
-      ],
+      "followers": [2],
+      "genres": [2],
       "release": "",
       "owner": {
         "id": "user.id",
@@ -1015,17 +673,11 @@
       "id": 2,
       "name": "Hearts don't break around here",
       "description": "Ed Sheeran",
-      "album": [
-        1
-      ],
+      "album": [1],
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030478/Final-Project-MERN/Tracks/Hearts_don_t_break_around_here_r2fyhl_sfigty.webp",
       "file": "",
-      "followers": [
-        2
-      ],
-      "genres": [
-        2
-      ],
+      "followers": [2],
+      "genres": [2],
       "release": "",
       "owner": {
         "id": "user.id",
@@ -1036,17 +688,11 @@
       "id": 3,
       "name": "Barcelona",
       "description": "Ed Sheeran",
-      "album": [
-        1
-      ],
+      "album": [1],
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030477/Final-Project-MERN/Tracks/Barcelona_mqcbzw_uwcklk.webp",
       "file": "",
-      "followers": [
-        2
-      ],
-      "genres": [
-        2
-      ],
+      "followers": [2],
+      "genres": [2],
       "release": "",
       "owner": {
         "id": "user.id",
@@ -1057,19 +703,11 @@
       "id": 4,
       "name": "Paranoid",
       "description": "Beerbongs & Bentleys",
-      "album": [
-        2
-      ],
+      "album": [2],
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030478/Final-Project-MERN/Tracks/Paranoid_qold3t_idk87a.webp",
       "file": "",
-      "followers": [
-        2
-      ],
-      "genres": [
-        1,
-        2,
-        6
-      ],
+      "followers": [2],
+      "genres": [1, 2, 6],
       "release": "",
       "owner": {
         "id": "user.id",
@@ -1080,19 +718,11 @@
       "id": 5,
       "name": "Spoil My Night",
       "description": "Beerbongs & Bentleys",
-      "album": [
-        2
-      ],
+      "album": [2],
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030477/Final-Project-MERN/Tracks/Spoil_My_Night_rl0r27_akiwgk.webp",
       "file": "",
-      "followers": [
-        2
-      ],
-      "genres": [
-        1,
-        2,
-        6
-      ],
+      "followers": [2],
+      "genres": [1, 2, 6],
       "release": "",
       "owner": {
         "id": "user.id",
@@ -1103,19 +733,11 @@
       "id": 6,
       "name": "Rich & Sad",
       "description": "Beerbongs & Bentleys",
-      "album": [
-        2
-      ],
+      "album": [2],
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030477/Final-Project-MERN/Tracks/Rich_Sad_cesckn_u1whpb.webp",
       "file": "",
-      "followers": [
-        2
-      ],
-      "genres": [
-        1,
-        2,
-        6
-      ],
+      "followers": [2],
+      "genres": [1, 2, 6],
       "release": "",
       "owner": {
         "id": "user.id",
@@ -1126,18 +748,11 @@
       "id": 7,
       "name": "White America",
       "description": "Eminem",
-      "album": [
-        5
-      ],
+      "album": [5],
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030477/Final-Project-MERN/Tracks/White_America_jwy7jt_lrcoox.webp",
       "file": "",
-      "followers": [
-        2
-      ],
-      "genres": [
-        6,
-        12
-      ],
+      "followers": [2],
+      "genres": [6, 12],
       "release": "",
       "owner": {
         "id": "user.id",
@@ -1148,18 +763,11 @@
       "id": 8,
       "name": "Business",
       "description": "Eminem",
-      "album": [
-        5
-      ],
+      "album": [5],
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030477/Final-Project-MERN/Tracks/Business_ceq965_bps0m0.webp",
       "file": "",
-      "followers": [
-        2
-      ],
-      "genres": [
-        6,
-        12
-      ],
+      "followers": [2],
+      "genres": [6, 12],
       "release": "",
       "owner": {
         "id": "user.id",
@@ -1170,18 +778,11 @@
       "id": 9,
       "name": "Till I Collapse",
       "description": "Eminem",
-      "album": [
-        5
-      ],
+      "album": [5],
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030477/Final-Project-MERN/Tracks/Till_I_Collapse_fsn6pg_smrzih.webp",
       "file": "",
-      "followers": [
-        2
-      ],
-      "genres": [
-        6,
-        12
-      ],
+      "followers": [2],
+      "genres": [6, 12],
       "release": "",
       "owner": {
         "id": "user.id",
@@ -1192,19 +793,11 @@
       "id": 10,
       "name": "Survival",
       "description": "Drake",
-      "album": [
-        4
-      ],
+      "album": [4],
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030477/Final-Project-MERN/Tracks/Survival_zmn6sj_pswo2o.webp",
       "file": "",
-      "followers": [
-        2
-      ],
-      "genres": [
-        2,
-        4,
-        6
-      ],
+      "followers": [2],
+      "genres": [2, 4, 6],
       "release": "",
       "owner": {
         "id": "user.id",
@@ -1215,19 +808,11 @@
       "id": 11,
       "name": "Elevate",
       "description": "Drake",
-      "album": [
-        4
-      ],
+      "album": [4],
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030477/Final-Project-MERN/Tracks/Elevate_dplrzi_vh5fme.webp",
       "file": "",
-      "followers": [
-        2
-      ],
-      "genres": [
-        2,
-        4,
-        6
-      ],
+      "followers": [2],
+      "genres": [2, 4, 6],
       "release": "",
       "owner": {
         "id": "user.id",
@@ -1238,19 +823,11 @@
       "id": 12,
       "name": "Non Stop",
       "description": "Drake",
-      "album": [
-        4
-      ],
+      "album": [4],
       "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030478/Final-Project-MERN/Tracks/Non_Stop_ohfxco_yruveg.webp",
       "file": "",
-      "followers": [
-        2
-      ],
-      "genres": [
-        2,
-        4,
-        6
-      ],
+      "followers": [2],
+      "genres": [2, 4, 6],
       "release": "",
       "owner": {
         "id": "user.id",
@@ -1261,19 +838,11 @@
       "id": 13,
       "name": "Helvegen",
       "description": "Alejandro L. Herrero",
-      "album": [
-        4
-      ],
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030478/Final-Project-MERN/Tracks/Lovelace_team_vl79eo_n9xfsn.webp",
+      "album": [4],
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671122547/Final-Project-MERN/Readme/Lovelace_team_gz7bor.jpg",
       "file": "https://res.cloudinary.com/drghk9p6q/video/upload/v1670928277/Final-Project-MERN/Tracks/Music%20samples/Helvegen_-_Wardruna_Cover_vppfxw.mp3",
-      "followers": [
-        2
-      ],
-      "genres": [
-        2,
-        4,
-        6
-      ],
+      "followers": [2],
+      "genres": [2, 6],
       "release": "",
       "owner": {
         "id": "user.id",
@@ -1284,19 +853,11 @@
       "id": 14,
       "name": "Baby on board",
       "description": "Alejandro L. Herrero",
-      "album": [
-        4
-      ],
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030478/Final-Project-MERN/Tracks/Lovelace_team_vl79eo_n9xfsn.webp",
+      "album": [4],
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671122547/Final-Project-MERN/Readme/Lovelace_team_gz7bor.jpg",
       "file": "https://res.cloudinary.com/drghk9p6q/video/upload/v1670928276/Final-Project-MERN/Tracks/Music%20samples/Simpsons_baby_on_board_uqoupe.mp3",
-      "followers": [
-        2
-      ],
-      "genres": [
-        2,
-        4,
-        6
-      ],
+      "followers": [2],
+      "genres": [2],
       "release": "",
       "owner": {
         "id": "user.id",
@@ -1307,19 +868,11 @@
       "id": 15,
       "name": "Alberta",
       "description": "Alejandro L. Herrero",
-      "album": [
-        4
-      ],
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030478/Final-Project-MERN/Tracks/Lovelace_team_vl79eo_n9xfsn.webp",
+      "album": [4],
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671122547/Final-Project-MERN/Readme/Lovelace_team_gz7bor.jpg",
       "file": "https://res.cloudinary.com/drghk9p6q/video/upload/v1670928277/Final-Project-MERN/Tracks/Music%20samples/Alberta_Cover_chusta_r%C3%A1pida_rb2pey.mp3",
-      "followers": [
-        2
-      ],
-      "genres": [
-        2,
-        4,
-        6
-      ],
+      "followers": [2],
+      "genres": [3],
       "release": "",
       "owner": {
         "id": "user.id",
@@ -1330,19 +883,11 @@
       "id": 16,
       "name": "Wellerman",
       "description": "Alejandro L. Herrero",
-      "album": [
-        4
-      ],
-      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671030478/Final-Project-MERN/Tracks/Lovelace_team_vl79eo_n9xfsn.webp",
+      "album": [4],
+      "img": "https://res.cloudinary.com/drghk9p6q/image/upload/v1671122547/Final-Project-MERN/Readme/Lovelace_team_gz7bor.jpg",
       "file": "https://res.cloudinary.com/drghk9p6q/video/upload/v1670928276/Final-Project-MERN/Tracks/Music%20samples/Wellerman_bqfrui.mp3",
-      "followers": [
-        2
-      ],
-      "genres": [
-        2,
-        4,
-        6
-      ],
+      "followers": [2],
+      "genres": [2],
       "release": "",
       "owner": {
         "id": "user.id",
@@ -1420,6 +965,10 @@
     {
       "id": 5,
       "name": "training"
+    },
+    {
+      "id": 6,
+      "name": "happy"
     }
   ]
 }

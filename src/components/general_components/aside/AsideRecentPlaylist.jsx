@@ -1,19 +1,19 @@
-import { LinkAside } from '../../style/generalStyle'
-import PlaylistsLoader from '../loaders/content_loader/PlaylistsLoader'
+import { H5StyleAside, LinkAside } from '../../style/generalStyle'
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom';
+
 const AsideRecentPlaylist = () => {
+    const { favPlaylists } = useSelector(state => state.userData.user);
+    const navigate = useNavigate();
+    
     return (
         <>
-            <PlaylistsLoader />
-            
-            {/* <LinkAside>
-                <p>Recent playlist...</p>
-            </LinkAside>
-            <LinkAside>
-                <p>Recent playlist...</p>
-            </LinkAside>
-            <LinkAside>
-                <p>Recent playlist...</p>
-            </LinkAside> */}
+            <H5StyleAside onClick={() => navigate('/home/playlists')}>Fav. playlists</H5StyleAside>
+            {favPlaylists?.map(playlist => 
+                    <LinkAside key={playlist.id}>
+                        <p>{playlist.name}</p>
+                    </LinkAside>
+            )}
         </>
     )
 }
