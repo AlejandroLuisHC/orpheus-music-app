@@ -7,12 +7,10 @@ import { ButtonPrimaryStyle, DivInputStyle, FieldsetStyle, H2Style, H3Style, Inp
 import { DivHeroTitles } from '../components/style/homeStyle';
 import { DivLanding, ImgLogoClick, PSlogan } from '../components/style/landingStyle';
 import logo from '../assets/img/Logotipo.png'
-import { useDispatch, useSelector } from 'react-redux';
 import ChangePasswordStep2 from '../components/profile/ChangePasswordStep2';
-import { LOG_IN, RECOVER, UPDATE } from '../redux/features/user_data/userSlice';
 import { useEffect } from 'react';
 import fetchUpdateUser from '../api/fetchUpdateUser';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const RecoverPassword = () => {
   const [question, setQuestion] = useState({
@@ -29,73 +27,21 @@ const RecoverPassword = () => {
     handleSubmit,
     formState: { errors }
   } = useForm()
-
-  const dispatch = useDispatch();
-  // FIND USER
-  const emailValidation = inputValue => {
-    const findUser = users?.find(
-      user => user.userData.email === inputValue);
-    setQuestion({
-      state: true,
-      question: findUser.userData.secretQuestion
-    })
-    dispatch(RECOVER(findUser))
-
-
-  }
-
-  // UPDATE USER
-  const userActualData = useSelector(state => state.userData.user.userData);
-  const userId = useSelector(state => state.userData.user.id);
-  const navigate = useNavigate();
-  useEffect(() => {
-    setUpdateUserData({
-      id: userId,
-      userData: {
-        username: userActualData ? userActualData.username : '',
-        firstName: userActualData ? userActualData.firstName : '',
-        lastName: userActualData ? userActualData.lastName : '',
-        email: userActualData ? userActualData.email : '',
-        country: userActualData ? userActualData.country : '',
-        city: userActualData ? userActualData.city : '',
-        password: userActualData ? userActualData.password : '',
-        secretQuestion: userActualData ? userActualData.secretQuestion : '',
-        secretAnswer: userActualData ? userActualData.secretAnswer : '',
-        avatar: userActualData ? userActualData.avatar : '',
-        banner: userActualData ? userActualData.banner : '',
-        favGenres: userActualData ? userActualData.favGenres : '',
-      },
-      work: {
-        myAlbums: [],
-        myTracks: [],
-      },
-      myPlaylists: [],
-      favPlaylists: [],
-      favAlbums: [],
-      favTracks: [],
-      followers: [],
-      following: [],
-      isVerified: false,
-      isAdmin: false,
-      isLoggedIn: false,
-    })
-  }, [userActualData])
-
   const [UpdateUserData, setUpdateUserData] = useState({
-    id: userId,
+    id: '',
     userData: {
-      username: userActualData ? userActualData.username : '',
-      firstName: userActualData ? userActualData.firstName : '',
-      lastName: userActualData ? userActualData.lastName : '',
-      email: userActualData ? userActualData.email : '',
-      country: userActualData ? userActualData.country : '',
-      city: userActualData ? userActualData.city : '',
-      password: userActualData ? userActualData.password : '',
-      secretQuestion: userActualData ? userActualData.secretQuestion : '',
-      secretAnswer: userActualData ? userActualData.secretAnswer : '',
-      avatar: userActualData ? userActualData.avatar : '',
-      banner: userActualData ? userActualData.banner : '',
-      favGenres: userActualData ? userActualData.favGenres : '',
+      username: '',
+      firstName: '',
+      lastName: '',
+      email: '',
+      country: '',
+      city: '',
+      password: '',
+      secretQuestionstion: '',
+      secretAnswer: '',
+      avatar: '',
+      banner: '',
+      favGenres: '',
     },
     work: {
       myAlbums: [],
@@ -111,7 +57,56 @@ const RecoverPassword = () => {
     isAdmin: false,
     isLoggedIn: false,
   });
-  console.log(UpdateUserData)
+  
+  // FIND USER
+  const emailValidation = inputValue => {
+    const findUser = users?.find(
+      user => user.userData.email === inputValue);
+    setQuestion({
+      state: true,
+      question: findUser.userData.secretQuestion
+    });
+    setUpdateUserData({
+      id: findUser.id,
+      userData: {
+        username: findUser.userData.username,
+        firstName: findUser.userData.firstName,
+        lastName: findUser.userData.lastName,
+        email: findUser.userData.email,
+        country: findUser.userData.country,
+        city: findUser.userData.city,
+        password: findUser.userData.password,
+        secretQuestion: findUser.userData.secretQuestion,
+        secretAnswer: findUser.userData.secretAnswer,
+        avatar: findUser.userData.avatar,
+        banner: findUser.userData.banner,
+        favGenres: findUser.userData.favGenres,
+      },
+      work: {
+        myAlbums: [],
+        myTracks: [],
+      },
+      myPlaylists: [],
+      favPlaylists: [],
+      favAlbums: [],
+      favTracks: [],
+      followers: [],
+      following: [],
+      isVerified: false,
+      isAdmin: false,
+      isLoggedIn: false,
+    })
+    
+
+
+  }
+
+  // UPDATE USER
+  
+  const navigate = useNavigate();
+  
+  
+  
   const { userData } = UpdateUserData;
   const checkUser = inputValue => {
     const checkAnswer = users?.find(
@@ -122,21 +117,19 @@ const RecoverPassword = () => {
   }
 
   const updatePassword = ({ password }) => {
-    const data = {
-      password: password ?? userActualData.password
-    }
+   
     setUpdateUserData({
       ...UpdateUserData,
       userData: {
         ...userData,
-        password: data.password
+        password: password
       }
     });
     setNavigateState(true);
   };
 
   useEffect(() => {
-    fetchUpdateUser(UpdateUserData, userId);
+    fetchUpdateUser(UpdateUserData, UpdateUserData.id);
     if (navigateState) { navigate('/') }
   }, [UpdateUserData])
 
