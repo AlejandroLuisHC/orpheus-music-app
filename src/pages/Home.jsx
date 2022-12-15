@@ -27,6 +27,7 @@ const Home = () => {
                 : 'Good afternoon, ';
     return (
         <DivHomeStyle>
+            
             <DivHero>
                 <Hero />
             </DivHero>

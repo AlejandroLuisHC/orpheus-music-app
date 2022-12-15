@@ -398,28 +398,35 @@ export const DivInfoLists = styled.div`
 export const DivHeroTitles = styled.div`
     display: flex;
     height: 100%;
-    margin-left: 40px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @media ${device.desktop}{
+        
+    }
 `
 export const H2StyleHero = styled.h2`
     color: ${color.primaryWhite};
     text-transform: uppercase;
     width: 100%;
     font-size: 1.8em;
-    text-shadow: 1px 1px 2px black, 0 0 20px black, 0 0 4px black;
+    text-align:center;
+    text-shadow: 1px 1px 2px black, 0 0 20px black, 0 0 5px black;
     transition: 300ms;
     @media ${device.desktop} {
-        font-size: 2.5em;
+        font-size: 3em;
     }
 `
 export const H4StyleHero = styled.h4`
     width: 100%;
     font-size: 1em;
+    text-align:center;
+    background:rgba(0, 0, 0, .5);
+    height: 20px;
     text-shadow: 1px 1px 2px black, 0 0 20px black, 0 0 4px black;
     @media ${device.desktop} {
         font-size: 1.25em;
+        background:none;
     }
 `
 export const H6StyleHero = styled.h6`

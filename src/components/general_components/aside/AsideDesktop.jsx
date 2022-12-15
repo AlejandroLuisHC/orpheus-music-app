@@ -41,7 +41,7 @@ const AsideDesktop = () => {
             <Hr/>
             <AsideProfile />
             <Hr/>
-            <DisconnectBtn />
+            
         </AsideDesktopStyle>
     )
 }
