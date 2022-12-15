@@ -1,5 +1,5 @@
 import { Player } from "react-simple-player"
-import { ButtonClosePlayer, DivInfoTrack, DivMusicPlayer, DivMusicPlayerInfo, SpanPlayerName, SpanPlayerUser } from "../style/generalStyle"
+import { ButtonClosePlayer, DivInfoTrack, DivMusicPlayer, DivMusicPlayerInfo, SpanPlayerName, SpanPlayerUser } from "../../style/generalStyle"
 import { IoMdClose } from "react-icons/io"
 
 const MusicPlayer = ({audio,name,user,setPlayer,hideVolume}) => {

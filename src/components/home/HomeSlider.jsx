@@ -62,7 +62,7 @@ const HomeSlider = ({ apiKey }) => {
         <DivContainerSlider>
             <DivSilderHeader>
                 <H2Style>{capitalizeFirstLetter(apiKey)}</H2Style>
-                <LinkViewMore to={apiKey}>View more</LinkViewMore>
+                <LinkViewMore to= {`${apiKey}`} >View more</LinkViewMore>
             </DivSilderHeader>
 
             <DivSliderBody>
