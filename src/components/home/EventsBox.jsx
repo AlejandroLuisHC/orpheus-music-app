@@ -34,7 +34,7 @@ const EventsBox = () => {
                     <DivSliderEvents>
                         {data?.map((event) => (
                             <DivCardEvent key={event.id}>
-                                <DivImgRectangleL src={event.uri} />
+                                <DivImgRectangleL src={event.img} />
                                 <DivFlex>
                                     <div>
                                         <H6StyleHero>{event.name}</H6StyleHero>

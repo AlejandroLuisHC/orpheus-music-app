@@ -28,7 +28,7 @@ const AlbumBox = () => {
                 : 
                 <div>
                     <DivElementTitles>
-                        <H2Style> Albums </H2Style>
+                        <H2Style> Albums Old </H2Style>
                         <LinkHome>View more</LinkHome>
                     </DivElementTitles>
 

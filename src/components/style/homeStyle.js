@@ -10,8 +10,11 @@ export const DivHero = styled.div`
 `
 /* MOBILE DIV WELCOME NAV BUTTONS  */
 export const DivMobileButtons = styled.div`
-    margin: 30px 0;
     display: flex;
+    justify-content:center;
+    align-items:center;
+    padding-top:5px;
+    gap:10px;
     @media ${device.desktop}{
         display: none; 
     } 
@@ -24,16 +27,109 @@ export const DivHomeStyle = styled.div`
     } 
 `
 export const H1Welcome = styled.h1`
-    font-size:25px;
+    font-size:20px;
     display:flex;
     justify-content: space-between;
     align-items:center;
     @media ${device.desktop}{
-        font-size:40px;
+        font-size:30px;
     } 
 `
 
+/* SLIDER */
+export const DivSliders = styled.div`
+    flex-grow: 1;
+    overflow-y: auto;
+`;
+
+export const DivContainerSlider = styled.div`
+    align-items: space-around;
+`
+
+export const DivSilderHeader = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 20px 10px 0;
+`
+
+export const DivSliderBody = styled.div`
+    display: flex;
+    width: calc(100vw - 40px);
+    overflow: auto;
+    gap:10px;
+    @media ${device.desktop}{
+        width: calc(100vw - 206px);
+        &::-webkit-scrollbar {
+            cursor: pointer;
+            width: 6px;
+            height: 6px;
+        }
+        &::-webkit-scrollbar-track {
+            border-radius: 10px;
+            background: #3D3D3D77;
+        }
+        &::-webkit-scrollbar-thumb{
+            border-radius: 10px;
+            background: #353535;
+        }
+        &::-webkit-scrollbar-thumb:hover{
+            background: ${color.secondaryBlack};
+        }
+        &::-webkit-scrollbar-thumb:active{
+            background: #484848;
+        }
+    }
+`
+
 /* DIV CARDS */
+
+export const DivEventCard = styled.div`
+    width: 280px;
+    margin-bottom:5px;
+    @media ${device.desktop}{
+        margin-bottom:5px;
+        min-width: 420px;
+        height: 300px;
+    } 
+`
+
+export const DivUserCard = styled.div`
+    position: relative;
+    min-width: 140px; 
+    max-width: 140px;
+    overflow: hidden ;
+    margin-bottom:10px;
+    @media ${device.desktop}{
+        margin-bottom:5px;
+        min-width: 220px;
+        max-width: 220px;
+    } 
+`
+
+export const DivMusicCard = styled.div`
+    display: flex;
+    flex-direction: column;
+    min-width: 140px;
+    height: 190px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: ${color.primaryWhite};
+    background: hsla(0, 0%, 100%, 0.02);
+    width: 224px;
+    margin-bottom:10px;
+    @media ${device.desktop}{   
+        margin-bottom:5px;   
+        min-width: 220px;
+        height: 270px;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: 300ms;
+        &:hover{
+            background: rgba(255, 255, 255, .2);
+        }
+    }
+`
 
 export const DivFavAndPlaylist = styled.div`
     display: flex;
@@ -50,6 +146,7 @@ export const DivBoxStyle = styled.div`
 export const DivFlex = styled.div`
     display:flex;
     justify-content:space-between;
+    padding: 5px;
 `
 
 /* CARDMUSIC */
@@ -88,7 +185,7 @@ export const DivWelcomingHome = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 30px;
+    margin-top: 10px;
     `
 export const LinkProfile = styled(Link)`
     display: flex;
@@ -354,7 +451,6 @@ export const DivButtonsAction = styled.div`
 `
 export const BtnAction = styled(ButtonSecondaryStyle)`
     width:50%;
-    margin: 10px 10px;
 `
 export const ButtonLogoutStyle = styled(ButtonSecondaryStyle)`
     margin-left: 20px;

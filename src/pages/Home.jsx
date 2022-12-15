@@ -5,19 +5,13 @@ import {
     BtnAction,
     DivHero,
     DivMobileButtons,
-    DivHomeCarousels,
     H1Welcome,
     LinkProfile,
     DivWelcomingHome,
 } from '../components/style/homeStyle';
-import TrackBox from '../components/home/TrackBox';
-import AlbumBox from '../components/home/AlbumBox';
-import PlaylistBox from '../components/home/PlaylistBox';
 import Hero from '../components/home/hero/Hero';
-import UsersBox from '../components/home/UsersBox';
-import EventsBox from '../components/home/EventsBox';
-import { DivSliders } from '../components/style/searchStyle';
-import SearchSlider from '../components/search/SearchSlider';
+import { DivSliders } from '../components/style/homeStyle';
+
 import HomeSlider from '../components/home/HomeSlider';
 import HeaderProfile from '../components/home/HeaderProfile';
 
@@ -38,7 +32,7 @@ const Home = () => {
             </DivHero>
             <DivWelcomingHome>
                 <H1Welcome>{`${welcome}${userData.username}!`}</H1Welcome>
-                <LinkProfile to={`../${userData.username}`}>Profile <HeaderProfile /></LinkProfile>
+                <LinkProfile to={`../${userData.username}`}> <HeaderProfile /></LinkProfile>
             </DivWelcomingHome>
             <HrStyle />
 
@@ -52,7 +46,6 @@ const Home = () => {
 
             <DivSliders>
                 <HomeSlider apiKey={'events'} />
-                <AlbumBox />
                 <HomeSlider apiKey={'playlists'} />
                 <HomeSlider apiKey={'albums'} />
                 <HomeSlider apiKey={'tracks'} />

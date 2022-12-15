@@ -363,7 +363,7 @@ export const PErrorStyle = styled.p`
 `
 
 export const HrStyle = styled.hr`
-    margin: 30px 0;
+    margin: 15px 0;
     opacity: .05;
 `
 
