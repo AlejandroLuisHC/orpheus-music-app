@@ -9,8 +9,7 @@ export const userSlice = createSlice({
     reducers: {
         LOG_IN: login,
         LOG_OUT: logout,
-        UPDATE: update,
-        RECOVER: recoverPassword
+        UPDATE: update
     }
 })
 
@@ -18,7 +17,6 @@ export const {
     LOG_IN,
     LOG_OUT,
     UPDATE,
-    RECOVER
 } = userSlice.actions;
 
 export default userSlice.reducer;
