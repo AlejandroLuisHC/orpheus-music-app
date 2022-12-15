@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { login, logout, recoverPassword, update } from "./reducers";
+import { login, logout, update } from "./reducers";
 
 export const userSlice = createSlice({
     name: 'userData',
