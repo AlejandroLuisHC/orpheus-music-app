@@ -5,14 +5,24 @@ import { Link } from 'react-router-dom';
 import fetchKey from '../../api/fetchKey';
 import { capitalizeFirstLetter } from '../../helper/utils';
 import LogoSpinner from '../general_components/loaders/spinner/LogoSpinner';
-import { H2Style } from '../style/generalStyle';
+import { DivImgRectangleL, H2Style } from '../style/generalStyle';
+
 import {
+    DivEventInfo,
+    DivInfoMusic,
+    DivImageMusic,
+    PFollowersUser,
+    PTitle,
+    ImgAvatarUser,
+    ImgCardMusic,
     DivContainerSlider,
-    DivCard,
-    ImgCard,
-    DivSliderBody,
+    DivEventCard,
+    DivMusicCard,
     DivSilderHeader,
-} from '../style/searchStyle';
+    DivSliderBody,
+    DivUserCard,
+    PNameUser,
+} from '../style/homeStyle';
 
 const SearchSlider = ({ apiKey, search }) => {
     const { data, status } = useQuery([apiKey, apiKey], () => fetchKey(apiKey));
@@ -35,6 +45,24 @@ const SearchSlider = ({ apiKey, search }) => {
                     id: result.id,
                     name: result.userData.username,
                     img: result.userData.avatar,
+                    followers: result.followers.length
+                }))
+            );
+        } else if (apiKey === 'events') {
+            const results = data?.filter(
+                (item) =>
+                    item.name.toLowerCase().includes(search.toLowerCase()) ||
+                    item.description.toLowerCase().includes(search.toLowerCase())
+            );
+
+            setSearchResults(
+                results?.map((result) => ({
+                    id: result.id,
+                    name: result.name,
+                    img: result.img,
+                    location: result.location,
+                    date: result.date,
+                    price: result.price
                 }))
             );
         } else {
@@ -49,6 +77,7 @@ const SearchSlider = ({ apiKey, search }) => {
                     id: result.id,
                     name: result.name,
                     img: result.img,
+                    description: result.description,
                 }))
             );
         }
@@ -68,15 +97,49 @@ const SearchSlider = ({ apiKey, search }) => {
 
                         <DivSliderBody>
                             {searchResults?.map((result) => (
-                                <DivCard
-                                    resultType={apiKey}
-                                    key={result.id} /* as={Link} to={`/${apiKey}/${result.name}`} */
-                                >
-                                    <ImgCard resultType={apiKey} src={result.img} alt="" />
-                                    <div>
-                                        <p>{result.name}</p>
-                                    </div>
-                                </DivCard>
+                                apiKey === 'events' ? (
+                                    <DivEventCard key={result.id}>
+                                        <DivImgRectangleL src={result.img} />
+                                        <DivEventInfo>
+                                            <div>
+                                                <PTitle>{result.name}</PTitle>
+                                                <PTitle>{result.location} - {result.date}</PTitle>
+                                            </div>
+                                            <H2Style>{result.price}€</H2Style>
+                                        </DivEventInfo>
+                                    </DivEventCard>
+            
+                                ) : apiKey === 'users' ? (
+                                    <DivUserCard key={result.id}>
+                                        <ImgAvatarUser src={result.img} />
+                                        <PNameUser>{result.name}</PNameUser>
+                                        <PFollowersUser>{result.followers} followers</PFollowersUser>
+                                    </DivUserCard>
+            
+                                ) : (
+                                    <DivMusicCard
+                                        resultType={apiKey}
+                                        key={result.id}
+                                        /* as={Link} to={`/${apiKey}/${result.name}`} */
+                                    >
+                                        <DivImageMusic onClick={() =>
+                                            setPlayer(
+                                                (prev) => (prev = {
+                                                    playerOn: true,
+                                                    audio: track.file,
+                                                    name: track.name,
+                                                    user: track.description,
+                                                })
+                                            )
+                                        }>
+                                            <ImgCardMusic src={result.img} />
+                                        </DivImageMusic>
+                                        <DivInfoMusic>
+                                            <PTitle>{result.name}</PTitle>
+                                            <PTitle>{result.description}</PTitle>
+                                        </DivInfoMusic>
+                                    </DivMusicCard>
+                                )
                             ))}
                         </DivSliderBody>
                     </DivContainerSlider>

@@ -1,23 +1,17 @@
 import { useSelector } from 'react-redux';
 import { HrStyle } from '../components/style/generalStyle';
 import {
-    DivHomeStyle,
+    MainStyle,
     BtnAction,
     DivHero,
-    DivMobileButtons,
-    DivHomeCarousels,
+    NavHomeMobile,
     H1Welcome,
     LinkProfile,
     DivWelcomingHome,
 } from '../components/style/homeStyle';
-import TrackBox from '../components/home/TrackBox';
-import AlbumBox from '../components/home/AlbumBox';
-import PlaylistBox from '../components/home/PlaylistBox';
 import Hero from '../components/home/hero/Hero';
-import UsersBox from '../components/home/UsersBox';
-import EventsBox from '../components/home/EventsBox';
-import { DivSliders } from '../components/style/searchStyle';
-import SearchSlider from '../components/search/SearchSlider';
+import { DivSliders } from '../components/style/homeStyle';
+
 import HomeSlider from '../components/home/HomeSlider';
 import HeaderProfile from '../components/home/HeaderProfile';
 
@@ -32,34 +26,34 @@ const Home = () => {
                 ? 'Good morning, '
                 : 'Good afternoon, ';
     return (
-        <DivHomeStyle>
-            
+        <MainStyle>
             <DivHero>
                 <Hero />
             </DivHero>
             <DivWelcomingHome>
                 <H1Welcome>{`${welcome}${userData.username}!`}</H1Welcome>
-                <LinkProfile to={`../${userData.username}`}> <HeaderProfile /></LinkProfile>
+                <LinkProfile to={`../${userData.username}`}> 
+                    <HeaderProfile />
+                </LinkProfile>
             </DivWelcomingHome>
             <HrStyle />
 
             {/* // Only seen mobile  */}
-            <DivMobileButtons>
+            <NavHomeMobile>
                 <BtnAction>Playlist</BtnAction>
                 <BtnAction>Events</BtnAction>
                 <BtnAction>Social</BtnAction>
                 <BtnAction>New Releases</BtnAction>
-            </DivMobileButtons>
+            </NavHomeMobile>
 
             <DivSliders>
                 <HomeSlider apiKey={'events'} />
-                <AlbumBox />
                 <HomeSlider apiKey={'playlists'} />
                 <HomeSlider apiKey={'albums'} />
                 <HomeSlider apiKey={'tracks'} />
                 <HomeSlider apiKey={'users'} />
             </DivSliders>
-        </DivHomeStyle>
+        </MainStyle>
     );
 };
 

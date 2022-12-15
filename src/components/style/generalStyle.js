@@ -228,7 +228,6 @@ export const H2Style = styled.h2`
     color: ${color.primaryYellow};
     font-size: 24px;
     font-weight: bold;
-    
     cursor:pointer;
     @media ${device.desktop}{
         font-size: 36px;
@@ -363,12 +362,21 @@ export const PErrorStyle = styled.p`
 `
 
 export const HrStyle = styled.hr`
-    margin: 30px 0;
+    margin: 15px 0;
     opacity: .05;
 `
 
 export const LinkPrimaryStyle = styled(Link)`
     color: ${color.primaryYellow};
+    text-decoration: none;
+`
+
+export const LinkSecondaryStyle = styled(Link)`
+    color: ${color.primaryWhite};
+    text-decoration: none;
+    &:hover {
+        color: ${color.primaryYellow};
+    }
 `
 
 /* DIVS IMAGE ALBUMS, TRACKS, USERS,... */
