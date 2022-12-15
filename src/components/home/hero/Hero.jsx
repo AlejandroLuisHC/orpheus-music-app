@@ -1,12 +1,12 @@
-import HeroSlider, { Overlay, Slide, MenuNav } from "hero-slider";
+import HeroSlider, { Overlay, Slide, MenuNav, ButtonsNav } from "hero-slider";
 import { memo } from "react";
-import { slide0, slide1, slide2 } from "../../../assets/img/gallery_slides";
+import { slide1, slide2, slide3, slide4 } from "../../../assets/img/gallery_slides";
 import { DivHeroTitles, H2StyleHero, H4StyleHero } from "../../style/homeStyle";
 
 const Hero = () => {
     return (
         <HeroSlider
-            height={"33vh"}
+            height={"40vh"}
             autoplay
             controller={{
                 initialSlide: 1,
@@ -22,13 +22,12 @@ const Hero = () => {
                     ),
                 onAfterSliding: (nextSlide) =>
                     console.debug("onAfterSliding(nextSlide): ", nextSlide)
-
             }}
         >
             <Overlay>
                 <DivHeroTitles>
                     <H2StyleHero>
-                        Your favourite event <br/>just a click away
+                        Your favourite event <br />just a click away
                     </H2StyleHero>
                     <H4StyleHero>
                         Buy your tickets at Orpheus
@@ -37,33 +36,35 @@ const Hero = () => {
             </Overlay>
 
             <Slide
-                shouldRenderMask
-                label="Azkena Rock Festival 2023 - from April"
-                background={{
-                    backgroundImageSrc: slide1,
-                    backgroundAnimation: "zoom"
-                }}
-            />
+        label="Viña Rock - 28/04/2023"
+        background={{
+            backgroundImageSrc: slide1,
+        }}
+      />
 
-            <Slide
-                shouldRenderMask
-                label="Primavera Sound Barcelona 2023 - 1 June"
-                background={{
-                    backgroundImageSrc: slide2,
-                    backgroundAnimation: "zoom"
-                }}
-            />
+      <Slide
+        label="Måneskin - 11/04/2023"
+        background={{
+            backgroundImageSrc: slide2,
+        }}
+      />
 
-            <Slide
-                shouldRenderMask
-                label="Bruce Springsteen & The E Street Band - 30 August"
-                background={{
-                    backgroundImageSrc: slide0,
-                    backgroundAnimation: "zoom"
-                }}
-            />
+      <Slide
+        label="Resurrection - 28/6/2023"
+        background={{
+          backgroundImageSrc: slide3
+        }}
+      />
 
-            <MenuNav />
+      <Slide
+        label="Duki - 24/02/2023"
+        background={{
+            backgroundImageSrc: slide4
+        }}
+      />
+
+      <ButtonsNav backgroundColor="black" color="#EFB810" />
+      
         </HeroSlider>
     );
 }

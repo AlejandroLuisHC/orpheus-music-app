@@ -1,4 +1,3 @@
-import React from 'react'
 import { useState } from 'react';
 import { IoMdCreate, IoMdReturnLeft } from 'react-icons/io';
 import { useSelector } from 'react-redux';
@@ -10,30 +9,29 @@ import UpdateProfile from './UpdateProfile';
 
 
 const ProfileMobile = () => {
-  const [editView, setEditView] = useState(false);
+    const [editView, setEditView] = useState(false);
+    const userData = useSelector(state => state.userData.user.userData)
 
-  const userData = useSelector(state => state.userData.user.userData);
-  return (
-    <DivProfile>
-      
-      <DivProfileBanner>
-          {!editView
-                ?
-                <ButtonEditUser onClick={() =>setEditView(prev => prev = true)}>
-                    <IoMdCreate />
-                </ButtonEditUser>
-                :
-                <ButtonEditUser onClick={() =>setEditView(prev => prev = false)}>
-                    <IoMdReturnLeft />
-                </ButtonEditUser>}
-          <DivMobileUserAvatar>
-              <AvatarImg
-                size={160}
-                avatarId={userData.avatar}
-              />
-          </DivMobileUserAvatar>
+    return (
+        <DivProfile>
+            <DivProfileBanner>
+                {!editView
+                    ?
+                    <ButtonEditUser onClick={() => setEditView(prev => prev = true)}>
+                        <IoMdCreate />
+                    </ButtonEditUser>
+                    :
+                    <ButtonEditUser onClick={() => setEditView(prev => prev = false)}>
+                        <IoMdReturnLeft />
+                    </ButtonEditUser>}
+                <DivMobileUserAvatar>
+                    <AvatarImg
+                        size={160}
+                        avatarId={userData.avatar}
+                    />
+                </DivMobileUserAvatar>
 
-          <DivUserGeneralData>
+                <DivUserGeneralData>
                     <DivUsernameWorks>
                         <H1Username>{userData.username}</H1Username>
                         <H2UserWorks>23 works</H2UserWorks>
@@ -54,27 +52,24 @@ const ProfileMobile = () => {
                     </DivProfileUserInfoContainer>
                 </DivUserGeneralData>
 
-      </DivProfileBanner>
+            </DivProfileBanner>
 
 
-      {!editView
-            ? 
+            {!editView
+                ?
                 <SectionProfileMain>
                     <DivProfileActionsStyle>
-                            <AddWork />
-                            <CreatePlaylist />
+                        <AddWork />
+                        <CreatePlaylist />
                     </DivProfileActionsStyle>
-                        Some extra info
+                    Some extra info
                 </SectionProfileMain>
-            :
+                :
                 <SectionEditUser>
                     <UpdateProfile />
                 </SectionEditUser>}
-
-
-
-    </DivProfile>
-  )
+        </DivProfile>
+    )
 }
 
 export default ProfileMobile

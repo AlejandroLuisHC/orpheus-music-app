@@ -1,80 +1,66 @@
-import { useSelector } from 'react-redux'
-import { HrStyle } from "../components/style/generalStyle"
-import { DivHomeStyle, DivButtonsAction, BtnAction,DivHero, DivMobileButtons,DivBoxStyle, H6StyleHero, DivFavAndPlaylist, DivHomeCarousels, H1Welcome, ImgAvatarProfile, LinkProfile } from "../components/style/homeStyle"
-import TrackBox from "../components/home/TrackBox"
-import AlbumBox from "../components/home/AlbumBox"
-import PlaylistBox from "../components/home/PlaylistBox"
-import Hero from '../components/home/hero/Hero'
-import AsideProfile from '../components/general_components/aside/AsideProfile'
-import AvatarImg from '../components/general_components/AvatarImg'
-import UsersBox from '../components/home/UsersBox'
-import EventsBox from '../components/home/EventsBox'
-import HeaderProfile from '../components/home/HeaderProfile'
+import { useSelector } from 'react-redux';
+import { HrStyle } from '../components/style/generalStyle';
+import {
+    DivHomeStyle,
+    BtnAction,
+    DivHero,
+    DivMobileButtons,
+    DivHomeCarousels,
+    H1Welcome,
+    LinkProfile,
+    DivWelcomingHome,
+} from '../components/style/homeStyle';
+import TrackBox from '../components/home/TrackBox';
+import AlbumBox from '../components/home/AlbumBox';
+import PlaylistBox from '../components/home/PlaylistBox';
+import Hero from '../components/home/hero/Hero';
+import UsersBox from '../components/home/UsersBox';
+import EventsBox from '../components/home/EventsBox';
+import { DivSliders } from '../components/style/searchStyle';
+import SearchSlider from '../components/search/SearchSlider';
+import HomeSlider from '../components/home/HomeSlider';
+import HeaderProfile from '../components/home/HeaderProfile';
 
 const Home = () => {
-    const userData = useSelector(state => state.userData.user.userData)
+    const userData = useSelector((state) => state.userData.user.userData);
     const date = new Date();
     const hour = date.getHours();
-    const welcome = hour < 6 || hour > 18
-                        ? "Good evening, "
-                        : hour > 5 && hour < 13
-                            ? "Good morning, "
-                            : "Good afternoon, "
+    const welcome =
+        hour < 6 || hour > 18
+            ? 'Good evening, '
+            : hour > 5 && hour < 13
+                ? 'Good morning, '
+                : 'Good afternoon, ';
     return (
         <DivHomeStyle>
             <LinkProfile to={userData.username}><HeaderProfile /></LinkProfile>
             <DivHero>
-                <Hero/>
+                <Hero />
             </DivHero>
-            
-            <H1Welcome>
-                {`${welcome}${userData.username}!`}
-            </H1Welcome>
+            <DivWelcomingHome>
+                <H1Welcome>{`${welcome}${userData.username}!`}</H1Welcome>
+                <LinkProfile to={`../${userData.username}`}>Profile <HeaderProfile /></LinkProfile>
+            </DivWelcomingHome>
+            <HrStyle />
 
-            
-
-            <HrStyle/>
-
-            {/* Only seen in mobile */}
+            {/* // Only seen mobile  */}
             <DivMobileButtons>
-                <DivButtonsAction>
-                    <BtnAction>Playlist</BtnAction>
-                    <BtnAction>Events</BtnAction>
-                </DivButtonsAction>
-                <DivButtonsAction>
-                    <BtnAction>Social</BtnAction>
-                    <BtnAction>New Releases</BtnAction>
-                </DivButtonsAction>
+                <BtnAction>Playlist</BtnAction>
+                <BtnAction>Events</BtnAction>
+                <BtnAction>Social</BtnAction>
+                <BtnAction>New Releases</BtnAction>
             </DivMobileButtons>
 
-            <DivFavAndPlaylist>
-                <DivBoxStyle>
-                    <div>
-                        <img src="src\assets\img\likedsongs.png" alt="" style={{
-                        width:"160px"}} />
-                        <H6StyleHero>Your Favorite Songs</H6StyleHero>
-                    </div> 
-                    <div>
-                        <img src="src\assets\img\likedsongs.png" alt="" style={{
-                        width:"160px"}} />
-                        <H6StyleHero>Your last created Playlist</H6StyleHero>
-                    </div>
-                </DivBoxStyle>
-            </DivFavAndPlaylist>
-            {/* Only seen in mobile */}
+            <DivSliders>
+                <HomeSlider apiKey={'events'} />
+                <AlbumBox />
+                <HomeSlider apiKey={'playlists'} />
+                <HomeSlider apiKey={'albums'} />
+                <HomeSlider apiKey={'tracks'} />
+                <HomeSlider apiKey={'users'} />
+            </DivSliders>
+        </DivHomeStyle>
+    );
+};
 
-            {/* View in Desktop */}
-            <DivHomeCarousels>
-                <EventsBox/>
-                <PlaylistBox/>
-                <AlbumBox/>
-                <TrackBox/>
-                <UsersBox/>
-            </DivHomeCarousels>
-            {/* View in Desktop */}
-        </DivHomeStyle>                                               
-
-    )
-}
-
-export default Home
+export default Home;

@@ -5,7 +5,7 @@ import StoreProvider from "../redux/provider/StoreProvider"
 import LogoSpinner from "../components/general_components/loaders/spinner/LogoSpinner"
 import PrivateRoutes from "./PrivateRoutes"
 import NotConnectedRoutes from "./NotConnectedRoutes"
-
+import Search from "../pages/Search"
 
 const Layout   = lazy(() => import('./Layout'))
 const Home     = lazy(() => import('../pages/Home'))
@@ -25,7 +25,7 @@ const Router = () => {
                             <Route path='/register' element={<NotConnectedRoutes><Register /></NotConnectedRoutes>} />
                             <Route path='/recover-password' element={<NotConnectedRoutes><RecoverPassword /></NotConnectedRoutes>} />
                             <Route path='/home' element={<PrivateRoutes><Home /></PrivateRoutes>} />
-                            <Route path='/search' element={<PrivateRoutes><p>Search</p></PrivateRoutes>} />
+                            <Route path='/search' element={<PrivateRoutes><Search /></PrivateRoutes>} />
                             <Route path='/:username' element={<PrivateRoutes><Profile /></PrivateRoutes>}>
                                 <Route path='/:username/information' element={<PrivateRoutes><p>Display user info</p></PrivateRoutes>} />
                                 <Route path='/:username/work' element={<PrivateRoutes><p>Display user work</p></PrivateRoutes>} />

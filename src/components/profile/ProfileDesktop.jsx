@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useEffect } from 'react';
 import { IoMdCreate, IoMdReturnLeft } from 'react-icons/io';
 import { useSelector } from 'react-redux';
 import useWidth from '../../helper/hooks/useWidth';
@@ -7,24 +6,15 @@ import AvatarImg from '../general_components/AvatarImg';
 import FooterInfo from '../general_components/FooterInfo';
 import HomeSlidersLoader from '../general_components/loaders/content_loader/HomeSlidersLoader';
 import { Footer } from '../style/generalStyle';
-import { DivProfileActionsStyle, DivProfileBanner, SectionProfileMain, PProfileUserInfo, DivProfileUserInfoContainer, SpanProfileUserNumbers, DivUserGeneralData, H1Username, H2UserWorks, DivProfile, DivUsernameWorks, ButtonEditUser, SectionEditUser, DivProfileMainContent } from '../style/profileStyle'
+import { ButtonEditUser, DivProfile, DivProfileActionsStyle, DivProfileBanner, DivProfileMainContent, DivProfileUserInfoContainer, DivUserGeneralData, DivUsernameWorks, H1Username, H2UserWorks, PProfileUserInfo, SectionEditUser, SectionProfileMain, SpanProfileUserNumbers } from '../style/profileStyle';
 import AddWork from './AddWork';
 import CreatePlaylist from './CreatePlaylist';
 import UpdateProfile from './UpdateProfile';
-
 
 const ProfileDesktop = () => {
     const {userData} = useSelector(state => state.userData.user);
     const width = useWidth();
     const [editView, setEditView] = useState(false);
-    const [windowDesk, setWindowDesk] = useState(width > 768 ? true : false);
-    useEffect(() => {
-        if (width > 768) {
-            setWindowDesk(prev => prev = true);
-        } else if (width < 768) {
-            setWindowDesk(prev => prev = false);
-        }
-    }, [width])
 
     return (
         <DivProfile>

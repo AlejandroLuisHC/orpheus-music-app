@@ -5,14 +5,13 @@ import { Link } from "react-router-dom";
 
 /* DESKTOP DIV HERO */
 export const DivHero = styled.div`
-    display: none;
-    @media ${device.desktop}{
-        display: block; 
-    } 
+    margin: -20px -20px 0;
+    display: block; 
 `
 /* MOBILE DIV WELCOME NAV BUTTONS  */
 export const DivMobileButtons = styled.div`
     margin: 30px 0;
+    display: flex;
     @media ${device.desktop}{
         display: none; 
     } 
@@ -25,9 +24,7 @@ export const DivHomeStyle = styled.div`
     } 
 `
 export const H1Welcome = styled.h1`
-    
-    margin-top: 30px;
-    font-size:20px;
+    font-size:25px;
     display:flex;
     justify-content: space-between;
     align-items:center;
@@ -63,10 +60,7 @@ export const DivDisplayMobile = styled.div`
     } 
 `
 export const DivDisplayDesktop = styled.div`
-        display:none;
-    @media ${device.desktop}{
-        display:block; 
-    }
+    display:block; 
 `
    
 export const DivStyle = styled.div`
@@ -90,17 +84,26 @@ export const LinkHome = styled(Link)`
         color: ${color.primaryYellow}
     }
 `
+export const DivWelcomingHome = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+    `
 export const LinkProfile = styled(Link)`
     display: flex;
-    justify-content: end;
     align-items: center;
-    padding-bottom: 3px;
+    gap: 5px;
+    z-index: 3;
     color: ${color.primaryWhite};
     text-decoration: none;
-    font-size: 1.3em;
-    transition: 300ms;
-    gap: 10px;
-   
+    font-size: 18px;
+    &:hover {
+        color: ${color.primaryYellow};
+    }
+    @media ${device.desktop}{
+        display: none;
+    }
 `
 export const DivSlider = styled.div`
     display: flex;
@@ -297,46 +300,50 @@ export const DivInfoLists = styled.div`
 /* HERO TITLES */
 export const DivHeroTitles = styled.div`
     display: flex;
-    flex-direction: column;
-    padding-left: 15vw;
     height: 100%;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    @media ${device.desktop}{
+        
+    }
 `
 export const H2StyleHero = styled.h2`
-    margin: 0 auto;
     color: ${color.primaryWhite};
     text-transform: uppercase;
-    left:100px;
     width: 100%;
-    font-size: 2.5em;
-    text-shadow: 1px 1px 2px black, 0 0 20px black, 0 0 4px black;
+    font-size: 1.8em;
+    text-align:center;
+    text-shadow: 1px 1px 2px black, 0 0 20px black, 0 0 5px black;
     transition: 300ms;
-    @media (max-height: ${'700px'}) {
-        font-size: 2em;
+    @media ${device.desktop} {
+        font-size: 3em;
     }
 `
 export const H4StyleHero = styled.h4`
     width: 100%;
-    font-size: 1.25em;
+    font-size: 1em;
+    text-align:center;
+    background:rgba(0, 0, 0, .5);
+    height: 20px;
     text-shadow: 1px 1px 2px black, 0 0 20px black, 0 0 4px black;
-    @media (max-height: ${'700px'}) {
-        display: none;
+    @media ${device.desktop} {
+        font-size: 1.25em;
+        background:none;
     }
 `
 export const H6StyleHero = styled.h6`
-    font-size:0.80rem;
+    font-size:.8rem;
     font-weight:700;
-   
-   
+    
     @media ${device.desktop}{
         font-size:1rem;
     }
 `
 export const PStyleHero = styled.p`
-    font-size:0.60rem;
-
+    font-size:.6rem;
     @media ${device.desktop}{
-        font-size:0.87rem;
+        font-size:.87rem;
     }
 `
 
@@ -358,14 +365,15 @@ export const BtnAction = styled(ButtonSecondaryStyle)`
 `
 export const ButtonLogoutStyle = styled(ButtonSecondaryStyle)`
     margin-left: 20px;
-    width: 130px;
+    width: 110px;
+    height: 30px;
 `
 
 
 /* IMAGE  */
 export const ImgCards = styled.img`
-    width: 90px;
-    height: 90px;
+    width: 115px;
+    height:115px;
     display: flex;
     border-radius: 10px;
     transition: 300ms;

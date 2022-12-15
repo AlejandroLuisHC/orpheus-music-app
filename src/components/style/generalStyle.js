@@ -190,7 +190,7 @@ export const ButtonPrimaryStyle = styled.button`
 `
 
 export const ButtonSecondaryStyle = styled.button`
-    background: none;
+    background: #3d3d3d77;
     color: ${color.primaryYellow};
     height: 40px;
     width: 150px;
@@ -199,7 +199,7 @@ export const ButtonSecondaryStyle = styled.button`
     gap: 10px;
     justify-content: center;
     font-weight: bold;
-    border: 1px solid ${color.primaryYellow};
+    border: 2px solid ${color.primaryYellow};
     border-radius: calc(40px * .5);
     font-size: 10px;
     transition: 300ms;
@@ -228,6 +228,7 @@ export const H2Style = styled.h2`
     color: ${color.primaryYellow};
     font-size: 24px;
     font-weight: bold;
+    
     cursor:pointer;
     @media ${device.desktop}{
         font-size: 36px;
@@ -454,14 +455,15 @@ export const DivImgBannerSliderHome = styled.div`
 
 /* RECTANGLE */
 export const DivImgRectangleL = styled.img`
-    display:none;
+    display:block;
+    width: 280px;
+    height:190px;
+    border-radius: 10px;
+    object-fit:cover;
     transition: 300;
     @media ${device.desktop}{
-        display:block;
         width: 420px;
         height:250px;
-        border-radius: 10px;
-        object-fit:cover;
     }
    
 `
