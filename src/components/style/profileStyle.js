@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 export const DivProfile = styled.div`
     display: grid;
+    padding-bottom: 40px;
     @media ${device.desktop}{
         height: 100%;
         grid-template-rows: 1fr 5fr 40px;
