@@ -11,6 +11,8 @@ import {
      ImgCardMusic,
      PDescription, 
      PEventPrice,
+     PFollowersUser,
+     PNameUser,
      PTitle
 } from "../style/homeStyle";
 
@@ -124,9 +126,9 @@ const FilterElements = ({ filter, data, viewMore }) => {
                     </DivEventCard>
                } else if (viewMore === "users"){
                     return <DivUserCard key={d.id}>
-                         <ImgAvatarUser src={d.img} />
-                         <PNameUser>{d.name}</PNameUser>
-                         <PFollowersUser>{d.followers} followers</PFollowersUser>
+                         <ImgAvatarUser src={d.userData.avatar} />
+                         <PNameUser>{d.userData.username}</PNameUser>
+                         <PFollowersUser>{d.followers.length} followers</PFollowersUser>
                     </DivUserCard>
                } else if (viewMore === "tracks"){
                     return <DivMusicCard key={d.id}>
