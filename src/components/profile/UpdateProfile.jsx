@@ -4,7 +4,7 @@ import { IoMdCheckmarkCircle, IoMdCreate } from 'react-icons/io';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { UPDATE } from '../../redux/features/user_data/userSlice';
-import { FormStyle } from '../style/generalStyle';
+import { FormStyle, SelectCountry, SelectRegion } from '../style/generalStyle';
 import { fetchUpdateUser } from '../../api'
 import { DivEditUserData, DivUserData, InputEditStyle, DivEditUserContainer, PTextEdit, ButtonSubmitEdit, SpanIconClick, HrEditProfile } from '../style/profileStyle';
 import ChangePassword from './ChangePassword';
@@ -21,7 +21,7 @@ const UpdateProfile = () => {
 
     const userDataStore = useSelector(state => state.userData.user.userData);
     const userId = useSelector(state => state.userData.user.id);
-    
+    const [ location, setLocation] = useState({ country: '', region: '' });
     const {
         register,
         handleSubmit,
@@ -75,6 +75,8 @@ const UpdateProfile = () => {
     const data = {  username: username ?? userDataStore.username,
                     firstName: firstName ?? userDataStore.firstName,
                     lastName: lastName ?? userDataStore.lastName,
+                    country: location.country ?? userDataStore.country,
+                    city: location.city ?? userDataStore.citty,
                     password: password ?? userDataStore.password}
         
         setUpdateUserData({
@@ -83,12 +85,10 @@ const UpdateProfile = () => {
                         username: data.username,
                         firstName: data.firstName,
                         lastName: data.lastName,
+                        country: data.country,
+                        city: data.city,
                         password: data.password}
         });
-
-
-        console.log('New data', UpdateUserData);
-        console.log('userData', userData);
         setOpenInput(prev => prev = initialState)
     };
 
@@ -179,7 +179,19 @@ const UpdateProfile = () => {
                     </DivUserData>
                     :
                     <DivEditUserData>
-                        <InputEditStyle />
+                        <SelectCountry 
+                            value={location.country}
+                            onChange={(country) =>
+                                setLocation(prev => prev = { ...prev, country })
+                                    }
+                        />
+                        <SelectRegion
+                            country={location.country}
+                            value={location.region}
+                            onChange={(region) =>
+                                setLocation(prev => prev = { ...prev, region })
+                            }
+                        />
                         {/* SubmitButton ⬇️*/}
                         <ButtonSubmitEdit type='submit'><IoMdCheckmarkCircle /></ButtonSubmitEdit>
                     </DivEditUserData>

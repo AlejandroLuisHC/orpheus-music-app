@@ -3,6 +3,7 @@ import DefaultBanner from '../../assets/img/profile/Banner.png'
 import { color } from "./utils/styleConstants";
 import { ButtonSecondaryStyle } from "./generalStyle";
 import { device } from "./utils/styleConstants"; 
+import { Link } from "react-router-dom";
 
 export const DivProfile = styled.div`
     display: grid;
@@ -251,3 +252,50 @@ width: 100%;
 opacity: .5;
 `
 
+
+
+export const DropdownHeader = styled.div`
+    
+    font-weight: 500;
+    font-size: 2rem;
+    color: ${color.primaryWhite};
+
+`
+
+export const DropdownContainer = styled.div`
+    position: absolute;
+    right: 10px ;
+    top: 10px; 
+    width: 75px;
+    @media ${device.desktop}{
+        width: 100px;
+    }
+`
+
+export const DropdownListContainer = styled.div`
+
+`
+
+export const DropDownList = styled.ul`
+    padding: 0;
+    margin: 0;
+    padding-left: 1em;
+    background: #ffffff;
+    border: 2px solid #e5e5e5;
+    box-sizing: border-box;
+    color: #3faffa;
+    font-weight: 500;
+    &:first-child {
+        padding-top: 0.8em;
+    }
+`
+
+export const ListItem = styled.li`
+    list-style: none;
+    margin-bottom: 0.8em;
+    cursor: pointer;
+    font-size: 16px;
+    @media ${device.desktop}{
+        font-size: 20px;
+    }
+`

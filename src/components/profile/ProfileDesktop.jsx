@@ -1,14 +1,15 @@
 import { useState } from 'react';
-import { IoMdCreate, IoMdReturnLeft } from 'react-icons/io';
+import { IoIosMore, IoMdCreate, IoMdReturnLeft } from 'react-icons/io';
 import { useSelector } from 'react-redux';
 import useWidth from '../../helper/hooks/useWidth';
 import AvatarImg from '../general_components/AvatarImg';
 import FooterInfo from '../general_components/FooterInfo';
 import HomeSlidersLoader from '../general_components/loaders/content_loader/HomeSlidersLoader';
 import { Footer } from '../style/generalStyle';
-import { ButtonEditUser, DivProfile, DivProfileActionsStyle, DivProfileBanner, DivProfileMainContent, DivProfileUserInfoContainer, DivUserGeneralData, DivUsernameWorks, H1Username, H2UserWorks, PProfileUserInfo, SectionEditUser, SectionProfileMain, SpanProfileUserNumbers } from '../style/profileStyle';
+import { DivProfile, DivProfileActionsStyle, DivProfileBanner, DivProfileMainContent, DivProfileUserInfoContainer, DivUserGeneralData, DivUsernameWorks, DropdownContainer, DropdownHeader, DropdownListContainer, H1Username, H2UserWorks, ListItem, PProfileUserInfo, SectionEditUser, SectionProfileMain, SpanProfileUserNumbers } from '../style/profileStyle';
 import AddWork from './AddWork';
 import CreatePlaylist from './CreatePlaylist';
+import DisconnectIcon from './DisconnectIcon';
 import UpdateProfile from './UpdateProfile';
 
 const ProfileDesktop = () => {
@@ -16,19 +17,31 @@ const ProfileDesktop = () => {
     const width = useWidth();
     const [editView, setEditView] = useState(false);
 
+
+    const [isOpen, setIsOpen] = useState(false);
+    const toggling = () => setIsOpen(!isOpen);
+
     return (
         <DivProfile>
             <DivProfileBanner>
-                {!editView
-                    ?
-                    <ButtonEditUser onClick={() => setEditView(prev => prev = true)}>
-                        <IoMdCreate />
-                    </ButtonEditUser>
-                    :
-                    <ButtonEditUser onClick={() => setEditView(prev => prev = false)}>
-                        <IoMdReturnLeft />
-                    </ButtonEditUser>
-                }
+                <DropdownContainer>
+                    <DropdownHeader onClick={toggling}><IoIosMore /></DropdownHeader>
+                    {isOpen && (
+                    <DropdownListContainer>
+                        <ListItem >
+                            {!editView
+                            ?
+                            <>Edit <IoMdCreate onClick={() => setEditView(prev => prev = true)} /> </> 
+                            :
+                            <>Return <IoMdReturnLeft onClick={() => setEditView(prev => prev = false)}/></>}
+                        </ListItem >
+                        <ListItem >
+                            <DisconnectIcon />
+                        </ListItem >
+                    </DropdownListContainer>
+                    )}
+                </DropdownContainer>
+                
                 <AvatarImg
                     size={width > 1050 ? 200 : 140}
                     avatarId={userData.avatar}
