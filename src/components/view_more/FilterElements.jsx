@@ -2,16 +2,16 @@ import { useOutletContext } from "react-router-dom";
 import { DivCard, DivInfoLists, DivPicLists, H6StyleHero, ImgCards, PStyleHero } from "../style/homeStyle";
 
 
-const FilterElemets = ({ filter, data }) => {
+const FilterElements = ({ filter, data }) => {
     const {value,type} = filter;
     const [setPlayer] = useOutletContext()
-
     const filterByType = (type) => {
           switch(type){
                case "genres": 
                return findByGenre()
               
                case "moods" :
+                    console.log("entrando")
                return findByMood()   
                
                default :
@@ -20,26 +20,26 @@ const FilterElemets = ({ filter, data }) => {
     }
 
     const findByGenre = () => {
-         let tracksFound = [] 
-         return data?.map(track => { 
+         let dataFound = [] 
+         return data?.map(d => { 
               return value.map(v => {
-                   if (track.genres.includes(v)) {
-                        if (!tracksFound.includes(track.id)) {
-                             tracksFound.push(track.id)
-                             return <DivCard key={track.id}>
+                   if (d.genres.includes(parseInt(v))) {
+                        if (!dataFound.includes(d.id)) {
+                             dataFound.push(d.id)
+                             return <DivCard key={d.id}>
                                   <DivPicLists 
                                        onClick={() => setPlayer(prev => prev = {
                                             playerOn: true ,
-                                            audio: track.file,
-                                            name:track.name,
-                                            user:track.description
+                                            audio: d.file,
+                                            name:d.name,
+                                            user:d.description
                                        })}
                                   >
-                                       <ImgCards src={track.img} />
+                                       <ImgCards src={d.img} />
                                   </DivPicLists>
                                   <DivInfoLists>
-                                       <H6StyleHero>{track.name}</H6StyleHero>
-                                       <PStyleHero>{track.description}</PStyleHero>
+                                       <H6StyleHero>{d.name}</H6StyleHero>
+                                       <PStyleHero>{d.description}</PStyleHero>
                                   </DivInfoLists>
                              </DivCard> 
                         }
@@ -60,6 +60,7 @@ const FilterElemets = ({ filter, data }) => {
                               </DivPicLists>
                               <DivInfoLists>
                                   <H6StyleHero>{playlist.name}</H6StyleHero>
+                                   <PStyleHero>{playlist.description}</PStyleHero>
                               </DivInfoLists>
                           </DivCard>
                          }
@@ -89,8 +90,8 @@ const FilterElemets = ({ filter, data }) => {
     }
 
     return (
-         !filter ? findAll() : filterByType("moods")
+         !filter ? findAll() : filterByType(type)
     )
 }
 
-export default FilterElemets
+export default FilterElements

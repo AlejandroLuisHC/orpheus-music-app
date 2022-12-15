@@ -5,8 +5,6 @@ import StoreProvider from "../redux/provider/StoreProvider"
 import LogoSpinner from "../components/general_components/loaders/spinner/LogoSpinner"
 import PrivateRoutes from "./PrivateRoutes"
 import NotConnectedRoutes from "./NotConnectedRoutes"
-import Search from "../pages/Search"
-import ViewMore from "../pages/ViewMore"
 
 const Layout   = lazy(() => import('./Layout'))
 const Home     = lazy(() => import('../pages/Home'))
@@ -14,7 +12,11 @@ const Landing  = lazy(() => import('../pages/Landing'))
 const Profile  = lazy(() => import('../pages/Profile'))
 const Register = lazy(() => import('../pages/Register'))
 const Password = lazy(() => import("../pages/Password"))
-//TODO Preguntar por si hay que poner lazy y si el path esta bien puesto o hay que pner más
+const ViewMore = lazy(() => import("../pages/ViewMore"))
+const Search   = lazy(() => import("../pages/Search"))
+
+
+
 const Router = () => { 
     return (
         <QueryProvider>
