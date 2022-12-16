@@ -273,10 +273,6 @@ export const DropdownContainer = styled.div`
     }
 `
 
-export const DropdownListContainer = styled.div`
-
-`
-
 export const DropDownList = styled.ul`
     padding: 0;
     margin: 0;

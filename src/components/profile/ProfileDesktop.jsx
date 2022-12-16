@@ -6,7 +6,7 @@ import AvatarImg from '../general_components/AvatarImg';
 import FooterInfo from '../general_components/FooterInfo';
 import { Footer } from '../style/generalStyle';
 import { DivSliders } from '../style/homeStyle';
-import { DivProfile, DivProfileActionsStyle, DivProfileBanner, DivProfileMainContent, DivProfileUserInfoContainer, DivUserGeneralData, DivUsernameWorks, DropdownContainer, DropdownHeader, DropdownListContainer, H1Username, H2UserWorks, ListItem, PProfileUserInfo, SectionEditUser, SectionProfileMain, SpanProfileUserNumbers } from '../style/profileStyle';
+import { DivProfile, DivProfileActionsStyle, DivProfileBanner, DivProfileUserInfoContainer, DivUserGeneralData, DivUsernameWorks, DropdownContainer, DropdownHeader, H1Username, H2UserWorks, ListItem, PProfileUserInfo, SectionEditUser, SectionProfileMain, SpanProfileUserNumbers } from '../style/profileStyle';
 import AddWork from './AddWork';
 import CreatePlaylist from './CreatePlaylist';
 import DisconnectIcon from './DisconnectIcon';
@@ -34,7 +34,7 @@ const ProfileDesktop = () => {
                 <DropdownContainer>
                     <DropdownHeader onClick={toggling}><IoIosMore /></DropdownHeader>
                     {isOpen && (
-                        <DropdownListContainer>
+                        <ul>
                             <ListItem >
                                 {!editView
                                     ?
@@ -44,7 +44,7 @@ const ProfileDesktop = () => {
                                 }
                             </ListItem >
                             <DisconnectIcon />
-                        </DropdownListContainer>
+                        </ul>
                     )}
                 </DropdownContainer>
 
