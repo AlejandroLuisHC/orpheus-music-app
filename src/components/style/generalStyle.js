@@ -125,8 +125,10 @@ export const AsideMobileStyle = styled.aside`
     background-color: #121212dd;
     align-items: center;
     justify-content: space-evenly;
-    position: fixed;
     width: 100%;
+    height: 25px;
+    padding: 5px;
+    position: fixed;
     bottom: 0;
     left: 0;
 `
@@ -380,7 +382,7 @@ export const SelectRegion = styled(RegionDropdown)`
 export const PErrorStyle = styled.p`
     color: ${color.primaryError};
     font-size: 14px;
-    
+    text-align: center;
 `
 
 export const HrStyle = styled.hr`

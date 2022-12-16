@@ -25,7 +25,7 @@ export const ButtonFilter = styled(ButtonPrimaryStyle)`
 export const DivFilterContainer = styled.div`
     display: flex;
     padding: 10px 20px;
-    { /* width: 100vw; */}
+    width: calc(100vw - 6px);
     gap: 15px;
     overflow: auto;
     &::-webkit-scrollbar {

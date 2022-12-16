@@ -41,10 +41,10 @@ const Home = () => {
 
             {/* // Only seen mobile  */}
             <NavHomeMobile>
-                <LinkBtnAction to="home/playlists">Playlist</LinkBtnAction>
-                <LinkBtnAction to="home/events">Events</LinkBtnAction>
-                <LinkBtnAction>Social</LinkBtnAction>
-                <LinkBtnAction>New Releases</LinkBtnAction>
+                <LinkBtnAction to="/home/playlists">Playlist</LinkBtnAction>
+                <LinkBtnAction to="/home/events">Events</LinkBtnAction>
+                <LinkBtnAction to="/home/users">Social</LinkBtnAction>
+                <LinkBtnAction to="/home/tracks">New Releases</LinkBtnAction>
             </NavHomeMobile>
 
             <DivSliders>

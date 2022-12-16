@@ -21,11 +21,11 @@ const AsideDesktop = () => {
                     <IoMdMusicalNotes />
                     <p>My playlists</p>
                 </LinkAside>
-                <LinkAside to={'/profile/favorites'}>
+                <LinkAside to={username}>
                     <IoMdHeart />
                     <p>Favorites</p>
                 </LinkAside>
-                <LinkAside to={'/profile/social'}>
+                <LinkAside to={'/home/users'}>
                     <IoMdPeople />
                     <p>Social</p>
                 </LinkAside>

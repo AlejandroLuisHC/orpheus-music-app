@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';import { useState } from 'react';
+import { useQuery } from '@tanstack/react-query'; import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { fetchUsers } from '../api';
 import { ButtonPrimaryStyle, DivInputStyle, FieldsetStyle, H2Style, H3Style, InputStyle, LabelStyle, PErrorStyle } from '../components/style/generalStyle';
@@ -80,19 +80,23 @@ const RecoverPassword = () => {
                 favGenres: findUser.userData.favGenres,
             },
             work: {
-                myAlbums: [],
-                myTracks: [],
+                myAlbums: findUser.work.myAlbums,
+                myTracks: findUser.work.myTracks,
             },
-            myPlaylists: [],
-            favPlaylists: [],
-            favAlbums: [],
-            favTracks: [],
-            followers: [],
-            following: [],
-            isVerified: false,
-            isAdmin: false,
-            isLoggedIn: false,
+            myPlaylists: findUser.myPlaylists,
+            favPlaylists: findUser.favPlaylists,
+            favAlbums: findUser.favAlbums,
+            favTracks: findUser.favTracks,
+            followers: findUser.followers,
+            following: findUser.following,
+            isVerified: findUser.isVerified,
+            isAdmin: findUser.isAdmin,
         })
+    }
+    const questionValidation = inputValue => {
+        if (users[0].userData.secretAnswer === inputValue) {
+            setInvalidAnswer(prev => prev = true)
+        }
     }
 
     // UPDATE USER
@@ -156,11 +160,11 @@ const RecoverPassword = () => {
                                             required
                                             {...register("answer", {
                                                 required: true,
-
+                                                validate: answer => questionValidation(answer)
                                             })}
                                         />
                                     </DivInputStyle>
-                                    {invalidAnswer && <PErrorStyle>Incorrect answer</PErrorStyle>}
+                                    {!invalidAnswer && <PErrorStyle>Incorrect answer</PErrorStyle>}
                                     <ButtonPrimaryStyle type='submit'>Verify answer</ButtonPrimaryStyle>
                                 </>
                                 :
@@ -174,7 +178,6 @@ const RecoverPassword = () => {
                                 register={register}
                                 watch={watch}
                                 errors={errors}
-
                             />
                         </form>
                     }

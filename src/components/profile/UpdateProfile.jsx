@@ -20,7 +20,7 @@ const UpdateProfile = () => {
     const [openInput, setOpenInput] = useState(initialState)
 
     const userDataStore = useSelector(state => state.userData.user.userData);
-    const userId = useSelector(state => state.userData.user.id);
+    const user = useSelector(state => state.userData.user);
     const [ location, setLocation] = useState({ country: '', region: '' });
     const {
         register,
@@ -31,7 +31,7 @@ const UpdateProfile = () => {
 
    
     const [UpdateUserData, setUpdateUserData] = useState({
-        id: userId,
+        id: user.id,
         userData: {
             username: userDataStore.username,
             firstName: userDataStore.firstName,
@@ -47,18 +47,17 @@ const UpdateProfile = () => {
             favGenres: userDataStore.favGenres,
         },
         work: {
-            myAlbums: [],
-            myTracks: [],
+            myAlbums: user.work.myAlbums,
+            myTracks: user.work.myTracks,
         },
-        myPlaylists: [],
-        favPlaylists: [],
-        favAlbums: [],
-        favTracks: [],
-        followers: [],
-        following: [],
-        isVerified: false,
-        isAdmin: false,
-        isLoggedIn: false,
+        myPlaylists: user.myPlaylists,
+        favPlaylists: user.favPlaylists,
+        favAlbums: user.favAlbums,
+        favTracks: user.favTracks,
+        followers: user.followers,
+        following: user.following,
+        isVerified: user.isVerified,
+        isAdmin: user.isAdmin,
     });
     
     const { userData } = UpdateUserData;
@@ -94,7 +93,7 @@ const UpdateProfile = () => {
 
     //I use the hook useEfect to fetch the new user data when the state change. using the same logic to store the new data in the redux store for visualice the changes in the moment
     useEffect(() => {
-        fetchUpdateUser(UpdateUserData, userId);
+        fetchUpdateUser(UpdateUserData, user.id);
         dispatch(UPDATE(UpdateUserData));
     }, [UpdateUserData])
 
