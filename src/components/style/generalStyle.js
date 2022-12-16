@@ -1,6 +1,5 @@
 import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 import { Link } from "react-router-dom";
-import { Player } from "react-simple-player";
 import styled, { createGlobalStyle } from "styled-components";
 import { color, device } from "./utils/styleConstants";
 

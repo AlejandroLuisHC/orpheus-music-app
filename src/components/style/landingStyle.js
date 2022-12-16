@@ -19,7 +19,7 @@ export const DivLanding = styled.div`
         height: 100vh;  
         opacity: .2; 
         z-index: -1;
-        background: url(src/assets/img/gifs_background/BgBubblesMobile.gif);
+        background: url(https://res.cloudinary.com/drghk9p6q/image/upload/v1671189911/Final-Project-MERN/gifs/gifmobile_bhjft7.webp);
         background-size: contain;
         background-repeat: repeat-y;
     }
@@ -33,7 +33,7 @@ export const DivLanding = styled.div`
             height: 100vh;  
             opacity: .2; 
             z-index: -1;
-            background: url(src/assets/img/gifs_background/BgBubbglesDesktop.gif);
+            background: url(https://res.cloudinary.com/drghk9p6q/image/upload/v1671189841/Final-Project-MERN/gifs/gifDesktop_gfqfe8.webp);
             background-size: cover;
             background-repeat: repeat-y;
         }

@@ -4,11 +4,10 @@
       "id": 1,
       "userData": {
         "username": "admin",
-        "firstName": "admin",
-        "lastName": "admin",
+        "firstName": "Ada",
+        "lastName": "Lovelace",
         "email": "admin@admin.com",
         "country": "Spain",
-        "city": "Barcelona",
         "password": "admin123",
         "secretQuestion": "What is your squad?",
         "secretAnswer": "Lovelace",

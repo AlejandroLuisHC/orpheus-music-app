@@ -11,7 +11,6 @@ import {
 } from '../components/style/homeStyle';
 import Hero from '../components/home/hero/Hero';
 import { DivSliders } from '../components/style/homeStyle';
-
 import HomeSlider from '../components/home/HomeSlider';
 import HeaderProfile from '../components/home/HeaderProfile';
 
@@ -33,7 +32,7 @@ const Home = () => {
             </DivHero>
             <DivWelcomingHome>
                 <H1Welcome>{`${welcome}${userData.username}!`}</H1Welcome>
-                <LinkProfile to={`../${userData.username}`}> 
+                <LinkProfile to={`../${userData.username}`}>
                     <HeaderProfile />
                 </LinkProfile>
             </DivWelcomingHome>

@@ -25,6 +25,7 @@ const Layout = () => {
             setMobile(prev => prev = false);
         }
     }, [width])
+    
     return (
         isLogged 
             ? 

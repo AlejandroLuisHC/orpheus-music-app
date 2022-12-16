@@ -6,11 +6,17 @@ import FilterButtons from "../components/view_more/FilterButtons"
 import FilterElements from "../components/view_more/FilterElements"
 import { DivFilterContainer, H2StyleViewMore, DivElementsViewMore, DivViewMore } from "../components/style/viewMoreStyle"
 import LogoSpinner from "../components/general_components/loaders/spinner/LogoSpinner"
+import { useCallback } from "react"
 
 const ViewMore = () => {
     const { viewMore } = useParams()
     const [filter, setFilter] = useState(false)
-    const { data, status } = useQuery([viewMore, viewMore], () => fetchKey(viewMore))
+    const { data: originalData, status } = useQuery([viewMore, viewMore], () => fetchKey(viewMore))
+    const [data, setData] = useState()
+    useCallback(() => {
+        setData(prev => prev = { ...originalData })
+    }, [originalData])
+    
     return (
         status === "loading"
             ? <LogoSpinner />

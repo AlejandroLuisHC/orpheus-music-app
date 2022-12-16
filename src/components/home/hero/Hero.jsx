@@ -37,7 +37,7 @@ const Hero = () => {
                     </H4StyleHero>
                 </DivHeroTitles>
             </Overlay>
-
+            
             <Slide
         label="Viña Rock - 28/04/2023"
         background={{
