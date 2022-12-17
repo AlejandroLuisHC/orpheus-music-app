@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form';
 import { fetchUsers } from '../api';
 import { ButtonPrimaryStyle, DivInputStyle, FieldsetStyle, H2Style, H3Style, InputStyle, LabelStyle, PErrorStyle } from '../components/style/generalStyle';
 import { DivLanding, ImgLogoClick, PSlogan } from '../components/style/landingStyle';
-import logo from '../assets/img/Logotipo.png'
 import ChangePasswordStep2 from '../components/profile/ChangePasswordStep2';
 import { useEffect } from 'react';
 import fetchUpdateUser from '../api/fetchUpdateUser';
@@ -128,7 +127,7 @@ const RecoverPassword = () => {
     return (
         <>
             <DivLanding>
-                <ImgLogoClick onClick={() => navigate('/')} src={logo} alt="Logo" />
+                <ImgLogoClick onClick={() => navigate('/')} src="https://res.cloudinary.com/drghk9p6q/image/upload/v1671239637/Final-Project-MERN/Logo/Logotipo_tzolje.webp" alt="Logo" />
                 <PSlogan>The music that unites us</PSlogan>
                 <FieldsetStyle>
                     {!changePassword

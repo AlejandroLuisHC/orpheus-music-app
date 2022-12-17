@@ -1,9 +1,7 @@
 import styled from "styled-components";
-import DefaultBanner from '../../assets/img/profile/Banner.png'
 import { color } from "./utils/styleConstants";
 import { ButtonSecondaryStyle } from "./generalStyle";
 import { device } from "./utils/styleConstants"; 
-import { Link } from "react-router-dom";
 
 export const DivProfile = styled.div`
     display: grid;
@@ -34,7 +32,7 @@ export const DivProfileBanner = styled.div`
         height: 240px;
         opacity: .25; 
         z-index: -1;
-        background: url(${DefaultBanner});
+        background: url("https://res.cloudinary.com/drghk9p6q/image/upload/v1671240029/Final-Project-MERN/BannersHero/Banner_yndjpp.webp");
         background-position: 50% 100%;
         background-size: cover;
         @media ${device.desktop}{

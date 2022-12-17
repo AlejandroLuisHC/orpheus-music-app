@@ -102,7 +102,7 @@ export const DivLogin = styled.div`
         height: 100%;  
         opacity: .2; 
         z-index: -1;
-        background: url(src/assets/img/gifs_background/BgBubblesMobile.gif);
+        background: url(https://res.cloudinary.com/drghk9p6q/image/upload/v1671189841/Final-Project-MERN/gifs/gifDesktop_gfqfe8.webp);
         background-size: cover;
         background-repeat: no-repeat;
     }

@@ -1,5 +1,4 @@
 import { memo, useEffect, useState } from 'react'
-import logo from '../assets/img/Logotipo.png'
 import RegisterForm from '../components/register/RegisterForm'
 import FooterInfo from '../components/general_components/FooterInfo'
 import { DivLanding, FooterLanding, ImgLogoClick, ImgLogoLanding, PSlogan } from '../components/style/landingStyle'
@@ -23,7 +22,7 @@ const Register = () => {
         !windowDesk 
             ?
             <DivLanding>
-                <ImgLogoClick onClick={() => navigate('/')} src={logo} alt="Logo" />
+                <ImgLogoClick onClick={() => navigate('/')} src="https://res.cloudinary.com/drghk9p6q/image/upload/v1671239637/Final-Project-MERN/Logo/Logotipo_tzolje.webp" alt="Logo" />
                 <PSlogan>The music that unites us</PSlogan>
                 <div style={{gridRow: 3}}>
                     <RegisterForm />

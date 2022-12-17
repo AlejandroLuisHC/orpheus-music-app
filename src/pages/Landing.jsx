@@ -1,4 +1,3 @@
-import logo from '../assets/img/Logotipo.png'
 import { ButtonLogin, DivLanding, FooterLanding, ImgLogoClick, ImgLogoLanding, PSlogan} from "../components/style/landingStyle"
 import { FaAngleDoubleUp } from "react-icons/fa"
 import { useState, memo } from "react"
@@ -25,7 +24,7 @@ const Landing = () => {
         !windowDesk 
             ?
             <DivLanding>
-                <ImgLogoClick onClick={() => setLoginView(prev => prev = false)} src={logo} alt="Logo" />
+                <ImgLogoClick onClick={() => setLoginView(prev => prev = false)} src="https://res.cloudinary.com/drghk9p6q/image/upload/v1671239637/Final-Project-MERN/Logo/Logotipo_tzolje.webp" alt="Logo" />
                 <PSlogan>The music that unites us</PSlogan>
                 {loginView 
                     ? 
@@ -39,7 +38,7 @@ const Landing = () => {
             </DivLanding>
             :
             <DivLanding>
-                <ImgLogoLanding src={logo} alt="Logo" />
+                <ImgLogoLanding src="https://res.cloudinary.com/drghk9p6q/image/upload/v1671239637/Final-Project-MERN/Logo/Logotipo_tzolje.webp" alt="Logo" />
                 <PSlogan>The music that unites us</PSlogan>
                 <div style={{gridRow: 3}}>
                     <Login />
