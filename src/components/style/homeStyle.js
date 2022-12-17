@@ -95,10 +95,10 @@ export const DivSliders = styled.div`
 `
 export const DivSilderHeader = styled.div`
     display: flex;
-    background-color: #3d3d3d22;
+    border-bottom: 1px solid rgb(255, 255, 255, 0.07);
     justify-content: space-between;
     align-items: center;
-    margin: 20px 10px 20px 0;
+    margin: 30px 10px 10px 0;
     padding: 3px 20px;
     border-radius: 10px; 
 `
@@ -197,10 +197,13 @@ export const ImgAvatarUser = styled.img`
     }
 `
 export const PNameUser = styled.p`
+display:flex;
+justify-content:center;
     font-size: 24px;
     position: absolute;
     left: 0;
     top: 90px;
+    margin:0 auto;
     text-shadow: 1px 1px 2px black, 0 0 20px black, 0 0 4px black;
     @media ${device.desktop}{
         font-size: 34px;
@@ -231,7 +234,7 @@ export const DivMusicCard = styled.div`
     border-radius: 20px;
     text-decoration: none;
     color: ${color.primaryWhite};
-    background: hsla(0, 0%, 100%, 0.02);
+    background: hsla(0, 0%, 100%, 0.007);
     width: 224px;
     margin-bottom:10px;
     @media ${device.desktop}{   
@@ -242,7 +245,7 @@ export const DivMusicCard = styled.div`
         cursor: pointer;
         transition: 300ms;
         &:hover{
-            background: rgba(255, 255, 255, .2);
+            background: rgba(255, 255, 255, .05);
         }
     }
 `
