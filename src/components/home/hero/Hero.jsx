@@ -1,7 +1,6 @@
 import HeroSlider, { Overlay, Slide, ButtonsNav } from "hero-slider";
 import { memo } from "react";
 import { useNavigate } from "react-router-dom";
-import { slide1, slide2, slide3, slide4 } from "../../../assets/img/gallery_slides";
 import { DivHeroTitles, H2StyleHero, H4StyleHero } from "../../style/homeStyle";
 
 const Hero = () => {
@@ -41,28 +40,28 @@ const Hero = () => {
             <Slide
         label="Viña Rock - 28/04/2023"
         background={{
-            backgroundImageSrc: slide1,
+            backgroundImageSrc: "https://res.cloudinary.com/drghk9p6q/image/upload/v1671240506/Final-Project-MERN/BannersHero/slide1_rd5sg8.webp",
         }}
       />
 
       <Slide
         label="Måneskin - 11/04/2023"
         background={{
-            backgroundImageSrc: slide2,
+            backgroundImageSrc: "https://res.cloudinary.com/drghk9p6q/image/upload/v1671240506/Final-Project-MERN/BannersHero/slide4_xtpb2w.webp",
         }}
       />
 
       <Slide
         label="Resurrection - 28/6/2023"
         background={{
-          backgroundImageSrc: slide3
+          backgroundImageSrc: "https://res.cloudinary.com/drghk9p6q/image/upload/v1671240506/Final-Project-MERN/BannersHero/slide3_vnlkna.webp"
         }}
       />
 
       <Slide
         label="Duki - 24/02/2023"
         background={{
-            backgroundImageSrc: slide4
+            backgroundImageSrc: "https://res.cloudinary.com/drghk9p6q/image/upload/v1671240506/Final-Project-MERN/BannersHero/slide2_jgbzcb.webp"
         }}
       />
 
