@@ -44,16 +44,16 @@ export const DivWelcomingHome = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 10px;
+    margin-top: 20px;
 `
 
 export const H1Welcome = styled.h1`
-    font-size: 20px;
+    font-size: 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     @media ${device.desktop}{
-        font-size: 30px;
+        font-size: 32px;
     } 
 `
 
@@ -95,12 +95,11 @@ export const DivSliders = styled.div`
 `
 export const DivSilderHeader = styled.div`
     display: flex;
-    border-bottom: 1px solid rgb(255, 255, 255, 0.07);
+    border-bottom: 2px solid rgb(255, 255, 255, 0.05);
     justify-content: space-between;
     align-items: center;
     margin: 30px 10px 10px 0;
     padding: 3px 20px;
-    border-radius: 10px; 
 `
 
 export const LinkViewMore = styled(LinkSecondaryStyle)`
