@@ -10,6 +10,7 @@
     "data": "json-server -p 4000 -w ./src/assets/data/db.json"
   },
   "dependencies": {
+    "@auth0/auth0-react": "^1.12.0",
     "@reduxjs/toolkit": "^1.9.1",
     "@tanstack/react-query": "^4.18.0",
     "boring-avatars": "^1.7.0",
