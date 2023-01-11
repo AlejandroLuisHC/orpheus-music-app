@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { lazy, Suspense } from 'react'
-import QueryProvider from "../helper/utils/reactQuery/QueryProvider"
-import StoreProvider from "../redux/provider/StoreProvider"
+import GeneralProvider from "../helper/utils/general_provider/GeneralProvider"
 import LogoSpinner from "../components/general_components/loaders/spinner/LogoSpinner"
 import PrivateRoutes from "./PrivateRoutes"
 import NotConnectedRoutes from "./NotConnectedRoutes"
@@ -42,8 +41,7 @@ const Search = lazy(async () => {
 
 const Router = () => {
     return (
-        <QueryProvider>
-        <StoreProvider>
+        <GeneralProvider>
             <BrowserRouter>
                 <Suspense fallback={<LogoSpinner />}>
                     <Routes>
@@ -59,8 +57,7 @@ const Router = () => {
                     </Routes>
                 </Suspense>
             </BrowserRouter>
-        </StoreProvider>
-        </QueryProvider>
+        </GeneralProvider>
     )
 }
 

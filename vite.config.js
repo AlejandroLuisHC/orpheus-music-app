@@ -8,5 +8,8 @@ export default defineConfig({
    commonjsOptions: {
       esmExternals: true,
    },
+   server: {
+    port: 3000,
+  },
 });
 

@@ -5,6 +5,7 @@ import Login from "../components/landing/Login"
 import { useEffect } from 'react';
 import FooterInfo from '../components/general_components/FooterInfo';
 import useWidth from '../helper/hooks/useWidth'
+import AuthButton from "../components/landing/AuthButton";
 
 const Landing = () => {
     const [loginView, setLoginView] = useState(false)
@@ -29,7 +30,7 @@ const Landing = () => {
                 {loginView 
                     ? 
                     <div style={{gridRow: 3}}>
-                        <Login />
+                        <AuthButton />
                     </div>
                     :
                     <ButtonLogin onClick={() => setLoginView(prev => prev = true)}><FaAngleDoubleUp /></ButtonLogin>                       
@@ -41,7 +42,7 @@ const Landing = () => {
                 <ImgLogoLanding src="https://res.cloudinary.com/drghk9p6q/image/upload/v1671239637/Final-Project-MERN/Logo/Logotipo_tzolje.webp" alt="Logo" />
                 <PSlogan>The music that unites us</PSlogan>
                 <div style={{gridRow: 3}}>
-                    <Login />
+                    <AuthButton />
                 </div>
                 <FooterLanding><FooterInfo /></FooterLanding>
             </DivLanding>
