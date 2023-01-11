@@ -1,8 +1,17 @@
+import { useAuth0 } from '@auth0/auth0-react';
 import { useNavigate } from 'react-router-dom';
-import { ButtonPrimaryStyle, ButtonSecondaryStyle, DivInputStyle, InputStyle, LabelStyle, PErrorStyle } from '../../style/generalStyle'
+import { 
+    ButtonPrimaryStyle, 
+    ButtonSecondaryStyle, 
+    DivInputStyle, 
+    InputStyle, 
+    LabelStyle, 
+    PErrorStyle 
+} from '../../style/generalStyle'
 
 const RegisterStep1 = ({ register, watch, userDataAvailable, setFormSteps }) => {
     const navigate = useNavigate();
+    const { user } = useAuth0();
 
     return (
         <>
@@ -13,7 +22,7 @@ const RegisterStep1 = ({ register, watch, userDataAvailable, setFormSteps }) => 
                     Let's start with your username
                     <InputStyle
                         type="text"
-                        placeholder="Username"
+                        placeholder= {`${user?.nickname}` || "Username"}
                         required
                         {...register('username', {
                             required: true,
@@ -26,26 +35,8 @@ const RegisterStep1 = ({ register, watch, userDataAvailable, setFormSteps }) => 
                 )}
             </DivInputStyle>
 
-            <DivInputStyle>
-                <LabelStyle>
-                    We need an email
-                    <InputStyle
-                        type="email"
-                        placeholder="Email"
-                        required
-                        {...register('email', {
-                            required: true,
-                            validate: (email) => userDataAvailable(email),
-                        })}
-                    />
-                </LabelStyle>
-                {!userDataAvailable(watch('email')) && (
-                    <PErrorStyle>Sorry! This email is already taken</PErrorStyle>
-                )}
-            </DivInputStyle>
-
             <ButtonPrimaryStyle
-                onClick={() => setFormSteps(prev => prev = { step: '2', secondStep: true })}
+                onClick={() => setFormSteps(prev => prev = { step: '4', fourthStep: true })}
             >
                 Next
             </ButtonPrimaryStyle>

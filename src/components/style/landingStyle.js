@@ -5,7 +5,7 @@ import { Footer, ImgLogoM, ImgLogoS } from "./generalStyle";
 export const DivLanding = styled.div`
     display: grid;
     height: 100vh;
-    grid-template: 60px 45px 6fr 40px / 1fr;
+    grid-template: 60px 45px 8fr 40px / 1fr;
     text-align: center;
     position: relative;
     z-index: 1;
@@ -24,7 +24,7 @@ export const DivLanding = styled.div`
         background-repeat: repeat-y;
     }
     @media ${device.desktop}{ 
-        grid-template: 1fr 6fr 90px 40px / 1fr;
+        grid-template: 1fr 90px 8fr 40px / 1fr;
         &::before{
             position: absolute;
             top: 0; 

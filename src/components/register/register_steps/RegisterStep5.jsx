@@ -1,7 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
 import { fetchKey } from '../../../api';
-import { ButtonPrimaryStyle, ButtonSecondaryStyle } from '../../style/generalStyle';
-import { DivFlexGenres, DivGenreCircle, DivSelectedGenreCircle } from '../../style/registerStyle';
+import { 
+    ButtonPrimaryStyle, 
+    ButtonSecondaryStyle 
+} from '../../style/generalStyle';
+import { 
+    DivFlexGenres, 
+    DivGenreCircle, 
+    DivSelectedGenreCircle 
+} from '../../style/registerStyle';
 
 const RegisterStep5 = ({ setFormSteps, selectedGenres, setSelectedGenres, setAvatar }) => {
     const { data: genres } = useQuery(

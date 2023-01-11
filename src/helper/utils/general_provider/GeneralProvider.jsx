@@ -5,9 +5,9 @@ import { Auth0Provider } from '@auth0/auth0-react'
 const GeneralProvider = ({ children }) => {
     return (
         <Auth0Provider
-            domain      = "dev-8ubas8e7b3y88k8n.eu.auth0.com"
-            clientId    = "orKIwyRmuY2sn9UDpcIIOzDfxtrilS0r"
-            redirectUri = {window.location.origin}
+            domain      = {import.meta.env.VITE_API_AUTH0_DOMAIN}
+            clientId    = {import.meta.env.VITE_API_AUTH0_CLIENT_ID}
+            redirectUri = {window.location.origin + '/register'}
         >
         <QueryProvider>
         <StoreProvider>

@@ -1,13 +1,31 @@
+import { useAuth0 } from '@auth0/auth0-react'
 import Avatar from 'boring-avatars'
-import { ButtonPrimaryStyle, ButtonSecondaryStyle, DivImgCircleL, DivImgCircleM, DivImgCircleS, DivInputStyle, InputStyle, LabelFilesStyle, LabelStyle, SelectCountry, SelectRegion } from '../../style/generalStyle'
-import { DivFlexGenres, PSkip, SpanSkip } from '../../style/registerStyle'
+import { 
+    ButtonPrimaryStyle, 
+    ButtonSecondaryStyle, 
+    DivImgCircleL, 
+    DivImgCircleM, 
+    DivImgCircleS, 
+    DivInputStyle, 
+    ImgLogoL, 
+    InputStyle,  
+    LabelStyle, 
+    SelectCountry, 
+    SelectRegion 
+} from '../../style/generalStyle'
+import { 
+    DivFlexGenres, 
+    PSkip, 
+    SpanSkip 
+} from '../../style/registerStyle'
 
 const RegisterStep4 = ({register, setFormSteps, location, setLocation , setAvatar}) => {
     const avatarId = JSON.stringify(new Date())
-    
+    const { user } = useAuth0();
+
     return (
         <>
-            <legend>Protect your account</legend>
+            <legend>About you</legend>
 
             <PSkip>
                 <span>or</span><SpanSkip onClick={() => setFormSteps(prev => prev = { fifthStep: true })}>skip</SpanSkip><span>and complete later</span>
@@ -18,8 +36,9 @@ const RegisterStep4 = ({register, setFormSteps, location, setLocation , setAvata
                     What's your name
                     <InputStyle 
                         type="text"
-                        placeholder="First name"
-                        required {...register('firstName')} 
+                        defaultValue={user?.given_name || "First name"}
+                        required 
+                        {...register('firstName')} 
                     />
                 </LabelStyle>
             </DivInputStyle>
@@ -29,7 +48,7 @@ const RegisterStep4 = ({register, setFormSteps, location, setLocation , setAvata
                     Your lastname
                     <InputStyle 
                         type="text"
-                        placeholder="Last name"
+                        defaultValue={user?.family_name || "First name"}
                         required 
                         {...register('lastName')} 
                     />
@@ -56,39 +75,42 @@ const RegisterStep4 = ({register, setFormSteps, location, setLocation , setAvata
                     </div>
                 </LabelStyle>
             </DivInputStyle>
-
-            <DivInputStyle>
-                <LabelFilesStyle style={{cursor: "pointer"}} htmlFor='uploadPic'> This is your avatar! </LabelFilesStyle>
-                {/* <LabelFilesStyle style={{cursor: "pointer"}} htmlFor='uploadPic'> Upload a photo </LabelFilesStyle> */}
-                {/* <input id="uploadPic" style={{visibility: "hidden"}} type="file" {...register('avatar')} /> */}
-            </DivInputStyle>
             
             <DivFlexGenres>
                 <DivImgCircleL>
-                    <Avatar 
-                        size={110}
-                        name={avatarId}
-                        variant="beam"
-                        colors={["#EFB810", "#F85858", "#00FFCD", "#0E6BA8", "#3D3D3D"]}
-                    />
+                    {user?.picture
+                        ? <ImgLogoL src={user?.picture} alt="User's avatar" width="120px" />
+                        :   <Avatar 
+                            size={120}
+                            name={avatarId}
+                            variant="beam"
+                            colors={["#EFB810", "#F85858", "#00FFCD", "#0E6BA8", "#3D3D3D"]}
+                        />
+                    }
                 </DivImgCircleL>
                 <div>
                     <DivImgCircleM>
-                        <Avatar 
+                    {user?.picture
+                        ? <ImgLogoL src={user?.picture} alt="User's avatar" width="70px" />
+                        :   <Avatar 
                             size={70}
                             name={avatarId}
                             variant="beam"
                             colors={["#EFB810", "#F85858", "#00FFCD", "#0E6BA8", "#3D3D3D"]}
                         />
+                    }
                     </DivImgCircleM>
 
                     <DivImgCircleS>
-                        <Avatar 
+                    {user?.picture
+                        ? <ImgLogoL src={user?.picture} alt="User's avatar" width="30px" />
+                        :   <Avatar 
                             size={30}
                             name={avatarId}
                             variant="beam"
                             colors={["#EFB810", "#F85858", "#00FFCD", "#0E6BA8", "#3D3D3D"]}
                         />
+                    }
                     </DivImgCircleS>
                 </div>
             </DivFlexGenres>
@@ -98,7 +120,7 @@ const RegisterStep4 = ({register, setFormSteps, location, setLocation , setAvata
             >
                 Next
             </ButtonPrimaryStyle>
-            <ButtonSecondaryStyle onClick={() =>{setFormSteps(prev => prev = { step: '3',  thirdStep: true })} }>Back</ButtonSecondaryStyle>
+            <ButtonSecondaryStyle onClick={() =>{setFormSteps(prev => prev = { step: '1',  firstStep: true })} }>Back</ButtonSecondaryStyle>
         </>
     )
 }

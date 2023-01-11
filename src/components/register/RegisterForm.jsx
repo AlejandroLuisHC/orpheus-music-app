@@ -6,9 +6,11 @@ import { RegisterStep1, RegisterStep2, RegisterStep3, RegisterStep4, RegisterSte
 import { DivStepsContainer, DivStepsCounter, FormStyle } from '../style/generalStyle';
 import { fetchUsers } from './../../api/';
 import LogoSpinner from '../general_components/loaders/spinner/LogoSpinner'
+import { useAuth0 } from '@auth0/auth0-react';
 
 const RegisterForm = () => {
     const { data: users, status } = useQuery(['users'], fetchUsers);
+    const { user } = useAuth0();
 
     const {
         register,
@@ -19,24 +21,16 @@ const RegisterForm = () => {
 
     const [registerData, setRegisterData] = useState({
         userData: {
-            username: '',
-            firstName: '',
-            lastName: '',
-            email: '',
+            username: user?.nickname || '',
+            firstName: user?.given_name || '',
+            lastName: user?.family_name || '',
+            email: user?.email,
             country: '',
             city: '',
-            password: '',
-            secretQuestion: '',
-            secretAnswer: '',
-            avatar: '',
+            avatar: user?.picture || '',
             banner: '',
             favGenres: [],
         },
-        work: {
-            myAlbums: [],
-            myTracks: [],
-        },
-        myPlaylists: [],
         favPlaylists: [],
         favAlbums: [],
         favTracks: [],
@@ -44,7 +38,6 @@ const RegisterForm = () => {
         following: [],
         isVerified: false,
         isAdmin: false,
-        isLoggedIn: false,
     });
 
     const { userData } = registerData;
@@ -59,31 +52,22 @@ const RegisterForm = () => {
     const userDataAvailable = inputValue => {
         const findUser = users?.find(
             user =>
-                user.userData.username === inputValue ||
-                user.userData.email === inputValue
+                user.userData.username === inputValue
         );
         return !findUser ? true : false;
     };
 
     const createUser = ({
         username,
-        email,
-        password,
-        secretQuestion,
-        secretAnswer,
         firstName,
         lastName,
     }) => {
-        userData.username       = username || '';
-        userData.email          = email || '';
-        userData.password       = password || '';
-        userData.secretQuestion = secretQuestion || '';
-        userData.secretAnswer   = secretAnswer || '';
-        userData.firstName      = firstName || '';
-        userData.lastName       = lastName || '';
+        userData.username       = username || user?.nickname || '';
+        userData.firstName      = firstName || user?.given_name || '';
+        userData.lastName       = lastName || user?.family_name || '';
         userData.country        = country || '';
         userData.city           = region || '';
-        userData.avatar         = avatar || '' ;
+        userData.avatar         = avatar || user?.picture || '' ;
         userData.favGenres      = selectedGenres || [];
 
         setRegisterData({
@@ -116,7 +100,7 @@ const RegisterForm = () => {
                                 setFormSteps = {setFormSteps}
                             />
                         }
-                        {formSteps.secondStep && 
+                        {/* {formSteps.secondStep && 
                             <RegisterStep2 
                                 register = {register}
                                 watch = {watch}
@@ -129,7 +113,7 @@ const RegisterForm = () => {
                                 register = {register}
                                 setFormSteps = {setFormSteps}
                             />
-                        }
+                        } */}
                         {formSteps.fourthStep && 
                             <RegisterStep4 
                                 register = {register}

@@ -1,11 +1,18 @@
-import { ButtonLogin, DivLanding, FooterLanding, ImgLogoClick, ImgLogoLanding, PSlogan} from "../components/style/landingStyle"
 import { FaAngleDoubleUp } from "react-icons/fa"
-import { useState, memo } from "react"
+import { useEffect, useState, memo } from "react"
+import AuthSignUpButton from "../components/landing/AuthSignUpButton";
+import AuthLogoutButton from "../components/landing/AuthLogoutButton";
 import Login from "../components/landing/Login"
-import { useEffect } from 'react';
 import FooterInfo from '../components/general_components/FooterInfo';
 import useWidth from '../helper/hooks/useWidth'
-import AuthButton from "../components/landing/AuthButton";
+import { 
+    ButtonLogin, 
+    DivLanding, 
+    FooterLanding, 
+    ImgLogoClick, 
+    ImgLogoLanding, 
+    PSlogan
+} from "../components/style/landingStyle"
 
 const Landing = () => {
     const [loginView, setLoginView] = useState(false)
@@ -20,7 +27,6 @@ const Landing = () => {
         }
     }, [width])
 
-
     return (
         !windowDesk 
             ?
@@ -30,7 +36,8 @@ const Landing = () => {
                 {loginView 
                     ? 
                     <div style={{gridRow: 3}}>
-                        <AuthButton />
+                        <AuthSignUpButton />
+                        <AuthLogoutButton />
                     </div>
                     :
                     <ButtonLogin onClick={() => setLoginView(prev => prev = true)}><FaAngleDoubleUp /></ButtonLogin>                       
@@ -42,7 +49,8 @@ const Landing = () => {
                 <ImgLogoLanding src="https://res.cloudinary.com/drghk9p6q/image/upload/v1671239637/Final-Project-MERN/Logo/Logotipo_tzolje.webp" alt="Logo" />
                 <PSlogan>The music that unites us</PSlogan>
                 <div style={{gridRow: 3}}>
-                    <AuthButton />
+                    <AuthSignUpButton />
+                    <AuthLogoutButton />
                 </div>
                 <FooterLanding><FooterInfo /></FooterLanding>
             </DivLanding>

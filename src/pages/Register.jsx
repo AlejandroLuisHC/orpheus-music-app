@@ -31,7 +31,7 @@ const Register = () => {
             </DivLanding>
             : 
             <DivLanding>
-                <ImgLogoLanding onClick={() => navigate('/')} src={logo} alt="Logo" />
+                <ImgLogoLanding onClick={() => navigate('/')} src="https://res.cloudinary.com/drghk9p6q/image/upload/v1671239637/Final-Project-MERN/Logo/Logotipo_tzolje.webp" alt="Logo" />
                 <PSlogan>The music that unites us</PSlogan>
                 <div style={{gridRow: 3}}>
                     <RegisterForm />
