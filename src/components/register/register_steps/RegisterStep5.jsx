@@ -45,19 +45,19 @@ const RegisterStep5 = ({ setFormSteps, selectedGenres, setSelectedGenres, setAva
             <p>Select at least one genre</p>
             <DivFlexGenres>
                 {genres?.map((genre) => {
-                    return !isGenreSelected(genre.id) ? (
+                    return !isGenreSelected(genre._id) ? (
                         <DivGenreCircle
-                            key={genre.id}
+                            key={genre._id}
                             size={`${getRandomSize()}px`}
-                            onClick={() => addToSelectedGenres(genre.id)}
+                            onClick={() => addToSelectedGenres(genre._id)}
                         >
                             <p>{genre.name}</p>
                         </DivGenreCircle>
                     ) : (
                         <DivSelectedGenreCircle
-                            key={genre.id}
+                            key={genre._id}
                             size={`${getRandomSizeSelected()}px`}
-                            onClick={() => removeFromSelectedGenres(genre.id)}
+                            onClick={() => removeFromSelectedGenres(genre._id)}
                         >
                             <p>{genre.name}</p>
                         </DivSelectedGenreCircle>

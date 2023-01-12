@@ -1,6 +1,6 @@
 const fetchUsers = async() => {
     try{
-        const res = await fetch ("http://localhost:4000/users")
+        const res = await fetch ("http://localhost:4001/api/v1/users")
         return res.json();
 
     } catch(e) {

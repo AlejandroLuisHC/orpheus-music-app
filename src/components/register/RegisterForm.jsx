@@ -13,7 +13,7 @@ import { LOG_IN } from '../../redux/features/user_data/userSlice';
 
 const RegisterForm = () => {
     const { data: users, status } = useQuery(['users'], fetchUsers);
-    const { user } = useAuth0();
+    const { user: userAuth } = useAuth0();
     // const goHome = useNavigate();
     const dispatch = useDispatch();
     const {
@@ -25,13 +25,13 @@ const RegisterForm = () => {
 
     const [registerData, setRegisterData] = useState({
         userData: {
-            username: user?.nickname || '',
-            firstName: user?.given_name || '',
-            lastName: user?.family_name || '',
-            email: user?.email,
+            username: userAuth?.nickname || '',
+            firstName: userAuth?.given_name || '',
+            lastName: userAuth?.family_name || '',
+            email: userAuth?.email,
             country: '',
             city: '',
-            avatar: user?.picture || '',
+            avatar: userAuth?.picture || '',
             banner: '',
             favGenres: [],
         },
@@ -62,26 +62,27 @@ const RegisterForm = () => {
         return !findUser ? true : false;
     };
 
-    const createUser = ({
+    const createUser = async ({
         username,
         firstName,
         lastName,
     }) => {
-        userData.username       = username || user?.nickname || '';
-        userData.firstName      = firstName || user?.given_name || '';
-        userData.lastName       = lastName || user?.family_name || '';
+        userData.username       = username || userAuth?.nickname || '';
+        userData.firstName      = firstName || userAuth?.given_name || '';
+        userData.lastName       = lastName || userAuth?.family_name || '';
         userData.country        = country || '';
         userData.city           = region || '';
-        userData.avatar         = user?.picture || avatar || '' ;
+        userData.avatar         = userAuth?.picture || '' ;
         userData.favGenres      = selectedGenres || [];
 
         setRegisterData({
             ...registerData,
         });
 
-        console.log(registerData);
-        fetchCreateUser(registerData)
-        dispatch(LOG_IN(registerData));
+        const data = await fetchCreateUser(registerData)
+
+        data.status === 'Created' && dispatch(LOG_IN(registerData));
+        data.status === 'false' && console.log("There was a problem creating the user"); // MANAGE INCORRECT REGISTER 
     };
 
     return (

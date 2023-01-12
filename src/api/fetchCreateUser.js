@@ -5,8 +5,11 @@ const fetchCreateUser = async (user = {}) => {
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify(user)
         }
-        const res = await fetch('http://localhost:4000/users', options)
-        console.log('User successfully created:', await res.json())
+        const res = await fetch('http://localhost:4001/api/v1/users', options)
+        const data = await res.json() 
+        console.log('User successfully created:', data)
+        return data
+
     } catch (err) {
         console.warn('An error occurred when creating the user');
     }
