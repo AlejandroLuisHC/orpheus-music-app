@@ -20,8 +20,8 @@ import {
 } from '../../style/registerStyle'
 
 const RegisterStep4 = ({register, setFormSteps, location, setLocation , setAvatar}) => {
-    const avatarId = JSON.stringify(new Date())
     const { user } = useAuth0();
+    const avatarId = user?.picture ?? JSON.stringify(new Date())
 
     return (
         <>
@@ -76,7 +76,7 @@ const RegisterStep4 = ({register, setFormSteps, location, setLocation , setAvata
                 </LabelStyle>
             </DivInputStyle>
             
-            <DivFlexGenres>
+            {/* <DivFlexGenres>
                 <DivImgCircleL>
                     {user?.picture
                         ? <ImgLogoL src={user?.picture} alt="User's avatar" width="120px" />
@@ -113,14 +113,14 @@ const RegisterStep4 = ({register, setFormSteps, location, setLocation , setAvata
                     }
                     </DivImgCircleS>
                 </div>
-            </DivFlexGenres>
-            <ButtonPrimaryStyle
+            </DivFlexGenres> */}
+            <ButtonPrimaryStyle type="button" 
                 // onClick={handleSubmit((x) => console.log(x.avatar))}
                 onClick={() => {setFormSteps(prev => prev = { step: '5',  fifthStep: true }); setAvatar(prev=> prev = avatarId)}}
             >
                 Next
             </ButtonPrimaryStyle>
-            <ButtonSecondaryStyle onClick={() =>{setFormSteps(prev => prev = { step: '1',  firstStep: true })} }>Back</ButtonSecondaryStyle>
+            <ButtonSecondaryStyle type="button" onClick={() =>{setFormSteps(prev => prev = { step: '1',  firstStep: true })} }>Back</ButtonSecondaryStyle>
         </>
     )
 }

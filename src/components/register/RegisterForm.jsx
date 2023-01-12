@@ -7,11 +7,15 @@ import { DivStepsContainer, DivStepsCounter, FormStyle } from '../style/generalS
 import { fetchUsers } from './../../api/';
 import LogoSpinner from '../general_components/loaders/spinner/LogoSpinner'
 import { useAuth0 } from '@auth0/auth0-react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { LOG_IN } from '../../redux/features/user_data/userSlice';
 
 const RegisterForm = () => {
     const { data: users, status } = useQuery(['users'], fetchUsers);
     const { user } = useAuth0();
-
+    // const goHome = useNavigate();
+    const dispatch = useDispatch();
     const {
         register,
         handleSubmit,
@@ -38,6 +42,7 @@ const RegisterForm = () => {
         following: [],
         isVerified: false,
         isAdmin: false,
+        isLogged: true
     });
 
     const { userData } = registerData;
@@ -67,7 +72,7 @@ const RegisterForm = () => {
         userData.lastName       = lastName || user?.family_name || '';
         userData.country        = country || '';
         userData.city           = region || '';
-        userData.avatar         = avatar || user?.picture || '' ;
+        userData.avatar         = user?.picture || avatar || '' ;
         userData.favGenres      = selectedGenres || [];
 
         setRegisterData({
@@ -75,18 +80,19 @@ const RegisterForm = () => {
         });
 
         console.log(registerData);
-        fetchCreateUser(registerData);
+        fetchCreateUser(registerData)
+        dispatch(LOG_IN(registerData));
     };
 
     return (
-        //TODO: logo
-        //TODO: process bar
         status === "loading" 
             ? <LogoSpinner />
             : status === "error"
                 ? <p>Error</p>
                 : 
-                <FormStyle onSubmit={handleSubmit(data => createUser(data))}>
+                <FormStyle onSubmit={
+                    handleSubmit(data => createUser(data))
+                }>
                     <DivStepsContainer>
                         <DivStepsCounter step={formSteps.step}></DivStepsCounter>
                     </DivStepsContainer>

@@ -36,11 +36,12 @@ const RegisterStep1 = ({ register, watch, userDataAvailable, setFormSteps }) => 
             </DivInputStyle>
 
             <ButtonPrimaryStyle
+                type="button"
                 onClick={() => setFormSteps(prev => prev = { step: '4', fourthStep: true })}
             >
                 Next
             </ButtonPrimaryStyle>
-            <ButtonSecondaryStyle onClick={() => navigate('/')}>Back</ButtonSecondaryStyle>
+            <ButtonSecondaryStyle type="button" onClick={() => navigate('/')}>Back</ButtonSecondaryStyle>
         </>
     )
 }

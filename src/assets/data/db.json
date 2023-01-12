@@ -389,44 +389,8 @@
       ],
       "followers": [
         1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1
+        2,
+        3
       ],
       "following": [
         3,
@@ -434,6 +398,30 @@
       ],
       "isVerified": false,
       "isAdmin": false
+    },
+    {
+      "userData": {
+        "username": "Test",
+        "firstName": "Alejandro L.",
+        "lastName": "Herrero",
+        "email": "alejandrolhc@gmail.com",
+        "country": "",
+        "city": "",
+        "avatar": "https://lh3.googleusercontent.com/a/AEdFTp60wOu7NVNoWvsXOINhrZvpYcL0jxP76EMDh1PAsw=s96-c",
+        "banner": "",
+        "favGenres": [
+          3
+        ]
+      },
+      "favPlaylists": [],
+      "favAlbums": [],
+      "favTracks": [],
+      "followers": [],
+      "following": [],
+      "isVerified": false,
+      "isAdmin": false,
+      "isLogged": true,
+      "id": 7
     }
   ],
   "events": [

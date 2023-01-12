@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import { Link } from 'react-router-dom';
 import { fetchKey } from '../../../api';
 import { 
     ButtonPrimaryStyle, 
@@ -65,7 +66,7 @@ const RegisterStep5 = ({ setFormSteps, selectedGenres, setSelectedGenres, setAva
             </DivFlexGenres>
 
             <ButtonPrimaryStyle type="submit" disabled={selectedGenres.length < 1}>I'm ready!</ButtonPrimaryStyle>
-            <ButtonSecondaryStyle onClick={() =>{setFormSteps(prev => prev = { step: '4', fourthStep: true }); setAvatar(prev=> prev = '')}}>Back</ButtonSecondaryStyle>
+            <ButtonSecondaryStyle type="button" onClick={() =>{setFormSteps(prev => prev = { step: '4', fourthStep: true }); setAvatar(prev=> prev = '')}}>Back</ButtonSecondaryStyle>
         </>
     )
 }

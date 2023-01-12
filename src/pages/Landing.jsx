@@ -37,7 +37,7 @@ const Landing = () => {
                     ? 
                     <div style={{gridRow: 3}}>
                         <AuthSignUpButton />
-                        <AuthLogoutButton />
+                        {/* <AuthLogoutButton /> */}
                     </div>
                     :
                     <ButtonLogin onClick={() => setLoginView(prev => prev = true)}><FaAngleDoubleUp /></ButtonLogin>                       

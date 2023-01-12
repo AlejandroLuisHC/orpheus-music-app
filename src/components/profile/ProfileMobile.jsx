@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { IoIosMore, IoMdCreate, IoMdReturnLeft } from 'react-icons/io';
 import { useSelector } from 'react-redux';
-import AvatarImg from '../general_components/AvatarImg'
 import FooterInfo from '../general_components/FooterInfo';
-import { Footer } from '../style/generalStyle';
+import { DivImgCircleL, Footer } from '../style/generalStyle';
 import { DivSliders } from '../style/homeStyle';
 import { DivMobileUserAvatar, DivProfile, DivProfileActionsStyle, DivProfileBanner, DivProfileUserInfoContainer, DivUserGeneralData, DivUsernameWorks, DropdownContainer, DropdownHeader, H1Username, H2UserWorks, ListItem, PProfileUserInfo, SectionEditUser, SectionProfileMain, SpanProfileUserNumbers } from '../style/profileStyle'
 import AddWork from './AddWork';
@@ -20,12 +19,11 @@ const ProfileMobile = () => {
     const [isOpen, setIsOpen] = useState(false);
     const toggling = () => setIsOpen(!isOpen);
     const dataKey = [
-        {id: 1, name:"My playlists", type: "playlist", data: user.myPlaylists}, 
-        {id: 2, name:"Fav. playlists", type: "playlist", data: user.favPlaylists}, 
-        {id: 3, name:"Fav. albums", type: "albums", data: user.favAlbums}, 
-        {id: 4, name:"Fav. tracks", type: "tracks", data: user.favTracks}, 
-        {id: 5, name:"Followers", type: "users", data: user.followers}, 
-        {id: 6, name:"Following", type: "users", data: user.following}
+        {id: 1, name:"Fav. playlists", type: "playlist", data: user.favPlaylists}, 
+        {id: 2, name:"Fav. albums", type: "albums", data: user.favAlbums}, 
+        {id: 3, name:"Fav. tracks", type: "tracks", data: user.favTracks}, 
+        {id: 4, name:"Followers", type: "users", data: user.followers}, 
+        {id: 5, name:"Following", type: "users", data: user.following}
     ]
 
     return (
@@ -47,10 +45,9 @@ const ProfileMobile = () => {
                         )}
                 </DropdownContainer>
                 <DivMobileUserAvatar>
-                    <AvatarImg
-                        size={160}
-                        avatarId={userData.avatar}
-                    />
+                    <DivImgCircleL>
+                        <img src={user.userData.avatar} alt={user.userData.username} />
+                    </DivImgCircleL>
                 </DivMobileUserAvatar>
 
                 <DivUserGeneralData>

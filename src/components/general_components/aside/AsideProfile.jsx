@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { LinkAside } from '../../style/generalStyle'
+import { DivImgCircleS, LinkAside } from '../../style/generalStyle'
 import AvatarImg from '../AvatarImg'
 
 const AsideProfile = () => {
@@ -8,10 +8,9 @@ const AsideProfile = () => {
     return (
         <>
             <LinkAside to={userData.username}>
-                <AvatarImg 
-                    size={20}
-                    avatarId={userData.avatar}
-                />
+                <DivImgCircleS>
+                    <img src={userData.avatar} alt={userData.username} width="30px" height="30px" />
+                </DivImgCircleS>
                 {userData?.username ?? 'Not Logged'}
             </LinkAside>
         </>
