@@ -14,8 +14,9 @@ import {
 } from '../style/searchStyle';
 
 const ResultCarrousel = ({ apiKey, search }) => {
-
-  const { data, status } = useQuery([apiKey, apiKey], () => fetchKey(apiKey));
+  const { getAccessTokenSilently } = useAuth0()
+  const token = getAccessTokenSilently()
+  const { data, status } = useQuery([apiKey, apiKey], () => fetchKey(apiKey, token));
 
   const [searchResults, setSearchResults] = useState([]);
   console.log(apiKey, searchResults)

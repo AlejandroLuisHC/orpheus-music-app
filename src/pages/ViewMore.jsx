@@ -11,7 +11,9 @@ import { useCallback } from "react"
 const ViewMore = () => {
     const { viewMore } = useParams()
     const [filter, setFilter] = useState(false)
-    const { data: originalData, status } = useQuery([viewMore, viewMore], () => fetchKey(viewMore))
+    const { getAccessTokenSilently } = useAuth0()
+    const token = getAccessTokenSilently()
+    const { data: originalData, status } = useQuery([viewMore, viewMore], () => fetchKey(viewMore, token))
     const [data, setData] = useState()
     useCallback(() => {
         setData(prev => prev = { ...originalData })

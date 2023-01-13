@@ -12,6 +12,7 @@ import { useDispatch } from 'react-redux';
 import { LOG_IN } from '../../redux/features/user_data/userSlice';
 
 const RegisterForm = () => {
+    
     const { data: users, status } = useQuery(['users'], fetchUsers);
     const { user: userAuth } = useAuth0();
     // const goHome = useNavigate();

@@ -1,3 +1,4 @@
+
 const fetchUsers = async() => {
     try{
         const res = await fetch ("http://localhost:4001/api/v1/users")

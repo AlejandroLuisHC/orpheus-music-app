@@ -1,3 +1,4 @@
+import { useAuth0 } from '@auth0/auth0-react';
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -24,7 +25,9 @@ import {
 } from '../style/homeStyle';
 
 const SearchSlider = ({ apiKey, search }) => {
-    const { data, status } = useQuery([apiKey, apiKey], () => fetchKey(apiKey));
+    const { getAccessTokenSilently } = useAuth0uth0()
+    const token = getAccessTokenSilently()
+    const { data, status } = useQuery([apiKey, apiKey], () => fetchKey(apiKey, token));
 
     const [searchResults, setSearchResults] = useState([]);
     console.log(apiKey, searchResults);
