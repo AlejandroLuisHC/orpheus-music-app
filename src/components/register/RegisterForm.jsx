@@ -24,17 +24,15 @@ const RegisterForm = () => {
     } = useForm();
 
     const [registerData, setRegisterData] = useState({
-        userData: {
-            username: userAuth?.nickname || '',
-            firstName: userAuth?.given_name || '',
-            lastName: userAuth?.family_name || '',
-            email: userAuth?.email,
-            country: '',
-            city: '',
-            avatar: userAuth?.picture || '',
-            banner: '',
-            favGenres: [],
-        },
+        username: userAuth?.nickname || '',
+        firstName: userAuth?.given_name || '',
+        lastName: userAuth?.family_name || '',
+        email: userAuth?.email,
+        country: '',
+        city: '',
+        avatar: userAuth?.picture || '',
+        banner: '',
+        favGenres: [],
         favPlaylists: [],
         favAlbums: [],
         favTracks: [],
@@ -45,19 +43,16 @@ const RegisterForm = () => {
         isLogged: true
     });
 
-    const { userData } = registerData;
-
     const [formSteps, setFormSteps] = useState({ step: '1', firstStep: true });
     const [selectedGenres, setSelectedGenres] = useState([]);
 
     const [location, setLocation] = useState({ country: '', region: '' });
-    const { country, region } = location;
 
     const [avatar ,setAvatar] = useState('')
     const userDataAvailable = inputValue => {
         const findUser = users?.find(
             user =>
-                user.userData.username === inputValue
+                user.username === inputValue
         );
         return !findUser ? true : false;
     };
@@ -67,13 +62,12 @@ const RegisterForm = () => {
         firstName,
         lastName,
     }) => {
-        userData.username       = username || userAuth?.nickname || '';
-        userData.firstName      = firstName || userAuth?.given_name || '';
-        userData.lastName       = lastName || userAuth?.family_name || '';
-        userData.country        = country || '';
-        userData.city           = region || '';
-        userData.avatar         = userAuth?.picture || '' ;
-        userData.favGenres      = selectedGenres || [];
+        registerData.username  = username || userAuth?.nickname || '';
+        registerData.firstName = firstName || userAuth?.given_name || '';
+        registerData.lastName  = lastName || userAuth?.family_name || '';
+        registerData.country   = location.country || '';
+        registerData.city      = location.region || '';
+        registerData.favGenres = selectedGenres || [];
 
         setRegisterData({
             ...registerData,

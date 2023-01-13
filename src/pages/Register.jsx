@@ -22,7 +22,7 @@ const Register = () => {
 
     function checkUserExists(email, users) {
         const foundUser = users.find((user) => 
-            user.userData.email === email
+            user.email === email
         )
         if (foundUser) {
             dispatch(LOG_IN(foundUser))

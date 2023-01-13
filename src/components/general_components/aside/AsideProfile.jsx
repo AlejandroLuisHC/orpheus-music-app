@@ -3,7 +3,7 @@ import { DivImgCircleS, LinkAside } from '../../style/generalStyle'
 import AvatarImg from '../AvatarImg'
 
 const AsideProfile = () => {
-    const userData = useSelector(state => state.userData.user.userData)
+    const userData = useSelector(state => state.userData.user)
 
     return (
         <>

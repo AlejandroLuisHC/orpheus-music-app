@@ -5,7 +5,7 @@ import AsideProfile from './AsideProfile'
 import AsideRecentPlaylist from './AsideRecentPlaylist'
 
 const AsideDesktop = () => {
-    const { username } = useSelector(state => state.userData.user.userData)
+    const { username } = useSelector(state => state.userData.user)
     return (
         <AsideDesktopStyle>
             <div>

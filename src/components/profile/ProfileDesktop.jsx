@@ -49,12 +49,12 @@ const ProfileDesktop = () => {
                 </DropdownContainer>
 
                 <DivImgCircleL>
-                    <img src={user.userData.avatar} alt={user.userData.username} />
+                    <img src={user.avatar} alt={user.username} />
                 </DivImgCircleL>
 
                 <DivUserGeneralData>
                     <DivUsernameWorks>
-                        <H1Username>{user.userData.username}</H1Username>
+                        <H1Username>{user.username}</H1Username>
                         <H2UserWorks>23 works</H2UserWorks>
                     </DivUsernameWorks>
                     <DivProfileUserInfoContainer>

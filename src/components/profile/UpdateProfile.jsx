@@ -19,7 +19,7 @@ const UpdateProfile = () => {
     }
     const [openInput, setOpenInput] = useState(initialState)
 
-    const userDataStore = useSelector(state => state.userData.user.userData);
+    const userDataStore = useSelector(state => state.userData.user);
     const user = useSelector(state => state.userData.user);
     const [ location, setLocation] = useState({ country: '', region: '' });
     const {

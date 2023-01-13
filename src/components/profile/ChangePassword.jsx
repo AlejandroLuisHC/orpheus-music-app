@@ -16,7 +16,7 @@ const ChangePassword = ({register, watch, formState}) => {
 
     
     const [formSteps, setFormSteps] = useState({ step: '1', firstStep: true });
-    const userActualData = useSelector(state => state.userData.user.userData);
+    const userActualData = useSelector(state => state.userData.user);
 
 
     const passwordValidation = inputValue => {

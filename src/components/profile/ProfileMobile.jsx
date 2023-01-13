@@ -15,7 +15,7 @@ import UpdateProfile from './UpdateProfile';
 const ProfileMobile = () => {
     const user = useSelector(state => state.userData.user);
     const [editView, setEditView] = useState(false);
-    const userData = useSelector(state => state.userData.user.userData)
+    const userData = useSelector(state => state.userData.user)
     const [isOpen, setIsOpen] = useState(false);
     const toggling = () => setIsOpen(!isOpen);
     const dataKey = [

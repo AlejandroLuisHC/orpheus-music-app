@@ -43,8 +43,8 @@ const HomeSlider = ({ apiKey }) => {
                 : apiKey === 'users'
                     ? {
                         id: item.id,
-                        name: item.userData.username,
-                        img: item.userData.avatar,
+                        name: item.username,
+                        img: item.avatar,
                         followers: item.followers.length
                     }
                     : item

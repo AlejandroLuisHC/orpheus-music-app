@@ -16,7 +16,7 @@ import HeaderProfile from '../components/home/HeaderProfile';
 
 const Home = () => {
     const apiKeys = ['events', 'playlists', 'albums', 'tracks', 'users']
-    const userData = useSelector((state) => state.userData.user.userData);
+    const userData = useSelector((state) => state.userData.user);
     const date = new Date();
     const hour = date.getHours();
     const welcome =
