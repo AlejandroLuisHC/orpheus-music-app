@@ -26,7 +26,9 @@ import {
 } from '../style/homeStyle';
 
 const HomeSlider = ({ apiKey }) => {
-    const { data, status } = useQuery([apiKey, apiKey], () => fetchKey(apiKey));
+    const { getAccessTokenSilently } = useAuth0()
+    const token = getAccessTokenSilently()
+    const { data, status } = useQuery([apiKey, apiKey], () => fetchKey(apiKey, token));
     const navigate = useNavigate();
     const [setPlayer] = useOutletContext();
     const items = () =>

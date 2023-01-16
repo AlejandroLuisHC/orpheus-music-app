@@ -5,8 +5,10 @@ import { fetchKey } from "../../api"
 
 
 const FilterButtons = ({ param, setFilter, filter }) => {
-    const { data: genres, status: genresStatus } = useQuery(["genres", "genres"], () => fetchKey("genres"));
-    const { data: moods, status: moodsStatus } = useQuery(["moods", "moods"], () => fetchKey("moods"));
+    const { getAccessTokenSilently } = useAuth0()
+    const token = getAccessTokenSilently()
+    const { data: genres, status: genresStatus } = useQuery(["genres", "genres"], () => fetchKey("genres", token));
+    const { data: moods, status: moodsStatus } = useQuery(["moods", "moods"], () => fetchKey("moods", token));
 
     const [filterActive, setFilterActive] = useState({})
     const addFilter = (id, type) => {

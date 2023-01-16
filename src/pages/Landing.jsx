@@ -13,12 +13,14 @@ import {
     ImgLogoLanding, 
     PSlogan
 } from "../components/style/landingStyle"
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Landing = () => {
     const [loginView, setLoginView] = useState(false)
     const width = useWidth();
     const [windowDesk, setWindowDesk] = useState(width > 768 ? true : false);
-
+        
+        
     useEffect(() => {
         if(width > 768){
             setWindowDesk(prev => prev = true);
