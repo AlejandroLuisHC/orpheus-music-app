@@ -10,6 +10,7 @@ import { fetchUsers } from '../api'
 import { LOG_IN } from '../redux/features/user_data/userSlice'
 import { useDispatch } from 'react-redux'
 import LogoSpinner from '../components/general_components/loaders/spinner/LogoSpinner'
+import Error from './Error'
 
 const Register = () => {
     const width = useWidth();
@@ -64,7 +65,7 @@ const Register = () => {
         status === "loading" || authLoading 
             ? <LogoSpinner/>
             : status === "error"
-                ? <p>Error</p>
+                ? <Error />
                 : checkUserExists(user?.email, users)           
     )
 }

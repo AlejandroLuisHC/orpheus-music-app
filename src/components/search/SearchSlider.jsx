@@ -89,7 +89,7 @@ const SearchSlider = ({ apiKey, search }) => {
         status === 'loading'
             ? <LogoSpinner />
             : status === 'error'
-                ? <p>Error</p>
+                ? <Error />
                 : searchResults?.length > 0 &&
                 <>
                     <DivSilderHeader>

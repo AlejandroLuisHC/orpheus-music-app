@@ -84,7 +84,7 @@ const RegisterForm = () => {
         status === "loading" 
             ? <LogoSpinner />
             : status === "error"
-                ? <p>Error</p>
+                ? <Error />
                 : 
                 <FormStyle onSubmit={
                     handleSubmit(data => createUser(data))

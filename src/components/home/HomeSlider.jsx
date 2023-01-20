@@ -3,6 +3,7 @@ import { memo } from 'react';
 import { useNavigate, useOutletContext } from 'react-router-dom';
 import { fetchKey } from '../../api';
 import { capitalizeFirstLetter } from '../../helper/utils';
+import Error from '../../pages/Error';
 import HomeSlidersLoader from '../general_components/loaders/content_loader/HomeSlidersLoader';
 import { DivImgRectangleL, H2Style } from '../style/generalStyle';
 import {
@@ -55,7 +56,7 @@ const HomeSlider = ({ apiKey }) => {
     return status === 'loading' ? (
         <HomeSlidersLoader />
     ) : status === 'error' ? (
-        <p>Error</p>
+        <Error />
     ) : (
         <>
             <DivSilderHeader>

@@ -23,7 +23,7 @@ const ViewMore = () => {
         status === "loading"
             ? <LogoSpinner />
             : status === "error"
-                ? <p>Error</p>
+                ? <Error />
                 :
                 <DivViewMore>
                     <H2StyleViewMore>All {viewMore}</H2StyleViewMore>
