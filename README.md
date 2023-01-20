@@ -74,8 +74,19 @@ npm run dev
 
 ## Contributing 🖇️
 
-If you want to contribute, please fork the repository, create a new branch with
-your contribution, and push the branch as a pull requests. Thank you.
+We welcome any contributions to the orpheus-music-app. To contribute, please follow these steps:
+
+1. Fork the repository by clicking the "Fork" button in the top right corner of this page.
+2. Clone the forked repository to your local machine by running `git clone https://github.com/AlejandroLuisHC/orpheus-music-app.git` in your terminal.
+3. Create a new branch for your contribution by running `git checkout -b [branch-name]`.
+4. Make your changes and test them thoroughly.
+5. Commit your changes by running `git commit -m "[commit message]"`.
+6. Push your changes to your forked repository by running `git push origin [branch-name]`.
+7. Create a new pull request by navigating to your forked repository on GitHub, selecting the branch you just pushed, and clicking the "New pull request" button.
+8. Provide a clear and detailed description of your changes and why they are necessary.
+9. We will review your pull request and provide feedback. Once it is approved, your changes will be merged.
+
+Thank you for your contributions! 🎉
 
 
 ## Contributors ✨
