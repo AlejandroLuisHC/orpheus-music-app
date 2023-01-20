@@ -1,8 +1,6 @@
 import { FaAngleDoubleUp } from "react-icons/fa"
 import { useEffect, useState, memo } from "react"
 import AuthSignUpButton from "../components/landing/AuthSignUpButton";
-import AuthLogoutButton from "../components/landing/AuthLogoutButton";
-import Login from "../components/landing/Login"
 import FooterInfo from '../components/general_components/FooterInfo';
 import useWidth from '../helper/hooks/useWidth'
 import { 
@@ -13,7 +11,6 @@ import {
     ImgLogoLanding, 
     PSlogan
 } from "../components/style/landingStyle"
-import { useAuth0 } from "@auth0/auth0-react";
 
 const Landing = () => {
     const [loginView, setLoginView] = useState(false)
@@ -39,7 +36,6 @@ const Landing = () => {
                     ? 
                     <div style={{gridRow: 3}}>
                         <AuthSignUpButton />
-                        {/* <AuthLogoutButton /> */}
                     </div>
                     :
                     <ButtonLogin onClick={() => setLoginView(prev => prev = true)}><FaAngleDoubleUp /></ButtonLogin>                       
@@ -52,7 +48,6 @@ const Landing = () => {
                 <PSlogan>The music that unites us</PSlogan>
                 <div style={{gridRow: 3}}>
                     <AuthSignUpButton />
-                    <AuthLogoutButton />
                 </div>
                 <FooterLanding><FooterInfo /></FooterLanding>
             </DivLanding>
