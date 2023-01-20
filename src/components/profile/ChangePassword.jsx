@@ -1,14 +1,6 @@
-import { useQuery } from '@tanstack/react-query';
 import React from 'react'
-import { useEffect } from 'react';
 import { useState } from 'react';
-
-import { useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchUsers } from '../../api';
-import fetchUpdateUser from '../../api/fetchUpdateUser';
-import { UPDATE } from '../../redux/features/user_data/userSlice';
-import { FormStyle } from '../style/generalStyle'
+import { useSelector } from 'react-redux';
 import ChangePasswordStep1 from './ChangePasswordStep1';
 import ChangePasswordStep2 from './ChangePasswordStep2';
 

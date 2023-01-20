@@ -35,7 +35,7 @@ import {
 const HomeSlider = ({ apiKey }) => {
     const { getAccessTokenSilently } = useAuth0()
     const token = getAccessTokenSilently()
-    const { data, status } = useQuery([apiKey, apiKey, token], () => fetchKey(apiKey, token));
+    const { data, status } = useQuery([apiKey, [apiKey, token]], () => fetchKey(apiKey, token));
     const navigate = useNavigate();
     const [setPlayer] = useOutletContext();
     const items = () => data?.map((item) =>
