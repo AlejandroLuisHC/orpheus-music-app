@@ -34,7 +34,7 @@ const ResultCarrousel = ({ apiKey, search }) => {
                 usersResults?.map((result) => ({
                     id: result.id,
                     name: result.userData.username,
-                    img: result.userData.avatar,
+                    img: result.userData.img.url,
                 }))
             );
 

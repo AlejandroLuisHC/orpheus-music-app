@@ -31,7 +31,7 @@ const RegisterForm = () => {
         email: userAuth?.email,
         country: '',
         city: '',
-        avatar: userAuth?.picture || '',
+        img: {url: userAuth?.picture || ''},
         banner: '',
         favGenres: [],
         favPlaylists: [],

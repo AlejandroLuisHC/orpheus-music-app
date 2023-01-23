@@ -426,13 +426,23 @@ export const DivImgCircleM = styled.div`
     }
 `
 
-export const DivImgCircleS = styled.div`
-    width: 30px;
-    height: 30px;
+export const ImgCircleS = styled.img`
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     @media ${device.desktop}{
         width: 50px;
         height: 50px;
+        border-radius: 50%;
+    }    
+`
+export const ImgCircleXL = styled.img`
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    @media ${device.desktop}{
+        width: 180px;
+        height: 180px;
         border-radius: 50%;
     }    
 `

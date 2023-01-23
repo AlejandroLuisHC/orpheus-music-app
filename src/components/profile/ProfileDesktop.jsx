@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import useWidth from '../../helper/hooks/useWidth';
 import AvatarImg from '../general_components/AvatarImg';
 import FooterInfo from '../general_components/FooterInfo';
-import { DivImgCircleL, Footer } from '../style/generalStyle';
+import { DivImgCircleL, Footer, ImgCircleS, ImgCircleXL } from '../style/generalStyle';
 import { DivSliders } from '../style/homeStyle';
 import { DivProfile, DivProfileActionsStyle, DivProfileBanner, DivProfileUserInfoContainer, DivUserGeneralData, DivUsernameWorks, DropdownContainer, DropdownHeader, H1Username, H2UserWorks, ListItem, PProfileUserInfo, SectionEditUser, SectionProfileMain, SpanProfileUserNumbers } from '../style/profileStyle';
 import AddWork from './AddWork';
@@ -49,7 +49,7 @@ const ProfileDesktop = () => {
                 </DropdownContainer>
 
                 <DivImgCircleL>
-                    <img src={user.avatar} alt={user.username} />
+                    <ImgCircleXL src={user.img.url} alt={user.username}/>
                 </DivImgCircleL>
 
                 <DivUserGeneralData>
@@ -59,15 +59,15 @@ const ProfileDesktop = () => {
                     </DivUsernameWorks>
                     <DivProfileUserInfoContainer>
                         <PProfileUserInfo>
-                            <SpanProfileUserNumbers>22</SpanProfileUserNumbers>
+                            <SpanProfileUserNumbers>{user.favPlaylists.length}</SpanProfileUserNumbers>
                             Playlists
                         </PProfileUserInfo>
                         <PProfileUserInfo>
-                            <SpanProfileUserNumbers>22</SpanProfileUserNumbers>
+                            <SpanProfileUserNumbers>{user.followers.length}</SpanProfileUserNumbers>
                             Followers
                         </PProfileUserInfo>
                         <PProfileUserInfo>
-                            <SpanProfileUserNumbers>22</SpanProfileUserNumbers>
+                            <SpanProfileUserNumbers>{user.following.length}</SpanProfileUserNumbers>
                             Following
                         </PProfileUserInfo>
                     </DivProfileUserInfoContainer>

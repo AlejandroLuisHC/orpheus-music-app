@@ -74,7 +74,7 @@ const RecoverPassword = () => {
                 password: findUser.userData.password,
                 secretQuestion: findUser.userData.secretQuestion,
                 secretAnswer: findUser.userData.secretAnswer,
-                avatar: findUser.userData.avatar,
+                avatar: findUser.userData.img.url,
                 banner: findUser.userData.banner,
                 favGenres: findUser.userData.favGenres,
             },
