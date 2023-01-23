@@ -7,7 +7,7 @@ const HeaderProfile = () => {
     return (
         <AvatarImg
             size={30}
-            avatarId={userData.avatar}
+            avatarId={userData.img.url}
         />
     )
 }

@@ -45,18 +45,18 @@ const HomeSlider = ({ apiKey }) => {
     const items = () => data?.map((item) =>
         apiKey === 'events'
             ? {
-                id: item.id,
+                id: item._id,
                 name: item.name,
-                img: item.img,
+                img: item.img.url,
                 location: item.location,
                 date: item.date,
                 price: item.price
             }
             : apiKey === 'users'
                 ? {
-                    id: item.id,
+                    id: item._id,
                     name: item.username,
-                    img: item.avatar,
+                    img: item.img.url,
                     followers: item.followers.length
                 }
                 : item

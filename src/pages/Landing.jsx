@@ -11,7 +11,6 @@ import {
     ImgLogoLanding, 
     PSlogan
 } from "../components/style/landingStyle"
-
 const Landing = () => {
     const [loginView, setLoginView] = useState(false)
     const width = useWidth();

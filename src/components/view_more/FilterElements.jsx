@@ -125,7 +125,7 @@ const FilterElements = ({ filter, data, viewMore }) => {
                 </DivEventCard>
             } else if (viewMore === "users") {
                 return <DivUserCard key={d.id}>
-                    <ImgAvatarUser src={d.userData.avatar} />
+                    <ImgAvatarUser src={d.userData.img.url} />
                     <PNameUser>{d.userData.username}</PNameUser>
                     <PFollowersUser>{d.followers.length} followers</PFollowersUser>
                 </DivUserCard>
