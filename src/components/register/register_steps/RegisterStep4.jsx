@@ -3,9 +3,6 @@ import Avatar from 'boring-avatars'
 import { 
     ButtonPrimaryStyle, 
     ButtonSecondaryStyle, 
-    DivImgCircleL, 
-    DivImgCircleM, 
-    DivImgCircleS, 
     DivInputStyle, 
     ImgLogoL, 
     InputStyle,  

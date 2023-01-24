@@ -42,25 +42,95 @@ const HomeSlider = ({ apiKey }) => {
 
     const navigate = useNavigate();
     const [setPlayer] = useOutletContext();
-    const items = () => data?.map((item) =>
-        apiKey === 'events'
-            ? {
-                id: item._id,
-                name: item.name,
-                img: item.img.url,
-                location: item.location,
-                date: item.date,
-                price: item.price
-            }
-            : apiKey === 'users'
-                ? {
-                    id: item._id,
-                    name: item.username,
-                    img: item.img.url,
-                    followers: item.followers.length
-                }
-                : item
-    );
+
+    console.log()
+
+   const items = (() => {
+    switch(apiKey){
+            case 'events':
+                return data.map((item)=>{
+                    return( 
+                        <DivEventCard key={item._id}>
+                            <DivImgRectangleL src={item.img.url} />
+                            <DivEventInfo>
+                                <div>
+                                   <PTitle>{item.name}</PTitle>
+                                <PDescription>{item.location} - {item.date}</PDescription>
+                                </div>
+                                <PEventPrice>{item.price}€</PEventPrice>
+                            </DivEventInfo>
+                        </DivEventCard>)
+                })
+                
+            case 'users': 
+                return data.map((item)=>{
+                    return(
+                        <DivUserCard key={item._id}>
+                            <ImgAvatarUser src={item.img.url} />
+                            <PNameUser>{item.name}</PNameUser>
+                            <PFollowersUser>{item.followers} followers</PFollowersUser>
+                        </DivUserCard>)
+                })
+            case 'albums':
+                return data.map((item)=>{
+                    return(
+                        <DivMusicCard key={item._id}
+                            resultType={apiKey}
+                            /* as={Link} to={`/${apiKey}/${result.name}`} */
+                        >
+                            <DivImageMusic onClick={() => {
+                                            
+                                setPlayer(
+                                    prev => prev = {
+                                        playerOn: true,
+                                        audio: item.file,
+                                        name: item.name,
+                                        user: item.description,
+                                    }
+                                )
+                            }}>
+                                <ImgCardMusic src={item.img.url} />
+                                </DivImageMusic>
+                                <DivInfoMusic>
+                                    <PTitle>{item.name}</PTitle>
+                                    <PDescription>{item.description}</PDescription>
+                                    </DivInfoMusic>
+                                </DivMusicCard>)
+                })
+            case 'playlist':
+                return data.map((item)=>{
+                    return(
+                        <DivMusicCard key={item._id}
+                            resultType={apiKey}
+                            /* as={Link} to={`/${apiKey}/${result.name}`} */
+                        >
+                            <DivImageMusic onClick={() => {
+                                            
+                                setPlayer(
+                                    prev => prev = {
+                                        playerOn: true,
+                                        audio: item.file,
+                                        name: item.name,
+                                        user: item.description,
+                                    }
+                                )
+                            }}>
+                                <ImgCardMusic src={item.img.url} />
+                                </DivImageMusic>
+                                <DivInfoMusic>
+                                    <PTitle>{item.name}</PTitle>
+                                    <PDescription>{item.description}</PDescription>
+                                    </DivInfoMusic>
+                                </DivMusicCard>)
+                })
+            case 'tracks':
+                console.log('TRACKS');
+                break;
+            default:
+               console.log('default')
+        }
+   })
+   
 
     return (
         status === 'loading'
@@ -75,53 +145,7 @@ const HomeSlider = ({ apiKey }) => {
                     </DivSilderHeader>
 
                     <DivSliderBody>
-                        {items()?.map((item) =>
-                            apiKey === 'events'
-                                ?
-                                <DivEventCard key={item.id}>
-                                    <DivImgRectangleL src={item.img} />
-                                    <DivEventInfo>
-                                        <div>
-                                            <PTitle>{item.name}</PTitle>
-                                            <PDescription>{item.location} - {item.date}</PDescription>
-                                        </div>
-                                        <PEventPrice>{item.price}€</PEventPrice>
-                                    </DivEventInfo>
-                                </DivEventCard>
-                                : apiKey === 'users'
-                                    ?
-                                    <DivUserCard key={item.id}>
-                                        <ImgAvatarUser src={item.img} />
-                                        <PNameUser>{item.name}</PNameUser>
-                                        <PFollowersUser>{item.followers} followers</PFollowersUser>
-                                    </DivUserCard>
-
-                                    :
-                                    <DivMusicCard key={item.id}
-                                        resultType={apiKey}
-                                    /* as={Link} to={`/${apiKey}/${result.name}`} */
-                                    >
-                                        <DivImageMusic onClick={() => {
-                                            console.log(item);
-                                            setPlayer(
-                                                prev => prev = {
-                                                    playerOn: true,
-                                                    audio: item.file,
-                                                    name: item.name,
-                                                    user: item.description,
-                                                }
-                                            )
-                                        }
-                                        }>
-                                            <ImgCardMusic src={item.img} />
-                                        </DivImageMusic>
-                                        <DivInfoMusic>
-                                            <PTitle>{item.name}</PTitle>
-                                            <PDescription>{item.description}</PDescription>
-                                        </DivInfoMusic>
-                                    </DivMusicCard>
-
-                        )}
+                        {items()}
                     </DivSliderBody>
                 </>
     );
