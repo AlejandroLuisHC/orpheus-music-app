@@ -1,7 +1,14 @@
 import React from 'react'
-import { ButtonPrimaryStyle, ButtonSecondaryStyle, DivInputStyle, InputStyle, LabelStyle, SelectStyle } from '../../style/generalStyle'
+import {
+    ButtonPrimaryStyle,
+    ButtonSecondaryStyle,
+    DivInputStyle,
+    InputStyle,
+    LabelStyle,
+    SelectStyle
+} from '../../style/generalStyle'
 
-const RegisterStep3 = ({register, setFormSteps }) => {
+const RegisterStep3 = ({ register, setFormSteps }) => {
     return (
         <>
             <legend>Protect your account</legend>
@@ -41,7 +48,7 @@ const RegisterStep3 = ({register, setFormSteps }) => {
             >
                 Next
             </ButtonPrimaryStyle>
-            <ButtonSecondaryStyle onClick={() => setFormSteps(prev => prev = { step: '2',  secondStep: true })}>Back</ButtonSecondaryStyle>
+            <ButtonSecondaryStyle onClick={() => setFormSteps(prev => prev = { step: '2', secondStep: true })}>Back</ButtonSecondaryStyle>
         </>
     )
 }

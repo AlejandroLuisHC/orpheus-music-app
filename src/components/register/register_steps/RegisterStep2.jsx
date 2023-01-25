@@ -1,4 +1,11 @@
-import { ButtonPrimaryStyle, ButtonSecondaryStyle, DivInputStyle, InputStyle, LabelStyle, PErrorStyle } from '../../style/generalStyle'
+import {
+    ButtonPrimaryStyle,
+    ButtonSecondaryStyle,
+    DivInputStyle,
+    InputStyle,
+    LabelStyle,
+    PErrorStyle
+} from '../../style/generalStyle'
 
 const RegisterStep2 = ({ register, watch, setFormSteps, errors }) => {
     const passwordsMatch = (password, confirmPassword) => {
@@ -49,7 +56,7 @@ const RegisterStep2 = ({ register, watch, setFormSteps, errors }) => {
                 )}
             </DivInputStyle>
             <ButtonPrimaryStyle
-                onClick={() => setFormSteps(prev => prev = { step: '3',  thirdStep: true })}
+                onClick={() => setFormSteps(prev => prev = { step: '3', thirdStep: true })}
             >
                 Next
             </ButtonPrimaryStyle>

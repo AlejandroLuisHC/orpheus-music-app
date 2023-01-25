@@ -15,7 +15,7 @@ import HomeSlider from '../components/home/HomeSlider';
 import HeaderProfile from '../components/home/HeaderProfile';
 
 const Home = () => {
-    const apiKeys = ['events','albums', 'playlists', 'tracks','users']
+    const apiKeys = ['events', 'albums', 'playlists', 'tracks', 'users']
     const userData = useSelector((state) => state.userData.user);
     const date = new Date();
     const hour = date.getHours();

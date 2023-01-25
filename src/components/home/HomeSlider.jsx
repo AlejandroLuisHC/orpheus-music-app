@@ -45,26 +45,26 @@ const HomeSlider = ({ apiKey }) => {
 
     console.log()
 
-   const items = (() => {
-    switch(apiKey){
+    const items = (() => {
+        switch (apiKey) {
             case 'events':
-                return data.map((item)=>{
-                    return( 
+                return data.map((item) => {
+                    return (
                         <DivEventCard key={item._id}>
                             <DivImgRectangleL src={item.img.url} />
                             <DivEventInfo>
                                 <div>
-                                   <PTitle>{item.name}</PTitle>
-                                <PDescription>{item.location} - {item.date}</PDescription>
+                                    <PTitle>{item.name}</PTitle>
+                                    <PDescription>{item.location} - {item.date}</PDescription>
                                 </div>
                                 <PEventPrice>{item.price}€</PEventPrice>
                             </DivEventInfo>
                         </DivEventCard>)
                 })
-                
-            case 'users': 
-                return data.map((item)=>{
-                    return(
+
+            case 'users':
+                return data.map((item) => {
+                    return (
                         <DivUserCard key={item._id}>
                             <ImgAvatarUser src={item.img.url} />
                             <PNameUser>{item.name}</PNameUser>
@@ -72,14 +72,14 @@ const HomeSlider = ({ apiKey }) => {
                         </DivUserCard>)
                 })
             case 'albums':
-                return data.map((item)=>{
-                    return(
+                return data.map((item) => {
+                    return (
                         <DivMusicCard key={item._id}
                             resultType={apiKey}
-                            /* as={Link} to={`/${apiKey}/${result.name}`} */
+                        /* as={Link} to={`/${apiKey}/${result.name}`} */
                         >
                             <DivImageMusic onClick={() => {
-                                            
+
                                 setPlayer(
                                     prev => prev = {
                                         playerOn: true,
@@ -90,22 +90,22 @@ const HomeSlider = ({ apiKey }) => {
                                 )
                             }}>
                                 <ImgCardMusic src={item.img.url} />
-                                </DivImageMusic>
-                                <DivInfoMusic>
-                                    <PTitle>{item.name}</PTitle>
-                                    <PDescription>{item.description}</PDescription>
-                                    </DivInfoMusic>
-                                </DivMusicCard>)
+                            </DivImageMusic>
+                            <DivInfoMusic>
+                                <PTitle>{item.name}</PTitle>
+                                <PDescription>{item.description}</PDescription>
+                            </DivInfoMusic>
+                        </DivMusicCard>)
                 })
             case 'playlist':
-                return data.map((item)=>{
-                    return(
+                return data.map((item) => {
+                    return (
                         <DivMusicCard key={item._id}
                             resultType={apiKey}
-                            /* as={Link} to={`/${apiKey}/${result.name}`} */
+                        /* as={Link} to={`/${apiKey}/${result.name}`} */
                         >
                             <DivImageMusic onClick={() => {
-                                            
+
                                 setPlayer(
                                     prev => prev = {
                                         playerOn: true,
@@ -116,21 +116,21 @@ const HomeSlider = ({ apiKey }) => {
                                 )
                             }}>
                                 <ImgCardMusic src={item.img.url} />
-                                </DivImageMusic>
-                                <DivInfoMusic>
-                                    <PTitle>{item.name}</PTitle>
-                                    <PDescription>{item.description}</PDescription>
-                                    </DivInfoMusic>
-                                </DivMusicCard>)
+                            </DivImageMusic>
+                            <DivInfoMusic>
+                                <PTitle>{item.name}</PTitle>
+                                <PDescription>{item.description}</PDescription>
+                            </DivInfoMusic>
+                        </DivMusicCard>)
                 })
             case 'tracks':
                 console.log('TRACKS');
                 break;
             default:
-               console.log('default')
+                console.log('default')
         }
-   })
-   
+    })
+
 
     return (
         status === 'loading'

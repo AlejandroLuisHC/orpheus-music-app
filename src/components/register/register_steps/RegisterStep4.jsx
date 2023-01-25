@@ -1,22 +1,19 @@
 import { useAuth0 } from '@auth0/auth0-react'
-import Avatar from 'boring-avatars'
-import { 
-    ButtonPrimaryStyle, 
-    ButtonSecondaryStyle, 
-    DivInputStyle, 
-    ImgLogoL, 
-    InputStyle,  
-    LabelStyle, 
-    SelectCountry, 
-    SelectRegion 
+import {
+    ButtonPrimaryStyle,
+    ButtonSecondaryStyle,
+    DivInputStyle,
+    InputStyle,
+    LabelStyle,
+    SelectCountry,
+    SelectRegion
 } from '../../style/generalStyle'
-import { 
-    DivFlexGenres, 
-    PSkip, 
-    SpanSkip 
+import {
+    PSkip,
+    SpanSkip
 } from '../../style/registerStyle'
 
-const RegisterStep4 = ({register, setFormSteps, location, setLocation , setAvatar}) => {
+const RegisterStep4 = ({ register, setFormSteps, location, setLocation, setAvatar }) => {
     const { user } = useAuth0();
     const avatarId = user?.picture ?? JSON.stringify(new Date())
 
@@ -31,11 +28,11 @@ const RegisterStep4 = ({register, setFormSteps, location, setLocation , setAvata
             <DivInputStyle>
                 <LabelStyle>
                     What's your name
-                    <InputStyle 
+                    <InputStyle
                         type="text"
                         defaultValue={user?.given_name || "First name"}
-                        required 
-                        {...register('firstName')} 
+                        required
+                        {...register('firstName')}
                     />
                 </LabelStyle>
             </DivInputStyle>
@@ -43,11 +40,11 @@ const RegisterStep4 = ({register, setFormSteps, location, setLocation , setAvata
             <DivInputStyle>
                 <LabelStyle>
                     Your lastname
-                    <InputStyle 
+                    <InputStyle
                         type="text"
                         defaultValue={user?.family_name || "First name"}
-                        required 
-                        {...register('lastName')} 
+                        required
+                        {...register('lastName')}
                     />
                 </LabelStyle>
             </DivInputStyle>
@@ -55,7 +52,7 @@ const RegisterStep4 = ({register, setFormSteps, location, setLocation , setAvata
             <DivInputStyle>
                 <LabelStyle>
                     Where are you from?
-                    <div style={{display: "flex"}}>
+                    <div style={{ display: "flex" }}>
                         <SelectCountry
                             value={location.country}
                             onChange={(country) =>
@@ -72,7 +69,7 @@ const RegisterStep4 = ({register, setFormSteps, location, setLocation , setAvata
                     </div>
                 </LabelStyle>
             </DivInputStyle>
-            
+
             {/* <DivFlexGenres>
                 <DivImgCircleL>
                     {user?.picture
@@ -111,13 +108,13 @@ const RegisterStep4 = ({register, setFormSteps, location, setLocation , setAvata
                     </DivImgCircleS>
                 </div>
             </DivFlexGenres> */}
-            <ButtonPrimaryStyle type="button" 
+            <ButtonPrimaryStyle type="button"
                 // onClick={handleSubmit((x) => console.log(x.avatar))}
-                onClick={() => {setFormSteps(prev => prev = { step: '5',  fifthStep: true }); setAvatar(prev=> prev = avatarId)}}
+                onClick={() => { setFormSteps(prev => prev = { step: '5', fifthStep: true }); setAvatar(prev => prev = avatarId) }}
             >
                 Next
             </ButtonPrimaryStyle>
-            <ButtonSecondaryStyle type="button" onClick={() =>{setFormSteps(prev => prev = { step: '1',  firstStep: true })} }>Back</ButtonSecondaryStyle>
+            <ButtonSecondaryStyle type="button" onClick={() => { setFormSteps(prev => prev = { step: '1', firstStep: true }) }}>Back</ButtonSecondaryStyle>
         </>
     )
 }
