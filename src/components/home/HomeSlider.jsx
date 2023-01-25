@@ -1,5 +1,6 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import { useQuery } from '@tanstack/react-query';
+import moment from 'moment/moment';
 import { memo } from 'react';
 import {
     useNavigate,
@@ -55,7 +56,7 @@ const HomeSlider = ({ apiKey }) => {
                             <DivEventInfo>
                                 <div>
                                     <PTitle>{item.name}</PTitle>
-                                    <PDescription>{item.location} - {item.date}</PDescription>
+                                    <PDescription>{item.location} - {moment(item.date).format('MMMM Do YYYY, h:mm a')}</PDescription>
                                 </div>
                                 <PEventPrice>{item.price}€</PEventPrice>
                             </DivEventInfo>
@@ -97,7 +98,7 @@ const HomeSlider = ({ apiKey }) => {
                             </DivInfoMusic>
                         </DivMusicCard>)
                 })
-            case 'playlist':
+            case 'playlists':
                 return data.map((item) => {
                     return (
                         <DivMusicCard key={item._id}
@@ -124,7 +125,32 @@ const HomeSlider = ({ apiKey }) => {
                         </DivMusicCard>)
                 })
             case 'tracks':
-                console.log('TRACKS');
+                const { data: track } = data
+                return track.map((item) => {
+                    return (
+                        <DivMusicCard key={item._id}
+                            resultType={apiKey}
+                        /* as={Link} to={`/${apiKey}/${result.name}`} */
+                        >
+                            <DivImageMusic onClick={() => {
+
+                                setPlayer(
+                                    prev => prev = {
+                                        playerOn: true,
+                                        audio: item.file,
+                                        name: item.name,
+                                        user: item.description,
+                                    }
+                                )
+                            }}>
+                                <ImgCardMusic src={item.img.url} />
+                            </DivImageMusic>
+                            <DivInfoMusic>
+                                <PTitle>{item.name}</PTitle>
+                                <PDescription>{item.description}</PDescription>
+                            </DivInfoMusic>
+                        </DivMusicCard>)
+                })
                 break;
             default:
                 console.log('default')

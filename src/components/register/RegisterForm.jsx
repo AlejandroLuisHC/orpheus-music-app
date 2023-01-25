@@ -30,7 +30,7 @@ const RegisterForm = () => {
         lastName: userAuth?.family_name || '',
         email: userAuth?.email,
         country: '',
-        city: '',
+        region: '',
         img: {url: userAuth?.picture || ''},
         banner: '',
         favGenres: [],
@@ -67,7 +67,7 @@ const RegisterForm = () => {
         registerData.firstName = firstName || userAuth?.given_name || '';
         registerData.lastName  = lastName || userAuth?.family_name || '';
         registerData.country   = location.country || '';
-        registerData.city      = location.region || '';
+        registerData.region      = location.region || '';
         registerData.favGenres = selectedGenres || [];
 
         setRegisterData({
