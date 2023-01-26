@@ -1,13 +1,11 @@
 import { useState } from 'react';
 import { IoIosMore, IoMdCreate, IoMdReturnLeft } from 'react-icons/io';
 import { useSelector } from 'react-redux';
-import useWidth from '../../helper/hooks/useWidth';
-import AvatarImg from '../general_components/AvatarImg';
 import FooterInfo from '../general_components/FooterInfo';
 import { DivImgCircleL, Footer, ImgCircleS, ImgCircleXL } from '../style/generalStyle';
 import { DivSliders } from '../style/homeStyle';
 import { DivProfile, DivProfileActionsStyle, DivProfileBanner, DivProfileUserInfoContainer, DivUserGeneralData, DivUsernameWorks, DropdownContainer, DropdownHeader, H1Username, H2UserWorks, ListItem, PProfileUserInfo, SectionEditUser, SectionProfileMain, SpanProfileUserNumbers } from '../style/profileStyle';
-import AddWork from './AddWork';
+import AddWork from './profile_main/add_work/AddWork';
 import CreatePlaylist from './CreatePlaylist';
 import DisconnectIcon from './DisconnectIcon';
 import ProfileSlider from './profile_main/ProfileSlider';
@@ -16,10 +14,11 @@ import UpdateProfile from './UpdateProfile';
 
 const ProfileDesktop = () => {
     const user = useSelector(state => state.userData.user);
-    const width = useWidth();
     const [editView, setEditView] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
-    const toggling = () => setIsOpen(!isOpen);
+    const [editIsOpen, setEditIsOpen] = useState(false);
+    const toggling = () => setEditIsOpen(!editIsOpen);
+    
+
     const dataKey = [
         {id: 1, name:"Fav. playlists", type: "playlist", data: user.favPlaylists}, 
         {id: 2, name:"Fav. albums", type: "albums", data: user.favAlbums}, 
@@ -28,12 +27,13 @@ const ProfileDesktop = () => {
         {id: 5, name:"Following", type: "users", data: user.following}
     ]
     
+    
     return (
         <DivProfile>
             <DivProfileBanner>
                 <DropdownContainer>
                     <DropdownHeader onClick={toggling}><IoIosMore /></DropdownHeader>
-                    {isOpen && (
+                    {editIsOpen && (
                         <ul>
                             <ListItem >
                                 {!editView
@@ -77,11 +77,16 @@ const ProfileDesktop = () => {
 
             {!editView
                 ?
+                
+
+
                 <SectionProfileMain>
                     <DivProfileActionsStyle>
                         <AddWork />
                         <CreatePlaylist />
                     </DivProfileActionsStyle>
+
+                    
 
                     <DivSliders>
                         {dataKey.map(key => {

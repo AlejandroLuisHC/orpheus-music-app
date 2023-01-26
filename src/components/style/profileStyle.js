@@ -297,3 +297,54 @@ export const ListItem = styled.li`
         font-size: 20px;
     }
 `
+
+export const DivModalWork = styled.div`
+    background-color: ${color.primaryBlack};
+    padding: 20px;
+    border-radius: 25px;
+    justify-content: center;
+    text-align: center;
+    @media ${device.desktop}{
+        width: 500px;
+        height: 190px;
+    }
+`
+
+export const DivModalOptions = styled.div`
+    margin-top: 20px;
+    @media ${device.desktop}{
+        display: flex;
+        justify-content: space-around;
+    }
+`
+export const DivModalClose = styled.div`
+    font-size: 30px;
+    color: ${color.primaryWhite};
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+`
+
+export const DivModalTrack = styled.div`
+    background-color: ${color.primaryBlack};
+    padding: 20px;
+    border-radius: 25px;
+    justify-content: center;
+    text-align: center;
+    @media ${device.desktop}{
+        width: 500px;
+        height: 800px;
+    }
+`
+
+export const DivModalAlbum = styled.div`
+    background-color: ${color.primaryBlack};
+    padding: 20px;
+    border-radius: 25px;
+    justify-content: center;
+    text-align: center;
+    @media ${device.desktop}{
+        width: 500px;
+        height: 800px;
+    }
+`

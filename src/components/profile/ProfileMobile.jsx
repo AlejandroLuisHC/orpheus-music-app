@@ -5,7 +5,7 @@ import FooterInfo from '../general_components/FooterInfo';
 import { DivImgCircleL, Footer, ImgCircleXL } from '../style/generalStyle';
 import { DivSliders } from '../style/homeStyle';
 import { DivMobileUserAvatar, DivProfile, DivProfileActionsStyle, DivProfileBanner, DivProfileUserInfoContainer, DivUserGeneralData, DivUsernameWorks, DropdownContainer, DropdownHeader, H1Username, H2UserWorks, ListItem, PProfileUserInfo, SectionEditUser, SectionProfileMain, SpanProfileUserNumbers } from '../style/profileStyle'
-import AddWork from './AddWork';
+import AddWork from './profile_main/add_work/AddWork';
 import CreatePlaylist from './CreatePlaylist';
 import DisconnectIcon from './DisconnectIcon';
 import ProfileSlider from './profile_main/ProfileSlider';
