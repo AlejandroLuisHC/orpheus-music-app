@@ -26,8 +26,11 @@ import {
 
 const SearchSlider = ({ apiKey, search }) => {
     const { getAccessTokenSilently } = useAuth0()
-    const token = getAccessTokenSilently()
-    const { data, status } = useQuery([apiKey, apiKey], () => fetchKey(apiKey, token));
+    const { data, status } = useQuery([apiKey, apiKey], async () => {
+
+        const token = await getAccessTokenSilently()
+        return await fetchKey(apiKey, token)
+    });
 
     const [searchResults, setSearchResults] = useState([]);
 

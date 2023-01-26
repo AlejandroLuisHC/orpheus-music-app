@@ -187,9 +187,9 @@ export const ImgAvatarUser = styled.img`
     border-radius: 50%;
     transition: 300ms;
     @media ${device.desktop}{
-        min-width: 220px;
-        max-width:220px;
-        height: 220px;
+        min-width: 200px;
+        max-width:200px;
+        height: 200px;
     } 
     &:hover{
         border-radius:15px;
