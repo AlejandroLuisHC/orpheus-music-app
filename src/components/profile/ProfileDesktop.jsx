@@ -1,105 +1,152 @@
-import { useState } from 'react';
-import { IoIosMore, IoMdCreate, IoMdReturnLeft } from 'react-icons/io';
+import { useAuth0 } from '@auth0/auth0-react';
+import { useQuery } from '@tanstack/react-query';
+import { useState, useEffect } from 'react';
+import {
+    IoIosMore,
+    IoMdCreate,
+    IoMdReturnLeft
+} from 'react-icons/io';
 import { useSelector } from 'react-redux';
-import useWidth from '../../helper/hooks/useWidth';
-import AvatarImg from '../general_components/AvatarImg';
 import FooterInfo from '../general_components/FooterInfo';
-import { DivImgCircleL, Footer, ImgCircleS, ImgCircleXL } from '../style/generalStyle';
+import {
+    DivImgCircleL,
+    Footer,
+    ImgCircleXL
+} from '../style/generalStyle';
 import { DivSliders } from '../style/homeStyle';
-import { DivProfile, DivProfileActionsStyle, DivProfileBanner, DivProfileUserInfoContainer, DivUserGeneralData, DivUsernameWorks, DropdownContainer, DropdownHeader, H1Username, H2UserWorks, ListItem, PProfileUserInfo, SectionEditUser, SectionProfileMain, SpanProfileUserNumbers } from '../style/profileStyle';
+import {
+    DivProfile,
+    DivProfileActionsStyle,
+    DivProfileBanner,
+    DivProfileUserInfoContainer,
+    DivUserGeneralData,
+    DivUsernameWorks,
+    DropdownContainer,
+    DropdownHeader,
+    H1Username,
+    H2UserWorks,
+    ListItem,
+    PProfileUserInfo,
+    SectionEditUser,
+    SectionProfileMain,
+    SpanProfileUserNumbers
+} from '../style/profileStyle';
 import AddWork from './AddWork';
 import CreatePlaylist from './CreatePlaylist';
 import DisconnectIcon from './DisconnectIcon';
 import ProfileSlider from './profile_main/ProfileSlider';
 import UpdateProfile from './UpdateProfile';
+import fetchOneUser from '../../api/fetchOneUser';
+import Error from "../../pages/Error";
+import LogoSpinner from '../general_components/loaders/spinner/LogoSpinner';
 
 
-const ProfileDesktop = () => {
-    const user = useSelector(state => state.userData.user);
-    const width = useWidth();
+const ProfileDesktop = ({ userID }) => {
+    const { getAccessTokenSilently } = useAuth0()
+    const { data, status } = useQuery([userID, userID], async () => {
+        const token = await getAccessTokenSilently()
+        return await fetchOneUser(userID, token)
+    });
+    const loggedUser = useSelector(state => state.userData.user);
+
+    const [user, setUser] = useState()
+    useEffect(() => {
+        loggedUser._id === userID
+            ? setUser(loggedUser)
+            : setUser(data)
+    }, [data, loggedUser])
+
     const [editView, setEditView] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const toggling = () => setIsOpen(!isOpen);
     const dataKey = [
-        {id: 1, name:"Fav. playlists", type: "playlist", data: user.favPlaylists}, 
-        {id: 2, name:"Fav. albums", type: "albums", data: user.favAlbums}, 
-        {id: 3, name:"Fav. tracks", type: "tracks", data: user.favTracks}, 
-        {id: 4, name:"Followers", type: "users", data: user.followers}, 
-        {id: 5, name:"Following", type: "users", data: user.following}
+        { id: 1, name: "Fav. playlists", type: "playlist", data: user?.favPlaylists || [] },
+        { id: 2, name: "Fav. albums", type: "albums", data: user?.favAlbums || [] },
+        { id: 3, name: "Fav. tracks", type: "tracks", data: user?.favTracks || [] },
+        { id: 4, name: "Followers", type: "users", data: user?.followers || [] },
+        { id: 5, name: "Following", type: "users", data: user?.following || [] }
     ]
-    
+
     return (
-        <DivProfile>
-            <DivProfileBanner>
-                <DropdownContainer>
-                    <DropdownHeader onClick={toggling}><IoIosMore /></DropdownHeader>
-                    {isOpen && (
-                        <ul>
-                            <ListItem >
-                                {!editView
-                                    ?
-                                    <span onClick={() => setEditView(prev => prev = true)}>Edit <IoMdCreate /> </span>
-                                    :
-                                    <span onClick={() => setEditView(prev => prev = false)}>Return <IoMdReturnLeft /></span>
-                                }
-                            </ListItem >
-                            <DisconnectIcon />
-                        </ul>
-                    )}
-                </DropdownContainer>
-
-                <DivImgCircleL>
-                    <ImgCircleXL src={user.img.url} alt={user.username}/>
-                </DivImgCircleL>
-
-                <DivUserGeneralData>
-                    <DivUsernameWorks>
-                        <H1Username>{user.username}</H1Username>
-                        <H2UserWorks>23 works</H2UserWorks>
-                    </DivUsernameWorks>
-                    <DivProfileUserInfoContainer>
-                        <PProfileUserInfo>
-                            <SpanProfileUserNumbers>{user.favPlaylists.length}</SpanProfileUserNumbers>
-                            Playlists
-                        </PProfileUserInfo>
-                        <PProfileUserInfo>
-                            <SpanProfileUserNumbers>{user.followers.length}</SpanProfileUserNumbers>
-                            Followers
-                        </PProfileUserInfo>
-                        <PProfileUserInfo>
-                            <SpanProfileUserNumbers>{user.following.length}</SpanProfileUserNumbers>
-                            Following
-                        </PProfileUserInfo>
-                    </DivProfileUserInfoContainer>
-                </DivUserGeneralData>
-
-            </DivProfileBanner>
-
-            {!editView
-                ?
-                <SectionProfileMain>
-                    <DivProfileActionsStyle>
-                        <AddWork />
-                        <CreatePlaylist />
-                    </DivProfileActionsStyle>
-
-                    <DivSliders>
-                        {dataKey.map(key => {
-                            if (key.data.length > 0){
-                                return <ProfileSlider key={key.id} dataKey={key} />
-                            }
-                        })}
-                    </DivSliders>
-
-                </SectionProfileMain>
+        status === 'loading'
+            ? <LogoSpinner />
+            : status === 'error' || data.status === "FALSE"
+                ? <Error />
                 :
-                <SectionEditUser>
-                    <UpdateProfile />
+                <DivProfile>
+                    <DivProfileBanner>
+                        <DropdownContainer>
+                            <DropdownHeader onClick={toggling}><IoIosMore /></DropdownHeader>
+                            {isOpen && (
+                                <ul>
+                                    <ListItem >
+                                        {!editView
+                                            ?
+                                            <span onClick={() => setEditView(prev => prev = true)}>Edit <IoMdCreate /> </span>
+                                            :
+                                            <span onClick={() => setEditView(prev => prev = false)}>Return <IoMdReturnLeft /></span>
+                                        }
+                                    </ListItem >
+                                    <DisconnectIcon />
+                                </ul>
+                            )}
+                        </DropdownContainer>
 
-                </SectionEditUser>
-            }
-            <Footer><FooterInfo /></Footer>
-        </DivProfile>
+                        <DivImgCircleL>
+                            <ImgCircleXL src={user?.img.url} alt={user?.username} />
+                        </DivImgCircleL>
+
+                        <DivUserGeneralData>
+                            <DivUsernameWorks>
+                                <H1Username>{user?.username}</H1Username>
+                                <H2UserWorks>{user?.tracks.length} works</H2UserWorks>
+                            </DivUsernameWorks>
+                            <DivProfileUserInfoContainer>
+                                <PProfileUserInfo>
+                                    <SpanProfileUserNumbers>{user?.favPlaylists.length}</SpanProfileUserNumbers>
+                                    Playlists
+                                </PProfileUserInfo>
+                                <PProfileUserInfo>
+                                    <SpanProfileUserNumbers>{user?.followers.length}</SpanProfileUserNumbers>
+                                    Followers
+                                </PProfileUserInfo>
+                                <PProfileUserInfo>
+                                    <SpanProfileUserNumbers>{user?.following.length}</SpanProfileUserNumbers>
+                                    Following
+                                </PProfileUserInfo>
+                            </DivProfileUserInfoContainer>
+                        </DivUserGeneralData>
+
+                    </DivProfileBanner>
+
+                    {!editView
+                        ?
+                        <SectionProfileMain>
+                            {
+                                loggedUser._id === userID &&
+                                <DivProfileActionsStyle>
+                                    <AddWork />
+                                    <CreatePlaylist />
+                                </DivProfileActionsStyle>
+                            }
+
+                            <DivSliders>
+                                {dataKey.map(key => {
+                                    if (key.data.length > 0) {
+                                        return <ProfileSlider key={key.id} dataKey={key} />
+                                    }
+                                })}
+                            </DivSliders>
+
+                        </SectionProfileMain>
+                        :
+                        <SectionEditUser>
+                            <UpdateProfile />
+
+                        </SectionEditUser>
+                    }
+                    <Footer><FooterInfo /></Footer>
+                </DivProfile>
     )
 }
 

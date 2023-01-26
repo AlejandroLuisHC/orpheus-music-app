@@ -52,7 +52,7 @@ const Router = () => {
                             <Route path='/home' element={<PrivateRoutes><Home /></PrivateRoutes>} />
                             <Route path='/home/:viewMore' element={<PrivateRoutes><ViewMore /></PrivateRoutes>} />
                             <Route path='/search' element={<PrivateRoutes><Search /></PrivateRoutes>} />
-                            <Route path='/:username' element={<PrivateRoutes><Profile /></PrivateRoutes>} />
+                            <Route path='/profile/:id' element={<PrivateRoutes><Profile /></PrivateRoutes>} />
                         </Route>
                     </Routes>
                 </Suspense>

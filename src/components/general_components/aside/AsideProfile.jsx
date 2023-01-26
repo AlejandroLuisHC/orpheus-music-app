@@ -1,15 +1,18 @@
 import { useSelector } from 'react-redux'
 import { ImgCircleS, LinkAside } from '../../style/generalStyle'
-import AvatarImg from '../AvatarImg'
 
 const AsideProfile = () => {
     const userData = useSelector(state => state.userData.user)
+    let profileName = userData?.username
+    if (profileName.length > 12) {
+        profileName = profileName.slice(0, 11) + "..."
+    }
     return (
         <>
-            <LinkAside to={userData.username}>
-                <ImgCircleS src={userData.img.url} alt={userData.username} width="30px" height="30px" />
+            <LinkAside to={`/profile/${userData._id}`}>
+                <ImgCircleS src={userData.img.url} alt={userData.username} />
     
-                {userData?.username ?? 'Not Logged'}
+                {profileName ?? 'Not Logged'}
             </LinkAside>
         </>
     )

@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import moment from 'moment/moment';
 import { memo } from 'react';
 import {
+    Link,
     useNavigate,
     useOutletContext
 } from 'react-router-dom';
@@ -66,11 +67,14 @@ const HomeSlider = ({ apiKey }) => {
             case 'users':
                 return data.map((item) => {
                     return (
-                        <DivUserCard key={item._id}>
-                            <ImgAvatarUser src={item.img.url} />
-                            <PNameUser>{item.username}</PNameUser>
-                            <PFollowersUser>{item.followers} followers</PFollowersUser>
-                        </DivUserCard>)
+                        <Link key={item._id} to={`/profile/${item._id}`}>
+                            <DivUserCard>
+                                <ImgAvatarUser src={item.img.url} />
+                                <PNameUser>{item.username}</PNameUser>
+                                <PFollowersUser>{item.followers} followers</PFollowersUser>
+                            </DivUserCard>
+                        </Link>
+                    )
                 })
             case 'albums':
                 return data.map((item) => {
@@ -151,7 +155,6 @@ const HomeSlider = ({ apiKey }) => {
                             </DivInfoMusic>
                         </DivMusicCard>)
                 })
-                break;
             default:
                 console.log('default')
         }

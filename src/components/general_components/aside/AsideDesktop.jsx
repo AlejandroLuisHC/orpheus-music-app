@@ -1,6 +1,17 @@
-import { IoMdHome, IoMdSearch, IoMdHeart, IoMdPeople, IoMdCheckbox, IoMdMusicalNotes } from 'react-icons/io'
+import {
+    IoMdHome,
+    IoMdSearch,
+    IoMdHeart,
+    IoMdPeople,
+    IoMdCheckbox,
+    IoMdMusicalNotes
+} from 'react-icons/io'
 import { useSelector } from 'react-redux'
-import { AsideDesktopStyle, LinkAside, Hr } from '../../style/generalStyle'
+import {
+    AsideDesktopStyle,
+    LinkAside,
+    Hr
+} from '../../style/generalStyle'
 import AsideProfile from './AsideProfile'
 import AsideRecentPlaylist from './AsideRecentPlaylist'
 
@@ -41,7 +52,6 @@ const AsideDesktop = () => {
             <Hr />
             <AsideProfile />
             <Hr />
-
         </AsideDesktopStyle>
     )
 }

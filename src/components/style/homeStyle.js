@@ -35,9 +35,11 @@ export const ButtonLogoutStyle = styled(ButtonSecondaryStyle)`
 /* END GENERAL STYLES */
 
 /* DESKTOP DIV HERO & WELCOME*/
-export const DivHero = styled.div`
+export const DivHero = styled.div`  
     margin: -20px -20px 0;
-    /* display: block;  */
+    @media ${device.desktop}{
+        margin: 0;
+    }
 `
 
 export const DivWelcomingHome = styled.div`
