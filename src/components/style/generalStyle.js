@@ -162,7 +162,7 @@ export const LinkAside = styled(Link)`
 
 export const Hr = styled.hr`
     opacity: .1;
-    width: 100%;
+    width: 90%;
 `
 
 export const ButtonPrimaryStyle = styled.button`
