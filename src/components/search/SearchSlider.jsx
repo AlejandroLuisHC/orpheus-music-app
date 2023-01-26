@@ -25,60 +25,102 @@ import {
 } from '../style/homeStyle';
 
 const SearchSlider = ({ apiKey, search }) => {
-    const { getAccessTokenSilently } = useAuth0uth0()
-    const token = getAccessTokenSilently()
-    const { data, status } = useQuery([apiKey, apiKey], () => fetchKey(apiKey, token));
+    const { getAccessTokenSilently } = useAuth0()
+    const { data, status } = useQuery([apiKey, apiKey], async () => {
+
+        const token = await getAccessTokenSilently()
+        return await fetchKey(apiKey, token)
+    });
 
     const [searchResults, setSearchResults] = useState([]);
-    console.log(apiKey, searchResults);
 
     useEffect(() => {
         if (!search) return setSearchResults([]);
 
         if (apiKey === 'users') {
+            console.log('USER', status, data)
+
             const usersResults = data?.filter(
-                ({ userData }) =>
-                    userData.username.toLowerCase().includes(search.toLowerCase()) ||
-                    userData.firstName.toLowerCase().includes(search.toLowerCase())
+                (userData ) =>
+                    userData.username.toLowerCase().includes(search.toLowerCase())
+                    // userData.firstname.toLowerCase().includes(search.toLowerCase()) WE DONT HAVE ANY USER WITH FIRSTNAME OR LASTNAME
             );
 
             setSearchResults(
                 usersResults?.map((result) => ({
-                    id: result.id,
-                    name: result.userData.username,
-                    img: result.userData.img.url,
+                    id: result._id,
+                    name: result.username,
+                    img: result.img.url,
                     followers: result.followers.length
                 }))
             );
         } else if (apiKey === 'events') {
+            console.log('EVENTS', status, data)
+
             const results = data?.filter(
                 (item) =>
+                    
                     item.name.toLowerCase().includes(search.toLowerCase()) ||
-                    item.description.toLowerCase().includes(search.toLowerCase())
+                    item.description?.toLowerCase().includes(search.toLowerCase()) 
             );
 
             setSearchResults(
                 results?.map((result) => ({
-                    id: result.id,
+                    id: result._id,
                     name: result.name,
-                    img: result.img,
+                    img: result.img.url,
                     location: result.location,
                     date: result.date,
                     price: result.price
                 }))
             );
-        } else {
+        } else if(apiKey === 'playlists'){
+            console.log('PLAYLISTS', status, data)
             const results = data?.filter(
                 (item) =>
                     item.name.toLowerCase().includes(search.toLowerCase()) ||
-                    item.description.toLowerCase().includes(search.toLowerCase())
+                    item.description?.toLowerCase().includes(search.toLowerCase())
             );
 
             setSearchResults(
                 results?.map((result) => ({
-                    id: result.id,
+                    id: result._id,
                     name: result.name,
-                    img: result.img,
+                    img: result.img.url,
+                    description: result.description,
+                }))
+            );
+        } else if(apiKey === 'albums'){
+            console.log('ALABUM', status, data)
+            const results = data?.filter(
+                (item) =>
+                    item.name.toLowerCase().includes(search.toLowerCase()) ||
+                    item.description?.toLowerCase().includes(search.toLowerCase())
+            );
+
+            setSearchResults(
+                results?.map((result) => ({
+                    id: result._id,
+                    name: result.name,
+                    img: result.img.url,
+                    description: result.description,
+                }))
+            );
+        } else if(apiKey === 'tracks'){
+            console.log('TRACKS', status)
+
+            const {tracks} = data
+            const results = tracks?.filter(
+                (item) =>
+                    item.name.toLowerCase().includes(search.toLowerCase()) ||
+                    item.description?.toLowerCase().includes(search.toLowerCase())
+            );
+
+            setSearchResults(
+                results?.map((result) => ({
+                    id: result._id,
+                    name: result.name,
+                    img: result.img.url,
                     description: result.description,
                 }))
             );

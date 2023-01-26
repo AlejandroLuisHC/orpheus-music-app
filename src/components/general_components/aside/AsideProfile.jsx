@@ -4,7 +4,6 @@ import AvatarImg from '../AvatarImg'
 
 const AsideProfile = () => {
     const userData = useSelector(state => state.userData.user)
-
     return (
         <>
             <LinkAside to={userData.username}>

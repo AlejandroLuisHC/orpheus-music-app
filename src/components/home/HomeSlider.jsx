@@ -68,7 +68,7 @@ const HomeSlider = ({ apiKey }) => {
                     return (
                         <DivUserCard key={item._id}>
                             <ImgAvatarUser src={item.img.url} />
-                            <PNameUser>{item.name}</PNameUser>
+                            <PNameUser>{item.username}</PNameUser>
                             <PFollowersUser>{item.followers} followers</PFollowersUser>
                         </DivUserCard>)
                 })
@@ -125,8 +125,8 @@ const HomeSlider = ({ apiKey }) => {
                         </DivMusicCard>)
                 })
             case 'tracks':
-                const { data: track } = data
-                return track.map((item) => {
+                const { data: tracks } = data
+                return tracks.map((item) => {
                     return (
                         <DivMusicCard key={item._id}
                             resultType={apiKey}
