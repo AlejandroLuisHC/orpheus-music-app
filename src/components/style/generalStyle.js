@@ -135,6 +135,7 @@ export const AsideMobileStyle = styled.aside`
 export const AsideDesktopStyle = styled.aside`
     position: fixed;
     top: 50px;
+    width: 200px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -161,7 +162,7 @@ export const LinkAside = styled(Link)`
 
 export const Hr = styled.hr`
     opacity: .1;
-    width: 100%;
+    width: 90%;
 `
 
 export const ButtonPrimaryStyle = styled.button`
@@ -427,8 +428,8 @@ export const DivImgCircleM = styled.div`
 `
 
 export const ImgCircleS = styled.img`
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     @media ${device.desktop}{
         width: 50px;

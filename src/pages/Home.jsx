@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { HrStyle } from '../components/style/generalStyle';
+import { HrStyle, ImgCircleS } from '../components/style/generalStyle';
 import {
     MainStyle,
     DivHero,
@@ -12,7 +12,6 @@ import {
 import Hero from '../components/home/hero/Hero';
 import { DivSliders } from '../components/style/homeStyle';
 import HomeSlider from '../components/home/HomeSlider';
-import HeaderProfile from '../components/home/HeaderProfile';
 
 const Home = () => {
     const apiKeys = ['events', 'albums', 'playlists', 'tracks', 'users']
@@ -32,8 +31,8 @@ const Home = () => {
             </DivHero>
             <DivWelcomingHome>
                 <H1Welcome>{`${welcome}${userData.username}!`}</H1Welcome>
-                <LinkProfile to={`../${userData.username}`}>
-                    <HeaderProfile />
+                <LinkProfile to={`/profile/${userData._id}`}>
+                    <ImgCircleS src={userData.img.url} alt={userData.username} />
                 </LinkProfile>
             </DivWelcomingHome>
             <HrStyle />

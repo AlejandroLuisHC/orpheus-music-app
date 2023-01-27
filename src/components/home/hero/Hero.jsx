@@ -36,37 +36,37 @@ const Hero = () => {
                     </H4StyleHero>
                 </DivHeroTitles>
             </Overlay>
-            
+
             <Slide
-        label="Viña Rock - 28/04/2023"
-        background={{
-            backgroundImageSrc: "https://res.cloudinary.com/drghk9p6q/image/upload/v1671240506/Final-Project-MERN/BannersHero/slide1_rd5sg8.webp",
-        }}
-      />
+                label="Viña Rock - 28/04/2023"
+                background={{
+                    backgroundImageSrc: "https://res.cloudinary.com/drghk9p6q/image/upload/v1671240506/Final-Project-MERN/BannersHero/slide1_rd5sg8.webp",
+                }}
+            />
 
-      <Slide
-        label="Måneskin - 11/04/2023"
-        background={{
-            backgroundImageSrc: "https://res.cloudinary.com/drghk9p6q/image/upload/v1671240506/Final-Project-MERN/BannersHero/slide4_xtpb2w.webp",
-        }}
-      />
+            <Slide
+                label="Måneskin - 11/04/2023"
+                background={{
+                    backgroundImageSrc: "https://res.cloudinary.com/drghk9p6q/image/upload/v1671240506/Final-Project-MERN/BannersHero/slide4_xtpb2w.webp",
+                }}
+            />
 
-      <Slide
-        label="Resurrection - 28/6/2023"
-        background={{
-          backgroundImageSrc: "https://res.cloudinary.com/drghk9p6q/image/upload/v1671240506/Final-Project-MERN/BannersHero/slide3_vnlkna.webp"
-        }}
-      />
+            <Slide
+                label="Resurrection - 28/6/2023"
+                background={{
+                    backgroundImageSrc: "https://res.cloudinary.com/drghk9p6q/image/upload/v1671240506/Final-Project-MERN/BannersHero/slide3_vnlkna.webp"
+                }}
+            />
 
-      <Slide
-        label="Duki - 24/02/2023"
-        background={{
-            backgroundImageSrc: "https://res.cloudinary.com/drghk9p6q/image/upload/v1671240506/Final-Project-MERN/BannersHero/slide2_jgbzcb.webp"
-        }}
-      />
+            <Slide
+                label="Duki - 24/02/2023"
+                background={{
+                    backgroundImageSrc: "https://res.cloudinary.com/drghk9p6q/image/upload/v1671240506/Final-Project-MERN/BannersHero/slide2_jgbzcb.webp"
+                }}
+            />
 
-      <ButtonsNav backgroundColor="black" color="#EFB810" />
-      
+            <ButtonsNav backgroundColor="black" color="#EFB810" />
+
         </HeroSlider>
     );
 }
