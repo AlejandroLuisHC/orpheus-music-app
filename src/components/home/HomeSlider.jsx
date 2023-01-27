@@ -105,28 +105,28 @@ const HomeSlider = ({ apiKey }) => {
             case 'playlists':
                 return data.map((item) => {
                     return (
-                        <DivMusicCard key={item._id}
-                            resultType={apiKey}
-                        /* as={Link} to={`/${apiKey}/${result.name}`} */
-                        >
-                            <DivImageMusic onClick={() => {
+                        <Link key={item._id} to={`/playlist/${item._id}`}>
+                            <DivMusicCard resultType={apiKey}>
+                                <DivImageMusic onClick={() => {
 
-                                setPlayer(
-                                    prev => prev = {
-                                        playerOn: true,
-                                        audio: item.file,
-                                        name: item.name,
-                                        user: item.description,
-                                    }
-                                )
-                            }}>
-                                <ImgCardMusic src={item.img.url} />
-                            </DivImageMusic>
-                            <DivInfoMusic>
-                                <PTitle>{item.name}</PTitle>
-                                <PDescription>{item.description}</PDescription>
-                            </DivInfoMusic>
-                        </DivMusicCard>)
+                                    setPlayer(
+                                        prev => prev = {
+                                            playerOn: true,
+                                            audio: item.file,
+                                            name: item.name,
+                                            user: item.description,
+                                        }
+                                    )
+                                }}>
+                                    <ImgCardMusic src={item.img.url} />
+                                </DivImageMusic>
+                                <DivInfoMusic>
+                                    <PTitle>{item.name}</PTitle>
+                                    <PDescription>{item.description}</PDescription>
+                                </DivInfoMusic>
+                            </DivMusicCard>
+                        </Link>
+                    )
                 })
             case 'tracks':
                 const { data: tracks } = data
@@ -134,7 +134,7 @@ const HomeSlider = ({ apiKey }) => {
                     return (
                         <DivMusicCard key={item._id}
                             resultType={apiKey}
-                        /* as={Link} to={`/${apiKey}/${result.name}`} */
+
                         >
                             <DivImageMusic onClick={() => {
 
