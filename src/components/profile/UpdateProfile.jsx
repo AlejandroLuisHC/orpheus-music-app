@@ -21,7 +21,7 @@ const UpdateProfile = () => {
 
     const userDataStore = useSelector(state => state.userData.user);
     const user = useSelector(state => state.userData.user);
-    const [ location, setLocation] = useState({ country: '', region: '' });
+    const [location, setLocation] = useState({ country: '', region: '' });
     const {
         register,
         handleSubmit,
@@ -29,7 +29,7 @@ const UpdateProfile = () => {
         formState: { errors },
     } = useForm();
 
-   
+
     const [UpdateUserData, setUpdateUserData] = useState({
         id: user.id,
         userData: {
@@ -59,10 +59,10 @@ const UpdateProfile = () => {
         isVerified: user.isVerified,
         isAdmin: user.isAdmin,
     });
-    
+
     const { userData } = UpdateUserData;
     const dispatch = useDispatch();
-    
+
     const updateUser = ({
         username,
         firstName,
@@ -71,22 +71,26 @@ const UpdateProfile = () => {
 
     }) => {
 
-    const data = {  username: username ?? userDataStore.username,
-                    firstName: firstName ?? userDataStore.firstName,
-                    lastName: lastName ?? userDataStore.lastName,
-                    country: location.country ?? userDataStore.country,
-                    city: location.city ?? userDataStore.citty,
-                    password: password ?? userDataStore.password}
-        
+        const data = {
+            username: username ?? userDataStore.username,
+            firstName: firstName ?? userDataStore.firstName,
+            lastName: lastName ?? userDataStore.lastName,
+            country: location.country ?? userDataStore.country,
+            city: location.city ?? userDataStore.citty,
+            password: password ?? userDataStore.password
+        }
+
         setUpdateUserData({
             ...UpdateUserData,
-            userData: { ...userData,
-                        username: data.username,
-                        firstName: data.firstName,
-                        lastName: data.lastName,
-                        country: data.country,
-                        city: data.city,
-                        password: data.password}
+            userData: {
+                ...userData,
+                username: data.username,
+                firstName: data.firstName,
+                lastName: data.lastName,
+                country: data.country,
+                city: data.city,
+                password: data.password
+            }
         });
         setOpenInput(prev => prev = initialState)
     };
@@ -121,7 +125,7 @@ const UpdateProfile = () => {
                         <ButtonSubmitEdit type='submit'><IoMdCheckmarkCircle /></ButtonSubmitEdit>
                     </DivEditUserData>
                 }
-                <HrEditProfile/>
+                <HrEditProfile />
             </DivEditUserContainer>
             <DivEditUserContainer>
                 {!openInput.firstName
@@ -144,7 +148,7 @@ const UpdateProfile = () => {
                         <ButtonSubmitEdit type='submit'><IoMdCheckmarkCircle /></ButtonSubmitEdit>
                     </DivEditUserData>
                 }
-                <HrEditProfile/>
+                <HrEditProfile />
             </DivEditUserContainer>
             <DivEditUserContainer>
                 {!openInput.lastName
@@ -167,7 +171,7 @@ const UpdateProfile = () => {
                         <ButtonSubmitEdit type='submit'><IoMdCheckmarkCircle /></ButtonSubmitEdit>
                     </DivEditUserData>
                 }
-                <HrEditProfile/>
+                <HrEditProfile />
             </DivEditUserContainer>
             <DivEditUserContainer>
                 {!openInput.location
@@ -178,11 +182,11 @@ const UpdateProfile = () => {
                     </DivUserData>
                     :
                     <DivEditUserData>
-                        <SelectCountry 
+                        <SelectCountry
                             value={location.country}
                             onChange={(country) =>
                                 setLocation(prev => prev = { ...prev, country })
-                                    }
+                            }
                         />
                         <SelectRegion
                             country={location.country}
@@ -195,25 +199,25 @@ const UpdateProfile = () => {
                         <ButtonSubmitEdit type='submit'><IoMdCheckmarkCircle /></ButtonSubmitEdit>
                     </DivEditUserData>
                 }
-                <HrEditProfile/>
+                <HrEditProfile />
             </DivEditUserContainer>
             <DivEditUserContainer>
-            
-            {!openInput.password
-            ?
-            <DivUserData>
-                <PTextEdit>Change password</PTextEdit>
-                <SpanIconClick><IoMdCreate onClick={() => setOpenInput(prev => prev = { ...prev, password: true })}/></SpanIconClick>
-            </DivUserData>
-            : 
-            <ChangePassword 
-                register = {register}
-                watch = {watch}
-                formState = {errors}
 
-            />}
-                   
-                <HrEditProfile/>
+                {!openInput.password
+                    ?
+                    <DivUserData>
+                        <PTextEdit>Change password</PTextEdit>
+                        <SpanIconClick><IoMdCreate onClick={() => setOpenInput(prev => prev = { ...prev, password: true })} /></SpanIconClick>
+                    </DivUserData>
+                    :
+                    <ChangePassword
+                        register={register}
+                        watch={watch}
+                        formState={errors}
+
+                    />}
+
+                <HrEditProfile />
             </DivEditUserContainer>
         </FormStyle>
     )

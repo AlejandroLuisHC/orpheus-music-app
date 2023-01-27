@@ -3,7 +3,7 @@ import logout from "./logout"
 import update from "./update"
 
 export {
-    login, 
+    login,
     logout,
     update
 }

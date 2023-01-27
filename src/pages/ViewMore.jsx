@@ -18,7 +18,7 @@ const ViewMore = () => {
     useCallback(() => {
         setData(prev => prev = { ...originalData })
     }, [originalData])
-    
+
     return (
         status === "loading"
             ? <LogoSpinner />

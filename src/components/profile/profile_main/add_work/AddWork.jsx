@@ -7,27 +7,27 @@ import AddAlbum from './AddAlbum'
 import AddTrack from './AddTrack'
 
 const AddWork = () => {
-  const [Modal, open, close, isOpen] = useModal('root', {
-    preventScroll: true
-})
-  return (
-    <>
-    <ButtonProfileStyle onClick={open} >Add Work</ButtonProfileStyle>
+    const [Modal, open, close, isOpen] = useModal('root', {
+        preventScroll: true
+    })
+    return (
+        <>
+            <ButtonProfileStyle onClick={open} >Add Work</ButtonProfileStyle>
 
-    <Modal> 
-      <DivModalWork>
-        <h1>Add your notes to Orpheus!</h1>
-        <DivModalOptions>
-          <AddAlbum />
-          <AddTrack />
-        </DivModalOptions>
-        <DivModalClose>
-          <IoIosCloseCircleOutline onClick={close}/>
-        </DivModalClose>
-      </DivModalWork>
-   </Modal>                
-    </>
-    
+            <Modal>
+                <DivModalWork>
+                    <h1>Add your notes to Orpheus!</h1>
+                    <DivModalOptions>
+                        <AddAlbum />
+                        <AddTrack />
+                    </DivModalOptions>
+                    <DivModalClose>
+                        <IoIosCloseCircleOutline onClick={close} />
+                    </DivModalClose>
+                </DivModalWork>
+            </Modal>
+        </>
+
     )
 }
 

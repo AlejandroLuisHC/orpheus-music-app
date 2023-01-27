@@ -16,8 +16,8 @@ export const H2StyleViewMore = styled(H2Style)`
     font-size: 28px;
 `
 export const ButtonFilter = styled(ButtonPrimaryStyle)`
-    background-color: ${prop=>prop.active ? color.primaryYellow : color.secondaryBlack};
-    transform: ${prop=>prop.active && 'scale(1.15)'};
+    background-color: ${prop => prop.active ? color.primaryYellow : color.secondaryBlack};
+    transform: ${prop => prop.active && 'scale(1.15)'};
     min-width: 90px;
     max-width: 90px;
     font-size: 14px;

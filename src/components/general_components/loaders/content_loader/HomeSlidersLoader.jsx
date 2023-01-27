@@ -8,7 +8,7 @@ const HomeSlidersLoader = () => {
         <div>
             <DivElementTitles><TitleLoader /></DivElementTitles>
             <DivSlider><TrackLoader /><TrackLoader /><TrackLoader /><TrackLoader /></DivSlider>
-        </div> 
+        </div>
     )
 }
 

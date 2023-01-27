@@ -12,7 +12,7 @@ import { useDispatch } from 'react-redux';
 import { LOG_IN } from '../../redux/features/user_data/userSlice';
 
 const RegisterForm = () => {
-    
+
     const { data: users, status } = useQuery(['users'], fetchUsers);
     const { user: userAuth } = useAuth0();
     // const goHome = useNavigate();
@@ -31,8 +31,11 @@ const RegisterForm = () => {
         email: userAuth?.email,
         country: '',
         region: '',
-        img: {url: userAuth?.picture || ''},
+        img: { url: userAuth?.picture || '' },
         banner: '',
+        tracks: [],
+        albums: [],
+        playlists: [],
         favGenres: [],
         favPlaylists: [],
         favAlbums: [],
@@ -41,7 +44,6 @@ const RegisterForm = () => {
         following: [],
         isVerified: false,
         isAdmin: false,
-        isLogged: true
     });
 
     const [formSteps, setFormSteps] = useState({ step: '1', firstStep: true });
@@ -49,7 +51,7 @@ const RegisterForm = () => {
 
     const [location, setLocation] = useState({ country: '', region: '' });
 
-    const [avatar ,setAvatar] = useState('')
+    const [avatar, setAvatar] = useState('')
     const userDataAvailable = inputValue => {
         const findUser = users?.find(
             user =>
@@ -63,11 +65,11 @@ const RegisterForm = () => {
         firstName,
         lastName,
     }) => {
-        registerData.username  = username || userAuth?.nickname || '';
+        registerData.username = username || userAuth?.nickname || '';
         registerData.firstName = firstName || userAuth?.given_name || '';
-        registerData.lastName  = lastName || userAuth?.family_name || '';
-        registerData.country   = location.country || '';
-        registerData.region      = location.region || '';
+        registerData.lastName = lastName || userAuth?.family_name || '';
+        registerData.country = location.country || '';
+        registerData.region = location.region || '';
         registerData.favGenres = selectedGenres || [];
 
         setRegisterData({
@@ -81,11 +83,11 @@ const RegisterForm = () => {
     };
 
     return (
-        status === "loading" 
+        status === "loading"
             ? <LogoSpinner />
             : status === "error"
                 ? <Error />
-                : 
+                :
                 <FormStyle onSubmit={
                     handleSubmit(data => createUser(data))
                 }>
@@ -93,13 +95,13 @@ const RegisterForm = () => {
                         <DivStepsCounter step={formSteps.step}></DivStepsCounter>
                     </DivStepsContainer>
                     <fieldset>
-                        {formSteps.firstStep && 
+                        {formSteps.firstStep &&
                             <RegisterStep1
-                                register = {register}
-                                watch = {watch}
-                                errors = {errors}
-                                userDataAvailable = {userDataAvailable}
-                                setFormSteps = {setFormSteps}
+                                register={register}
+                                watch={watch}
+                                errors={errors}
+                                userDataAvailable={userDataAvailable}
+                                setFormSteps={setFormSteps}
                             />
                         }
                         {/* {formSteps.secondStep && 
@@ -116,21 +118,21 @@ const RegisterForm = () => {
                                 setFormSteps = {setFormSteps}
                             />
                         } */}
-                        {formSteps.fourthStep && 
-                            <RegisterStep4 
-                                register = {register}
-                                setFormSteps = {setFormSteps}
-                                location = {location}
-                                setLocation = {setLocation}
-                                setAvatar = {setAvatar}
+                        {formSteps.fourthStep &&
+                            <RegisterStep4
+                                register={register}
+                                setFormSteps={setFormSteps}
+                                location={location}
+                                setLocation={setLocation}
+                                setAvatar={setAvatar}
                             />
                         }
-                        {formSteps.fifthStep && 
+                        {formSteps.fifthStep &&
                             <RegisterStep5
-                                setFormSteps = {setFormSteps}
-                                selectedGenres = {selectedGenres}
-                                setSelectedGenres = {setSelectedGenres}
-                                setAvatar = {setAvatar}
+                                setFormSteps={setFormSteps}
+                                selectedGenres={selectedGenres}
+                                setSelectedGenres={setSelectedGenres}
+                                setAvatar={setAvatar}
                             />
                         }
                     </fieldset>

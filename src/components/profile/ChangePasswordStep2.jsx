@@ -7,7 +7,6 @@ const ChangePasswordStep2 = ({ register, watch, setFormSteps, errors }) => {
     };
     return (
         <>
-
             <DivInputStyle>
                 <LabelStyle>
                     <p>New Password:</p>

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { color } from "./utils/styleConstants";
 import { ButtonSecondaryStyle } from "./generalStyle";
-import { device } from "./utils/styleConstants"; 
+import { device } from "./utils/styleConstants";
 
 export const DivProfile = styled.div`
     display: grid;
@@ -141,7 +141,7 @@ export const DivProfileActionsStyle = styled.div`
     justify-content: center;
     /* margin-top: 20px; */
     gap: 50px;
-` 
+`
 
 export const SectionProfileMain = styled.section`
 

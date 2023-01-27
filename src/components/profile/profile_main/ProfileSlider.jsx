@@ -1,6 +1,5 @@
 import { memo } from 'react';
 import { useNavigate, useOutletContext } from 'react-router-dom';
-import { capitalizeFirstLetter } from '../../../helper/utils';
 import { DivImgRectangleL, H2Style } from '../../style/generalStyle';
 import {
     DivEventInfo,

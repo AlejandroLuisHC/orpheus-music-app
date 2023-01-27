@@ -11,7 +11,7 @@ const AsideProfile = () => {
         <>
             <LinkAside to={`/profile/${userData._id}`}>
                 <ImgCircleS src={userData.img.url} alt={userData.username} />
-    
+
                 {profileName ?? 'Not Logged'}
             </LinkAside>
         </>

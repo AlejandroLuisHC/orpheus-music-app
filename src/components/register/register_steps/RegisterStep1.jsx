@@ -1,12 +1,12 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import { useNavigate } from 'react-router-dom';
-import { 
-    ButtonPrimaryStyle, 
-    ButtonSecondaryStyle, 
-    DivInputStyle, 
-    InputStyle, 
-    LabelStyle, 
-    PErrorStyle 
+import {
+    ButtonPrimaryStyle,
+    ButtonSecondaryStyle,
+    DivInputStyle,
+    InputStyle,
+    LabelStyle,
+    PErrorStyle
 } from '../../style/generalStyle'
 
 const RegisterStep1 = ({ register, watch, userDataAvailable, setFormSteps }) => {
@@ -22,7 +22,7 @@ const RegisterStep1 = ({ register, watch, userDataAvailable, setFormSteps }) => 
                     Let's start with your username
                     <InputStyle
                         type="text"
-                        placeholder= {`${user?.nickname}` || "Username"}
+                        placeholder={`${user?.nickname}` || "Username"}
                         required
                         {...register('username', {
                             required: true,

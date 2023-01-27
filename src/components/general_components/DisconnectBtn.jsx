@@ -6,7 +6,7 @@ import { ButtonLogoutStyle } from "../style/homeStyle";
 const DisconnectBtn = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    
+
     return (
         <ButtonLogoutStyle onClick={() => { dispatch(LOG_OUT()); navigate('/') }}>Log out</ButtonLogoutStyle>
     )

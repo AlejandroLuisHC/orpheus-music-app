@@ -37,16 +37,16 @@ const Playlist = () => {
     const [artistArr, setArtistArr] = useState([])
     useEffect(() => {
         playlist && playlist.tracks.map(track => {
-            track.ownership.map = (user => 
+            track.ownership.map = (user =>
                 !artistArr.includes(user.username) && setArtistArr(prev => prev = [...artistArr, user.username])
             )
         })
     }, [playlist, artistArr])
     const artistList = artistArr.length > 0 ? artistArr.join(", ") : "This playlist is empty"
-    
+
     // Get each track duration
     const [durationTracks, setdurationTracks] = useState([])
-    useEffect(() => { 
+    useEffect(() => {
         playlist && playlist.tracks.map(track => {
             const audio = document.createElement('audio')
             audio.src = track.file.url
@@ -57,7 +57,7 @@ const Playlist = () => {
 
     let mapCounter = -1;
     console.log(durationTracks)
-    
+
     return (
         status === 'loading'
             ? <LogoSpinner />
@@ -75,7 +75,7 @@ const Playlist = () => {
                                 <H2Style>Artists:</H2Style>
                                 <Pstyle>{artistList}</Pstyle>
                                 <br />
-                                <H2Style>{`Created by: ${playlist.ownership[0].username}`}</H2Style>
+                                <H2Style>{`Created by: ${playlist.ownership.username}`}</H2Style>
                                 <Pstyle>{playlist.tracks.length} track{playlist.tracks.length === 1 ? "" : "s"}</Pstyle>
                             </div>
                         </DivImgContain>
@@ -87,25 +87,25 @@ const Playlist = () => {
                             <PDataTrack2>Album</PDataTrack2>
                             <PDataTrack3>Released</PDataTrack3>
                             <PDataTrack4>Time</PDataTrack4>
-                        </DivTitles> 
+                        </DivTitles>
                         <HrStyle />
 
                         {
-                        playlist.tracks.map (track => {
-                            mapCounter++   
-                            return (
-                                <>
-                                    <DivTracks> 
-                                        <ImgListPlaylist src={track.img.url} alt={track.name}/>
-                                        <PDataTrack1>{track.name}</PDataTrack1>
-                                        <PDataTrack2>{track.album ?? 'single'}</PDataTrack2>
-                                        <PDataTrack3>{track.createdAt.slice(0, 10)}</PDataTrack3>
-                                        <PDataTrack4>{durationTracks[mapCounter]}</PDataTrack4>
-                                    </DivTracks>
-                                    <HrStyle />
-                                </>
-                            )
-                        })
+                            playlist.tracks.map(track => {
+                                mapCounter++
+                                return (
+                                    <>
+                                        <DivTracks>
+                                            <ImgListPlaylist src={track.img.url} alt={track.name} />
+                                            <PDataTrack1>{track.name}</PDataTrack1>
+                                            <PDataTrack2>{track.album ?? 'single'}</PDataTrack2>
+                                            <PDataTrack3>{track.createdAt.slice(0, 10)}</PDataTrack3>
+                                            <PDataTrack4>{durationTracks[mapCounter]}</PDataTrack4>
+                                        </DivTracks>
+                                        <HrStyle />
+                                    </>
+                                )
+                            })
                         }
                     </MainStyle>
                 </>

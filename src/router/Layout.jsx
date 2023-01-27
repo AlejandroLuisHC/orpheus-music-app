@@ -9,38 +9,38 @@ import useWidth from '../helper/hooks/useWidth';
 const Layout = () => {
     const { isLogged } = useSelector(state => state.userData.user)
 
-    const  [player,setPlayer] = useState({
-        playerOn:false,
-        audio:'',
-        name:'',
-        user:''
+    const [player, setPlayer] = useState({
+        playerOn: false,
+        audio: '',
+        name: '',
+        user: ''
     })
     const width = useWidth();
     const [mobile, setMobile] = useState(width < 768 ? true : false);
 
     useEffect(() => {
-        if(width < 768){
+        if (width < 768) {
             setMobile(prev => prev = true);
         } else if (width > 768) {
             setMobile(prev => prev = false);
         }
     }, [width])
-    
+
     return (
-        isLogged 
-            ? 
+        isLogged
+            ?
             <GridStyle>
                 <Header><HeaderLogo /></Header>
                 <Aside />
                 <Main>
                     <Outlet context={[setPlayer]} />
-                    {player.playerOn && 
-                        <MusicPlayer 
+                    {player.playerOn &&
+                        <MusicPlayer
                             audio={player.audio}
                             name={player.name}
                             user={player.user}
-                            setPlayer = {setPlayer}
-                            hideVolume = {mobile}
+                            setPlayer={setPlayer}
+                            hideVolume={mobile}
                         />
                     }
                 </Main>

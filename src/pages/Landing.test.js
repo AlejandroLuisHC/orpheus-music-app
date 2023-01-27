@@ -11,7 +11,7 @@ describe("Landing Page", () => {
         setWidth = jest.fn();
         useWidth.mockImplementation(() => [width, setWidth]);
     });
-    
+
     test("should display the logo, slogan and sign-up button when the screen width is less than 768px", () => {
         // Arrange
         width.mockReturnValue(767);

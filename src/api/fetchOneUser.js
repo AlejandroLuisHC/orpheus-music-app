@@ -1,14 +1,14 @@
 
-const fetchOneUser = async(userID, token) => {
-    try{
-        const res = await fetch (`${import.meta.env.VITE_API_URL}${import.meta.env.VITE_API_VERSION}users/${userID}`, {
+const fetchOneUser = async (userID, token) => {
+    try {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}${import.meta.env.VITE_API_VERSION}users/${userID}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
         })
         return res.json();
 
-    } catch(e) {
+    } catch (e) {
         console.log("Fail fetching user")
     }
 }

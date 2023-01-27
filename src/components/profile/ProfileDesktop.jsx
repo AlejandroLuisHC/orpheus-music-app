@@ -58,8 +58,8 @@ const ProfileDesktop = ({ userID }) => {
 
     const [editView, setEditView] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
-    const toggling = () => setEditIsOpen(!isOpen);
-    
+    const toggling = () => setIsOpen(!isOpen);
+
 
     const dataKey = [
         { id: 1, name: "Fav. playlists", type: "playlist", data: user?.favPlaylists || [] },

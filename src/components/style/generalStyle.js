@@ -543,7 +543,7 @@ export const DivMusicPlayerInfo = styled.div`
     display: flex;
     color: white;
 `
-            
+
 export const DivInfoTrack = styled.div`
     display: flex;
     background-color: ${color.primaryBlack};

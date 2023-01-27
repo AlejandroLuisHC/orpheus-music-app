@@ -351,7 +351,7 @@ export const DivSlider = styled.div`
             background: #484848;
         }
     }
-` 
+`
 
 /* HERO TITLES */
 export const DivHeroTitles = styled.div`

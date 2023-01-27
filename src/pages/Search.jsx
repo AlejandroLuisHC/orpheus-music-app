@@ -14,35 +14,35 @@ const Search = () => {
     const search = searchParmams.get('q') || '';
 
     return (
-            <DivSearchContainer>
-                <FormSearchStyle>
-                    <InputSearchStyle
-                        type="search"
-                        onChange={(e) => setSearchParams({ q: e.target.value })}
-                        value={search}
-                        placeholder="Users, songs, playlists, events, genres or moods"
-                    ></InputSearchStyle>
-                </FormSearchStyle>
+        <DivSearchContainer>
+            <FormSearchStyle>
+                <InputSearchStyle
+                    type="search"
+                    onChange={(e) => setSearchParams({ q: e.target.value })}
+                    value={search}
+                    placeholder="Users, songs, playlists, events, genres or moods"
+                ></InputSearchStyle>
+            </FormSearchStyle>
 
-                {search.length <= 1
-                    ? 
-                    <DivSliders>
-                        <HomeSlider apiKey={'events'} />
-                        <HomeSlider apiKey={'playlists'} />
-                        <HomeSlider apiKey={'albums'} />
-                        <HomeSlider apiKey={'tracks'} />
-                        <HomeSlider apiKey={'users'} />
-                    </DivSliders> 
-                    :
-                    <DivSliders>
-                        <SearchSlider apiKey={'events'} search={search} />
-                        <SearchSlider apiKey={'playlists'} search={search} />
-                        <SearchSlider apiKey={'albums'} search={search} />
-                        <SearchSlider apiKey={'tracks'} search={search} />
-                        <SearchSlider apiKey={'users'} search={search} />
-                    </DivSliders>
-                }
-            </DivSearchContainer>
+            {search.length <= 1
+                ?
+                <DivSliders>
+                    <HomeSlider apiKey={'events'} />
+                    <HomeSlider apiKey={'playlists'} />
+                    <HomeSlider apiKey={'albums'} />
+                    <HomeSlider apiKey={'tracks'} />
+                    <HomeSlider apiKey={'users'} />
+                </DivSliders>
+                :
+                <DivSliders>
+                    <SearchSlider apiKey={'events'} search={search} />
+                    <SearchSlider apiKey={'playlists'} search={search} />
+                    <SearchSlider apiKey={'albums'} search={search} />
+                    <SearchSlider apiKey={'tracks'} search={search} />
+                    <SearchSlider apiKey={'users'} search={search} />
+                </DivSliders>
+            }
+        </DivSearchContainer>
     );
 };
 

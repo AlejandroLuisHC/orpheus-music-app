@@ -15,7 +15,7 @@ const Login = () => {
 
     // Fetch existing users from DB
     const { data: users, status: usersStatus } = useQuery(['users'], fetchUsers)
-    
+
     // Manage form with useForm()
     const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -37,7 +37,7 @@ const Login = () => {
 
     return (
         <>
-            <div> 
+            <div>
                 <p>To continue, sign in to Orpheus</p>
             </div>
 
@@ -47,58 +47,58 @@ const Login = () => {
                     ? <p>An error has occurred</p>
                     :
                     <>
-                    <div>
-                        <FieldsetStyle>
-                            <form onSubmit={handleSubmit(checkUser)} autoComplete="off">
-                                <HrStyle style={{margin: "30px auto", width: "25vw"}} />
-                                <DivInputStyle>
-                                    <LabelStyle htmlFor="username"> 
-                                        <p>Username or email:</p>
-                                    </LabelStyle>
-                                    <InputStyle
-                                        type="text"
-                                        placeholder="Username"
-                                        required
-                                        {...register("username", {
-                                            required: {
-                                                value: true,
-                                                message: "This field is required"
-                                            }
-                                        })}
-                                    />
-                                </DivInputStyle>
+                        <div>
+                            <FieldsetStyle>
+                                <form onSubmit={handleSubmit(checkUser)} autoComplete="off">
+                                    <HrStyle style={{ margin: "30px auto", width: "25vw" }} />
+                                    <DivInputStyle>
+                                        <LabelStyle htmlFor="username">
+                                            <p>Username or email:</p>
+                                        </LabelStyle>
+                                        <InputStyle
+                                            type="text"
+                                            placeholder="Username"
+                                            required
+                                            {...register("username", {
+                                                required: {
+                                                    value: true,
+                                                    message: "This field is required"
+                                                }
+                                            })}
+                                        />
+                                    </DivInputStyle>
 
-                                <DivInputStyle>
-                                    <LabelStyle htmlFor="password"> 
-                                        <p>Password:</p>
-                                    </LabelStyle>
-                                    <InputStyle
-                                        type="password"
-                                        placeholder="Password"
-                                        required
-                                        {...register("password", {
-                                            required: {
-                                                value: true,
-                                                message: "This field is required"
-                                            }
-                                        })}
-                                    />
-                                </DivInputStyle>
-                               
-                                <ButtonPrimaryStyle type="submit">Login<IoMdLogIn /></ButtonPrimaryStyle>
-                                {invalidLogin && <PErrorStyle>Incorrect Username or Password</PErrorStyle>}
-                            </form>
-                            <HrStyle style={{margin: "30px auto", width: "25vw"}}/>
-                        </FieldsetStyle>
-                    </div>
+                                    <DivInputStyle>
+                                        <LabelStyle htmlFor="password">
+                                            <p>Password:</p>
+                                        </LabelStyle>
+                                        <InputStyle
+                                            type="password"
+                                            placeholder="Password"
+                                            required
+                                            {...register("password", {
+                                                required: {
+                                                    value: true,
+                                                    message: "This field is required"
+                                                }
+                                            })}
+                                        />
+                                    </DivInputStyle>
 
-                    <div>
-                        <p>Don't have an Orpheus account? <br />
-                        <LinkPrimaryStyle to="/register">Register free</LinkPrimaryStyle></p>
-                        <br></br>
-                        <p>Did you forget your password?</p>
-                        <LinkPrimaryStyle to="/recover-password">Restore password</LinkPrimaryStyle>
-                    </div>
+                                    <ButtonPrimaryStyle type="submit">Login<IoMdLogIn /></ButtonPrimaryStyle>
+                                    {invalidLogin && <PErrorStyle>Incorrect Username or Password</PErrorStyle>}
+                                </form>
+                                <HrStyle style={{ margin: "30px auto", width: "25vw" }} />
+                            </FieldsetStyle>
+                        </div>
+
+                        <div>
+                            <p>Don't have an Orpheus account? <br />
+                                <LinkPrimaryStyle to="/register">Register free</LinkPrimaryStyle></p>
+                            <br></br>
+                            <p>Did you forget your password?</p>
+                            <LinkPrimaryStyle to="/recover-password">Restore password</LinkPrimaryStyle>
+                        </div>
                     </>
             }
         </>

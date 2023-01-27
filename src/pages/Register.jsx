@@ -22,7 +22,7 @@ const Register = () => {
     const { data: users, status } = useQuery(['users'], fetchUsers);
 
     function checkUserExists(email, users) {
-        const foundUser = users.find((user) => 
+        const foundUser = users.find((user) =>
             user.email === email
         )
         if (foundUser) {
@@ -30,21 +30,21 @@ const Register = () => {
             navigate("/home")
         } else {
             return (
-                !windowDesk 
+                !windowDesk
                     ?
                     <DivLanding>
                         <ImgLogoClick onClick={() => navigate('/')} src="https://res.cloudinary.com/drghk9p6q/image/upload/v1671239637/Final-Project-MERN/Logo/Logotipo_tzolje.webp" alt="Logo" />
                         <PSlogan>The music that unites us</PSlogan>
-                        <div style={{gridRow: 3}}>
+                        <div style={{ gridRow: 3 }}>
                             <RegisterForm />
                         </div>
                         <FooterLanding><FooterInfo /></FooterLanding>
                     </DivLanding>
-                    : 
+                    :
                     <DivLanding>
                         <ImgLogoLanding onClick={() => navigate('/')} src="https://res.cloudinary.com/drghk9p6q/image/upload/v1671239637/Final-Project-MERN/Logo/Logotipo_tzolje.webp" alt="Logo" />
                         <PSlogan>The music that unites us</PSlogan>
-                        <div style={{gridRow: 3}}>
+                        <div style={{ gridRow: 3 }}>
                             <RegisterForm />
                         </div>
                         <FooterLanding><FooterInfo /></FooterLanding>
@@ -54,7 +54,7 @@ const Register = () => {
     }
 
     useEffect(() => {
-        if(width > 768){
+        if (width > 768) {
             setWindowDesk(prev => prev = true);
         } else if (width < 768) {
             setWindowDesk(prev => prev = false);
@@ -62,11 +62,11 @@ const Register = () => {
     }, [width])
 
     return (
-        status === "loading" || authLoading 
-            ? <LogoSpinner/>
+        status === "loading" || authLoading
+            ? <LogoSpinner />
             : status === "error"
                 ? <Error />
-                : checkUserExists(user?.email, users)           
+                : checkUserExists(user?.email, users)
     )
 }
 

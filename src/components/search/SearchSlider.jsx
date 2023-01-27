@@ -41,9 +41,9 @@ const SearchSlider = ({ apiKey, search }) => {
             console.log('USER', status, data)
 
             const usersResults = data?.filter(
-                (userData ) =>
+                (userData) =>
                     userData.username.toLowerCase().includes(search.toLowerCase())
-                    // userData.firstname.toLowerCase().includes(search.toLowerCase()) WE DONT HAVE ANY USER WITH FIRSTNAME OR LASTNAME
+                // userData.firstname.toLowerCase().includes(search.toLowerCase()) WE DONT HAVE ANY USER WITH FIRSTNAME OR LASTNAME
             );
 
             setSearchResults(
@@ -59,9 +59,9 @@ const SearchSlider = ({ apiKey, search }) => {
 
             const results = data?.filter(
                 (item) =>
-                    
+
                     item.name.toLowerCase().includes(search.toLowerCase()) ||
-                    item.description?.toLowerCase().includes(search.toLowerCase()) 
+                    item.description?.toLowerCase().includes(search.toLowerCase())
             );
 
             setSearchResults(
@@ -74,7 +74,7 @@ const SearchSlider = ({ apiKey, search }) => {
                     price: result.price
                 }))
             );
-        } else if(apiKey === 'playlists'){
+        } else if (apiKey === 'playlists') {
             console.log('PLAYLISTS', status, data)
             const results = data?.filter(
                 (item) =>
@@ -90,7 +90,7 @@ const SearchSlider = ({ apiKey, search }) => {
                     description: result.description,
                 }))
             );
-        } else if(apiKey === 'albums'){
+        } else if (apiKey === 'albums') {
             console.log('ALABUM', status, data)
             const results = data?.filter(
                 (item) =>
@@ -106,10 +106,10 @@ const SearchSlider = ({ apiKey, search }) => {
                     description: result.description,
                 }))
             );
-        } else if(apiKey === 'tracks'){
+        } else if (apiKey === 'tracks') {
             console.log('TRACKS', status)
 
-            const {tracks} = data
+            const { tracks } = data
             const results = tracks?.filter(
                 (item) =>
                     item.name.toLowerCase().includes(search.toLowerCase()) ||

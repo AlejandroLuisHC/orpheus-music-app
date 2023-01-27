@@ -8,18 +8,18 @@ const AsideMenu = () => {
     const [windowDesk, setWindowDesk] = useState(width > 768 ? true : false);
 
     useEffect(() => {
-        if(width > 768){
+        if (width > 768) {
             setWindowDesk(prev => prev = true);
         } else if (width < 768) {
             setWindowDesk(prev => prev = false);
         }
     }, [width])
-  
+
     return (
         windowDesk
-            ? 
+            ?
             <AsideDesktop />
-            : 
+            :
             <AsideMobile />
     )
 }
