@@ -306,7 +306,7 @@ export const LinkProfile = styled(Link)`
 `
 export const DivSlider = styled.div`
     display: flex;
-    width: calc(100vw - 40px );
+    width: calc(100vw - 40px);
     height: 196px;
     overflow: auto;
     &::-webkit-scrollbar {

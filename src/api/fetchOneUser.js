@@ -1,7 +1,7 @@
 
 const fetchOneUser = async(userID, token) => {
     try{
-        const res = await fetch (`${import.meta.env.VITE_API_URL}/api/v1/users/${userID}`, {
+        const res = await fetch (`${import.meta.env.VITE_API_URL}${import.meta.env.VITE_API_VERSION}users/${userID}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }

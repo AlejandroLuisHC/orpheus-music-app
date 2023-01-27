@@ -4,6 +4,7 @@ import GeneralProvider from "../helper/utils/general_provider/GeneralProvider"
 import LogoSpinner from "../components/general_components/loaders/spinner/LogoSpinner"
 import PrivateRoutes from "./PrivateRoutes"
 import NotConnectedRoutes from "./NotConnectedRoutes"
+import Playlist from "../pages/Playlist"
 
 const Layout = lazy(() => import('./Layout'))
 const Landing = lazy(() => import('../pages/Landing'))
@@ -53,6 +54,7 @@ const Router = () => {
                             <Route path='/home/:viewMore' element={<PrivateRoutes><ViewMore /></PrivateRoutes>} />
                             <Route path='/search' element={<PrivateRoutes><Search /></PrivateRoutes>} />
                             <Route path='/profile/:id' element={<PrivateRoutes><Profile /></PrivateRoutes>} />
+                            <Route path='/playlist/:id' element={<PrivateRoutes><Playlist /></PrivateRoutes>} />
                         </Route>
                     </Routes>
                 </Suspense>
