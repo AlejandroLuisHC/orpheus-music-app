@@ -1,19 +1,20 @@
 const fetchCreateTrack = async ( track ) => {
     try {
-        const trackBody = {
-            name: track.name,
-            description: track.description,
-            ownership: track.ownership,
-            genres: track.genres
-        }
+        
+        const formData = new FormData()
+
+        formData.append('video', track.file[0])
+        formData.append('image', track.img[0])
+        formData.append('name', track.name)
+        formData.append('description', track.description)
+        formData.append('ownership', [track.ownership])
+        formData.append('genres', track.genres)
+
+        console.log(formData)
         const options = {
             method: 'POST',
-            headers: { 'Content-type': 'application/json' },
-            body: JSON.stringify(trackBody),
-            files: {
-                images: JSON.stringify(track.img[0]), 
-                video: JSON.stringify(track.track[0])
-            }
+            //headers: { 'Content-type': 'multipart/form-data' },
+            body: formData,
         }
         const res = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/tracks`, options)
         const data = await res.json() 

@@ -3,8 +3,8 @@ import { useForm } from 'react-hook-form'
 import { useModal } from 'react-hooks-use-modal'
 import { IoIosCloseCircleOutline } from 'react-icons/io'
 import { useDispatch, useSelector } from 'react-redux'
-import { ButtonPrimaryStyle, ButtonSecondaryStyle, InputStyle, LabelStyle } from '../../../style/generalStyle'
-import { DivModalClose, DivModalTrack } from '../../../style/profileStyle'
+import { ButtonPrimaryStyle, ButtonSecondaryStyle, InputStyle, LabelStyle, SelectStyle } from '../../../style/generalStyle'
+import { DivModalClose, DivModalTrack, DivTrackBody, DivTrackImg, FormTracks, ImgTrack, InputDescriptionStyle } from '../../../style/profileStyle'
 import { useAuth0 } from '@auth0/auth0-react';
 import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
@@ -32,14 +32,14 @@ const AddTrack = () => {
         name: '',
         description: '',
         img: {},
-        track: {},
+        file: {},
         genres: [],
         ownership: [id]
     })
 
     const createTrack = async ({
         ownership,
-        track,
+        file,
         img,
         description,
         name,
@@ -47,8 +47,8 @@ const AddTrack = () => {
     }) => {
         trackData.name = name || `${userAuth.given_name}-Song`;
         trackData.description = description || 'Orpheus is awesome';
-        trackData.img = img || '';
-        trackData.track = track;
+        trackData.img = img || 'https://res.cloudinary.com/drghk9p6q/image/upload/v1674479861/Final-Project-MERN/images-orpheus/default-images/track_okeksf.webp';
+        trackData.file = file;
         trackData.genres = [genres] || [];
 
         setTrackData({
@@ -67,76 +67,71 @@ const AddTrack = () => {
         <Modal> 
             <DivModalTrack>
                 <h1>TRACK</h1>
-                <form onSubmit={
+                <FormTracks onSubmit={
                     handleSubmit(data => createTrack(data))
                 }>
-                     <LabelStyle>
-                        Owner
-                        <InputStyle 
-                        type='text'
-                        placeholder={`${userAuth.nickname}` || ''}
-                        required
-                        {...register('ownership', {
-                            required: true
-                        })}
-                        />
-                    </LabelStyle>
-                    <LabelStyle>
-                        Insert Track audio
-                        <input 
-                        type='file'
-                        // required
-                        {...register('track', {
-                            required: true
-                        })}
-                        />
-                    </LabelStyle>
-                    <LabelStyle>
-                        Song name
-                        <InputStyle 
-                        type='text'
-                        placeholder='Song name'
-                        required
-                        {...register('name', {
-                            required: true
-                        })}
-                        />
-                    </LabelStyle>
-                    <LabelStyle>
-                        Description
-                        <InputStyle 
-                        type='text'
-                        placeholder='Description'
-                        {...register('description', {
-                            required: true
-                        })}
-                        />
-                    </LabelStyle>
+                     <DivTrackBody>
                         <LabelStyle>
-                            select a genre
-                            <select 
-                            required
-                            {...register('genres',{
+                            Insert Track audio
+                            <input 
+                            type='file'
+                            // required
+                            {...register('file', {
                                 required: true
-                            })}>
-                                {genres?.map((option)=>{
-                                return <option key={option._id} value={option.name}>{option.name}</option>
-                                })}
-                            </select>
+                            })}
+                            />
                         </LabelStyle>
-                    <LabelStyle>
-                        Choose picture for your track!
-                        <input 
-                        type='file'
-                        // required
-                        {...register('img', {
-                            required: true
-                        })}
-                        />
-                    </LabelStyle>
+                        <br />
+                        <LabelStyle>
+                            Song name
+                            <InputStyle 
+                            type='text'
+                            placeholder='Song name'
+                            required
+                            {...register('name', {
+                                // required: true
+                            })}
+                            />
+                        </LabelStyle>
+                        <LabelStyle>
+                            Description
+                            <InputDescriptionStyle
+                            type='text'
+                            placeholder='Description'
+                            {...register('description', {
+                                required: true
+                            })}
+                            />
+                        </LabelStyle>
+                            <LabelStyle>
+                                select a genre
+                                <SelectStyle 
+                                required
+                                {...register('genres',{
+                                    required: true
+                                })}>
+                                    {genres?.map((option)=>{
+                                    return <option key={option._id} value={option._id}>{option.name}</option>
+                                    })}
+                                </SelectStyle>
+                            </LabelStyle>
+                     </DivTrackBody>
+                    <DivTrackImg>
+                        <ImgTrack src={'https://res.cloudinary.com/drghk9p6q/image/upload/v1674479861/Final-Project-MERN/images-orpheus/default-images/track_okeksf.webp'}/>
+                        <LabelStyle>
+                            Choose picture for your track!
+                            <input 
+                            type='file'
+                            // required
+                            {...register('img', {
+                                required: true
+                            })}
+                            />
+                        </LabelStyle>
                     <ButtonPrimaryStyle type='submit'>Upload track!</ButtonPrimaryStyle>
-                </form>
-
+                    </DivTrackImg>
+                </FormTracks>
+                            
                 <DivModalClose>
                     <IoIosCloseCircleOutline onClick={close}/>
                 </DivModalClose>
