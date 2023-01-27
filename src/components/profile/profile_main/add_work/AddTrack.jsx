@@ -31,8 +31,8 @@ const AddTrack = () => {
     const [trackData, setTrackData] = useState({
         name: '',
         description: '',
-        // img: {},
-        // track: {},
+        img: {},
+        track: {},
         genres: [],
         ownership: [id]
     })
@@ -47,9 +47,9 @@ const AddTrack = () => {
     }) => {
         trackData.name = name || `${userAuth.given_name}-Song`;
         trackData.description = description || 'Orpheus is awesome';
-        // trackData.img = img || '';
-        // trackData.track = track;
-        trackData.genres = genres || [];
+        trackData.img = img || '';
+        trackData.track = track;
+        trackData.genres = [genres] || [];
 
         setTrackData({
             ...trackData
@@ -70,7 +70,7 @@ const AddTrack = () => {
                 <form onSubmit={
                     handleSubmit(data => createTrack(data))
                 }>
-                    {/* <LabelStyle>
+                     <LabelStyle>
                         Owner
                         <InputStyle 
                         type='text'
@@ -80,7 +80,7 @@ const AddTrack = () => {
                             required: true
                         })}
                         />
-                    </LabelStyle> */}
+                    </LabelStyle>
                     <LabelStyle>
                         Insert Track audio
                         <input 
@@ -116,12 +116,12 @@ const AddTrack = () => {
                             select a genre
                             <select 
                             required
-                            {...register('genre',{
+                            {...register('genres',{
                                 required: true
                             })}>
-                                {genres?.map((option)=>
-                                <option value={option.name}>{option.name}</option>
-                                )}
+                                {genres?.map((option)=>{
+                                return <option key={option._id} value={option.name}>{option.name}</option>
+                                })}
                             </select>
                         </LabelStyle>
                     <LabelStyle>
