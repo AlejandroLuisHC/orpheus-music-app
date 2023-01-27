@@ -297,3 +297,86 @@ export const ListItem = styled.li`
         font-size: 20px;
     }
 `
+
+export const DivModalWork = styled.div`
+    background-color: ${color.primaryBlack};
+    padding: 20px;
+    border-radius: 25px;
+    justify-content: center;
+    text-align: center;
+    @media ${device.desktop}{
+        width: 500px;
+        height: 190px;
+    }
+`
+
+export const DivModalOptions = styled.div`
+    margin-top: 20px;
+    @media ${device.desktop}{
+        display: flex;
+        justify-content: space-around;
+    }
+`
+export const DivModalClose = styled.div`
+    font-size: 30px;
+    color: ${color.primaryWhite};
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+`
+
+export const DivModalTrack = styled.div`
+    background-color: ${color.primaryBlack};
+    padding: 20px;
+    border-radius: 25px;
+    justify-content: center;
+    text-align: center;
+    @media ${device.desktop}{
+        width: 800px;
+        height: 600px;
+    }
+`
+
+export const DivModalAlbum = styled.div`
+    background-color: ${color.primaryBlack};
+    padding: 20px;
+    border-radius: 25px;
+    justify-content: center;
+    text-align: center;
+    @media ${device.desktop}{
+        width: 500px;
+        height: 800px;
+    }
+`
+
+export const FormTracks = styled.form`
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+`
+export const InputDescriptionStyle = styled.input`
+    background-color: ${color.primaryWhite};
+    height: 100px;
+    width: 280px;
+    border: none;
+    font-size: 18px;
+    border-radius: calc(40px * .5);
+    margin: 10px auto;
+    text-align: center;
+    display: column;
+`
+
+export const DivTrackBody = styled.div`
+    text-align: center;
+`
+export const DivTrackImg = styled.div`
+    text-align: center;
+`
+export const ImgTrack = styled.img`
+    text-align: center;
+    border-radius: 25px;
+    @media ${device.desktop}{
+        width: 200px;
+        height: 200px;
+    }
+`
