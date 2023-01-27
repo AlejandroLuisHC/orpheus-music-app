@@ -34,7 +34,7 @@ import {
     SectionProfileMain, 
     SpanProfileUserNumbers 
 } from '../style/profileStyle'
-import AddWork from './AddWork';
+import AddWork from './profile_main/add_work/AddWork';
 import CreatePlaylist from './CreatePlaylist';
 import DisconnectIcon from './DisconnectIcon';
 import ProfileSlider from './profile_main/ProfileSlider';

@@ -31,7 +31,7 @@ import {
     SectionProfileMain,
     SpanProfileUserNumbers
 } from '../style/profileStyle';
-import AddWork from './AddWork';
+import AddWork from './profile_main/add_work/AddWork';
 import CreatePlaylist from './CreatePlaylist';
 import DisconnectIcon from './DisconnectIcon';
 import ProfileSlider from './profile_main/ProfileSlider';
@@ -58,7 +58,9 @@ const ProfileDesktop = ({ userID }) => {
 
     const [editView, setEditView] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
-    const toggling = () => setIsOpen(!isOpen);
+    const toggling = () => setEditIsOpen(!isOpen);
+    
+
     const dataKey = [
         { id: 1, name: "Fav. playlists", type: "playlist", data: user?.favPlaylists || [] },
         { id: 2, name: "Fav. albums", type: "albums", data: user?.favAlbums || [] },
