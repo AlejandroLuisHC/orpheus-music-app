@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom';
 import { fetchKey } from '../../api';
 import { capitalizeFirstLetter } from '../../helper/utils';
+import Error from '../../pages/Error';
 import HomeSlidersLoader from '../general_components/loaders/content_loader/HomeSlidersLoader';
 import {
     DivImgRectangleL,
@@ -119,8 +120,7 @@ const HomeSlider = ({ apiKey }) => {
                     )
                 })
             case 'tracks':
-                const { data: tracks } = data
-                return tracks?.map((item) => {
+                return data?.data.map((item) => {
                     return (
                         <DivMusicCard key={item._id}
                             resultType={apiKey}
@@ -155,7 +155,7 @@ const HomeSlider = ({ apiKey }) => {
         status === 'loading'
             ? <HomeSlidersLoader />
             : status === 'error'
-                ? <PErrorStyle>An error has occurred fetching this information</PErrorStyle>
+                ? <Error />
                 :
                 <>
                     <DivSilderHeader>
