@@ -50,7 +50,7 @@ const HomeSlider = ({ apiKey }) => {
     const items = (() => {
         switch (apiKey) {
             case 'events':
-                return data.map((item) => {
+                return data?.map((item) => {
                     return (
                         <DivEventCard key={item._id}>
                             <DivImgRectangleL src={item.img.url} />
@@ -65,7 +65,7 @@ const HomeSlider = ({ apiKey }) => {
                 })
 
             case 'users':
-                return data.map((item) => {
+                return data?.map((item) => {
                     return (
                         <Link key={item._id} to={`/profile/${item._id}`}>
                             <DivUserCard>
@@ -77,7 +77,7 @@ const HomeSlider = ({ apiKey }) => {
                     )
                 })
             case 'albums':
-                return data.map((item) => {
+                return data?.map((item) => {
                     return (
                         <DivMusicCard key={item._id}
                             resultType={apiKey}
@@ -103,7 +103,7 @@ const HomeSlider = ({ apiKey }) => {
                         </DivMusicCard>)
                 })
             case 'playlists':
-                return data.map((item) => {
+                return data?.map((item) => {
                     return (
                         <Link key={item._id} to={`/playlist/${item._id}`}>
                             <DivMusicCard resultType={apiKey}>
@@ -130,7 +130,7 @@ const HomeSlider = ({ apiKey }) => {
                 })
             case 'tracks':
                 const { data: tracks } = data
-                return tracks.map((item) => {
+                return tracks?.map((item) => {
                     return (
                         <DivMusicCard key={item._id}
                             resultType={apiKey}
