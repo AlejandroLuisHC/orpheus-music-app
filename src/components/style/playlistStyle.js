@@ -11,10 +11,10 @@ padding: 20px 20px 40px 20px;
 `
 
 export const BackgroundDiv = styled.div`
-    margin: 0;
+    margin: 0 0 10px 0;
     padding: 0;
     width: 100%;
-    height: 310px;
+    height: 333px;
     background-position: center;
     background: ${props => `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1) ), url('${props.img}')`};
     background-position:center;
@@ -68,7 +68,7 @@ export const H1Style = styled.h1`
     font-weight: bold;
     cursor:pointer;
     text-transform: uppercase;
-    padding:20px 0;
+    padding:20px 0 0;
 
     @media ${device.desktop}{
         font-size: 48px;
@@ -88,6 +88,45 @@ export const H2Style = styled.h2`
         display:block;
     }
 `
+export const H2StyleBlack = styled.p`
+   color: #000;
+    font-size: 24px;
+    font-weight: bold;
+    display:none;
+
+    text-transform: uppercase;
+    @media ${device.desktop}{
+        font-size: 20px;
+        display:block;
+    }
+     &:hover{
+
+        color: ${color.primaryYellow}
+    }
+`
+
+export const DivPlayListen = styled.button`
+    padding:5px 5px;
+    border-radius:50px;
+    color: #000;
+    background: ${color.primaryYellow};
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    border:none;
+    cursor:pointer;
+     @media ${device.desktop}{
+        padding:5px 20px;
+        font-size: 12px;
+        margin-left:200px;
+        justify-content:center;
+    }
+    &:hover{
+        border: 2px solid ${color.primaryYellow};
+        background:none;
+        color: ${color.primaryYellow}
+    }
+`
 
 export const Pstyle = styled.p`
     color: ${color.primaryWhite};
@@ -103,7 +142,7 @@ export const Pstyle = styled.p`
     }
 `
 
-//.map tracks playlist
+
 
 
 export const DivTracks = styled.div`
@@ -157,3 +196,4 @@ export const PDataTrack4 = styled.p`
         grid-column: 5;
     }
 `
+

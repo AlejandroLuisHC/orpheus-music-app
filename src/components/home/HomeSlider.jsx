@@ -107,17 +107,7 @@ const HomeSlider = ({ apiKey }) => {
                     return (
                         <Link key={item._id} to={`/playlist/${item._id}`}>
                             <DivMusicCard resultType={apiKey}>
-                                <DivImageMusic onClick={() => {
-
-                                    setPlayer(
-                                        prev => prev = {
-                                            playerOn: true,
-                                            audio: item.file,
-                                            name: item.name,
-                                            user: item.description,
-                                        }
-                                    )
-                                }}>
+                                <DivImageMusic>
                                     <ImgCardMusic src={item.img.url} />
                                 </DivImageMusic>
                                 <DivInfoMusic>

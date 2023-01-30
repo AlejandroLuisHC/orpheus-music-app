@@ -1,7 +1,8 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { useQuery } from "@tanstack/react-query";
-import { useParams } from "react-router-dom";
-import LogoSpinner from "../components/general_components/loaders/spinner/LogoSpinner";
+import { useOutletContext, useParams } from "react-router-dom";
+import LogoSpinner from "../components/general_components/loaders/spinner/LogoSpinner"
+import { IoMdArrowDropright } from 'react-icons/io'
 import { HrStyle } from "../components/style/generalStyle"
 import { MainStyle } from "../components/style/homeStyle"
 import Error from "./Error";
@@ -10,10 +11,12 @@ import {
     BackgroundDiv,
     DivImgContain,
     DivimgPadding,
+    DivPlayListen,
     DivTitles,
     DivTracks,
     H1Style,
     H2Style,
+    H2StyleBlack,
     ImgListPlaylist,
     PDataTrack1,
     PDataTrack2,
@@ -25,6 +28,9 @@ import fetchOnePlaylist from "../api/fetchOnePlaylist";
 
 
 const Playlist = () => {
+    
+    const [setPlayer] = useOutletContext();
+
     const { id: playlistID } = useParams();
     const { getAccessTokenSilently } = useAuth0()
 
@@ -78,6 +84,20 @@ const Playlist = () => {
                                 <H2Style>{`Created by: ${playlist.ownership.username}`}</H2Style>
                                 <Pstyle>{playlist.tracks.length} track{playlist.tracks.length === 1 ? "" : "s"}</Pstyle>
                             </div>
+                            <DivPlayListen onClick={() => {
+
+                                setPlayer(
+                                    prev => prev = {
+                                        playerOn: true,
+                                        audio: playlist.file,
+                                        name: playlist.name,
+                                        user: playlist.description,
+                                    }
+                                )
+                            }}>
+                                <IoMdArrowDropright size={35} />
+                                <H2StyleBlack>Play</H2StyleBlack>
+                            </DivPlayListen>
                         </DivImgContain>
                     </BackgroundDiv>
 
