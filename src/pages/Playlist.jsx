@@ -89,9 +89,9 @@ const Playlist = () => {
                                 setPlayer(
                                     prev => prev = {
                                         playerOn: true,
-                                        audio: playlist.file,
-                                        name: playlist.name,
-                                        user: playlist.description,
+                                        audio: playlist.track.file.url,
+                                        name: playlist.track.name,
+                                        user: playlist.track.ownership,
                                     }
                                 )
                             }}>

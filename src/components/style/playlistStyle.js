@@ -11,7 +11,7 @@ padding: 20px 20px 40px 20px;
 `
 
 export const BackgroundDiv = styled.div`
-    margin: 0 0 10px 0;
+    margin-bottom:10px;
     padding: 0;
     width: 100%;
     height: 333px;
@@ -22,7 +22,7 @@ export const BackgroundDiv = styled.div`
     background-size: cover;
     @media ${device.desktop}{
         width: 100%;
-        height: 360px;
+        height: 320px;
     }
 `
 
@@ -68,7 +68,7 @@ export const H1Style = styled.h1`
     font-weight: bold;
     cursor:pointer;
     text-transform: uppercase;
-    padding:20px 0 0;
+    padding-top:20px;
 
     @media ${device.desktop}{
         font-size: 48px;
@@ -100,7 +100,6 @@ export const H2StyleBlack = styled.p`
         display:block;
     }
      &:hover{
-
         color: ${color.primaryYellow}
     }
 `
