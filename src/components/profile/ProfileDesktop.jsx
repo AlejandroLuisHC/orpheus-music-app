@@ -55,18 +55,21 @@ const ProfileDesktop = ({ userID }) => {
             ? setUser(loggedUser)
             : setUser(data)
     }, [data, loggedUser])
+    console.log("user", user);
 
     const [editView, setEditView] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const toggling = () => setIsOpen(!isOpen);
 
-
     const dataKey = [
         { id: 1, name: "Fav. playlists", type: "playlist", data: user?.favPlaylists || [] },
-        { id: 2, name: "Fav. albums", type: "albums", data: user?.favAlbums || [] },
-        { id: 3, name: "Fav. tracks", type: "tracks", data: user?.favTracks || [] },
-        { id: 4, name: "Followers", type: "users", data: user?.followers || [] },
-        { id: 5, name: "Following", type: "users", data: user?.following || [] }
+        { id: 2, name: "Fav. albums", type: "album", data: user?.favAlbums || [] },
+        { id: 3, name: "Fav. tracks", type: "track", data: user?.favTracks || [] },
+        { id: 4, name: "Followers", type: "user", data: user?.followers || [] },
+        { id: 5, name: "Following", type: "user", data: user?.following || [] },
+        { id: 6, name: "Own tracks", type: "track", data: user?.tracks || [] },
+        { id: 7, name: "Own albums", type: "album", data: user?.albums || [] },
+        { id: 8, name: "Own playlists", type: "playlist", data: user?.playlists || [] }
     ]
 
     return (
