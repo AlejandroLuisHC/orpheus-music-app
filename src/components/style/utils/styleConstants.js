@@ -7,5 +7,5 @@ export const color = {
     secondaryYellow: '#F1CB58',
 }
 export const device = {
-    desktop: `(min-width: ${'768px'})`,
+    desktop: `(min-width: 768px)`,
 };

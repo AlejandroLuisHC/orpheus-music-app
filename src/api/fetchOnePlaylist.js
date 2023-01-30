@@ -1,6 +1,5 @@
 
 const fetchOnePlaylist = async (playlistID, token) => {
-    console.log(import.meta.env.VITE_API_URL)
     try {
         const res = await fetch(`${import.meta.env.VITE_API_URL}${import.meta.env.VITE_API_VERSION}playlists/${playlistID}`, {
             headers: {

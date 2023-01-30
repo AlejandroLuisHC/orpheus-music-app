@@ -85,13 +85,12 @@ const HomeSlider = ({ apiKey }) => {
                         /* as={Link} to={`/${apiKey}/${result.name}`} */
                         >
                             <DivImageMusic onClick={() => {
-
                                 setPlayer(
                                     prev => prev = {
                                         playerOn: true,
-                                        audio: item.file,
+                                        audio: item.file.url,
                                         name: item.name,
-                                        user: item.description,
+                                        user: item.ownership,
                                     }
                                 )
                             }}>
@@ -127,13 +126,12 @@ const HomeSlider = ({ apiKey }) => {
 
                         >
                             <DivImageMusic onClick={() => {
-
                                 setPlayer(
                                     prev => prev = {
                                         playerOn: true,
-                                        audio: item.file,
+                                        audio: item.file.url,
                                         name: item.name,
-                                        user: item.description,
+                                        user: item.ownership.username,
                                     }
                                 )
                             }}>

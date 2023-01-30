@@ -31,6 +31,7 @@ export const DivImgContain = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    flex-wrap: nowrap;
     padding-top:30px;
     
     @media ${device.desktop}{
@@ -69,36 +70,50 @@ export const H1Style = styled.h1`
     cursor:pointer;
     text-transform: uppercase;
     padding-top:20px;
+    transition: 300ms;
 
     @media ${device.desktop}{
-        font-size: 48px;
+        font-size: 42px;
         text-align: start;
+    }
+    @media (min-width: 1250px) {
+        font-size: 48px;
     }
 `
 
 export const H2Style = styled.h2`
     color: ${color.primaryYellow};
-    font-size: 24px;
     font-weight: bold;
-    cursor:pointer;
     text-transform: uppercase;
+    font-size: 20px;
     display:none;
 
-    @media ${device.desktop}{
-        font-size: 20px;
+    @media (min-width: 1250px) {
         display:block;
+        font-size: px;
     }
 `
 
 export const PStyleBlack = styled.p`
-   color: #000;
-    font-size: 24px;
+    color: ${color.primaryBlack};
+    font-size: 20px;
     font-weight: bold;
     display:none;
-
     text-transform: uppercase;
-    @media ${device.desktop}{
-        font-size: 20px;
+
+    @media (min-width: 1250px){
+        display:block;
+    }
+`
+export const Pstyle = styled.p`
+    color: ${color.primaryWhite};
+    font-weight: bold;
+    font-size: 12px;
+    cursor:pointer;
+    text-shadow: 0 0 20px #000;
+    display:none;
+
+    @media (min-width: 1250px){
         display:block;
     }
 `
@@ -125,7 +140,8 @@ export const DivPlayListen = styled.button`
     @media ${device.desktop}{
         min-height: 100px;
         min-width: 100px;
-        margin-left: .2vw;
+        margin-left: 2vw;
+        margin-right: 1vw;
         &:hover{
             box-shadow: 0 0 20px ${color.primaryYellow};
             border: 10px solid ${color.primaryYellow};
@@ -135,20 +151,21 @@ export const DivPlayListen = styled.button`
     }
 `
 
-export const Pstyle = styled.p`
-    color: ${color.primaryWhite};
-    font-size: 24px;
-    font-weight: bold;
-    cursor:pointer;
-    text-shadow: 0 0 20px #000;
-    display:none;
+
+
+export const ImgListPlaylist = styled.img`
+    width: 40px;
+    margin-left: 10px;
+    height: auto;
+    object-fit: cover;
+    grid-column: 1;
+    border-radius: 5px;
+    transition: 300ms;
 
     @media ${device.desktop}{
-        font-size: 12px;
-        display:block;
+        width:40px;
     }
 `
-
 
 export const DivTracks = styled.div`
     font-size: 14px;
@@ -161,11 +178,15 @@ export const DivTracks = styled.div`
     @media ${device.desktop}{
         grid-template-columns: 60px repeat(4, 1fr);
     }
-    &:hover{
+    &:hover {
         background-color: #ffffff22;
         cursor: pointer;
     }
+    &:hover ${ImgListPlaylist} {
+        border-radius: 50%;
+    }
 `
+
 export const DivTitles = styled.div`
     text-transform: uppercase;
     font-size: 18px;
@@ -186,16 +207,6 @@ export const HrDivStyle = styled(HrStyle)`
     margin: 0;
 `
 
-export const ImgListPlaylist = styled.img`
-    width: 40px;
-    height: auto;
-    object-fit: cover;
-    grid-column: 1;
-    border-radius: 50%;
-    @media ${device.desktop}{
-        width:40px;
-    }
-`
 export const PDataTrack1 = styled.p`
     grid-column: 2;
 `
