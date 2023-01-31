@@ -151,13 +151,16 @@ export const LinkAside = styled(Link)`
     transition: 300ms;
     &:hover{
         color: ${color.primaryYellow};
-        transform: scale(1.1);
+        transform: scale(1.03);
     }
     @media ${device.desktop}{
         display: flex;
-        padding-left: 20px;
+        padding-left: 5px;
         margin: 15px 0;
     }
+`
+export const PMenuStyle = styled.p`
+    margin-left:10px;
 `
 
 export const Hr = styled.hr`
@@ -302,7 +305,7 @@ export const DivStepsContainer = styled.div`
 export const DivStepsCounter = styled.div`
     background-color: ${color.primaryYellow};
     height: 5px;
-    width: ${props => `${parseInt(props.step) * 70}px` || "85px"};
+    width: ${props => `${parseInt(props.step) * 116}px` || "85px"};
     border-radius: calc(5px * .5);
     transition: 500ms;
 `

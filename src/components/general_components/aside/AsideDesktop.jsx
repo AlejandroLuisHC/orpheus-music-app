@@ -10,7 +10,8 @@ import { useSelector } from 'react-redux'
 import {
     AsideDesktopStyle,
     LinkAside,
-    Hr
+    Hr,
+    PMenuStyle
 } from '../../style/generalStyle'
 import AsideProfile from './AsideProfile'
 import AsideRecentPlaylist from './AsideRecentPlaylist'
@@ -22,27 +23,27 @@ const AsideDesktop = () => {
             <div>
                 <LinkAside to={'/home'}>
                     <IoMdHome />
-                    <p>Home</p>
+                    <PMenuStyle>Home</PMenuStyle>
                 </LinkAside>
                 <LinkAside to={'/search'}>
                     <IoMdSearch />
-                    <p>Search</p>
+                    <PMenuStyle>Search</PMenuStyle>
                 </LinkAside>
                 <LinkAside to={username}>
                     <IoMdMusicalNotes />
-                    <p>My playlists</p>
+                    <PMenuStyle>My playlists</PMenuStyle>
                 </LinkAside>
                 <LinkAside to={username}>
                     <IoMdHeart />
-                    <p>Favorites</p>
+                    <PMenuStyle>Favorites</PMenuStyle>
                 </LinkAside>
                 <LinkAside to={'/home/users'}>
                     <IoMdPeople />
-                    <p>Social</p>
+                    <PMenuStyle>Social</PMenuStyle>
                 </LinkAside>
                 <LinkAside to={'/home/events'}>
                     <IoMdCheckbox />
-                    <p>Events</p>
+                    <PMenuStyle>Events</PMenuStyle>
                 </LinkAside>
             </div>
             <Hr />

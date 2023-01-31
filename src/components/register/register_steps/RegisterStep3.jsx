@@ -1,54 +1,71 @@
-import React from 'react'
+import { useQuery } from '@tanstack/react-query';
+import { fetchKey } from '../../../api';
 import {
     ButtonPrimaryStyle,
-    ButtonSecondaryStyle,
-    DivInputStyle,
-    InputStyle,
-    LabelStyle,
-    SelectStyle
-} from '../../style/generalStyle'
+    ButtonSecondaryStyle
+} from '../../style/generalStyle';
+import {
+    DivFlexGenres,
+    DivGenreCircle,
+    DivSelectedGenreCircle
+} from '../../style/registerStyle';
 
-const RegisterStep3 = ({ register, setFormSteps }) => {
+const RegisterStep3 = ({ setFormSteps, selectedGenres, setSelectedGenres, setAvatar }) => {
+    const { data: genres } = useQuery(
+        ['genres', 'genres'],
+        () => fetchKey('genres')
+    );
+
+    const isGenreSelected = (id) => (
+        selectedGenres?.find((genreId) => genreId === id)
+    );
+
+    const addToSelectedGenres = (id) => {
+        !isGenreSelected(id) && setSelectedGenres([...selectedGenres, id]);
+    };
+
+    const removeFromSelectedGenres = (id) => {
+        console.log('remove', id)
+        //TODO: fix this function
+        setSelectedGenres([...selectedGenres].filter((genre) => genre !== id))
+    };
+
+    function getRandomSize() {
+        return Math.random() * (100 - 85) + 85;
+    }
+    function getRandomSizeSelected() {
+        return Math.random() * (125 - 110) + 110;
+    }
+
     return (
         <>
-            <legend>Protect your account</legend>
+            <legend>Almost there...</legend>
 
-            <DivInputStyle>
-                <LabelStyle>
-                    Choose you secret question
-                    <SelectStyle {...register('secretQuestion')}>
-                        <option value="What is your favourite song?">
-                            What is your favourite song?
-                        </option>
-                        <option value="What is your favourite pizza?">
-                            What is your favourite pizza?
-                        </option>
-                        <option value="What is your favourite city?">
-                            What is your favourite city?
-                        </option>
-                    </SelectStyle>
-                </LabelStyle>
-            </DivInputStyle>
+            <p>Select at least one genre</p>
+            <DivFlexGenres>
+                {genres?.map((genre) => {
+                    return !isGenreSelected(genre._id) ? (
+                        <DivGenreCircle
+                            key={genre._id}
+                            size={`${getRandomSize()}px`}
+                            onClick={() => addToSelectedGenres(genre._id)}
+                        >
+                            <p>{genre.name}</p>
+                        </DivGenreCircle>
+                    ) : (
+                        <DivSelectedGenreCircle
+                            key={genre._id}
+                            size={`${getRandomSizeSelected()}px`}
+                            onClick={() => removeFromSelectedGenres(genre._id)}
+                        >
+                            <p>{genre.name}</p>
+                        </DivSelectedGenreCircle>
+                    );
+                })}
+            </DivFlexGenres>
 
-            <DivInputStyle>
-                <LabelStyle>
-                    Create your secret answer
-                    <InputStyle
-                        type="text"
-                        placeholder="Your answer..."
-                        required
-                        secretAnswer
-                        {...register('secretAnswer')}
-                    />
-                </LabelStyle>
-            </DivInputStyle>
-
-            <ButtonPrimaryStyle
-                onClick={() => setFormSteps(prev => prev = { step: '4', fourthStep: true })}
-            >
-                Next
-            </ButtonPrimaryStyle>
-            <ButtonSecondaryStyle onClick={() => setFormSteps(prev => prev = { step: '2', secondStep: true })}>Back</ButtonSecondaryStyle>
+            <ButtonPrimaryStyle type="submit" disabled={selectedGenres.length < 1}>I'm ready!</ButtonPrimaryStyle>
+            <ButtonSecondaryStyle type="button" onClick={() => { setFormSteps(prev => prev = { step: '2', secondStep: true }); setAvatar(prev => prev = '') }}>Back</ButtonSecondaryStyle>
         </>
     )
 }
