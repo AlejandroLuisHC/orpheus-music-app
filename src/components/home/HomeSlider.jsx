@@ -9,7 +9,6 @@ import {
 } from 'react-router-dom';
 import { fetchKey } from '../../api';
 import { capitalizeFirstLetter } from '../../helper/utils';
-import Error from '../../pages/Error';
 import HomeSlidersLoader from '../general_components/loaders/content_loader/HomeSlidersLoader';
 import {
     DivImgRectangleL,
@@ -66,46 +65,46 @@ const HomeSlider = ({ apiKey }) => {
             case 'users':
                 return data?.map((item) => {
                     return (
-                        <Link key={item._id} to={`/profile/${item._id}`}>
-                            <DivUserCard>
-                                <ImgAvatarUser src={item.img.url} />
-                                <PNameUser>{item.username}</PNameUser>
-                                <PFollowersUser>{item.followers} followers</PFollowersUser>
-                            </DivUserCard>
-                        </Link>
+                        <DivUserCard onClick={() => navigate(`/profile/${item._id}`)}>
+                            <ImgAvatarUser src={item.img.url} />
+                            <PNameUser>{item.username.length > 12
+                                ? item.username.slice(0, 11) + "..."
+                                : item.username}</PNameUser>
+                            <PFollowersUser>{item.followers.length} followers</PFollowersUser>
+                        </DivUserCard>
                     )
                 })
             case 'albums':
                 return data?.map((item) => {
                     return (
-                        <Link key={item._id} to={`/album/${item._id}`}>
-                            <DivMusicCard
-                                resultType={apiKey}>
-                                <DivImageMusic>
-                                    <ImgCardMusic src={item.img.url} />
-                                </DivImageMusic>
-                                <DivInfoMusic>
-                                    <PTitle>{item.name}</PTitle>
-                                    <PDescription>{item.description}</PDescription>
-                                </DivInfoMusic>
-                            </DivMusicCard>
-                        </Link>
+                        <DivMusicCard onClick={() => navigate(`/album/${item._id}`)}
+                            resultType={apiKey}
+                        >
+                            <DivImageMusic>
+                                <ImgCardMusic src={item.img.url} />
+                            </DivImageMusic>
+                            <DivInfoMusic>
+                                <PTitle>{item.name}</PTitle>
+                                <PDescription>{item.ownership.username}</PDescription>
+                            </DivInfoMusic>
+                        </DivMusicCard>
+
                     )
                 })
             case 'playlists':
                 return data?.map((item) => {
                     return (
-                        <Link key={item._id} to={`/playlist/${item._id}`}>
-                            <DivMusicCard resultType={apiKey}>
-                                <DivImageMusic>
-                                    <ImgCardMusic src={item.img.url} />
-                                </DivImageMusic>
-                                <DivInfoMusic>
-                                    <PTitle>{item.name}</PTitle>
-                                    <PDescription>{item.description}</PDescription>
-                                </DivInfoMusic>
-                            </DivMusicCard>
-                        </Link>
+                        <DivMusicCard onClick={() => navigate(`/playlist/${item._id}`)}
+                            resultType={apiKey}
+                        >
+                            <DivImageMusic>
+                                <ImgCardMusic src={item.img.url} />
+                            </DivImageMusic>
+                            <DivInfoMusic>
+                                <PTitle>{item.name}</PTitle>
+                                <PDescription>{item.ownership.username}</PDescription>
+                            </DivInfoMusic>
+                        </DivMusicCard>
                     )
                 })
             case 'tracks':
@@ -129,7 +128,7 @@ const HomeSlider = ({ apiKey }) => {
                             </DivImageMusic>
                             <DivInfoMusic>
                                 <PTitle>{item.name}</PTitle>
-                                <PDescription>{item.description}</PDescription>
+                                <PDescription>{item.ownership.username}</PDescription>
                             </DivInfoMusic>
                         </DivMusicCard>)
                 })

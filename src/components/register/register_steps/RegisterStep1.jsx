@@ -30,14 +30,14 @@ const RegisterStep1 = ({ register, watch, userDataAvailable, setFormSteps }) => 
                         })}
                     />
                 </LabelStyle>
-                {!userDataAvailable(watch('username')) && 
+                {!userDataAvailable(watch('username')) && watch("username").legth >= 4 && watch("username").length <= 20 &&
                     <PErrorStyle>Sorry! This username is already taken</PErrorStyle>
                 }
             </DivInputStyle>
 
             <ButtonPrimaryStyle
                 type="button"
-                disabled={!userDataAvailable(watch('username'))}
+                disabled={!userDataAvailable(watch('username')) && watch("username").legth >= 4 && watch("username").length <= 20}
                 onClick={() => setFormSteps(prev => prev = { step: '2', secondStep: true })}
             >
                 Next
