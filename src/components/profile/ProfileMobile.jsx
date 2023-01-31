@@ -65,7 +65,10 @@ const ProfileMobile = ({ userID }) => {
         { id: 2, name: "Fav. albums", type: "albums", data: user?.favAlbums || [] },
         { id: 3, name: "Fav. tracks", type: "tracks", data: user?.favTracks || [] },
         { id: 4, name: "Followers", type: "users", data: user?.followers || [] },
-        { id: 5, name: "Following", type: "users", data: user?.following || [] }
+        { id: 5, name: "Following", type: "users", data: user?.following || [] },
+        { id: 6, name: `${user?.username}'s tracks`, type: "track", data: user?.tracks || [] },
+        { id: 7, name: `${user?.username}'s albums`, type: "album", data: user?.albums || [] },
+        { id: 8, name: `${user?.username}'s playlists`, type: "playlist", data: user?.playlists || [] }
     ]
 
     return (
@@ -132,7 +135,7 @@ const ProfileMobile = ({ userID }) => {
                             <DivSliders>
                                 {dataKey.map(key => {
                                     if (key.data.length > 0) {
-                                        return <ProfileSlider key={key.id} dataKey={key} />
+                                        return <ProfileSlider key={key.id} dataKey={key} user={user} />
                                     }
                                 })}
                             </DivSliders>
