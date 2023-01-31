@@ -154,20 +154,15 @@ export const DivPlayListen = styled.button`
     }
 `
 
-
-
 export const ImgListPlaylist = styled.img`
     width: 40px;
+    height: 40px;
     margin-left: 10px;
     height: auto;
     object-fit: cover;
     grid-column: 1;
     border-radius: 5px;
     transition: 300ms;
-
-    @media ${device.desktop}{
-        width:40px;
-    }
 `
 
 export const DivTracks = styled.div`
