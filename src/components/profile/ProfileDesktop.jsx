@@ -138,7 +138,7 @@ const ProfileDesktop = ({ userID }) => {
                             <DivSliders>
                                 {dataKey.map(key => {
                                     if (key.data.length > 0) {
-                                        return <ProfileSlider key={key.id} dataKey={key} />
+                                        return <ProfileSlider key={key.id} dataKey={key} user={user} />
                                     }
                                 })}
                             </DivSliders>

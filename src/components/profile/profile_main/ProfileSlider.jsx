@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import { useNavigate, useOutletContext } from 'react-router-dom';
+import BtnAddToPlaylist from '../../general_components/BtnAddToPlaylist';
 import { DivImgRectangleL, H2Style } from '../../style/generalStyle';
 import {
     DivEventInfo,
@@ -21,7 +22,7 @@ import {
 
 } from '../../style/homeStyle';
 
-const ProfileSlider = ({ dataKey }) => {
+const ProfileSlider = ({ dataKey, user }) => {
     const navigate = useNavigate();
     const [setPlayer] = useOutletContext();
     const { type, name, data } = dataKey;
@@ -34,7 +35,7 @@ const ProfileSlider = ({ dataKey }) => {
 
             <DivSliderBody>
                 {data?.map(d =>
-                    type === 'events' ? (
+                    type === 'event' ? (
                         <DivEventCard key={d.id}>
                             <DivImgRectangleL src={d.img} />
                             <DivEventInfo>
@@ -46,7 +47,7 @@ const ProfileSlider = ({ dataKey }) => {
                             </DivEventInfo>
                         </DivEventCard>
 
-                    ) : type === 'users' ? (
+                    ) : type === 'user' ? (
                         <DivUserCard key={d.id}>
                             <ImgAvatarUser src={d.img} />
                             <PNameUser>{d.name}</PNameUser>
@@ -75,6 +76,8 @@ const ProfileSlider = ({ dataKey }) => {
                                 <PTitle>{d.name}</PTitle>
                                 <PDescription>{d.description}</PDescription>
                             </DivInfoMusic>
+
+                            {type === "track" && <BtnAddToPlaylist user={user}>Add to playlist</BtnAddToPlaylist>}
                         </DivMusicCard>
                     )
                 )}
