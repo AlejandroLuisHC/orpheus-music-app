@@ -18,22 +18,26 @@ const BtnAddToPlaylist = ({ userPlaylists, trackId }) => {
 
     const fetchAddTrackToPlaylist = async (playlistId) => {
         try {
-            const playlistTracks = playlists.find(playlist => playlist._id === playlistId).tracks
-            console.log("playlistTracks", playlistTracks)
-            console.log([ ...playlistTracks, trackId ])
+            const playlistTracks = playlists.find(playlist => playlist._id === playlistId).tracks            
+            const isAlreadyInPlaylist = playlistTracks.find(track => track._id === trackId)
+
+            if (isAlreadyInPlaylist) {
+                console.log(`Track ${trackId} is already in this playlist`)
+                return
+            }
 
             const formData = new FormData()
             formData.append("tracks", trackId)
-            console.log("formData", formData)
-
+            playlistTracks.map(track => (
+                formData.append("tracks", track._id)
+            ))
+            
             const res = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/playlists/${playlistId}`, {
                 method: 'PATCH',
+                body: formData,
                 headers: { Authorization: `Bearer ${token}` },
-                body: formData
             })
-            const data = await res.json()
-            console.log('Track successfully added:', data)
-            return data
+            return await res.json()
 
         } catch (error) {
             console.log(error.message)
