@@ -185,9 +185,9 @@ export const DivTracks = styled.div`
     }
 `
 export const DivTracksAlbum = styled(DivTracks)`
-    grid-template-columns: 60px repeat(2, 1fr);
+    grid-template-columns: 60px repeat(2, 2fr) 1fr;
     @media ${device.desktop}{
-            grid-template-columns: 60px repeat(2, 1fr);
+            grid-template-columns: 60px repeat(2, 2fr) 1fr;
 }
 
 `
@@ -208,10 +208,10 @@ export const DivTitles = styled.div`
     }
 `
 export const DivTitlesAlbum = styled(DivTitles)`
-    grid-template-columns: 60px repeat(2, 1fr);
+    grid-template-columns: 60px repeat(2, 2fr) 1fr;
     @media ${device.desktop}{
 
-            grid-template-columns: 60px repeat(2, 1fr);
+            grid-template-columns: 60px repeat(2, 2fr) 1fr;;
     }
 `
 

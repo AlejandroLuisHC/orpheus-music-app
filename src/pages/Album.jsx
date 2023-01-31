@@ -11,9 +11,7 @@ import {
     DivImgContain,
     DivimgPadding,
     DivPlayListen,
-    DivTitles,
     DivTitlesAlbum,
-    DivTracks,
     DivTracksAlbum,
     H1Style,
     H2Style,
@@ -21,8 +19,6 @@ import {
     ImgListPlaylist,
     PDataTrack1,
     PDataTrack2,
-    PDataTrack3,
-    PDataTrack4,
     Pstyle
 } from "../components/style/playlistStyle"
 import { fetchOneAlbum } from "../api/";
@@ -90,7 +86,7 @@ const Album = () => {
                                 <Pstyle>{album.tracks.length} track{album.tracks.length === 1 ? "" : "s"}</Pstyle>
                                 <br/>
                                 <H2Style><span>Ownership: </span>{album.ownership.username}</H2Style>
-                                <H2Style><span>Released: </span>{moment(moment().valueOf(album.createdAt)).format("DD MMM YYYY")}</H2Style>
+                                <H2Style><span>Released: </span>{moment(album.createdAt).format("DD MMM YYYY")}</H2Style>
                             </div>
                             <DivPlayListen>
                                 <IoMdArrowDropright size={40} />
