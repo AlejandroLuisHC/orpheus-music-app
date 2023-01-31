@@ -159,6 +159,9 @@ export const LinkAside = styled(Link)`
         margin: 15px 0;
     }
 `
+export const PMenuStyle = styled.p`
+    margin-left:10px;
+`
 
 export const Hr = styled.hr`
     opacity: .1;

@@ -12,7 +12,9 @@ import {
     DivimgPadding,
     DivPlayListen,
     DivTitles,
+    DivTitlesAlbum,
     DivTracks,
+    DivTracksAlbum,
     H1Style,
     H2Style,
     HrDivStyle,
@@ -23,33 +25,33 @@ import {
     PDataTrack4,
     Pstyle
 } from "../components/style/playlistStyle"
-import { fetchOnePlaylist } from "../api";
+import { fetchOneAlbum } from "../api/";
 import moment from "moment";
 
 
-const Playlist = () => {
+const Album = () => {
 
     const [setPlayer] = useOutletContext();
 
-    const { id: playlistID } = useParams();
+    const { id: albumID } = useParams();
     const { getAccessTokenSilently } = useAuth0()
 
-    const { data: playlist, status } = useQuery([playlistID, playlistID], async () => {
+    const { data: album, status } = useQuery([albumID, albumID], async () => {
         const token = await getAccessTokenSilently()
-        return await fetchOnePlaylist(playlistID, token)
+        return await fetchOneAlbum(albumID, token)
     });
 
     const [durations, setDurations] = useState([]);
 
     useEffect(() => {
         const fetchDurations = async () => {
-            const promises = playlist.tracks.map(track => duration(track.file.url));
+            const promises = album.tracks.map(track => duration(track.file.url));
             const resolvedDurations = await Promise.all(promises);
             setDurations(prev => prev = resolvedDurations);
         };
 
         fetchDurations();
-    }, [playlist]);
+    }, [album]);
     
     const getDuration = (url) => {
         return new Promise((resolve) => {
@@ -74,22 +76,21 @@ const Playlist = () => {
     return (
         status === 'loading'
             ? <LogoSpinner />
-            : status === 'error' || playlist.status === "FALSE"
+            : status === 'error' || album.status === "FALSE"
                 ? <Error />
                 :
                 <>
-                    <BackgroundDiv img={playlist.img.url}>
+                    <BackgroundDiv img={album.img.url}>
                         <DivImgContain>
                             <DivimgPadding>
-                                <img src={playlist.img.url} alt={playlist.name} />
+                                <img src={album.img.url} alt={album.name} />
                             </DivimgPadding>
                             <div>
-                                <H1Style>{playlist.name}</H1Style>
-                                <H2Style>Artists:</H2Style>
-                                <Pstyle>List of artists</Pstyle>
-                                <br />
-                                <H2Style><span>Created by: </span>{playlist.ownership.username}</H2Style>
-                                <Pstyle>{playlist.tracks.length} track{playlist.tracks.length === 1 ? "" : "s"}</Pstyle>
+                                <H1Style>{album.name}</H1Style>
+                                <Pstyle>{album.tracks.length} track{album.tracks.length === 1 ? "" : "s"}</Pstyle>
+                                <br/>
+                                <H2Style><span>Ownership: </span>{album.ownership.username}</H2Style>
+                                <H2Style><span>Released: </span>{moment(moment().valueOf(album.createdAt)).format("DD MMM YYYY")}</H2Style>
                             </div>
                             <DivPlayListen>
                                 <IoMdArrowDropright size={40} />
@@ -98,19 +99,17 @@ const Playlist = () => {
                     </BackgroundDiv>
 
                     <MainStyle>
-                        <DivTitles>
+                        <DivTitlesAlbum>
                             <PDataTrack1>Title</PDataTrack1>
-                            <PDataTrack2>Album</PDataTrack2>
-                            <PDataTrack3>Released</PDataTrack3>
-                            <PDataTrack4>Duration</PDataTrack4>
-                        </DivTitles>
+                            <PDataTrack2>Duration</PDataTrack2>
+                        </DivTitlesAlbum>
                         <HrDivStyle />
 
                         {
-                            playlist.tracks.map((track, index) => {
+                            album.tracks.map((track, index) => {
                                 return (
                                     <div key={track._id}>
-                                        <DivTracks onClick={() => {
+                                        <DivTracksAlbum onClick={() => {
                                             console.log("TRACK: ", track);
                                             setPlayer(
                                                 prev => prev = {
@@ -123,10 +122,8 @@ const Playlist = () => {
                                         }}>
                                             <ImgListPlaylist src={track.img.url} alt={track.name} />
                                             <PDataTrack1>{track.name}</PDataTrack1>
-                                            <PDataTrack2>{track.album ?? 'single'}</PDataTrack2>
-                                            <PDataTrack3>{moment(moment().valueOf(track.createdAt)).format("DD MMM YYYY")}</PDataTrack3>
-                                            <PDataTrack4>{durations[index]}</PDataTrack4>
-                                        </DivTracks>
+                                            <PDataTrack2>{durations[index]}</PDataTrack2>
+                                        </DivTracksAlbum>
                                         <HrDivStyle />
                                     </div>
                                 )
@@ -137,4 +134,4 @@ const Playlist = () => {
     )
 }
 
-export default memo(Playlist)
+export default memo(Album)
