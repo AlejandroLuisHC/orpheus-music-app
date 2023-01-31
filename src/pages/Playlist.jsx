@@ -127,7 +127,7 @@ const Playlist = () => {
                                                 playerOn: true,
                                                 audio: track.file.url,
                                                 name: track.name,
-                                                user: track.ownership.name,
+                                                user: track.ownership.username,
                                             }
                                         )
                                     }}>

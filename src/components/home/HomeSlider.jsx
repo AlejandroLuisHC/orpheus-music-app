@@ -143,7 +143,7 @@ const HomeSlider = ({ apiKey }) => {
         status === 'loading'
             ? <HomeSlidersLoader />
             : status === 'error'
-                ? <Error />
+                ? <PErrorStyle>There has been an error fetching these data</PErrorStyle>
                 :
                 <>
                     <DivSilderHeader>

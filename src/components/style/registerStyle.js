@@ -13,7 +13,8 @@ export const DivFlexGenres = styled.div`
 `;
 
 export const DivGenreCircle = styled(DivImgCircleM)`
-    background: lightblue;
+    background-color: ${color.secondaryBlack};
+    border: 5px solid ${color.secondaryYellow};
     width: 85px;
     height: 85px;
     margin: .7rem;
@@ -23,7 +24,9 @@ export const DivGenreCircle = styled(DivImgCircleM)`
     cursor: pointer;
     transition: 300ms;
     &:hover{
-        transform: scale(1.2)
+        transform: scale(1.2);
+        border: 5px solid ${color.primaryYellow};
+        box-shadow: 0 0 20px ${color.primaryYellow};
     }
     p {
         color: white;
@@ -37,6 +40,8 @@ export const DivGenreCircle = styled(DivImgCircleM)`
 
 export const DivSelectedGenreCircle = styled(DivGenreCircle)`
     border: 5px solid ${color.primaryYellow};
+    background-color: ${color.primaryYellow};
+    box-shadow: 0 0 20px ${color.primaryYellow};
 `;
 
 export const PSkip = styled.p`

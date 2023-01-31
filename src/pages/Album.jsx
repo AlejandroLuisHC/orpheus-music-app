@@ -48,7 +48,7 @@ const Album = () => {
 
         fetchDurations();
     }, [album]);
-    
+
     const getDuration = (url) => {
         return new Promise((resolve) => {
             const audioFile = document.createElement("audio");
@@ -84,7 +84,7 @@ const Album = () => {
                             <div>
                                 <H1Style>{album.name}</H1Style>
                                 <Pstyle>{album.tracks.length} track{album.tracks.length === 1 ? "" : "s"}</Pstyle>
-                                <br/>
+                                <br />
                                 <H2Style><span>Ownership: </span>{album.ownership.username}</H2Style>
                                 <H2Style><span>Released: </span>{moment(album.createdAt).format("DD MMM YYYY")}</H2Style>
                             </div>
@@ -112,7 +112,7 @@ const Album = () => {
                                                     playerOn: true,
                                                     audio: track.file.url,
                                                     name: track.name,
-                                                    user: track.ownership.name,
+                                                    user: track.ownership.username,
                                                 }
                                             )
                                         }}>
