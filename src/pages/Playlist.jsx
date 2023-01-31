@@ -1,19 +1,21 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { useQuery } from "@tanstack/react-query";
-import { useParams } from "react-router-dom";
-import LogoSpinner from "../components/general_components/loaders/spinner/LogoSpinner";
-import { HrStyle } from "../components/style/generalStyle"
+import { useOutletContext, useParams } from "react-router-dom";
+import LogoSpinner from "../components/general_components/loaders/spinner/LogoSpinner"
+import { IoMdArrowDropright } from 'react-icons/io'
 import { MainStyle } from "../components/style/homeStyle"
 import Error from "./Error";
-import { useEffect, useState } from "react";
+import { useState, useEffect, memo } from "react";
 import {
     BackgroundDiv,
     DivImgContain,
     DivimgPadding,
+    DivPlayListen,
     DivTitles,
     DivTracks,
     H1Style,
     H2Style,
+    HrDivStyle,
     ImgListPlaylist,
     PDataTrack1,
     PDataTrack2,
@@ -22,9 +24,13 @@ import {
     Pstyle
 } from "../components/style/playlistStyle"
 import fetchOnePlaylist from "../api/fetchOnePlaylist";
+import moment from "moment";
 
 
 const Playlist = () => {
+
+    const [setPlayer] = useOutletContext();
+
     const { id: playlistID } = useParams();
     const { getAccessTokenSilently } = useAuth0()
 
@@ -33,30 +39,37 @@ const Playlist = () => {
         return await fetchOnePlaylist(playlistID, token)
     });
 
-    // Get all artists from tracks
-    const [artistArr, setArtistArr] = useState([])
-    useEffect(() => {
-        playlist && playlist.tracks.map(track => {
-            track.ownership.map = (user =>
-                !artistArr.includes(user.username) && setArtistArr(prev => prev = [...artistArr, user.username])
-            )
-        })
-    }, [playlist, artistArr])
-    const artistList = artistArr.length > 0 ? artistArr.join(", ") : "This playlist is empty"
+    const [durations, setDurations] = useState([]);
 
-    // Get each track duration
-    const [durationTracks, setdurationTracks] = useState([])
     useEffect(() => {
-        playlist && playlist.tracks.map(track => {
-            const audio = document.createElement('audio')
-            audio.src = track.file.url
-            console.log("DURATION", audio.duration)
-            setdurationTracks(prev => prev = [...durationTracks, audio.duration])
-        })
-    }, [durationTracks])
+        const fetchDurations = async () => {
+            const promises = playlist.tracks.map(track => duration(track.file.url));
+            const resolvedDurations = await Promise.all(promises);
+            setDurations(prev => prev = resolvedDurations);
+        };
 
-    let mapCounter = -1;
-    console.log(durationTracks)
+        fetchDurations();
+    }, [playlist]);
+    
+    const getDuration = (url) => {
+        return new Promise((resolve) => {
+            const audioFile = document.createElement("audio");
+            audioFile.src = url;
+            audioFile.addEventListener("loadedmetadata", () => {
+                const durationSec = audioFile.duration
+
+                // Transform duration in minutes and seconds
+                const minutes = Math.floor(durationSec / 60);
+                const seconds = Math.floor(durationSec % 60);
+                resolve(`${minutes}:${seconds}`);
+            }, false);
+        });
+    }
+    const duration = async (url) => {
+        const duration = await getDuration(url);
+        return duration;
+    }
+
 
     return (
         status === 'loading'
@@ -73,11 +86,14 @@ const Playlist = () => {
                             <div>
                                 <H1Style>{playlist.name}</H1Style>
                                 <H2Style>Artists:</H2Style>
-                                <Pstyle>{artistList}</Pstyle>
+                                <Pstyle>List of artists</Pstyle>
                                 <br />
                                 <H2Style>{`Created by: ${playlist.ownership.username}`}</H2Style>
                                 <Pstyle>{playlist.tracks.length} track{playlist.tracks.length === 1 ? "" : "s"}</Pstyle>
                             </div>
+                            <DivPlayListen>
+                                <IoMdArrowDropright size={40} />
+                            </DivPlayListen>
                         </DivImgContain>
                     </BackgroundDiv>
 
@@ -86,24 +102,33 @@ const Playlist = () => {
                             <PDataTrack1>Title</PDataTrack1>
                             <PDataTrack2>Album</PDataTrack2>
                             <PDataTrack3>Released</PDataTrack3>
-                            <PDataTrack4>Time</PDataTrack4>
+                            <PDataTrack4>Duration</PDataTrack4>
                         </DivTitles>
-                        <HrStyle />
+                        <HrDivStyle />
 
                         {
-                            playlist.tracks.map(track => {
-                                mapCounter++
+                            playlist.tracks.map((track, index) => {
                                 return (
-                                    <>
-                                        <DivTracks>
+                                    <div key={track._id}>
+                                        <DivTracks onClick={() => {
+                                            console.log("TRACK: ", track);
+                                            setPlayer(
+                                                prev => prev = {
+                                                    playerOn: true,
+                                                    audio: track.file.url,
+                                                    name: track.name,
+                                                    user: track.ownership.name,
+                                                }
+                                            )
+                                        }}>
                                             <ImgListPlaylist src={track.img.url} alt={track.name} />
                                             <PDataTrack1>{track.name}</PDataTrack1>
                                             <PDataTrack2>{track.album ?? 'single'}</PDataTrack2>
-                                            <PDataTrack3>{track.createdAt.slice(0, 10)}</PDataTrack3>
-                                            <PDataTrack4>{durationTracks[mapCounter]}</PDataTrack4>
+                                            <PDataTrack3>{moment(moment().valueOf(track.createdAt)).format("DD MMM YYYY")}</PDataTrack3>
+                                            <PDataTrack4>{durations[index]}</PDataTrack4>
                                         </DivTracks>
-                                        <HrStyle />
-                                    </>
+                                        <HrDivStyle />
+                                    </div>
                                 )
                             })
                         }
@@ -112,4 +137,4 @@ const Playlist = () => {
     )
 }
 
-export default Playlist
+export default memo(Playlist)
