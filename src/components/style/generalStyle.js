@@ -382,6 +382,19 @@ export const SelectRegion = styled(RegionDropdown)`
     display: column;
 `
 
+export const BtnSelectPlaylist = styled.button`
+    background: ${color.primaryBlack};
+    color: ${color.primaryWhite};
+    height: 40px;
+    width: 280px;
+    border: none;
+    font-size: 18px;
+    margin: 0 auto;
+    &:hover {
+        background: darkgray;
+    }
+`
+
 export const PErrorStyle = styled.p`
     color: ${color.primaryError};
     font-size: 14px;
@@ -578,9 +591,26 @@ export const ButtonClosePlayer = styled.button`
 `
 export const SpanPlayerUser = styled.span`
     font-size: .8em;
-    color: ${color.secondaryYellow}
+    color: ${color.secondaryYellow};
 `
 
 export const SpanPlayerName = styled.span`
-font-size: .9em;
+    font-size: .9em;
+`
+
+export const DivModalAddToPlaylist = styled.div`
+    background-color: ${color.primaryBlack};
+    padding: 20px;
+    border-radius: 25px;
+    justify-content: center;
+    text-align: center;
+    overflow-y:auto;
+    @media ${device.desktop}{
+        width: 350px;
+        height: 450px;
+    }
+`
+
+export const BtnModalAddToPlaylist = styled.button`
+    width: 25px;
 `

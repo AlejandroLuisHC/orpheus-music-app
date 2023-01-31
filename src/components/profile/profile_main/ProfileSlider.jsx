@@ -77,7 +77,7 @@ const ProfileSlider = ({ dataKey, user }) => {
                                 <PDescription>{d.description}</PDescription>
                             </DivInfoMusic>
 
-                            {type === "track" && <BtnAddToPlaylist userPlaylists={user.playlists} trackId={d._id}>Add to playlist</BtnAddToPlaylist>}
+                            {type === "track" && <BtnAddToPlaylist userPlaylists={user.playlists} trackId={d._id} />}
                         </DivMusicCard>
                     )
                 )}

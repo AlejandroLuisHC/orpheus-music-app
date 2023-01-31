@@ -1,10 +1,10 @@
 import { useAuth0 } from '@auth0/auth0-react'
 import { useQuery } from '@tanstack/react-query'
-import { useState } from 'react'
 import { useModal } from 'react-hooks-use-modal'
-import { IoIosCloseCircleOutline } from 'react-icons/io'
+import { IoIosAdd, IoIosCloseCircleOutline } from 'react-icons/io'
 import { fetchKey } from '../../api'
-import { DivModalClose, DivModalOptions, DivModalWork } from '../style/profileStyle'
+import { BtnModalAddToPlaylist, BtnSelectPlaylist, ButtonPrimaryStyle, DivModalAddToPlaylist } from '../style/generalStyle'
+import { DivModalClose } from '../style/profileStyle'
 
 const BtnAddToPlaylist = ({ userPlaylists, trackId }) => {
     const { getAccessTokenSilently } = useAuth0()
@@ -47,24 +47,25 @@ const BtnAddToPlaylist = ({ userPlaylists, trackId }) => {
 
     return (
         <>
-            <button onClick={open}>Add to playlist</button>
+            <BtnModalAddToPlaylist onClick={open}><IoIosAdd /></BtnModalAddToPlaylist>
 
             <Modal>
-                <DivModalWork>
-                    <DivModalOptions>
-                        <button>Create playlist</button>
+                <DivModalAddToPlaylist>
+                        <ButtonPrimaryStyle>Create playlist</ButtonPrimaryStyle>
+                        {userPlaylists.map(playlist => (
+                            <BtnSelectPlaylist key={playlist._id} onClick={() => fetchAddTrackToPlaylist(playlist._id)}>{playlist.name}</BtnSelectPlaylist>                              
+                        ))}
 
-                        <select onChange={e => fetchAddTrackToPlaylist(e.target.value)}>
+                        {/* <SelectPlaylist onChange={e => fetchAddTrackToPlaylist(e.target.value)}>
                             {userPlaylists.map(playlist => (
                                 <option value={playlist._id} key={playlist._id}>{playlist.name}</option>                              
                             ))}
-                        </select>
-                    </DivModalOptions>
+                        </SelectPlaylist> */}
                         
                     <DivModalClose>
                         <IoIosCloseCircleOutline onClick={close} />
                     </DivModalClose>
-                </DivModalWork>
+                </DivModalAddToPlaylist>
             </Modal>
         </>
     )
