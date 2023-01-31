@@ -92,6 +92,9 @@ export const H2Style = styled.h2`
         display:block;
         font-size: px;
     }
+    span{
+        font-size: 15px;
+    }
 `
 
 export const PStyleBlack = styled.p`
@@ -151,20 +154,15 @@ export const DivPlayListen = styled.button`
     }
 `
 
-
-
 export const ImgListPlaylist = styled.img`
     width: 40px;
+    height: 40px;
     margin-left: 10px;
     height: auto;
     object-fit: cover;
     grid-column: 1;
     border-radius: 5px;
     transition: 300ms;
-
-    @media ${device.desktop}{
-        width:40px;
-    }
 `
 
 export const DivTracks = styled.div`
@@ -186,6 +184,13 @@ export const DivTracks = styled.div`
         border-radius: 50%;
     }
 `
+export const DivTracksAlbum = styled(DivTracks)`
+    grid-template-columns: 60px repeat(2, 2fr) 1fr;
+    @media ${device.desktop}{
+            grid-template-columns: 60px repeat(2, 2fr) 1fr;
+}
+
+`
 
 export const DivTitles = styled.div`
     text-transform: uppercase;
@@ -200,6 +205,13 @@ export const DivTitles = styled.div`
     @media ${device.desktop}{
         margin: 0, 10px;
             grid-template-columns: 60px repeat(4, 1fr);
+    }
+`
+export const DivTitlesAlbum = styled(DivTitles)`
+    grid-template-columns: 60px repeat(2, 2fr) 1fr;
+    @media ${device.desktop}{
+
+            grid-template-columns: 60px repeat(2, 2fr) 1fr;;
     }
 `
 

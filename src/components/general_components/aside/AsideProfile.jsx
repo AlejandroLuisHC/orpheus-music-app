@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { ImgCircleS, LinkAside } from '../../style/generalStyle'
+import { ImgCircleS, LinkAside, PMenuStyle } from '../../style/generalStyle'
 
 const AsideProfile = () => {
     const userData = useSelector(state => state.userData.user)
@@ -13,7 +13,7 @@ const AsideProfile = () => {
             <LinkAside to={`/profile/${userData._id}`}>
                 <ImgCircleS src={userData.img.url} alt={userData.username} />
 
-                {profileName ?? 'Not Logged'}
+                <PMenuStyle>{profileName ?? 'Not Logged'}</PMenuStyle>
             </LinkAside>
         </>
     )

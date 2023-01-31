@@ -46,8 +46,6 @@ const HomeSlider = ({ apiKey }) => {
     const navigate = useNavigate();
     const [setPlayer] = useOutletContext();
 
-    console.log()
-
     const items = (() => {
         switch (apiKey) {
             case 'events':
@@ -80,27 +78,19 @@ const HomeSlider = ({ apiKey }) => {
             case 'albums':
                 return data?.map((item) => {
                     return (
-                        <DivMusicCard key={item._id}
-                            resultType={apiKey}
-                        /* as={Link} to={`/${apiKey}/${result.name}`} */
-                        >
-                            <DivImageMusic onClick={() => {
-                                setPlayer(
-                                    prev => prev = {
-                                        playerOn: true,
-                                        audio: item.file.url,
-                                        name: item.name,
-                                        user: item.ownership,
-                                    }
-                                )
-                            }}>
-                                <ImgCardMusic src={item.img.url} />
-                            </DivImageMusic>
-                            <DivInfoMusic>
-                                <PTitle>{item.name}</PTitle>
-                                <PDescription>{item.description}</PDescription>
-                            </DivInfoMusic>
-                        </DivMusicCard>)
+                        <Link key={item._id} to={`/album/${item._id}`}>
+                            <DivMusicCard
+                                resultType={apiKey}>
+                                <DivImageMusic>
+                                    <ImgCardMusic src={item.img.url} />
+                                </DivImageMusic>
+                                <DivInfoMusic>
+                                    <PTitle>{item.name}</PTitle>
+                                    <PDescription>{item.description}</PDescription>
+                                </DivInfoMusic>
+                            </DivMusicCard>
+                        </Link>
+                    )
                 })
             case 'playlists':
                 return data?.map((item) => {
@@ -153,7 +143,7 @@ const HomeSlider = ({ apiKey }) => {
         status === 'loading'
             ? <HomeSlidersLoader />
             : status === 'error'
-                ? <Error />
+                ? <PErrorStyle>There has been an error fetching these data</PErrorStyle>
                 :
                 <>
                     <DivSilderHeader>
