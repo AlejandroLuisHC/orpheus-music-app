@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useState, useEffect } from 'react';
 import {
     IoIosMore,
+    IoMdCloudUpload,
     IoMdCreate,
     IoMdReturnLeft
 } from 'react-icons/io';
@@ -39,6 +40,7 @@ import UpdateProfile from './UpdateProfile';
 import fetchOneUser from '../../api/fetchOneUser';
 import Error from "../../pages/Error";
 import LogoSpinner from '../general_components/loaders/spinner/LogoSpinner';
+import UpdateProfileImg from './UpdateProfileImg';
 
 
 const ProfileDesktop = ({ userID }) => {
@@ -55,7 +57,6 @@ const ProfileDesktop = ({ userID }) => {
             ? setUser(loggedUser)
             : setUser(data)
     }, [data, loggedUser])
-    console.log("user", user);
 
     const [editView, setEditView] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
@@ -98,7 +99,16 @@ const ProfileDesktop = ({ userID }) => {
                         </DropdownContainer>
 
                         <DivImgCircleL>
+                            {!editView
+                            ?
                             <ImgCircleXL src={user?.img.url} alt={user?.username} />
+                            :
+                            <>
+                            <ImgCircleXL src={user?.img.url} alt={user?.username} />
+                            
+                            <UpdateProfileImg />
+                            </>
+                            }
                         </DivImgCircleL>
 
                         <DivUserGeneralData>

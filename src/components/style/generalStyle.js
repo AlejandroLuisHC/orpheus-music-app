@@ -438,6 +438,8 @@ export const ImgCircleS = styled.img`
     }    
 `
 export const ImgCircleXL = styled.img`
+    display: flex;
+    justify-content: center;
     width: 100px;
     height: 100px;
     border-radius: 50%;
