@@ -1,10 +1,8 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { useQuery } from "@tanstack/react-query";
-import moment from "moment";
 import { memo, useEffect, useState } from "react";
 import { IoMdArrowDropright } from 'react-icons/io';
 import { useOutletContext, useParams } from "react-router-dom";
-import fetchOnePlaylist from "../api/fetchOnePlaylist";
 import LogoSpinner from "../components/general_components/loaders/spinner/LogoSpinner";
 import { MainStyle } from "../components/style/homeStyle";
 import {
@@ -23,8 +21,9 @@ import {
     PDataTrack3,
     PDataTrack4,
     Pstyle
-} from "../components/style/playlistStyle";
-import Error from "./Error";
+} from "../components/style/playlistStyle"
+import { fetchOnePlaylist } from "../api";
+import moment from "moment";
 
 
 const Playlist = () => {
@@ -101,7 +100,7 @@ const Playlist = () => {
                                 <H2Style>Users featured:</H2Style>
                                 <Pstyle>{users.join(", ")}</Pstyle>
                                 <br />
-                                <H2Style>{`Created by: ${playlist.ownership.username}`}</H2Style>
+                                <H2Style><span>Created by: </span>{playlist.ownership.username}</H2Style>
                                 <Pstyle>{playlist.tracks.length} track{playlist.tracks.length === 1 ? "" : "s"}</Pstyle>
                             </div>
                             <DivPlayListen>
