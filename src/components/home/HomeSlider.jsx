@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom';
 import { fetchKey } from '../../api';
 import { capitalizeFirstLetter } from '../../helper/utils';
+import Error from '../../pages/Error';
 import HomeSlidersLoader from '../general_components/loaders/content_loader/HomeSlidersLoader';
 import {
     DivImgRectangleL,
@@ -84,13 +85,12 @@ const HomeSlider = ({ apiKey }) => {
                         /* as={Link} to={`/${apiKey}/${result.name}`} */
                         >
                             <DivImageMusic onClick={() => {
-
                                 setPlayer(
                                     prev => prev = {
                                         playerOn: true,
-                                        audio: item.file,
+                                        audio: item.file.url,
                                         name: item.name,
-                                        user: item.description,
+                                        user: item.ownership,
                                     }
                                 )
                             }}>
@@ -107,17 +107,7 @@ const HomeSlider = ({ apiKey }) => {
                     return (
                         <Link key={item._id} to={`/playlist/${item._id}`}>
                             <DivMusicCard resultType={apiKey}>
-                                <DivImageMusic onClick={() => {
-
-                                    setPlayer(
-                                        prev => prev = {
-                                            playerOn: true,
-                                            audio: item.file,
-                                            name: item.name,
-                                            user: item.description,
-                                        }
-                                    )
-                                }}>
+                                <DivImageMusic>
                                     <ImgCardMusic src={item.img.url} />
                                 </DivImageMusic>
                                 <DivInfoMusic>
@@ -129,21 +119,19 @@ const HomeSlider = ({ apiKey }) => {
                     )
                 })
             case 'tracks':
-                const { data: tracks } = data
-                return tracks?.map((item) => {
+                return data?.data.map((item) => {
                     return (
                         <DivMusicCard key={item._id}
                             resultType={apiKey}
 
                         >
                             <DivImageMusic onClick={() => {
-
                                 setPlayer(
                                     prev => prev = {
                                         playerOn: true,
-                                        audio: item.file,
+                                        audio: item.file.url,
                                         name: item.name,
-                                        user: item.description,
+                                        user: item.ownership.username,
                                     }
                                 )
                             }}>
@@ -165,7 +153,7 @@ const HomeSlider = ({ apiKey }) => {
         status === 'loading'
             ? <HomeSlidersLoader />
             : status === 'error'
-                ? <PErrorStyle>An error has occurred fetching this information</PErrorStyle>
+                ? <Error />
                 :
                 <>
                     <DivSilderHeader>

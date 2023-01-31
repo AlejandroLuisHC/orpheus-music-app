@@ -387,7 +387,7 @@ export const PErrorStyle = styled.p`
 
 export const HrStyle = styled.hr`
     margin: 15px 0;
-    opacity: .05;
+    opacity: .1;
 `
 
 export const LinkPrimaryStyle = styled(Link)`

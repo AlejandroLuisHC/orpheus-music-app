@@ -4,7 +4,6 @@ import GeneralProvider from "../helper/utils/general_provider/GeneralProvider"
 import LogoSpinner from "../components/general_components/loaders/spinner/LogoSpinner"
 import PrivateRoutes from "./PrivateRoutes"
 import NotConnectedRoutes from "./NotConnectedRoutes"
-import Playlist from "../pages/Playlist"
 
 const Layout = lazy(() => import('./Layout'))
 const Landing = lazy(() => import('../pages/Landing'))
@@ -35,6 +34,13 @@ const ViewMore = lazy(async () => {
 const Search = lazy(async () => {
     const [moduleExports] = await Promise.all([
         import("../pages/Search"),
+        new Promise(resolve => setTimeout(resolve, 300))
+    ])
+    return moduleExports
+});
+const Playlist = lazy(async () => {
+    const [moduleExports] = await Promise.all([
+        import("../pages/Playlist"),
         new Promise(resolve => setTimeout(resolve, 300))
     ])
     return moduleExports
