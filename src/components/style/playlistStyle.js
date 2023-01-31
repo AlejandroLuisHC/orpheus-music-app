@@ -26,6 +26,14 @@ export const BackgroundDiv = styled.div`
     }
 `
 
+export const AllBackground = styled(BackgroundDiv)`
+    height:100vh;
+        @media ${device.desktop}{
+        width: 100%;
+        height: 320px;
+    }
+`
+
 export const DivImgContain = styled.div`
     display: flex;
     justify-content: center;
@@ -90,11 +98,22 @@ export const H2Style = styled.h2`
 
     @media (min-width: 1250px) {
         display:block;
-        font-size: px;
+        font-size: 20px;
     }
     span{
         font-size: 15px;
     }
+`
+
+export const PStyleOwnership = styled(H2Style)`
+    font-size:15px;
+    display:block;
+    margin: 10px 0;
+
+@media (min-width: 1250px) {
+    
+    font-size: 20px;
+}
 `
 
 export const PStyleBlack = styled.p`
@@ -184,6 +203,10 @@ export const DivTracks = styled.div`
         border-radius: 50%;
     }
 `
+export const DivInfoTrack = styled(DivTracks)`
+    
+`
+
 export const DivTracksAlbum = styled(DivTracks)`
     grid-template-columns: 60px repeat(2, 2fr) 1fr;
     @media ${device.desktop}{

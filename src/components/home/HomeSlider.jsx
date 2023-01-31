@@ -111,27 +111,27 @@ const HomeSlider = ({ apiKey }) => {
             case 'tracks':
                 return data?.data.map((item) => {
                     return (
-                        <DivMusicCard key={item._id}
-                            resultType={apiKey}
-
-                        >
-                            <DivImageMusic onClick={() => {
-                                setPlayer(
-                                    prev => prev = {
-                                        playerOn: true,
-                                        audio: item.file.url,
-                                        name: item.name,
-                                        user: item.ownership.username,
-                                    }
-                                )
-                            }}>
-                                <ImgCardMusic src={item.img.url} />
-                            </DivImageMusic>
-                            <DivInfoMusic>
-                                <PTitle>{item.name}</PTitle>
-                                <PDescription>{item.description}</PDescription>
-                            </DivInfoMusic>
-                        </DivMusicCard>)
+                        <Link  key={item._id} to={`/track/${item._id}`}>
+                            <DivMusicCard resultType={apiKey}>
+                                <DivImageMusic onClick={() => {
+                                    setPlayer(
+                                        prev => prev = {
+                                            playerOn: true,
+                                            audio: item.file.url,
+                                            name: item.name,
+                                            user: item.ownership.username,
+                                        }
+                                    )
+                                }}>
+                                    <ImgCardMusic src={item.img.url} />
+                                </DivImageMusic>
+                                <DivInfoMusic>
+                                    <PTitle>{item.name}</PTitle>
+                                    <PDescription>{item.description}</PDescription>
+                                </DivInfoMusic>
+                            </DivMusicCard>
+                        </Link>
+                    )
                 })
             default:
                 console.log('default')
