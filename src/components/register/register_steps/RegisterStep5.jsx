@@ -26,8 +26,8 @@ const RegisterStep5 = ({ setFormSteps, selectedGenres, setSelectedGenres, setAva
 
     const removeFromSelectedGenres = (id) => {
         console.log('remove', id)
-        //TODO: fix this function
-        // setSelectedGenres([...selectedGenres].filter((genre) => genre === id))
+
+         setSelectedGenres([...selectedGenres].filter((genre) => genre !== id))
     };
 
     function getRandomSize() {

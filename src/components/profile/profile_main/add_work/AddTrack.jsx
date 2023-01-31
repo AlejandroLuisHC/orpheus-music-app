@@ -22,8 +22,10 @@ import {
 import { useAuth0 } from '@auth0/auth0-react';
 import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
-import { fetchKey } from '../../../../api'
+import { fetchKey, fetchOneUser } from '../../../../api'
 import fetchCreateTrack from '../../../../api/fetchCreateTrack'
+import {UPDATE} from './../../../../redux/features/user_data/userSlice'
+
 
 const AddTrack = () => {
     const { data: genres } = useQuery(
@@ -68,10 +70,10 @@ const AddTrack = () => {
         setTrackData({
             ...trackData
         });
-        console.log(trackData)
         const token = await getAccessTokenSilently()
         const data = await fetchCreateTrack(trackData,token)
-
+        const updateUser = await fetchOneUser(id,token)
+        dispatch(UPDATE(updateUser))
         data.status === 'Created';
         data.status === 'false' && console.log("There was a problem creating the track"); // aqui no hay condicional ni na , para que es esto
     }

@@ -55,7 +55,7 @@ const ProfileDesktop = ({ userID }) => {
             ? setUser(loggedUser)
             : setUser(data)
     }, [data, loggedUser])
-    console.log("user", user);
+    
 
     const [editView, setEditView] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
@@ -130,7 +130,7 @@ const ProfileDesktop = ({ userID }) => {
                             {
                                 loggedUser._id === userID &&
                                 <DivProfileActionsStyle>
-                                    <AddWork />
+                                    <AddWork  />
                                     <CreatePlaylist />
                                 </DivProfileActionsStyle>
                             }
