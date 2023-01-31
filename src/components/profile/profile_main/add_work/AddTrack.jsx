@@ -33,9 +33,9 @@ const AddTrack = () => {
     const [Modal, open, close, isOpen] = useModal('root', {
         preventScroll: true
     })
-    const { user: userAuth } = useAuth0();
+    const { user: userAuth ,getAccessTokenSilently} = useAuth0();
     const id = useSelector((state) => state.userData.user._id);
-    const dispatch = useDispatch();
+    const dispatch = useDispatch();//Creo que esto hay que eliminarlo 
     const {
         register,
         handleSubmit,
@@ -49,11 +49,10 @@ const AddTrack = () => {
         img: {},
         file: {},
         genres: [],
-        ownership: [id]
+        ownership: id
     })
 
     const createTrack = async ({
-        ownership,
         file,
         img,
         description,
@@ -69,11 +68,12 @@ const AddTrack = () => {
         setTrackData({
             ...trackData
         });
-
-        const data = await fetchCreateTrack(trackData)
+        console.log(trackData)
+        const token = await getAccessTokenSilently()
+        const data = await fetchCreateTrack(trackData,token)
 
         data.status === 'Created';
-        data.status === 'false' && console.log("There was a problem creating the track");
+        data.status === 'false' && console.log("There was a problem creating the track"); // aqui no hay condicional ni na , para que es esto
     }
 
     return (
@@ -98,7 +98,7 @@ const AddTrack = () => {
                             </LabelStyle>
                             <br />
                             <LabelStyle>
-                                Song name
+                                Track name
                                 <InputStyle
                                     type='text'
                                     placeholder='Song name'
@@ -119,7 +119,7 @@ const AddTrack = () => {
                                 />
                             </LabelStyle>
                             <LabelStyle>
-                                select a genre
+                                Select a genre
                                 <SelectStyle
                                     required
                                     {...register('genres', {
