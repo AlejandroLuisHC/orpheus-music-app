@@ -36,8 +36,11 @@ const ProfileSlider = ({ dataKey, user }) => {
             <DivSliderBody>
                 {data?.map(d =>
                     type === 'event' ? (
-                        <DivEventCard key={d.id}>
-                            <DivImgRectangleL src={d.img} />
+                        <DivEventCard 
+                            key={d._id}
+                            onClick={() => navigate(`/${type}/${d._id}`)}
+                        >
+                            <DivImgRectangleL src={d.img.url} />
                             <DivEventInfo>
                                 <div>
                                     <PTitle>{d.name}</PTitle>
@@ -49,11 +52,11 @@ const ProfileSlider = ({ dataKey, user }) => {
 
                     ) : type === 'user' ? (
                         <DivUserCard 
-                            key={d.id}
+                            key={d._id}
                             onClick={() => navigate(`/${type}/${d._id}`)}
                         >
-                            <ImgAvatarUser src={d.img} />
-                            <PNameUser>{d.name}</PNameUser>
+                            <ImgAvatarUser src={d.img.url} />
+                            <PNameUser>{d.username}</PNameUser>
                             <PFollowersUser>{d.followers} followers</PFollowersUser>
                         </DivUserCard>
 
