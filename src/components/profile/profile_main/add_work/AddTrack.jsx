@@ -3,28 +3,27 @@ import { useForm } from 'react-hook-form'
 import { useModal } from 'react-hooks-use-modal'
 import { IoIosCloseCircleOutline } from 'react-icons/io'
 import { useDispatch, useSelector } from 'react-redux'
-import { 
-    ButtonPrimaryStyle, 
-    ButtonSecondaryStyle, 
-    InputStyle, 
-    LabelStyle, 
-    SelectStyle 
+import {
+    ButtonPrimaryStyle,
+    ButtonSecondaryStyle,
+    InputStyle,
+    LabelStyle,
+    SelectStyle
 } from '../../../style/generalStyle'
-import { 
-    DivModalClose, 
+import {
+    DivModalClose,
     DivModalTrack,
-    DivTrackBody, 
-    DivTrackImg, 
-    FormTracks, 
-    ImgTrack, 
-    InputDescriptionStyle 
+    DivTrackBody,
+    DivTrackImg,
+    FormTracks,
+    ImgTrack,
+    InputDescriptionStyle
 } from '../../../style/profileStyle'
 import { useAuth0 } from '@auth0/auth0-react';
 import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
-import { fetchKey, fetchOneUser } from '../../../../api'
-import fetchCreateTrack from '../../../../api/fetchCreateTrack'
-import {UPDATE} from './../../../../redux/features/user_data/userSlice'
+import { fetchCreateTrack, fetchKey, fetchOneUser } from '../../../../api'
+import { UPDATE } from './../../../../redux/features/user_data/userSlice'
 
 
 const AddTrack = () => {
@@ -35,7 +34,7 @@ const AddTrack = () => {
     const [Modal, open, close, isOpen] = useModal('root', {
         preventScroll: true
     })
-    const { user: userAuth ,getAccessTokenSilently} = useAuth0();
+    const { user: userAuth, getAccessTokenSilently } = useAuth0();
     const id = useSelector((state) => state.userData.user._id);
     const dispatch = useDispatch();
     const {
@@ -71,8 +70,8 @@ const AddTrack = () => {
             ...trackData
         });
         const token = await getAccessTokenSilently()
-        const data = await fetchCreateTrack(trackData,token)
-        const updateUser = await fetchOneUser(id,token)
+        const data = await fetchCreateTrack(trackData, token)
+        const updateUser = await fetchOneUser(id, token)
         dispatch(UPDATE(updateUser))
         data.status === 'Created';
         data.status === 'false' && console.log("There was a problem creating the track"); // aqui no hay condicional ni na , para que es esto
