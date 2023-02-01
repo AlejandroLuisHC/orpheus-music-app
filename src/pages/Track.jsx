@@ -47,7 +47,7 @@ const Track = () => {
         };
         fetchDurations();
     }, [track]);
-    
+
     const getDuration = (url) => {
         return new Promise((resolve) => {
             const audioFile = document.createElement("audio");
@@ -66,7 +66,7 @@ const Track = () => {
         const duration = await getDuration(url);
         return duration;
     }
-    
+
 
     return (
         status === 'loading'
