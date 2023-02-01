@@ -3,6 +3,7 @@ import { ImgCircleS, LinkAside, PMenuStyle } from '../../style/generalStyle'
 
 const AsideProfile = () => {
     const userData = useSelector(state => state.userData.user)
+   
     let profileName = userData?.username
     if (profileName.length > 12) {
         profileName = profileName.slice(0, 11) + "..."
