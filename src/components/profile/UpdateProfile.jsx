@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { IoMdCheckmarkCircle, IoMdCreate } from 'react-icons/io';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { UPDATE } from '../../redux/features/user_data/userSlice';
-import { ButtonPrimaryStyle, ButtonSecondaryStyle, FormStyle, SelectCountry, SelectRegion } from '../style/generalStyle';
-import { fetchKey, fetchUpdateUser } from '../../api'
+import { ButtonPrimaryStyle, ButtonSecondaryStyle, FormStyle, PErrorStyle, SelectCountry, SelectRegion } from '../style/generalStyle';
+import { fetchKey, fetchUpdateUser, fetchUsers } from '../../api'
 import { DivEditUserData, DivUserData, InputEditStyle, DivEditUserContainer, PTextEdit, ButtonSubmitEdit, SpanIconClick, HrEditProfile, DivDangerZone, H1Username, DivModalOptions } from '../style/profileStyle';
 import ChangePassword from './ChangePassword';
 import { useAuth0 } from '@auth0/auth0-react';
@@ -14,8 +14,11 @@ import { useQuery } from '@tanstack/react-query';
 import fetchChangePassword from '../../api/fetchChangePassword';
 import { useModal } from 'react-hooks-use-modal';
 const UpdateProfile = () => {
+    // QUERYS
     const { getAccessTokenSilently } = useAuth0()
     const token = getAccessTokenSilently()
+    const { data: users, status } = useQuery(['users'], fetchUsers);
+
     const initialState = {
         username: false,
         location: false,
@@ -40,8 +43,6 @@ const UpdateProfile = () => {
         region: userDataStore.region,
         favGenres: userDataStore.favGenres,
     });
-    console.log('C',UpdateUserData.country)
-
     const dispatch = useDispatch();
     const updateUser = async ({
         username,
@@ -52,9 +53,9 @@ const UpdateProfile = () => {
             UpdateUserData.favGenres = selectedGenres ?? userDataStore.favGenres
 
 
-            setUpdateUserData({
-                ...UpdateUserData,
-            });
+        setUpdateUserData({
+            ...UpdateUserData,
+        });
         setOpenInput(prev => prev = initialState)
         const { data } = await fetchUpdateUser(UpdateUserData, userDataStore._id, token);
         dispatch(UPDATE(data));
@@ -97,6 +98,16 @@ const UpdateProfile = () => {
         preventScroll: true
     })
 
+
+    // VALIDATES
+
+    const userDataAvailable = inputValue => {
+        const findUser = users?.find(
+            user =>
+                user.username === inputValue
+        );
+        return !findUser ? true : false;
+    };
     return (
         <FormStyle onSubmit={handleSubmit(data => updateUser(data))}>
             <DivEditUserContainer>
@@ -107,18 +118,22 @@ const UpdateProfile = () => {
                         <SpanIconClick><IoMdCreate onClick={() => setOpenInput(prev => prev = { ...prev, username: true })} /></SpanIconClick>
                     </DivUserData>
                     :
-                    <DivEditUserData>
-                        <InputEditStyle
-                            autoFocus
-                            type='text'
-                            required
-                            {...register('username', {
-                                required: true
-                            })}
-                        />
-                        {/* SubmitButton ⬇️*/}
-                        <ButtonSubmitEdit type='submit'><IoMdCheckmarkCircle /></ButtonSubmitEdit>
-                    </DivEditUserData>
+                        <DivEditUserData>
+                            <InputEditStyle
+                                autoFocus
+                                type='text'
+                                required
+                                {...register('username', {
+                                    required: true,
+                                    validate: username => userDataAvailable(username)
+                                })}
+                            />
+                            {/* SubmitButton ⬇️*/}
+                            <ButtonSubmitEdit type='submit'><IoMdCheckmarkCircle /></ButtonSubmitEdit>
+                        </DivEditUserData>
+                }
+                {!userDataAvailable(watch('username')) && watch("username").legth >= 4 && watch("username").length <= 20 &&
+                    <PErrorStyle>Sorry! This username is already taken</PErrorStyle>
                 }
                 <HrEditProfile />
             </DivEditUserContainer>
@@ -160,28 +175,28 @@ const UpdateProfile = () => {
                     </DivUserData>
                     :
                     <>
-                    <DivFlexGenres>
-                        {genres?.map((genre) => {
-                            return !isGenreSelected(genre._id) ? (
-                                <DivGenreCircle
-                                    key={genre._id}
-                                    size={`${getRandomSize()}px`}
-                                    onClick={() => addToSelectedGenres(genre._id)}
-                                >
-                                    <p>{genre.name}</p>
-                                </DivGenreCircle>
-                            ) : (
-                                <DivSelectedGenreCircle
-                                    key={genre._id}
-                                    size={`${getRandomSizeSelected()}px`}
-                                    onClick={() => removeFromSelectedGenres(genre._id)}
-                                >
-                                    <p>{genre.name}</p>
-                                </DivSelectedGenreCircle>
-                            );
-                        })}
-                    </DivFlexGenres>
-                    <ButtonPrimaryStyle>Submit Genres</ButtonPrimaryStyle>
+                        <DivFlexGenres>
+                            {genres?.map((genre) => {
+                                return !isGenreSelected(genre._id) ? (
+                                    <DivGenreCircle
+                                        key={genre._id}
+                                        size={`${getRandomSize()}px`}
+                                        onClick={() => addToSelectedGenres(genre._id)}
+                                    >
+                                        <p>{genre.name}</p>
+                                    </DivGenreCircle>
+                                ) : (
+                                    <DivSelectedGenreCircle
+                                        key={genre._id}
+                                        size={`${getRandomSizeSelected()}px`}
+                                        onClick={() => removeFromSelectedGenres(genre._id)}
+                                    >
+                                        <p>{genre.name}</p>
+                                    </DivSelectedGenreCircle>
+                                );
+                            })}
+                        </DivFlexGenres>
+                        <ButtonPrimaryStyle>Submit Genres</ButtonPrimaryStyle>
                     </>}
                 <HrEditProfile />
                 <DivEditUserContainer>
@@ -193,17 +208,17 @@ const UpdateProfile = () => {
                         </DivModalOptions>
                         <Modal>
                             {openInput.deleted
-                            ??
-                            <>
-                            <h1>Are you sure you want to delete your user from database?</h1>
-                            <ButtonSecondaryStyle>Yes, I'm sure</ButtonSecondaryStyle>
-                            </>}
+                                ??
+                                <>
+                                    <h1>Are you sure you want to delete your user from database?</h1>
+                                    <ButtonSecondaryStyle>Yes, I'm sure</ButtonSecondaryStyle>
+                                </>}
                             {openInput.passwordUpdate
-                            ??
-                            <>
-                            <h1>Check your email inbox</h1>
-                            <p>email sended to `${userDataStore.email}`</p>
-                            </>}
+                                ??
+                                <>
+                                    <h1>Check your email inbox</h1>
+                                    <p>email sended to `${userDataStore.email}`</p>
+                                </>}
                         </Modal>
                     </DivDangerZone>
                 </DivEditUserContainer>

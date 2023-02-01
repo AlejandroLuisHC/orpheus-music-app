@@ -446,6 +446,7 @@ export const ImgCircleXL = styled.img`
     width: 100px;
     height: 100px;
     border-radius: 50%;
+    object-fit: cover;
     @media ${device.desktop}{
         width: 180px;
         height: 180px;

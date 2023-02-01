@@ -173,6 +173,7 @@ export const SectionEditUser = styled.section`
 `
 export const DivEditUserContainer = styled.div`
 margin-top: 20px;
+padding: 10px;
 `
 export const DivUserData = styled.div`
     display: flex;
