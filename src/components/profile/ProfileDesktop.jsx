@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useState, useEffect } from 'react';
 import {
     IoIosMore,
+    IoMdCloudUpload,
     IoMdCreate,
     IoMdReturnLeft
 } from 'react-icons/io';
@@ -32,15 +33,14 @@ import {
     SpanProfileUserNumbers
 } from '../style/profileStyle';
 import AddWork from './profile_main/add_work/AddWork';
-
 import DisconnectIcon from './DisconnectIcon';
 import ProfileSlider from './profile_main/ProfileSlider';
 import UpdateProfile from './UpdateProfile';
 import fetchOneUser from '../../api/fetchOneUser';
 import Error from "../../pages/Error";
 import LogoSpinner from '../general_components/loaders/spinner/LogoSpinner';
+import UpdateProfileImg from './UpdateProfileImg';
 import CreatePlaylist from './profile_main/create_playlist/CreatePlaylist';
-
 
 const ProfileDesktop = ({ userID }) => {
     const { getAccessTokenSilently } = useAuth0()
@@ -56,7 +56,6 @@ const ProfileDesktop = ({ userID }) => {
             ? setUser(loggedUser)
             : setUser(data)
     }, [data, loggedUser])
-    
 
     const [editView, setEditView] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
@@ -99,7 +98,16 @@ const ProfileDesktop = ({ userID }) => {
                         </DropdownContainer>
 
                         <DivImgCircleL>
-                            <ImgCircleXL src={user?.img.url} alt={user?.username} />
+                            {!editView
+                                ?
+                                <ImgCircleXL src={user?.img.url} alt={user?.username} />
+                                :
+                                <>
+                                    <ImgCircleXL src={user?.img.url} alt={user?.username} />
+
+                                    <UpdateProfileImg />
+                                </>
+                            }
                         </DivImgCircleL>
 
                         <DivUserGeneralData>
@@ -131,7 +139,7 @@ const ProfileDesktop = ({ userID }) => {
                             {
                                 loggedUser._id === userID &&
                                 <DivProfileActionsStyle>
-                                    <AddWork  />
+                                    <AddWork />
                                     <CreatePlaylist />
                                 </DivProfileActionsStyle>
                             }

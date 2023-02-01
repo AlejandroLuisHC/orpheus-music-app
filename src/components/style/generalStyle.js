@@ -456,6 +456,8 @@ export const ImgCircleS = styled.img`
     }    
 `
 export const ImgCircleXL = styled.img`
+    display: flex;
+    justify-content: center;
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -518,7 +520,7 @@ export const DivImgRectangleL = styled.img`
     display:block;
     width: 280px;
     height:190px;
-    border-radius: 10px;
+    border-radius: 20px 20px 0 0;
     object-fit:cover;
     transition: 300;
     @media ${device.desktop}{

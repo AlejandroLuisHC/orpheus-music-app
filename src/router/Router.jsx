@@ -4,12 +4,11 @@ import GeneralProvider from "../helper/utils/general_provider/GeneralProvider"
 import LogoSpinner from "../components/general_components/loaders/spinner/LogoSpinner"
 import PrivateRoutes from "./PrivateRoutes"
 import NotConnectedRoutes from "./NotConnectedRoutes"
-import Track from "../pages/Track"
 
 const Layout = lazy(() => import('./Layout'))
-const Landing = lazy(() => import('../pages/Landing'))
-const Register = lazy(() => import('../pages/Register'))
-const RecoverPassword = lazy(() => import("../pages/RecoverPassword"))
+const Landing = lazy(() => import('../pages'))
+const Register = lazy(() => import('../pages'))
+const RecoverPassword = lazy(() => import("../pages"))
 
 const Home = lazy(async () => {
     const [moduleExports] = await Promise.all([
@@ -53,9 +52,16 @@ const Album = lazy(async () => {
     ])
     return moduleExports
 });
-const Tracks = lazy(async () => {
+const Track = lazy(async () => {
     const [moduleExports] = await Promise.all([
         import("../pages/Track"),
+        new Promise(resolve => setTimeout(resolve, 300))
+    ])
+    return moduleExports
+});
+const WorkInProgress = lazy(async () => {
+    const [moduleExports] = await Promise.all([
+        import("../pages/WorkInProgress"),
         new Promise(resolve => setTimeout(resolve, 300))
     ])
     return moduleExports
@@ -72,7 +78,7 @@ const Router = () => {
                             <Route path='/register' element={<NotConnectedRoutes><Register /></NotConnectedRoutes>} />
                             <Route path='/recover-password' element={<NotConnectedRoutes><RecoverPassword /></NotConnectedRoutes>} />
                             <Route path='/home' element={<PrivateRoutes><Home /></PrivateRoutes>} />
-                            <Route path='/home/:viewMore' element={<PrivateRoutes><ViewMore /></PrivateRoutes>} />
+                            <Route path='/home/:viewMore' element={<PrivateRoutes><WorkInProgress /></PrivateRoutes>} />
                             <Route path='/search' element={<PrivateRoutes><Search /></PrivateRoutes>} />
                             <Route path='/profile/:id' element={<PrivateRoutes><Profile /></PrivateRoutes>} />
                             <Route path='/playlist/:id' element={<PrivateRoutes><Playlist /></PrivateRoutes>} />

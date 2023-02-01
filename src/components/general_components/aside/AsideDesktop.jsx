@@ -33,10 +33,10 @@ const AsideDesktop = () => {
                     <IoMdMusicalNotes />
                     <PMenuStyle>My playlists</PMenuStyle>
                 </LinkAside>
-                <LinkAside to={username}>
+                {/* <LinkAside to={username}>
                     <IoMdHeart />
                     <PMenuStyle>Favorites</PMenuStyle>
-                </LinkAside>
+                </LinkAside> */}
                 <LinkAside to={'/home/users'}>
                     <IoMdPeople />
                     <PMenuStyle>Social</PMenuStyle>

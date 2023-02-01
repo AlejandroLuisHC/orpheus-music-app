@@ -381,3 +381,23 @@ export const ImgTrack = styled.img`
         height: 200px;
     }
 `
+export const FormUpdateImg = styled.form`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media ${device.desktop}{
+        font-size: 50px;
+    }
+`
+export const InputImg = styled.input`
+    position: absolute;
+   visibility: hidden;
+`
+
+export const LabelUpdateImg = styled.label`
+    cursor: pointer;
+
+display: flex;
+justify-content: center;
+align-items: center;
+`
