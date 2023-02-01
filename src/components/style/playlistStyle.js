@@ -30,7 +30,7 @@ export const AllBackground = styled(BackgroundDiv)`
     height:100vh;
         @media ${device.desktop}{
         width: 100%;
-        height: 320px;
+
     }
 `
 
@@ -204,6 +204,12 @@ export const DivTracks = styled.div`
     }
 `
 export const DivInfoTrack = styled(DivTracks)`
+
+    background-color: #ffffff22;
+    @media ${device.desktop}{
+        cursor: pointer;
+
+    }
     
 `
 
@@ -227,6 +233,22 @@ export const DivTitles = styled.div`
     color: ${color.primaryYellow};    
     @media ${device.desktop}{
         margin: 0, 10px;
+            grid-template-columns: 60px repeat(4, 1fr);
+    }
+`
+
+export const DivTitlesTracks = styled(DivTitles)`
+    text-transform: uppercase;
+    font-size: 18px;
+    display: grid;
+    height: 60px;
+    grid-template-columns: 60px repeat(3, 1fr);
+    text-align: center;
+    align-items: center;
+    justify-items:center;
+    color: ${color.primaryYellow};   
+    margin-top:50px; 
+    @media ${device.desktop}{
             grid-template-columns: 60px repeat(4, 1fr);
     }
 `

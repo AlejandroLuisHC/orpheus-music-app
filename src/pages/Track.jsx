@@ -4,14 +4,12 @@ import { memo, useEffect, useState } from "react";
 import { IoMdArrowDropright } from 'react-icons/io';
 import { useOutletContext, useParams } from "react-router-dom";
 import LogoSpinner from "../components/general_components/loaders/spinner/LogoSpinner";
-import { MainStyle } from "../components/style/homeStyle";
+
 import {
     AllBackground,
     DivImgContain,
     DivimgPadding,
     DivPlayListen,
-    DivTitles,
-    DivTracks,
     H1Style,
     H2Style,
     HrDivStyle,
@@ -20,10 +18,13 @@ import {
     PDataTrack2,
     PDataTrack3,
     PDataTrack4,
-    PStyleOwnership
+    PStyleOwnership,
+    DivInfoTrack,
+    DivTitlesTracks
 } from "../components/style/playlistStyle"
 import { fetchOneTrack } from "../api";
 import moment from "moment";
+
 
 const Track = () => {
 
@@ -100,20 +101,21 @@ const Track = () => {
                                 <IoMdArrowDropright size={40} />
                             </DivPlayListen>
                         </DivImgContain>
-                    </AllBackground>
-
-                    <MainStyle>
-                        <HrDivStyle />
-                        <DivTracks>
+                        <DivTitlesTracks>
+                            <PDataTrack1>Title</PDataTrack1>
+                            <PDataTrack2>Album</PDataTrack2>
+                            <PDataTrack3>Released</PDataTrack3>
+                            <PDataTrack4>Duration</PDataTrack4>
+                        </DivTitlesTracks>
+                        <DivInfoTrack>
                             <ImgListPlaylist src={track.data.img.url} alt={track.data.name} />
                             <PDataTrack1>{track.data.name}</PDataTrack1>
                             <PDataTrack2>{track.data.album ?? 'single'}</PDataTrack2>
                             <PDataTrack3>{moment(track.data.createdAt).format("DD MMM YYYY")}</PDataTrack3>
                             <PDataTrack4>{durations}</PDataTrack4>
-                        </DivTracks>
+                        </DivInfoTrack>
                         <HrDivStyle />
-                    </MainStyle>
-
+                    </AllBackground>
                 </>
     )
 }
