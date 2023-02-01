@@ -99,14 +99,14 @@ const ProfileDesktop = ({ userID }) => {
 
                         <DivImgCircleL>
                             {!editView
-                            ?
-                            <ImgCircleXL src={user?.img.url} alt={user?.username} />
-                            :
-                            <>
-                            <ImgCircleXL src={user?.img.url} alt={user?.username} />
-                            
-                            <UpdateProfileImg />
-                            </>
+                                ?
+                                <ImgCircleXL src={user?.img.url} alt={user?.username} />
+                                :
+                                <>
+                                    <ImgCircleXL src={user?.img.url} alt={user?.username} />
+
+                                    <UpdateProfileImg />
+                                </>
                             }
                         </DivImgCircleL>
 
@@ -139,7 +139,7 @@ const ProfileDesktop = ({ userID }) => {
                             {
                                 loggedUser._id === userID &&
                                 <DivProfileActionsStyle>
-                                    <AddWork  />
+                                    <AddWork />
                                     <CreatePlaylist />
                                 </DivProfileActionsStyle>
                             }

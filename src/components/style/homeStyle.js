@@ -144,16 +144,24 @@ export const DivSliderBody = styled.div`
 export const DivEventCard = styled.div`
     width: 280px;
     margin-bottom:5px;
+    background: hsla(0, 0%, 100%, 0.02);
+    border-radius: 20px;
     @media ${device.desktop}{
         margin-bottom:5px;
         min-width: 420px;
         height: 300px;
+        cursor: pointer;
+        transition: 300ms;
+        &:hover{
+            background: rgba(255, 255, 255, .05);
+        }
     } 
 `
 export const DivEventInfo = styled.div`
     display:flex;
     justify-content:space-between;
     align-items:center;
+    margin-left: 10px;
     padding: 5px;
 `
 
@@ -161,12 +169,10 @@ export const PEventPrice = styled.p`
     color: ${color.primaryYellow};
     font-size: 20px;
     font-weight: bold;
-    cursor:pointer;
+    margin-right: 10px;
+    transition: 300ms;
     @media ${device.desktop}{
         font-size: 30px;
-    }
-    &:hover{
-        color:${color.primaryWhite}
     }
 `
 /* END STYLE EVENT CARD */
