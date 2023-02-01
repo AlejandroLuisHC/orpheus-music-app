@@ -50,7 +50,9 @@ const HomeSlider = ({ apiKey }) => {
             case 'events':
                 return data?.map((item) => {
                     return (
-                        <DivEventCard key={item._id}>
+                        <DivEventCard key={item._id}
+                           
+                        >
                             <DivImgRectangleL src={item.img.url} />
                             <DivEventInfo>
                                 <div>
@@ -150,7 +152,7 @@ const HomeSlider = ({ apiKey }) => {
                 :
                 <>
                     <DivSilderHeader>
-                        <H2Style onClick={() => navigate(`/home/${apiKey}`)}>{capitalizeFirstLetter(apiKey)}</H2Style>
+                        <H2Style onClick={() => navigate(`/${apiKey}`)}>{capitalizeFirstLetter(apiKey)}</H2Style>
                         <LinkViewMore to={`/home/${apiKey}`} >View more</LinkViewMore>
                     </DivSilderHeader>
 

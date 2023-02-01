@@ -104,7 +104,6 @@ const Album = () => {
                                 return (
                                     <div key={track._id}>
                                         <DivTracksAlbum onClick={() => {
-                                            console.log("TRACK: ", track);
                                             setPlayer(
                                                 prev => prev = {
                                                     playerOn: true,
