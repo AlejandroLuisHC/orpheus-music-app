@@ -1,7 +1,7 @@
 import { useAuth0 } from '@auth0/auth0-react'
 import { useQuery } from '@tanstack/react-query'
 import { useModal } from 'react-hooks-use-modal'
-import { IoIosCloseCircleOutline, IoMdMore } from 'react-icons/io'
+import { IoIosCloseCircleOutline } from 'react-icons/io'
 import { useSelector } from 'react-redux'
 import { fetchKey } from '../../../api'
 import { BtnSelectOption, ButtonPrimaryStyle, DivModalOptions, DivOptionsIcon } from '../../style/generalStyle'
@@ -34,7 +34,7 @@ const BtnModalAddToPlaylist = ({ trackId }) => {
             playlistTracks.map(track => (
                 formData.append("tracks", track._id)
             ))
-            
+
             const res = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/playlists/${playlistId}`, {
                 method: 'PATCH',
                 body: formData,
@@ -54,10 +54,10 @@ const BtnModalAddToPlaylist = ({ trackId }) => {
 
             <Modal>
                 <DivModalOptions>
-                        <ButtonPrimaryStyle>Create playlist</ButtonPrimaryStyle>
-                        {userPlaylists.map(playlist => (
-                            <BtnSelectOption key={playlist._id} onClick={() => fetchAddTrackToPlaylist(playlist._id)}>{playlist.name}</BtnSelectOption>                              
-                        ))}                        
+                    <ButtonPrimaryStyle>Create playlist</ButtonPrimaryStyle>
+                    {userPlaylists.map(playlist => (
+                        <BtnSelectOption key={playlist._id} onClick={() => fetchAddTrackToPlaylist(playlist._id)}>{playlist.name}</BtnSelectOption>
+                    ))}
                     <DivModalClose>
                         <IoIosCloseCircleOutline onClick={close} />
                     </DivModalClose>

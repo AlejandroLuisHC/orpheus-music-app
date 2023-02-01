@@ -57,7 +57,7 @@ const ProfileSlider = ({ dataKey, user }) => {
                         >
                             <ImgAvatarUser src={d.img.url} />
                             <PNameUser>{d.username}</PNameUser>
-                            <PFollowersUser>{d.followers} followers</PFollowersUser>
+                            <PFollowersUser>{d.followers.length} followers</PFollowersUser>
                         </DivUserCard>
 
                     ) : (
