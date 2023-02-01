@@ -11,7 +11,7 @@ const fetchCreateAlbum = async (album,token) => {
         formData.append('followers', album.followers)
         formData.append('tracks[]', album.tracks)
 
-        console.log(formData)
+       
         const options = {
             method: 'POST',
             headers: {

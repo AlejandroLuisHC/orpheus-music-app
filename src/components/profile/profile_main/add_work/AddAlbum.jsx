@@ -29,11 +29,7 @@ const AddAlbum = () => {
         preventScroll: true
     })
     const user =useSelector(state =>state.userData.user)
-    console.log(user)
-    useEffect(() => {
-        console.log("entrando")
-      close
-    }, [user])
+   
     
     const { user: userAuth, getAccessTokenSilently } = useAuth0();
 
@@ -41,7 +37,8 @@ const AddAlbum = () => {
     const {
         register,
         handleSubmit,
-        formState: { errors },
+        watch,
+        formState:  {isDirty},
     } = useForm();
     const [userTracksData, setUserTracksData] = useState([])
     const [bolleanStep, setBolleanStep] = useState(true)
@@ -70,10 +67,10 @@ const AddAlbum = () => {
         setAlbumData({
             ...albumData
         })
-        console.log(albumData)
+       
         const token = await getAccessTokenSilently()
-        const data = await fetchCreateAlbum(albumData, token)
-        console.log(data)
+        await fetchCreateAlbum(albumData, token)
+       
         const updateUser = await fetchOneUser(id,token)
         
         dispatch(UPDATE(updateUser))
@@ -97,7 +94,7 @@ const AddAlbum = () => {
                         handleSubmit(data => createAlbum(data))
                     }>
                         {bolleanStep ?
-                          <AlbumStep1 changeModal={changeModal} register={register} close={close}/>
+                          <AlbumStep1 changeModal={changeModal} register={register} close={close} watch={watch}/>
                             :
                             <AlbumStep2 tracks={userTracksData} setTracks={setUserTracksData} />}
                     </FormTracks>

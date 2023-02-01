@@ -7,10 +7,6 @@ import fetchOneUser from "./fetchOneUser";
 import fetchCreatePlaylist from "./fetchCreatePlaylist";
 import fetchOnePlaylist from "./fetchOnePlaylist";
 import fetchOneAlbum from "./fetchOneAlbum";
-import fetchOnePlaylist from "./fetchOnePlaylist";
-import fetchOneAlbum from "./fetchOneAlbum";
-
-
 
 export {
     fetchUsers,
@@ -22,6 +18,4 @@ export {
     fetchCreatePlaylist,
     fetchOneAlbum,
     fetchOnePlaylist,
-    fetchOnePlaylist,
-    fetchOneAlbum
 } 
