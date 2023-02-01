@@ -16,7 +16,6 @@ const Profile = () => {
         }
     }, [width])
     const { id: userID } = useParams();
-    console.log("USERID", userID);
     return (
         windowDesk
             ? <ProfileDesktop

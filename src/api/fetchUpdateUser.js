@@ -1,13 +1,27 @@
-const fetchUpdateUser = async (newData, id) => {
+
+const fetchUpdateUser = async (newData, id, token) => {
+    const formData = new FormData()
+    console.log('newData', newData)
+    if (newData.username) {
+        formData.append('username', newData.username)
+        formData.append('country', newData.country)
+        formData.append('region', newData.region)
+        // formData.append('favGenres', newData.genres)
+    } else if (newData.img) {
+        formData.append('image', newData.img[0])
+    }
     try {
         const options = {
             method: 'PATCH',
-            headers: { 'Content-type': 'application/json' },
-            body: JSON.stringify(newData)
+            headers: {
+                Authorization: `Bearer ${token}`
+            },
+            body: formData
         }
         const res = await fetch(`${import.meta.env.VITE_API_URL}${import.meta.env.VITE_API_VERSION}users/${id}`, options)
-        console.log('User successfully updated:', await res.json())
+        return await res.json();
     } catch (err) {
+        console.log(err.message)
         console.warn('An error occurred while updating the user');
     }
 }

@@ -8,8 +8,10 @@ import { FormStyle, SelectCountry, SelectRegion } from '../style/generalStyle';
 import { fetchUpdateUser } from '../../api'
 import { DivEditUserData, DivUserData, InputEditStyle, DivEditUserContainer, PTextEdit, ButtonSubmitEdit, SpanIconClick, HrEditProfile } from '../style/profileStyle';
 import ChangePassword from './ChangePassword';
-
+import { useAuth0 } from '@auth0/auth0-react';
 const UpdateProfile = () => {
+    const { getAccessTokenSilently } = useAuth0()
+    const token = getAccessTokenSilently()
     const initialState = {
         username: false,
         firstName: false,
@@ -18,7 +20,7 @@ const UpdateProfile = () => {
         password: false
     }
     const [openInput, setOpenInput] = useState(initialState)
-
+    const { user: userAuth } = useAuth0();
     const userDataStore = useSelector(state => state.userData.user);
     const user = useSelector(state => state.userData.user);
     const [location, setLocation] = useState({ country: '', region: '' });
@@ -28,79 +30,34 @@ const UpdateProfile = () => {
         watch,
         formState: { errors },
     } = useForm();
-
-
+    const navigate = useNavigate()
+    console.log(userDataStore.country)
+    console.log(userDataStore.region)
     const [UpdateUserData, setUpdateUserData] = useState({
-        id: user.id,
-        userData: {
-            username: userDataStore.username,
-            firstName: userDataStore.firstName,
-            lastName: userDataStore.lastName,
-            email: userDataStore.email,
-            country: userDataStore.country,
-            city: userDataStore.city,
-            password: userDataStore.password,
-            secretQuestion: userDataStore.secretQuestion,
-            secretAnswer: userDataStore.secretAnswer,
-            avatar: userDataStore.avatar,
-            banner: userDataStore.banner,
-            favGenres: userDataStore.favGenres,
-        },
-        work: {
-            myAlbums: user.work.myAlbums,
-            myTracks: user.work.myTracks,
-        },
-        myPlaylists: user.myPlaylists,
-        favPlaylists: user.favPlaylists,
-        favAlbums: user.favAlbums,
-        favTracks: user.favTracks,
-        followers: user.followers,
-        following: user.following,
-        isVerified: user.isVerified,
-        isAdmin: user.isAdmin,
+        username: userDataStore.username || userAuth?.nickname,
+        country: userDataStore.country,
+        region: userDataStore.region,
+        favGenres: user.favGenres,
     });
 
-    const { userData } = UpdateUserData;
     const dispatch = useDispatch();
 
-    const updateUser = ({
+    const updateUser = async ({
         username,
-        firstName,
-        lastName,
-        password
-
     }) => {
-
-        const data = {
-            username: username ?? userDataStore.username,
-            firstName: firstName ?? userDataStore.firstName,
-            lastName: lastName ?? userDataStore.lastName,
-            country: location.country ?? userDataStore.country,
-            city: location.city ?? userDataStore.citty,
-            password: password ?? userDataStore.password
-        }
+        UpdateUserData.username = username ?? userDataStore.username,
+        UpdateUserData.country = location.country ?? userDataStore.country,
+        UpdateUserData.region = location.region ?? userDataStore.region,
+        
 
         setUpdateUserData({
             ...UpdateUserData,
-            userData: {
-                ...userData,
-                username: data.username,
-                firstName: data.firstName,
-                lastName: data.lastName,
-                country: data.country,
-                city: data.city,
-                password: data.password
-            }
         });
         setOpenInput(prev => prev = initialState)
+        const {data} = await fetchUpdateUser(UpdateUserData, userDataStore._id, token);
+        dispatch(UPDATE(data));
+        
     };
-
-    //I use the hook useEfect to fetch the new user data when the state change. using the same logic to store the new data in the redux store for visualice the changes in the moment
-    useEffect(() => {
-        fetchUpdateUser(UpdateUserData, user.id);
-        dispatch(UPDATE(UpdateUserData));
-    }, [UpdateUserData])
-
 
     return (
         <FormStyle onSubmit={handleSubmit(data => updateUser(data))}>
@@ -108,7 +65,7 @@ const UpdateProfile = () => {
                 {!openInput.username
                     ?
                     <DivUserData>
-                        <PTextEdit>{UpdateUserData.userData.username}</PTextEdit>
+                        <PTextEdit>{UpdateUserData.username}</PTextEdit>
                         <SpanIconClick><IoMdCreate onClick={() => setOpenInput(prev => prev = { ...prev, username: true })} /></SpanIconClick>
                     </DivUserData>
                     :
@@ -128,56 +85,10 @@ const UpdateProfile = () => {
                 <HrEditProfile />
             </DivEditUserContainer>
             <DivEditUserContainer>
-                {!openInput.firstName
-                    ?
-                    <DivUserData>
-                        <PTextEdit>{UpdateUserData.userData.firstName}</PTextEdit>
-                        <SpanIconClick><IoMdCreate onClick={() => setOpenInput(prev => prev = { ...prev, firstName: true })} /></SpanIconClick>
-                    </DivUserData>
-                    :
-                    <DivEditUserData>
-                        <InputEditStyle
-                            autoFocus
-                            type='text'
-                            required
-                            {...register('firstName', {
-                                required: true
-                            })}
-                        />
-                        {/* SubmitButton ⬇️*/}
-                        <ButtonSubmitEdit type='submit'><IoMdCheckmarkCircle /></ButtonSubmitEdit>
-                    </DivEditUserData>
-                }
-                <HrEditProfile />
-            </DivEditUserContainer>
-            <DivEditUserContainer>
-                {!openInput.lastName
-                    ?
-                    <DivUserData>
-                        <PTextEdit>{UpdateUserData.userData.lastName}</PTextEdit>
-                        <SpanIconClick><IoMdCreate onClick={() => setOpenInput(prev => prev = { ...prev, lastName: true })} /></SpanIconClick>
-                    </DivUserData>
-                    :
-                    <DivEditUserData>
-                        <InputEditStyle
-                            autoFocus
-                            type='text'
-                            required
-                            {...register('lastName', {
-                                required: true
-                            })}
-                        />
-                        {/* SubmitButton ⬇️*/}
-                        <ButtonSubmitEdit type='submit'><IoMdCheckmarkCircle /></ButtonSubmitEdit>
-                    </DivEditUserData>
-                }
-                <HrEditProfile />
-            </DivEditUserContainer>
-            <DivEditUserContainer>
                 {!openInput.location
                     ?
                     <DivUserData>
-                        <PTextEdit>{UpdateUserData.userData.country}</PTextEdit>
+                        <PTextEdit>{UpdateUserData.country}</PTextEdit>
                         <SpanIconClick><IoMdCreate onClick={() => setOpenInput(prev => prev = { ...prev, location: true })} /></SpanIconClick>
                     </DivUserData>
                     :
