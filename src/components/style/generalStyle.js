@@ -36,14 +36,6 @@ export const GlobalStyle = createGlobalStyle`
             background: #484848;
         }
     }
-    @font-face {
-        font-family: BoldblasterRegular;
-        src: url("src/assets/font/BoldblasterRegular-2OBjK.otf") format("opentype");
-    }
-    @font-face {
-        font-family: BoldblasterItalic;
-        src: url("src/assets/font/BoldblasterItalic-K7pMp.otf") format("opentype");
-    }
 `
 
 export const GridStyle = styled.div`
