@@ -52,6 +52,20 @@ const Album = lazy(async () => {
     ])
     return moduleExports
 });
+const Track = lazy(async () => {
+    const [moduleExports] = await Promise.all([
+        import("../pages/Track"),
+        new Promise(resolve => setTimeout(resolve, 300))
+    ])
+    return moduleExports
+});
+const WorkInProgress = lazy(async () => {
+    const [moduleExports] = await Promise.all([
+        import("../pages/WorkInProgress"),
+        new Promise(resolve => setTimeout(resolve, 300))
+    ])
+    return moduleExports
+});
 
 const Router = () => {
     return (
@@ -64,11 +78,12 @@ const Router = () => {
                             <Route path='/register' element={<NotConnectedRoutes><Register /></NotConnectedRoutes>} />
                             <Route path='/recover-password' element={<NotConnectedRoutes><RecoverPassword /></NotConnectedRoutes>} />
                             <Route path='/home' element={<PrivateRoutes><Home /></PrivateRoutes>} />
-                            <Route path='/home/:viewMore' element={<PrivateRoutes><ViewMore /></PrivateRoutes>} />
+                            <Route path='/home/:viewMore' element={<PrivateRoutes><WorkInProgress /></PrivateRoutes>} />
                             <Route path='/search' element={<PrivateRoutes><Search /></PrivateRoutes>} />
                             <Route path='/profile/:id' element={<PrivateRoutes><Profile /></PrivateRoutes>} />
                             <Route path='/playlist/:id' element={<PrivateRoutes><Playlist /></PrivateRoutes>} />
                             <Route path='/album/:id' element={<PrivateRoutes><Album /></PrivateRoutes>} />
+                            <Route path='/track/:id' element={<PrivateRoutes><Track /></PrivateRoutes>} />
                         </Route>
                     </Routes>
                 </Suspense>

@@ -3,7 +3,6 @@ import { useQuery } from '@tanstack/react-query';
 import moment from 'moment/moment';
 import { memo } from 'react';
 import {
-    Link,
     useNavigate,
     useOutletContext
 } from 'react-router-dom';
@@ -65,7 +64,9 @@ const HomeSlider = ({ apiKey }) => {
             case 'users':
                 return data?.map((item) => {
                     return (
-                        <DivUserCard onClick={() => navigate(`/profile/${item._id}`)}>
+                        <DivUserCard key={item._id}
+                            onClick={() => navigate(`/profile/${item._id}`)}
+                        >
                             <ImgAvatarUser src={item.img.url} />
                             <PNameUser>{item.username.length > 12
                                 ? item.username.slice(0, 11) + "..."
@@ -77,7 +78,8 @@ const HomeSlider = ({ apiKey }) => {
             case 'albums':
                 return data?.map((item) => {
                     return (
-                        <DivMusicCard onClick={() => navigate(`/album/${item._id}`)}
+                        <DivMusicCard key={item._id}
+                            onClick={() => navigate(`/album/${item._id}`)}
                             resultType={apiKey}
                         >
                             <DivImageMusic>
@@ -94,7 +96,8 @@ const HomeSlider = ({ apiKey }) => {
             case 'playlists':
                 return data?.map((item) => {
                     return (
-                        <DivMusicCard onClick={() => navigate(`/playlist/${item._id}`)}
+                        <DivMusicCard key={item._id}
+                            onClick={() => navigate(`/playlist/${item._id}`)}
                             resultType={apiKey}
                         >
                             <DivImageMusic>
@@ -111,8 +114,8 @@ const HomeSlider = ({ apiKey }) => {
                 return data?.data.map((item) => {
                     return (
                         <DivMusicCard key={item._id}
+                            onClick={() => navigate(`/track/${item._id}`)}
                             resultType={apiKey}
-
                         >
                             <DivImageMusic onClick={() => {
                                 setPlayer(
