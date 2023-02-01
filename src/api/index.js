@@ -20,7 +20,6 @@ export {
     fetchCreatePlaylist,
     fetchOnePlaylist,
     fetchOneAlbum,
-    fetchOnePlaylist,
     fetchOneTrack,
     fetchCreateTrack
 } 
