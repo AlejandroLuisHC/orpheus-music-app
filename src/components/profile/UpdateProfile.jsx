@@ -34,7 +34,7 @@ const UpdateProfile = () => {
     console.log(userDataStore.country)
     console.log(userDataStore.region)
     const [UpdateUserData, setUpdateUserData] = useState({
-        username: userAuth?.nickname || userDataStore.username,
+        username: userDataStore.username || userAuth?.nickname,
         country: userDataStore.country,
         region: userDataStore.region,
         favGenres: user.favGenres,
