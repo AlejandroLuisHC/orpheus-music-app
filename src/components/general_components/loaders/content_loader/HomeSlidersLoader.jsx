@@ -7,7 +7,7 @@ const HomeSlidersLoader = () => {
     return (
         <div>
             <DivSilderHeader><TitleLoader /></DivSilderHeader>
-            <DivSlider><TrackLoader /><TrackLoader /><TrackLoader /><TrackLoader /><TrackLoader /><TrackLoader /><TrackLoader /><TrackLoader /><TrackLoader /><TrackLoader /><TrackLoader /></DivSlider>
+            <DivSlider><TrackLoader /><TrackLoader /><TrackLoader /></DivSlider>
         </div>
     )
 }
