@@ -1,4 +1,4 @@
-const fetchCreateTrack = async (track) => {
+const fetchCreateTrack = async (track,token) => {
     try {
 
         const formData = new FormData()
@@ -7,16 +7,18 @@ const fetchCreateTrack = async (track) => {
         formData.append('image', track.img[0])
         formData.append('name', track.name)
         formData.append('description', track.description)
-        formData.append('ownership', [track.ownership])
+        formData.append('ownership', track.ownership)
         formData.append('genres', track.genres)
 
-        console.log(formData)
+        
         const options = {
             method: 'POST',
-            //headers: { 'Content-type': 'multipart/form-data' },
+            headers: {
+                Authorization: `Bearer ${token}`
+            },
             body: formData,
         }
-        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/tracks`, options)
+        const res = await fetch(`${import.meta.env.VITE_API_URL}${import.meta.env.VITE_API_VERSION}tracks`, options)
         const data = await res.json()
         console.log('Track successfully created:', data)
         return data
