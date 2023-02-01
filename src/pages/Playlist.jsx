@@ -25,6 +25,7 @@ import {
 } from "../components/style/playlistStyle"
 import fetchOnePlaylist from "../api/fetchOnePlaylist";
 import moment from "moment";
+import BtnModalTrackOptions from "../components/general_components/tracks/BtnModalTrackOptions";
 
 
 const Playlist = () => {
@@ -124,6 +125,7 @@ const Playlist = () => {
                                         <PDataTrack2>{track.album ?? 'single'}</PDataTrack2>
                                         <PDataTrack3>{moment(track.createdAt).format("DD MMM YYYY")}</PDataTrack3>
                                         <PDataTrack4>{durations[index]}</PDataTrack4>
+                                        <BtnModalTrackOptions trackId={track._id} />
                                     </DivTracks>
                                     <HrDivStyle />
                                 </div>

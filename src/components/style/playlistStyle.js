@@ -188,12 +188,12 @@ export const DivTracks = styled.div`
     font-size: 14px;
     display: grid;
     height: 60px;
-    grid-template-columns: 60px repeat(3, 1fr);
+    grid-template-columns: 60px repeat(3, 1fr) 40px;
     text-align: center;
     align-items: center;
  
     @media ${device.desktop}{
-        grid-template-columns: 60px repeat(4, 1fr);
+        grid-template-columns: 60px repeat(4, 1fr) 40px;
     }
     &:hover {
         background-color: #ffffff22;
@@ -223,17 +223,18 @@ export const DivTracksAlbum = styled(DivTracks)`
 
 export const DivTitles = styled.div`
     text-transform: uppercase;
-    font-size: 18px;
+    font-size: 14px;
     display: grid;
     height: 60px;
-    grid-template-columns: 60px repeat(3, 1fr);
+    grid-template-columns: 60px repeat(3, 1fr) 40px;
     text-align: center;
     align-items: center;
     justify-items:center;
     color: ${color.primaryYellow};    
     @media ${device.desktop}{
+        font-size: 18px;
         margin: 0, 10px;
-            grid-template-columns: 60px repeat(4, 1fr);
+            grid-template-columns: 60px repeat(4, 1fr) 40px;
     }
 `
 

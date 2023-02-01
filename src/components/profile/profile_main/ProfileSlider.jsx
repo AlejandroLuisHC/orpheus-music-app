@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import { useNavigate, useOutletContext } from 'react-router-dom';
-import { DivImgRectangleL, H2Style } from '../../style/generalStyle';
+import BtnModalTrackOptions from '../../general_components/tracks/BtnModalTrackOptions';
+import { DivImgRectangleL, DivInfoMusicBottom, H2Style } from '../../style/generalStyle';
 import {
     DivEventInfo,
     DivInfoMusic,
@@ -21,10 +22,10 @@ import {
 
 } from '../../style/homeStyle';
 
-const ProfileSlider = ({ dataKey }) => {
-    const navigate = useNavigate();
-    const [setPlayer] = useOutletContext();
-    const { type, name, data } = dataKey;
+const ProfileSlider = ({ dataKey, user }) => {
+    const navigate = useNavigate()
+    const [setPlayer] = useOutletContext()
+    const { type, name, data } = dataKey
     return (
         <>
             <DivSilderHeader>
@@ -34,9 +35,12 @@ const ProfileSlider = ({ dataKey }) => {
 
             <DivSliderBody>
                 {data?.map(d =>
-                    type === 'events' ? (
-                        <DivEventCard key={d.id}>
-                            <DivImgRectangleL src={d.img} />
+                    type === 'event' ? (
+                        <DivEventCard 
+                            key={d._id}
+                            onClick={() => navigate(`/${type}/${d._id}`)}
+                        >
+                            <DivImgRectangleL src={d.img.url} />
                             <DivEventInfo>
                                 <div>
                                     <PTitle>{d.name}</PTitle>
@@ -46,10 +50,13 @@ const ProfileSlider = ({ dataKey }) => {
                             </DivEventInfo>
                         </DivEventCard>
 
-                    ) : type === 'users' ? (
-                        <DivUserCard key={d.id}>
-                            <ImgAvatarUser src={d.img} />
-                            <PNameUser>{d.name}</PNameUser>
+                    ) : type === 'user' ? (
+                        <DivUserCard 
+                            key={d._id}
+                            onClick={() => navigate(`/${type}/${d._id}`)}
+                        >
+                            <ImgAvatarUser src={d.img.url} />
+                            <PNameUser>{d.username}</PNameUser>
                             <PFollowersUser>{d.followers} followers</PFollowersUser>
                         </DivUserCard>
 
@@ -57,7 +64,7 @@ const ProfileSlider = ({ dataKey }) => {
                         <DivMusicCard
                             resultType={type}
                             key={d._id}
-                        /* as={Link} to={`/${type}/${result.name}`} */
+                            onClick={() => navigate(`/${type}/${d._id}`)}
                         >
                             <DivImageMusic onClick={() => {
                                 setPlayer(
@@ -71,16 +78,21 @@ const ProfileSlider = ({ dataKey }) => {
                             }}>
                                 <ImgCardMusic src={d.img.url} />
                             </DivImageMusic>
+
                             <DivInfoMusic>
                                 <PTitle>{d.name}</PTitle>
-                                <PDescription>{d.description}</PDescription>
+                                <DivInfoMusicBottom>
+                                    <PDescription>{user.username}</PDescription>
+                                    {type === "track" && <BtnModalTrackOptions trackId={d._id} />}
+                                </DivInfoMusicBottom>
                             </DivInfoMusic>
+
                         </DivMusicCard>
                     )
                 )}
             </DivSliderBody>
         </>
     )
-};
+}
 
-export default memo(ProfileSlider);
+export default memo(ProfileSlider)

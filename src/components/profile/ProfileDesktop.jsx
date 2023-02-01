@@ -67,9 +67,9 @@ const ProfileDesktop = ({ userID }) => {
         { id: 3, name: "Fav. tracks", type: "track", data: user?.favTracks || [] },
         { id: 4, name: "Followers", type: "user", data: user?.followers || [] },
         { id: 5, name: "Following", type: "user", data: user?.following || [] },
-        { id: 6, name: "Own tracks", type: "track", data: user?.tracks || [] },
-        { id: 7, name: "Own albums", type: "album", data: user?.albums || [] },
-        { id: 8, name: "Own playlists", type: "playlist", data: user?.playlists || [] }
+        { id: 6, name: `${user?.username}'s tracks`, type: "track", data: user?.tracks || [] },
+        { id: 7, name: `${user?.username}'s albums`, type: "album", data: user?.albums || [] },
+        { id: 8, name: `${user?.username}'s playlists`, type: "playlist", data: user?.playlists || [] }
     ]
 
     return (
@@ -147,7 +147,7 @@ const ProfileDesktop = ({ userID }) => {
                             <DivSliders>
                                 {dataKey.map(key => {
                                     if (key.data.length > 0) {
-                                        return <ProfileSlider key={key.id} dataKey={key} />
+                                        return <ProfileSlider key={key.id} dataKey={key} user={user} />
                                     }
                                 })}
                             </DivSliders>
