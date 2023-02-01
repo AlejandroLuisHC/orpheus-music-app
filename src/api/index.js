@@ -7,6 +7,7 @@ import fetchCreateAlbum from "./fetchCreateAlbum";
 import fetchCreatePlaylist from "./fetchCreatePlaylist";
 import fetchOnePlaylist from "./fetchOnePlaylist";
 import fetchOneAlbum from "./fetchOneAlbum";
+import fetchOneTrack from "./fetchOneTrack";
 import fetchCreateTrack from "./fetchCreateTrack";
 
 export {
@@ -19,5 +20,6 @@ export {
     fetchCreatePlaylist,
     fetchOnePlaylist,
     fetchOneAlbum,
+    fetchOneTrack,
     fetchCreateTrack
 } 
