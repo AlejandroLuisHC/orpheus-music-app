@@ -7,7 +7,7 @@ import { IoIosCloseCircleOutline } from 'react-icons/io'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchCreatePlaylist, fetchKey, fetchOneUser } from '../../../../api'
 import { UPDATE } from '../../../../redux/features/user_data/userSlice'
-import { ButtonPrimaryStyle, InputStyle, LabelStyle, SelectStyle } from '../../../style/generalStyle'
+import { ButtonPrimaryStyle, DivInputStyle, InputStyle, LabelStyle, PErrorStyle, SelectStyle } from '../../../style/generalStyle'
 import { ButtonProfileStyle, DivModalClose, DivModalTrack, DivTrackBody, DivTrackImg, FormTracks, ImgTrack, InputDescriptionStyle } from '../../../style/profileStyle'
 
 const CreatePlaylist = () => {
@@ -74,6 +74,7 @@ const CreatePlaylist = () => {
                         handleSubmit(data => createTrack(data))
                     }>
                         <DivTrackBody>
+                        <DivInputStyle>
                             <LabelStyle>
                                 Insert mood
                                 <InputStyle
@@ -81,11 +82,14 @@ const CreatePlaylist = () => {
                                     placeholder='mood'
                                     required
                                     {...register('mood', {
-                                        // required: true
+                                        validate: value => value.length >= 2 && value.length <= 20,
                                     })}
                                 />
                             </LabelStyle>
+                            {(watch("mood")?.length > 20 || watch("mood")?.length < 2) && <PErrorStyle>Please enter a valid name</PErrorStyle>}
+                        </DivInputStyle>
                             <br />
+                            <DivInputStyle>
                             <LabelStyle>
                                 Playlist name
                                 <InputStyle
@@ -93,20 +97,28 @@ const CreatePlaylist = () => {
                                     placeholder='Playlist name'
                                     required
                                     {...register('name', {
-                                        // required: true
+                                        validate: value => value.length >= 2 && value.length <= 20,
                                     })}
                                 />
                             </LabelStyle>
+                            {(watch("name")?.length > 20 || watch("name")?.length < 2) && <PErrorStyle>Please enter a valid name</PErrorStyle>}
+                            </DivInputStyle>
+                            <DivInputStyle>
                             <LabelStyle>
                                 Description
                                 <InputDescriptionStyle
                                     type='text'
                                     placeholder='Description'
                                     {...register('description', {
-                                        required: true
+                                        required: true,
+                                        validate: value => value.length >= 2 && value.length <= 200,
                                     })}
                                 />
                             </LabelStyle>
+                            {(watch("name")?.length > 20 || watch("name")?.length < 2) && <PErrorStyle>Please enter a valid name</PErrorStyle>}
+                            </DivInputStyle>
+                            
+                            <DivInputStyle>
                             <LabelStyle>
                                 Select a genre
                                 <SelectStyle
@@ -119,6 +131,7 @@ const CreatePlaylist = () => {
                                     })}
                                 </SelectStyle>
                             </LabelStyle>
+                            </DivInputStyle>
                         </DivTrackBody>
                         <DivTrackImg>
                             <ImgTrack src={'https://res.cloudinary.com/drghk9p6q/image/upload/v1674479864/Final-Project-MERN/images-orpheus/default-images/playlist_mcyltf.webp'} />
@@ -132,7 +145,11 @@ const CreatePlaylist = () => {
                                     })}
                                 />
                             </LabelStyle>
-                            <ButtonPrimaryStyle type='submit'>Upload playlist!</ButtonPrimaryStyle>
+                            {(watch("img") === undefined) || (watch("img").length === 0) && <PErrorStyle>Please enter a valid file</PErrorStyle>}
+                            <ButtonPrimaryStyle 
+                            type='submit'
+                            disabled={watch('name')?.length < 2 || watch('description')?.length < 2 || (watch("img") === undefined) || (watch("img").length === 0)}
+                            >Upload playlist!</ButtonPrimaryStyle>
                         </DivTrackImg>
                     </FormTracks>
 

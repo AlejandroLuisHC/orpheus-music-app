@@ -1,6 +1,6 @@
 const fetchCreatePlaylist = async (playlist,token) => {
     try {
-        console.log(playlist)
+       
         const formData = new FormData()
             
         formData.append('image', playlist.img[0])
