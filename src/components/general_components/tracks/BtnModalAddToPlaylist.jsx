@@ -1,14 +1,17 @@
 import { useAuth0 } from '@auth0/auth0-react'
 import { useQuery } from '@tanstack/react-query'
 import { useModal } from 'react-hooks-use-modal'
-import { IoIosAdd, IoIosCloseCircleOutline } from 'react-icons/io'
-import { fetchKey } from '../../api'
-import { BtnModalAddToPlaylist, BtnSelectPlaylist, ButtonPrimaryStyle, DivModalAddToPlaylist } from '../style/generalStyle'
-import { DivModalClose } from '../style/profileStyle'
+import { IoIosCloseCircleOutline, IoMdMore } from 'react-icons/io'
+import { useSelector } from 'react-redux'
+import { fetchKey } from '../../../api'
+import { BtnSelectPlaylist, ButtonPrimaryStyle, DivModalAddToPlaylist, DivOptionsIcon } from '../../style/generalStyle'
+import { DivModalClose } from '../../style/profileStyle'
 
-const BtnAddToPlaylist = ({ userPlaylists, trackId }) => {
+const BtnModalAddToPlaylist = ({ trackId }) => {
     const { getAccessTokenSilently } = useAuth0()
     const token = getAccessTokenSilently()
+
+    const userPlaylists = useSelector((state) => state.userData.user.playlists)
 
     const [Modal, open, close, isOpen] = useModal('root', {
         preventScroll: true
@@ -47,21 +50,14 @@ const BtnAddToPlaylist = ({ userPlaylists, trackId }) => {
 
     return (
         <>
-            <BtnModalAddToPlaylist onClick={open}><IoIosAdd /></BtnModalAddToPlaylist>
+            <BtnSelectPlaylist onClick={open}>Add to playlist</BtnSelectPlaylist>
 
             <Modal>
                 <DivModalAddToPlaylist>
                         <ButtonPrimaryStyle>Create playlist</ButtonPrimaryStyle>
                         {userPlaylists.map(playlist => (
                             <BtnSelectPlaylist key={playlist._id} onClick={() => fetchAddTrackToPlaylist(playlist._id)}>{playlist.name}</BtnSelectPlaylist>                              
-                        ))}
-
-                        {/* <SelectPlaylist onChange={e => fetchAddTrackToPlaylist(e.target.value)}>
-                            {userPlaylists.map(playlist => (
-                                <option value={playlist._id} key={playlist._id}>{playlist.name}</option>                              
-                            ))}
-                        </SelectPlaylist> */}
-                        
+                        ))}                        
                     <DivModalClose>
                         <IoIosCloseCircleOutline onClick={close} />
                     </DivModalClose>
@@ -71,4 +67,4 @@ const BtnAddToPlaylist = ({ userPlaylists, trackId }) => {
     )
 }
 
-export default BtnAddToPlaylist
+export default BtnModalAddToPlaylist

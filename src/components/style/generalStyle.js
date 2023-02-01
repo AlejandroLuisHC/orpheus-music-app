@@ -385,13 +385,15 @@ export const SelectRegion = styled(RegionDropdown)`
 export const BtnSelectPlaylist = styled.button`
     background: ${color.primaryBlack};
     color: ${color.primaryWhite};
+    border-radius: calc(40px * .5);
     height: 40px;
     width: 280px;
     border: none;
     font-size: 18px;
     margin: 0 auto;
     &:hover {
-        background: darkgray;
+        background-color: #ffffff22;
+        cursor: pointer;
     }
 `
 
@@ -599,6 +601,8 @@ export const SpanPlayerName = styled.span`
 `
 
 export const DivModalAddToPlaylist = styled.div`
+    width: 350px;
+    height: 400px;
     background-color: ${color.primaryBlack};
     padding: 20px;
     border-radius: 25px;
@@ -611,6 +615,14 @@ export const DivModalAddToPlaylist = styled.div`
     }
 `
 
-export const BtnModalAddToPlaylist = styled.button`
-    width: 25px;
+export const DivOptionsIcon = styled.div`
+    opacity: .5;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover{
+        opacity: 1;
+        color: ${color.primaryYellow};
+    }
 `

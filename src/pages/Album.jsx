@@ -23,6 +23,7 @@ import {
 } from "../components/style/playlistStyle"
 import { fetchOneAlbum } from "../api/";
 import moment from "moment";
+import BtnModalTrackOptions from "../components/general_components/tracks/BtnModalTrackOptions";
 
 
 const Album = () => {
@@ -119,6 +120,7 @@ const Album = () => {
                                             <ImgListPlaylist src={track.img.url} alt={track.name} />
                                             <PDataTrack1>{track.name}</PDataTrack1>
                                             <PDataTrack2>{durations[index]}</PDataTrack2>
+                                            <BtnModalTrackOptions trackId={track._id} />
                                         </DivTracksAlbum>
                                         <HrDivStyle />
                                     </div>

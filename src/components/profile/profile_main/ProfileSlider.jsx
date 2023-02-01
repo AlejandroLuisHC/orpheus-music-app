@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { useNavigate, useOutletContext } from 'react-router-dom';
-import BtnAddToPlaylist from '../../general_components/BtnAddToPlaylist';
+import BtnModalAddToPlaylist from '../../general_components/tracks/BtnModalAddToPlaylist';
 import { DivImgRectangleL, H2Style } from '../../style/generalStyle';
 import {
     DivEventInfo,
@@ -23,9 +23,9 @@ import {
 } from '../../style/homeStyle';
 
 const ProfileSlider = ({ dataKey, user }) => {
-    const navigate = useNavigate();
-    const [setPlayer] = useOutletContext();
-    const { type, name, data } = dataKey;
+    const navigate = useNavigate()
+    const [setPlayer] = useOutletContext()
+    const { type, name, data } = dataKey
     return (
         <>
             <DivSilderHeader>
@@ -77,13 +77,13 @@ const ProfileSlider = ({ dataKey, user }) => {
                                 <PDescription>{d.description}</PDescription>
                             </DivInfoMusic>
 
-                            {type === "track" && <BtnAddToPlaylist userPlaylists={user.playlists} trackId={d._id} />}
+                            {type === "track" && <BtnModalTrackOptions trackId={d._id} />}
                         </DivMusicCard>
                     )
                 )}
             </DivSliderBody>
         </>
     )
-};
+}
 
-export default memo(ProfileSlider);
+export default memo(ProfileSlider)
