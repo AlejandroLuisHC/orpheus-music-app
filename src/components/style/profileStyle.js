@@ -318,6 +318,7 @@ export const DivModalOptions = styled.div`
         justify-content: space-around;
     }
 `
+
 export const DivModalClose = styled.div`
     font-size: 30px;
     color: ${color.primaryWhite};

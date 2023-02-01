@@ -382,6 +382,21 @@ export const SelectRegion = styled(RegionDropdown)`
     display: column;
 `
 
+export const BtnSelectOption = styled.button`
+    background: ${color.primaryBlack};
+    color: ${color.primaryWhite};
+    border-radius: calc(40px * .5);
+    height: 40px;
+    width: 280px;
+    border: none;
+    font-size: 18px;
+    margin: 0 auto;
+    &:hover {
+        background-color: #ffffff22;
+        cursor: pointer;
+    }
+`
+
 export const PErrorStyle = styled.p`
     color: ${color.primaryError};
     font-size: 14px;
@@ -506,7 +521,7 @@ export const DivImgRectangleL = styled.img`
     display:block;
     width: 280px;
     height:190px;
-    border-radius: 10px;
+    border-radius: 20px 20px 0 0;
     object-fit:cover;
     transition: 300;
     @media ${device.desktop}{
@@ -581,9 +596,41 @@ export const ButtonClosePlayer = styled.button`
 `
 export const SpanPlayerUser = styled.span`
     font-size: .8em;
-    color: ${color.secondaryYellow}
+    color: ${color.secondaryYellow};
 `
 
 export const SpanPlayerName = styled.span`
-font-size: .9em;
+    font-size: .9em;
+`
+
+export const DivModalOptions = styled.div`
+    width: 350px;
+    height: 400px;
+    background-color: ${color.primaryBlack};
+    padding: 20px;
+    border-radius: 25px;
+    justify-content: center;
+    text-align: center;
+    overflow-y:auto;
+    @media ${device.desktop}{
+        width: 350px;
+        height: 450px;
+    }
+`
+
+export const DivOptionsIcon = styled.div`
+    opacity: .5;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover{
+        opacity: 1;
+        color: ${color.primaryYellow};
+    }
+`
+
+export const DivInfoMusicBottom = styled.div`
+    display: flex;
+    justify-content: space-between;
 `

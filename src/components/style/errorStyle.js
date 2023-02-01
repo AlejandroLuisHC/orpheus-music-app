@@ -37,3 +37,14 @@ export const ImgError = styled.img`
         width: auto;
     };
 `
+export const ImgMaintaining = styled.img`
+    text-align: center;
+    grid-row: 3;
+    grid-column: 2;
+    border-radius: 50px;
+    width: 75%;
+    margin: 30px 0;
+    @media ${device.desktop}{
+        width: auto;
+    };
+`

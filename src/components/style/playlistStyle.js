@@ -26,6 +26,14 @@ export const BackgroundDiv = styled.div`
     }
 `
 
+export const AllBackground = styled(BackgroundDiv)`
+    height:100vh;
+        @media ${device.desktop}{
+        width: 100%;
+
+    }
+`
+
 export const DivImgContain = styled.div`
     display: flex;
     justify-content: center;
@@ -90,11 +98,22 @@ export const H2Style = styled.h2`
 
     @media (min-width: 1250px) {
         display:block;
-        font-size: px;
+        font-size: 20px;
     }
     span{
         font-size: 15px;
     }
+`
+
+export const PStyleOwnership = styled(H2Style)`
+    font-size:15px;
+    display:block;
+    margin: 10px 0;
+
+@media (min-width: 1250px) {
+    
+    font-size: 20px;
+}
 `
 
 export const PStyleBlack = styled.p`
@@ -169,12 +188,12 @@ export const DivTracks = styled.div`
     font-size: 14px;
     display: grid;
     height: 60px;
-    grid-template-columns: 60px repeat(3, 1fr);
+    grid-template-columns: 60px repeat(3, 1fr) 40px;
     text-align: center;
     align-items: center;
  
     @media ${device.desktop}{
-        grid-template-columns: 60px repeat(4, 1fr);
+        grid-template-columns: 60px repeat(4, 1fr) 40px;
     }
     &:hover {
         background-color: #ffffff22;
@@ -184,6 +203,16 @@ export const DivTracks = styled.div`
         border-radius: 50%;
     }
 `
+export const DivInfoTrack = styled(DivTracks)`
+    margin-top:-10px;
+    background-color: #00000052;
+    @media ${device.desktop}{
+        cursor: pointer;
+
+    }
+    
+`
+
 export const DivTracksAlbum = styled(DivTracks)`
     grid-template-columns: 60px repeat(2, 2fr) 1fr;
     @media ${device.desktop}{
@@ -194,6 +223,23 @@ export const DivTracksAlbum = styled(DivTracks)`
 
 export const DivTitles = styled.div`
     text-transform: uppercase;
+    font-size: 14px;
+    display: grid;
+    height: 60px;
+    grid-template-columns: 60px repeat(3, 1fr) 40px;
+    text-align: center;
+    align-items: center;
+    justify-items:center;
+    color: ${color.primaryYellow};    
+    @media ${device.desktop}{
+        font-size: 18px;
+        margin: 0, 10px;
+            grid-template-columns: 60px repeat(4, 1fr) 40px;
+    }
+`
+
+export const DivTitlesTracks = styled(DivTitles)`
+    text-transform: uppercase;
     font-size: 18px;
     display: grid;
     height: 60px;
@@ -201,9 +247,9 @@ export const DivTitles = styled.div`
     text-align: center;
     align-items: center;
     justify-items:center;
-    color: ${color.primaryYellow};    
+    color: ${color.primaryYellow};   
+    margin-top:50px; 
     @media ${device.desktop}{
-        margin: 0, 10px;
             grid-template-columns: 60px repeat(4, 1fr);
     }
 `

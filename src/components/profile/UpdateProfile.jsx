@@ -53,9 +53,9 @@ const UpdateProfile = () => {
             UpdateUserData.favGenres = selectedGenres ?? userDataStore.favGenres
 
 
-        setUpdateUserData({
-            ...UpdateUserData,
-        });
+            setUpdateUserData({
+                ...UpdateUserData,
+            });
         setOpenInput(prev => prev = initialState)
         const { data } = await fetchUpdateUser(UpdateUserData, userDataStore._id, token);
         dispatch(UPDATE(data));

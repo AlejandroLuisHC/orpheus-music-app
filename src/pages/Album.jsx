@@ -23,6 +23,7 @@ import {
 } from "../components/style/playlistStyle"
 import { fetchOneAlbum } from "../api/";
 import moment from "moment";
+import BtnModalTrackOptions from "../components/general_components/tracks/BtnModalTrackOptions";
 
 
 const Album = () => {
@@ -41,7 +42,7 @@ const Album = () => {
 
     useEffect(() => {
         const fetchDurations = async () => {
-            const promises = album.tracks.map(track => duration(track.file.url));
+            const promises = album?.tracks?.map(track => duration(track.file.url));
             const resolvedDurations = await Promise.all(promises);
             setDurations(prev => prev = resolvedDurations);
         };
@@ -92,9 +93,7 @@ const Album = () => {
                                 <IoMdArrowDropright size={40} />
                             </DivPlayListen>
                         </DivImgContain>
-                    </BackgroundDiv>
-
-                    <MainStyle>
+                        <MainStyle>
                         <DivTitlesAlbum>
                             <PDataTrack1>Title</PDataTrack1>
                             <PDataTrack2>Duration</PDataTrack2>
@@ -119,6 +118,7 @@ const Album = () => {
                                             <ImgListPlaylist src={track.img.url} alt={track.name} />
                                             <PDataTrack1>{track.name}</PDataTrack1>
                                             <PDataTrack2>{durations[index]}</PDataTrack2>
+                                            <BtnModalTrackOptions trackId={track._id} />
                                         </DivTracksAlbum>
                                         <HrDivStyle />
                                     </div>
@@ -126,6 +126,9 @@ const Album = () => {
                             })
                         }
                     </MainStyle>
+                    </BackgroundDiv>
+
+                    
                 </>
     )
 }

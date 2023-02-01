@@ -33,7 +33,6 @@ import {
     SpanProfileUserNumbers
 } from '../style/profileStyle';
 import AddWork from './profile_main/add_work/AddWork';
-import CreatePlaylist from './CreatePlaylist';
 import DisconnectIcon from './DisconnectIcon';
 import ProfileSlider from './profile_main/ProfileSlider';
 import UpdateProfile from './UpdateProfile';
@@ -41,7 +40,7 @@ import fetchOneUser from '../../api/fetchOneUser';
 import Error from "../../pages/Error";
 import LogoSpinner from '../general_components/loaders/spinner/LogoSpinner';
 import UpdateProfileImg from './UpdateProfileImg';
-
+import CreatePlaylist from './profile_main/create_playlist/CreatePlaylist';
 
 const ProfileDesktop = ({ userID }) => {
     const { getAccessTokenSilently } = useAuth0()
@@ -68,9 +67,9 @@ const ProfileDesktop = ({ userID }) => {
         { id: 3, name: "Fav. tracks", type: "track", data: user?.favTracks || [] },
         { id: 4, name: "Followers", type: "user", data: user?.followers || [] },
         { id: 5, name: "Following", type: "user", data: user?.following || [] },
-        { id: 6, name: "Own tracks", type: "track", data: user?.tracks || [] },
-        { id: 7, name: "Own albums", type: "album", data: user?.albums || [] },
-        { id: 8, name: "Own playlists", type: "playlist", data: user?.playlists || [] }
+        { id: 6, name: `${user?.username}'s tracks`, type: "track", data: user?.tracks || [] },
+        { id: 7, name: `${user?.username}'s albums`, type: "album", data: user?.albums || [] },
+        { id: 8, name: `${user?.username}'s playlists`, type: "playlist", data: user?.playlists || [] }
     ]
 
     const [currentUser, setCurrentUser ] =useState(loggedUser)
@@ -106,14 +105,14 @@ const ProfileDesktop = ({ userID }) => {
 
                         <DivImgCircleL>
                             {!editView
-                            ?
-                            <ImgCircleXL src={user?.img.url} alt={user?.username} />
-                            :
-                            <>
-                            <ImgCircleXL src={user?.img.url} alt={user?.username} />
-                            
-                            <UpdateProfileImg />
-                            </>
+                                ?
+                                <ImgCircleXL src={user?.img.url} alt={user?.username} />
+                                :
+                                <>
+                                    <ImgCircleXL src={user?.img.url} alt={user?.username} />
+
+                                    <UpdateProfileImg />
+                                </>
                             }
                         </DivImgCircleL>
 
@@ -154,7 +153,7 @@ const ProfileDesktop = ({ userID }) => {
                             <DivSliders>
                                 {dataKey.map(key => {
                                     if (key.data.length > 0) {
-                                        return <ProfileSlider key={key.id} dataKey={key} />
+                                        return <ProfileSlider key={key.id} dataKey={key} user={user} />
                                     }
                                 })}
                             </DivSliders>

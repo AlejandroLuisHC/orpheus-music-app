@@ -35,11 +35,12 @@ import {
     SpanProfileUserNumbers
 } from '../style/profileStyle'
 import AddWork from './profile_main/add_work/AddWork';
-import CreatePlaylist from './CreatePlaylist';
+
 import DisconnectIcon from './DisconnectIcon';
 import ProfileSlider from './profile_main/ProfileSlider';
 import UpdateProfile from './UpdateProfile';
 import Error from "../../pages/Error";
+import CreatePlaylist from './profile_main/create_playlist/CreatePlaylist';
 
 
 const ProfileMobile = ({ userID }) => {
@@ -65,7 +66,10 @@ const ProfileMobile = ({ userID }) => {
         { id: 2, name: "Fav. albums", type: "albums", data: user?.favAlbums || [] },
         { id: 3, name: "Fav. tracks", type: "tracks", data: user?.favTracks || [] },
         { id: 4, name: "Followers", type: "users", data: user?.followers || [] },
-        { id: 5, name: "Following", type: "users", data: user?.following || [] }
+        { id: 5, name: "Following", type: "users", data: user?.following || [] },
+        { id: 6, name: `${user?.username}'s tracks`, type: "track", data: user?.tracks || [] },
+        { id: 7, name: `${user?.username}'s albums`, type: "album", data: user?.albums || [] },
+        { id: 8, name: `${user?.username}'s playlists`, type: "playlist", data: user?.playlists || [] }
     ]
 
     return (
@@ -132,7 +136,7 @@ const ProfileMobile = ({ userID }) => {
                             <DivSliders>
                                 {dataKey.map(key => {
                                     if (key.data.length > 0) {
-                                        return <ProfileSlider key={key.id} dataKey={key} />
+                                        return <ProfileSlider key={key.id} dataKey={key} user={user} />
                                     }
                                 })}
                             </DivSliders>
