@@ -4,7 +4,7 @@ const TitleLoader = () => (
   <ContentLoader 
     speed={2}
     width={220}
-    height={25}
+    height={35}
     viewBox="0 0 220 25"
     backgroundColor="#efb810"
     foregroundColor="#d9d9d9"

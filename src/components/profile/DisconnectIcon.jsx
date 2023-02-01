@@ -10,10 +10,10 @@ const DisconnectIcon = () => {
     const navigate = useNavigate();
     const { logout } = useAuth0()
 
-    
+
     return (
         <ListItem onClick={() => { dispatch(LOG_OUT()); navigate('/'); logout() }}>
-            <span>Log out</span> <IoIosLogOut /> 
+            <span>Log out</span> <IoIosLogOut />
         </ListItem>
     )
 }

@@ -6,9 +6,9 @@ import PrivateRoutes from "./PrivateRoutes"
 import NotConnectedRoutes from "./NotConnectedRoutes"
 
 const Layout = lazy(() => import('./Layout'))
-const Landing = lazy(() => import('../pages/Landing'))
-const Register = lazy(() => import('../pages/Register'))
-const RecoverPassword = lazy(() => import("../pages/RecoverPassword"))
+const Landing = lazy(() => import('../pages'))
+const Register = lazy(() => import('../pages'))
+const RecoverPassword = lazy(() => import("../pages"))
 
 const Home = lazy(async () => {
     const [moduleExports] = await Promise.all([

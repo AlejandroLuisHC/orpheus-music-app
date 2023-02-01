@@ -46,17 +46,17 @@ const UpdateProfile = () => {
         username,
     }) => {
         UpdateUserData.username = username ?? userDataStore.username,
-        UpdateUserData.country = location.country ?? userDataStore.country,
-        UpdateUserData.region = location.region ?? userDataStore.region,
-        
+            UpdateUserData.country = location.country ?? userDataStore.country,
+            UpdateUserData.region = location.region ?? userDataStore.region,
 
-        setUpdateUserData({
-            ...UpdateUserData,
-        });
+
+            setUpdateUserData({
+                ...UpdateUserData,
+            });
         setOpenInput(prev => prev = initialState)
-        const {data} = await fetchUpdateUser(UpdateUserData, userDataStore._id, token);
+        const { data } = await fetchUpdateUser(UpdateUserData, userDataStore._id, token);
         dispatch(UPDATE(data));
-        
+
     };
 
     return (

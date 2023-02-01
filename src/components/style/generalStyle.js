@@ -505,7 +505,7 @@ export const DivImgRectangleL = styled.img`
     display:block;
     width: 280px;
     height:190px;
-    border-radius: 10px;
+    border-radius: 10px 10px 0 0;
     object-fit:cover;
     transition: 300;
     @media ${device.desktop}{

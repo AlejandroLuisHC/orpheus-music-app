@@ -3,8 +3,8 @@ import ContentLoader from "react-content-loader"
 const TrackLoader = () => (
   <ContentLoader 
     speed={2}
-    width={220}
-    height={270}
+    width={260}
+    height={300}
     viewBox="0 0 220 270"
     backgroundColor="#efb810"
     foregroundColor="#d9d9d9"
