@@ -25,7 +25,6 @@ import {
 import { fetchOneTrack } from "../api";
 import moment from "moment";
 
-
 const Track = () => {
 
     const [setPlayer] = useOutletContext();
@@ -67,14 +66,12 @@ const Track = () => {
         return duration;
     }
 
-
     return (
         status === 'loading'
             ? <LogoSpinner />
             : status === 'error' || track.data.status === "FALSE"
                 ? <Error />
                 :
-                <>
                     <AllBackground img={track.data.img.url}>
                         <DivImgContain>
                             <DivimgPadding>
@@ -116,7 +113,6 @@ const Track = () => {
                         </DivInfoTrack>
                         <HrDivStyle />
                     </AllBackground>
-                </>
     )
 }
 
