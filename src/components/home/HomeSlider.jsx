@@ -3,7 +3,6 @@ import { useQuery } from '@tanstack/react-query';
 import moment from 'moment/moment';
 import { memo } from 'react';
 import {
-    Link,
     useNavigate,
     useOutletContext
 } from 'react-router-dom';
@@ -115,7 +114,7 @@ const HomeSlider = ({ apiKey }) => {
                 return data?.data.map((item) => {
                     return (
                         <DivMusicCard key={item._id}
-                            onClick={() => navigate(`/track/${item._id}`)} 
+                            onClick={() => navigate(`/track/${item._id}`)}
                             resultType={apiKey}
                         >
                             <DivImageMusic onClick={() => {
