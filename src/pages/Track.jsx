@@ -111,7 +111,6 @@ const Track = () => {
                             <PDataTrack3>{moment(track.data.createdAt).format("DD MMM YYYY")}</PDataTrack3>
                             <PDataTrack4>{durations}</PDataTrack4>
                         </DivInfoTrack>
-                        <HrDivStyle />
                     </AllBackground>
     )
 }

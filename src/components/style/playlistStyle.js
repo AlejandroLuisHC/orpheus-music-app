@@ -205,7 +205,7 @@ export const DivTracks = styled.div`
 `
 export const DivInfoTrack = styled(DivTracks)`
     margin-top:-10px;
-    background-color: #ffffff22;
+    background-color: #00000052;
     @media ${device.desktop}{
         cursor: pointer;
 
