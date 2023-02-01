@@ -4,25 +4,28 @@ import { IoMdCheckmarkCircle, IoMdCreate } from 'react-icons/io';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { UPDATE } from '../../redux/features/user_data/userSlice';
-import { FormStyle, SelectCountry, SelectRegion } from '../style/generalStyle';
-import { fetchUpdateUser } from '../../api'
-import { DivEditUserData, DivUserData, InputEditStyle, DivEditUserContainer, PTextEdit, ButtonSubmitEdit, SpanIconClick, HrEditProfile } from '../style/profileStyle';
+import { ButtonPrimaryStyle, ButtonSecondaryStyle, FormStyle, SelectCountry, SelectRegion } from '../style/generalStyle';
+import { fetchKey, fetchUpdateUser } from '../../api'
+import { DivEditUserData, DivUserData, InputEditStyle, DivEditUserContainer, PTextEdit, ButtonSubmitEdit, SpanIconClick, HrEditProfile, DivDangerZone, H1Username, DivModalOptions } from '../style/profileStyle';
 import ChangePassword from './ChangePassword';
 import { useAuth0 } from '@auth0/auth0-react';
+import { DivFlexGenres, DivGenreCircle, DivSelectedGenreCircle } from '../style/registerStyle';
+import { useQuery } from '@tanstack/react-query';
+import fetchChangePassword from '../../api/fetchChangePassword';
+import { useModal } from 'react-hooks-use-modal';
 const UpdateProfile = () => {
     const { getAccessTokenSilently } = useAuth0()
     const token = getAccessTokenSilently()
     const initialState = {
         username: false,
-        firstName: false,
-        lastName: false,
         location: false,
-        password: false
+        favGenres: false,
+        deleted: false,
+        passwordUpdate: false
     }
     const [openInput, setOpenInput] = useState(initialState)
     const { user: userAuth } = useAuth0();
     const userDataStore = useSelector(state => state.userData.user);
-    const user = useSelector(state => state.userData.user);
     const [location, setLocation] = useState({ country: '', region: '' });
     const {
         register,
@@ -31,33 +34,68 @@ const UpdateProfile = () => {
         formState: { errors },
     } = useForm();
     const navigate = useNavigate()
-    console.log(userDataStore.country)
-    console.log(userDataStore.region)
     const [UpdateUserData, setUpdateUserData] = useState({
-        username: userAuth?.nickname || userDataStore.username,
+        username: userDataStore.username || userAuth?.nickname,
         country: userDataStore.country,
         region: userDataStore.region,
-        favGenres: user.favGenres,
+        favGenres: userDataStore.favGenres,
     });
+    console.log('C',UpdateUserData.country)
 
     const dispatch = useDispatch();
-
     const updateUser = async ({
         username,
     }) => {
         UpdateUserData.username = username ?? userDataStore.username,
-        UpdateUserData.country = location.country ?? userDataStore.country,
-        UpdateUserData.region = location.region ?? userDataStore.region,
-        
+            UpdateUserData.country = location.country ?? userDataStore.country,
+            UpdateUserData.region = location.region ?? userDataStore.region,
+            UpdateUserData.favGenres = selectedGenres ?? userDataStore.favGenres
 
-        setUpdateUserData({
-            ...UpdateUserData,
-        });
+
+            setUpdateUserData({
+                ...UpdateUserData,
+            });
         setOpenInput(prev => prev = initialState)
-        const {data} = await fetchUpdateUser(UpdateUserData, userDataStore._id, token);
+        const { data } = await fetchUpdateUser(UpdateUserData, userDataStore._id, token);
         dispatch(UPDATE(data));
-        
+
     };
+    //data brings the old user 
+
+
+    //GENRES
+
+    const [selectedGenres, setSelectedGenres] = useState(userDataStore.favGenres)
+    const { data: genres } = useQuery(
+        ['genres', 'genres'],
+        () => fetchKey('genres')
+    );
+
+    const isGenreSelected = (id) => (
+        selectedGenres?.find((genreId) => genreId === id)
+    );
+
+    const addToSelectedGenres = (id) => {
+        !isGenreSelected(id) && setSelectedGenres([...selectedGenres, id]);
+    };
+
+    const removeFromSelectedGenres = (id) => {
+        console.log('remove', id)
+        //TODO: fix this function
+        setSelectedGenres([...selectedGenres].filter((genre) => genre !== id))
+    };
+
+    function getRandomSize() {
+        return Math.random() * (100 - 85) + 85;
+    }
+    function getRandomSizeSelected() {
+        return Math.random() * (125 - 110) + 110;
+    }
+
+    // DANGER ZONE
+    const [Modal, open, close, isOpen] = useModal('root', {
+        preventScroll: true
+    })
 
     return (
         <FormStyle onSubmit={handleSubmit(data => updateUser(data))}>
@@ -114,20 +152,61 @@ const UpdateProfile = () => {
             </DivEditUserContainer>
             <DivEditUserContainer>
 
-                {!openInput.password
+                {!openInput.favGenres
                     ?
                     <DivUserData>
-                        <PTextEdit>Change password</PTextEdit>
-                        <SpanIconClick><IoMdCreate onClick={() => setOpenInput(prev => prev = { ...prev, password: true })} /></SpanIconClick>
+                        <PTextEdit>Genres</PTextEdit>
+                        <SpanIconClick><IoMdCreate onClick={() => setOpenInput(prev => prev = { ...prev, favGenres: true })} /></SpanIconClick>
                     </DivUserData>
                     :
-                    <ChangePassword
-                        register={register}
-                        watch={watch}
-                        formState={errors}
-
-                    />}
-
+                    <>
+                    <DivFlexGenres>
+                        {genres?.map((genre) => {
+                            return !isGenreSelected(genre._id) ? (
+                                <DivGenreCircle
+                                    key={genre._id}
+                                    size={`${getRandomSize()}px`}
+                                    onClick={() => addToSelectedGenres(genre._id)}
+                                >
+                                    <p>{genre.name}</p>
+                                </DivGenreCircle>
+                            ) : (
+                                <DivSelectedGenreCircle
+                                    key={genre._id}
+                                    size={`${getRandomSizeSelected()}px`}
+                                    onClick={() => removeFromSelectedGenres(genre._id)}
+                                >
+                                    <p>{genre.name}</p>
+                                </DivSelectedGenreCircle>
+                            );
+                        })}
+                    </DivFlexGenres>
+                    <ButtonPrimaryStyle>Submit Genres</ButtonPrimaryStyle>
+                    </>}
+                <HrEditProfile />
+                <DivEditUserContainer>
+                    <DivDangerZone>
+                        <h1>DANGER ZONE !</h1>
+                        <DivModalOptions>
+                            <ButtonSecondaryStyle onClick={() => setOpenInput(prev => prev = { ...prev, deleted: true })}>CHANGE PASSWORD</ButtonSecondaryStyle>
+                            <ButtonSecondaryStyle onClick={() => setOpenInput(prev => prev = { ...prev, passwordUpdate: true })}>DELETE USER</ButtonSecondaryStyle>
+                        </DivModalOptions>
+                        <Modal>
+                            {openInput.deleted
+                            ??
+                            <>
+                            <h1>Are you sure you want to delete your user from database?</h1>
+                            <ButtonSecondaryStyle>Yes, I'm sure</ButtonSecondaryStyle>
+                            </>}
+                            {openInput.passwordUpdate
+                            ??
+                            <>
+                            <h1>Check your email inbox</h1>
+                            <p>email sended to `${userDataStore.email}`</p>
+                            </>}
+                        </Modal>
+                    </DivDangerZone>
+                </DivEditUserContainer>
                 <HrEditProfile />
             </DivEditUserContainer>
         </FormStyle>

@@ -400,3 +400,10 @@ display: flex;
 justify-content: center;
 align-items: center;
 `
+export const DivDangerZone = styled.div`
+text-align: center;
+border-radius: 25px;
+padding: 15px;
+background-color: rgb(252, 56, 43, .3 );
+
+`
