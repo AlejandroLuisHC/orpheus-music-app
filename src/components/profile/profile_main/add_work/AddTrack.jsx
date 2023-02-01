@@ -24,8 +24,7 @@ import {
 import { useAuth0 } from '@auth0/auth0-react';
 import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
-import { fetchKey, fetchOneUser } from '../../../../api'
-import fetchCreateTrack from '../../../../api/fetchCreateTrack'
+import { fetchCreateTrack, fetchKey, fetchOneUser } from '../../../../api'
 import { UPDATE } from './../../../../redux/features/user_data/userSlice'
 
 

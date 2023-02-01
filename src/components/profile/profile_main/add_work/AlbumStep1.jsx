@@ -12,17 +12,6 @@ const AlbumStep1 = ({ register, changeModal, close, watch }) => {
         () => fetchKey('genres')
     );
 
-    const block = () => {
-
-        if (getFieldState('name').isDirty === true) {
-            console.log(entrando)
-            return true
-        } else {
-            return false
-        }
-    }
-
-
     return (
         <>
 

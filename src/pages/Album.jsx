@@ -41,7 +41,7 @@ const Album = () => {
 
     useEffect(() => {
         const fetchDurations = async () => {
-            const promises = album.tracks.map(track => duration(track.file.url));
+            const promises = album?.tracks?.map(track => duration(track.file.url));
             const resolvedDurations = await Promise.all(promises);
             setDurations(prev => prev = resolvedDurations);
         };
@@ -92,9 +92,7 @@ const Album = () => {
                                 <IoMdArrowDropright size={40} />
                             </DivPlayListen>
                         </DivImgContain>
-                    </BackgroundDiv>
-
-                    <MainStyle>
+                        <MainStyle>
                         <DivTitlesAlbum>
                             <PDataTrack1>Title</PDataTrack1>
                             <PDataTrack2>Duration</PDataTrack2>
@@ -126,6 +124,9 @@ const Album = () => {
                             })
                         }
                     </MainStyle>
+                    </BackgroundDiv>
+
+                    
                 </>
     )
 }

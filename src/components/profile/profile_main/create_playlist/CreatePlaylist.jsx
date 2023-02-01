@@ -37,7 +37,7 @@ const CreatePlaylist = () => {
         genres: [],
         moods: [],
         ownership: id,
-        followers:0
+        followers: 0
     })
     const createTrack = async ({
         moods,
@@ -56,18 +56,16 @@ const CreatePlaylist = () => {
             ...playlistData
         });
         const token = await getAccessTokenSilently()
-        const data = await fetchCreatePlaylist(playlistData,token)
-        
-        const updateUser = await fetchOneUser(id,token)
+        const data = await fetchCreatePlaylist(playlistData, token)
+
+        const updateUser = await fetchOneUser(id, token)
         dispatch(UPDATE(updateUser))
         data.status === 'Created';
-        data.status === 'false' && console.log("There was a problem creating the playlist"); 
+        data.status === 'false' && console.log("There was a problem creating the playlist");
     }
 
     return (
         <>
-
-
             <ButtonProfileStyle onClick={open}>Create Playlist</ButtonProfileStyle>
             <Modal>
                 <DivModalTrack>
