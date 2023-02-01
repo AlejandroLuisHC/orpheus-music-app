@@ -1,8 +1,12 @@
 import React from 'react'
 import { useModal } from 'react-hooks-use-modal'
 import { IoIosCloseCircleOutline } from 'react-icons/io'
-import { ButtonPrimaryStyle } from '../../../style/generalStyle'
-import { ButtonProfileStyle, DivModalClose, DivModalOptions, DivModalWork } from '../../../style/profileStyle'
+import {
+    ButtonProfileStyle,
+    DivModalClose,
+    DivModalOptions,
+    DivModalWork
+} from '../../../style/profileStyle'
 import AddAlbum from './AddAlbum'
 import AddTrack from './AddTrack'
 

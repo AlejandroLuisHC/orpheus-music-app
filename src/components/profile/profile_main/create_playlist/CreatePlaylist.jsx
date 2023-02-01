@@ -1,108 +1,96 @@
-import React from 'react'
+import { useAuth0 } from '@auth0/auth0-react'
+import { useQuery } from '@tanstack/react-query'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useModal } from 'react-hooks-use-modal'
 import { IoIosCloseCircleOutline } from 'react-icons/io'
 import { useDispatch, useSelector } from 'react-redux'
-import {
-    ButtonPrimaryStyle,
-    ButtonSecondaryStyle,
-    InputStyle,
-    LabelStyle,
-    SelectStyle
-} from '../../../style/generalStyle'
-import {
-    DivModalClose,
-    DivModalTrack,
-    DivTrackBody,
-    DivTrackImg,
-    FormTracks,
-    ImgTrack,
-    InputDescriptionStyle
-} from '../../../style/profileStyle'
-import { useAuth0 } from '@auth0/auth0-react';
-import { useState } from 'react'
-import { useQuery } from '@tanstack/react-query'
-import { fetchCreateTrack, fetchKey, fetchOneUser } from '../../../../api'
-import { UPDATE } from './../../../../redux/features/user_data/userSlice'
+import { fetchCreatePlaylist, fetchKey, fetchOneUser } from '../../../../api'
+import { UPDATE } from '../../../../redux/features/user_data/userSlice'
+import { ButtonPrimaryStyle, InputStyle, LabelStyle, SelectStyle } from '../../../style/generalStyle'
+import { ButtonProfileStyle, DivModalClose, DivModalTrack, DivTrackBody, DivTrackImg, FormTracks, ImgTrack, InputDescriptionStyle } from '../../../style/profileStyle'
 
+const CreatePlaylist = () => {
 
-const AddTrack = () => {
+    const [Modal, open, close, isOpen] = useModal('root', {
+        preventScroll: true
+    })
     const { data: genres } = useQuery(
         ['genres', 'genres'],
         () => fetchKey('genres')
     );
-    const [Modal, open, close, isOpen] = useModal('root', {
-        preventScroll: true
-    })
-    const { user: userAuth, getAccessTokenSilently } = useAuth0();
-    const id = useSelector((state) => state.userData.user._id);
-    const dispatch = useDispatch();
     const {
         register,
         handleSubmit,
         watch,
         formState: { errors },
     } = useForm();
+    const { user: userAuth, getAccessTokenSilently } = useAuth0();
+    const id = useSelector((state) => state.userData.user._id);
+    const dispatch = useDispatch();
 
-    const [trackData, setTrackData] = useState({
+    const [playlistData, setPlaylistData] = useState({
         name: '',
         description: '',
-        img: {},
-        file: {},
+        img: '',
+        tracks: [],
         genres: [],
-        ownership: id
+        moods: [],
+        ownership: id,
+        followers: 0
     })
-
     const createTrack = async ({
-        file,
+        moods,
         img,
         description,
         name,
         genres
     }) => {
-        trackData.name = name || `${userAuth.given_name}-Song`;
-        trackData.description = description || 'Orpheus is awesome';
-        trackData.img = img || 'https://res.cloudinary.com/drghk9p6q/image/upload/v1674479861/Final-Project-MERN/images-orpheus/default-images/track_okeksf.webp';
-        trackData.file = file;
-        trackData.genres = [genres] || [];
+        playlistData.name = name || `${userAuth.given_name}-Song`;
+        playlistData.description = description || 'Orpheus is awesome';
+        playlistData.img = img || 'https://res.cloudinary.com/drghk9p6q/image/upload/v1674479864/Final-Project-MERN/images-orpheus/default-images/playlist_mcyltf.webp';
+        playlistData.genres = [genres] || [];
+        playlistData.moods = [moods] || [];
 
-        setTrackData({
-            ...trackData
+        setPlaylistData({
+            ...playlistData
         });
         const token = await getAccessTokenSilently()
-        const data = await fetchCreateTrack(trackData, token)
+        const data = await fetchCreatePlaylist(playlistData, token)
+
         const updateUser = await fetchOneUser(id, token)
         dispatch(UPDATE(updateUser))
         data.status === 'Created';
-        data.status === 'false' && console.log("There was a problem creating the track"); // aqui no hay condicional ni na , para que es esto
+        data.status === 'false' && console.log("There was a problem creating the playlist");
     }
 
     return (
         <>
-            <ButtonSecondaryStyle onClick={open}>Add Track</ButtonSecondaryStyle>
+            <ButtonProfileStyle onClick={open}>Create Playlist</ButtonProfileStyle>
             <Modal>
                 <DivModalTrack>
-                    <h1>TRACK</h1>
+                    <h1>Playlist</h1>
                     <FormTracks onSubmit={
                         handleSubmit(data => createTrack(data))
                     }>
                         <DivTrackBody>
                             <LabelStyle>
-                                Insert Track audio
-                                <input
-                                    type='file'
-                                    // required
-                                    {...register('file', {
-                                        required: true
+                                Insert mood
+                                <InputStyle
+                                    type='text'
+                                    placeholder='mood'
+                                    required
+                                    {...register('mood', {
+                                        // required: true
                                     })}
                                 />
                             </LabelStyle>
                             <br />
                             <LabelStyle>
-                                Track name
+                                Playlist name
                                 <InputStyle
                                     type='text'
-                                    placeholder='Song name'
+                                    placeholder='Playlist name'
                                     required
                                     {...register('name', {
                                         // required: true
@@ -133,9 +121,9 @@ const AddTrack = () => {
                             </LabelStyle>
                         </DivTrackBody>
                         <DivTrackImg>
-                            <ImgTrack src={'https://res.cloudinary.com/drghk9p6q/image/upload/v1674479861/Final-Project-MERN/images-orpheus/default-images/track_okeksf.webp'} />
+                            <ImgTrack src={'https://res.cloudinary.com/drghk9p6q/image/upload/v1674479864/Final-Project-MERN/images-orpheus/default-images/playlist_mcyltf.webp'} />
                             <LabelStyle>
-                                Choose picture for your track!
+                                Choose picture for your playlist!
                                 <input
                                     type='file'
                                     // required
@@ -144,7 +132,7 @@ const AddTrack = () => {
                                     })}
                                 />
                             </LabelStyle>
-                            <ButtonPrimaryStyle type='submit'>Upload track!</ButtonPrimaryStyle>
+                            <ButtonPrimaryStyle type='submit'>Upload playlist!</ButtonPrimaryStyle>
                         </DivTrackImg>
                     </FormTracks>
 
@@ -157,4 +145,4 @@ const AddTrack = () => {
     )
 }
 
-export default AddTrack
+export default CreatePlaylist
