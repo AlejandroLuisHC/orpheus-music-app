@@ -1,8 +1,7 @@
-import { useAuth0 } from '@auth0/auth0-react'
-import { useQuery } from '@tanstack/react-query'
 import { useModal } from 'react-hooks-use-modal'
 import { IoIosCloseCircleOutline, IoMdMore } from 'react-icons/io'
-import { BtnSelectPlaylist, DivModalAddToPlaylist, DivOptionsIcon } from '../../style/generalStyle'
+import { useSelector } from 'react-redux'
+import { BtnSelectOption, DivModalOptions, DivOptionsIcon } from '../../style/generalStyle'
 import { DivModalClose } from '../../style/profileStyle'
 import BtnModalAddToPlaylist from './BtnModalAddToPlaylist'
 
@@ -11,22 +10,28 @@ const BtnModalTrackOptions = ({ trackId }) => {
         preventScroll: true
     })
 
+    //TODO: work in progess
+    // const userTracks = useSelector((state) => state.userData.user.tracks)
+
+    // const isOwner = userTracks.find(track => track._id === trackId)
+    // console.log("isOwner", isOwner)
+
     return (
         <>
             <DivOptionsIcon onClick={open}><IoMdMore size={20} /></DivOptionsIcon>
 
             <Modal>
-                <DivModalAddToPlaylist>
+                <DivModalOptions>
                     <BtnModalAddToPlaylist trackId={trackId} />
-                    <BtnSelectPlaylist>Add to liked songs</BtnSelectPlaylist>
-                    <BtnSelectPlaylist>View artist</BtnSelectPlaylist>
-                    <BtnSelectPlaylist>Go to song album</BtnSelectPlaylist>
-                    <BtnSelectPlaylist>Remove from this playlist</BtnSelectPlaylist>
+                    <BtnSelectOption>Add to liked songs</BtnSelectOption>
+                    <BtnSelectOption>View artist</BtnSelectOption>
+                    <BtnSelectOption>Go to song album</BtnSelectOption>
+                    {/* {isOwner && <BtnSelectOption>Remove from this playlist</BtnSelectOption>} */}
 
                     <DivModalClose>
                         <IoIosCloseCircleOutline onClick={close} />
                     </DivModalClose>
-                </DivModalAddToPlaylist>
+                </DivModalOptions>
             </Modal>
         </>
     )

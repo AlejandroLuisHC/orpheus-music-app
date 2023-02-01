@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useNavigate, useOutletContext } from 'react-router-dom';
-import BtnModalAddToPlaylist from '../../general_components/tracks/BtnModalAddToPlaylist';
-import { DivImgRectangleL, H2Style } from '../../style/generalStyle';
+import BtnModalTrackOptions from '../../general_components/tracks/BtnModalTrackOptions';
+import { DivImgRectangleL, DivInfoMusicBottom, H2Style } from '../../style/generalStyle';
 import {
     DivEventInfo,
     DivInfoMusic,
@@ -48,7 +48,10 @@ const ProfileSlider = ({ dataKey, user }) => {
                         </DivEventCard>
 
                     ) : type === 'user' ? (
-                        <DivUserCard key={d.id}>
+                        <DivUserCard 
+                            key={d.id}
+                            onClick={() => navigate(`/${type}/${d._id}`)}
+                        >
                             <ImgAvatarUser src={d.img} />
                             <PNameUser>{d.name}</PNameUser>
                             <PFollowersUser>{d.followers} followers</PFollowersUser>
@@ -58,7 +61,7 @@ const ProfileSlider = ({ dataKey, user }) => {
                         <DivMusicCard
                             resultType={type}
                             key={d._id}
-                        /* as={Link} to={`/${type}/${result.name}`} */
+                            onClick={() => navigate(`/${type}/${d._id}`)}
                         >
                             <DivImageMusic onClick={() => {
                                 setPlayer(
@@ -72,12 +75,15 @@ const ProfileSlider = ({ dataKey, user }) => {
                             }}>
                                 <ImgCardMusic src={d.img.url} />
                             </DivImageMusic>
+
                             <DivInfoMusic>
                                 <PTitle>{d.name}</PTitle>
-                                <PDescription>{d.description}</PDescription>
+                                <DivInfoMusicBottom>
+                                    <PDescription>{user.username}</PDescription>
+                                    {type === "track" && <BtnModalTrackOptions trackId={d._id} />}
+                                </DivInfoMusicBottom>
                             </DivInfoMusic>
 
-                            {type === "track" && <BtnModalTrackOptions trackId={d._id} />}
                         </DivMusicCard>
                     )
                 )}

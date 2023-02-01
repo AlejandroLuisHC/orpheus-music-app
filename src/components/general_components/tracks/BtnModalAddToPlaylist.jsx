@@ -4,7 +4,7 @@ import { useModal } from 'react-hooks-use-modal'
 import { IoIosCloseCircleOutline, IoMdMore } from 'react-icons/io'
 import { useSelector } from 'react-redux'
 import { fetchKey } from '../../../api'
-import { BtnSelectPlaylist, ButtonPrimaryStyle, DivModalAddToPlaylist, DivOptionsIcon } from '../../style/generalStyle'
+import { BtnSelectOption, ButtonPrimaryStyle, DivModalOptions, DivOptionsIcon } from '../../style/generalStyle'
 import { DivModalClose } from '../../style/profileStyle'
 
 const BtnModalAddToPlaylist = ({ trackId }) => {
@@ -21,7 +21,7 @@ const BtnModalAddToPlaylist = ({ trackId }) => {
 
     const fetchAddTrackToPlaylist = async (playlistId) => {
         try {
-            const playlistTracks = playlists.find(playlist => playlist._id === playlistId).tracks            
+            const playlistTracks = playlists.find(playlist => playlist._id === playlistId).tracks
             const isAlreadyInPlaylist = playlistTracks.find(track => track._id === trackId)
 
             if (isAlreadyInPlaylist) {
@@ -50,18 +50,18 @@ const BtnModalAddToPlaylist = ({ trackId }) => {
 
     return (
         <>
-            <BtnSelectPlaylist onClick={open}>Add to playlist</BtnSelectPlaylist>
+            <BtnSelectOption onClick={open}>Add to playlist</BtnSelectOption>
 
             <Modal>
-                <DivModalAddToPlaylist>
+                <DivModalOptions>
                         <ButtonPrimaryStyle>Create playlist</ButtonPrimaryStyle>
                         {userPlaylists.map(playlist => (
-                            <BtnSelectPlaylist key={playlist._id} onClick={() => fetchAddTrackToPlaylist(playlist._id)}>{playlist.name}</BtnSelectPlaylist>                              
+                            <BtnSelectOption key={playlist._id} onClick={() => fetchAddTrackToPlaylist(playlist._id)}>{playlist.name}</BtnSelectOption>                              
                         ))}                        
                     <DivModalClose>
                         <IoIosCloseCircleOutline onClick={close} />
                     </DivModalClose>
-                </DivModalAddToPlaylist>
+                </DivModalOptions>
             </Modal>
         </>
     )
