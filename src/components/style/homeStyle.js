@@ -15,6 +15,7 @@ export const MainStyle = styled.main`
 export const PTitle = styled.p`
     font-size:.8rem;
     font-weight:700;
+    text-decoration: none;
     @media ${device.desktop}{
         font-size:1rem;
     }
@@ -22,6 +23,8 @@ export const PTitle = styled.p`
 
 export const PDescription = styled.p`
     font-size:.6rem;
+    text-decoration: none;
+    color: ${color.secondaryYellow};
     @media ${device.desktop}{
         font-size:.87rem;
     }
@@ -175,6 +178,8 @@ export const DivUserCard = styled.div`
     max-width: 140px;
     overflow: hidden ;
     margin-bottom:10px;
+    cursor:pointer;
+    
     @media ${device.desktop}{
         margin-bottom:5px;
         min-width: 220px;
@@ -198,10 +203,11 @@ export const ImgAvatarUser = styled.img`
     }
 `
 export const PNameUser = styled.p`
-display:flex;
-justify-content:center;
+    display:flex;
+    justify-content:center;
     font-size: 24px;
     position: absolute;
+    color: ${color.primaryWhite};
     left: 0;
     top: 90px;
     margin:0 auto;
@@ -215,6 +221,7 @@ justify-content:center;
 export const PFollowersUser = styled.p`
     font-size: 16px;
     position: absolute;
+    color: ${color.secondaryYellow};
     left: 5px;
     top: 120px;
     text-shadow: 1px 1px 2px black, 0 0 20px black, 0 0 4px black;
@@ -276,6 +283,7 @@ export const DivInfoMusic = styled.div`
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    text-decoration: none;
     padding: 15px 15px 15px 15px;
     justify-content: center;
     gap: 7px;

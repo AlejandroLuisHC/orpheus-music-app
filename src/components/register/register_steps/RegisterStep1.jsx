@@ -26,18 +26,19 @@ const RegisterStep1 = ({ register, watch, userDataAvailable, setFormSteps }) => 
                         required
                         {...register('username', {
                             required: true,
-                            validate: (username) => userDataAvailable(username)
+                            validate: username => userDataAvailable(username)
                         })}
                     />
                 </LabelStyle>
-                {!userDataAvailable(watch('username')) && (
+                {!userDataAvailable(watch('username')) && watch("username").legth >= 4 && watch("username").length <= 20 &&
                     <PErrorStyle>Sorry! This username is already taken</PErrorStyle>
-                )}
+                }
             </DivInputStyle>
 
             <ButtonPrimaryStyle
                 type="button"
-                onClick={() => setFormSteps(prev => prev = { step: '4', fourthStep: true })}
+                disabled={!userDataAvailable(watch('username')) && watch("username").legth >= 4 && watch("username").length <= 20}
+                onClick={() => setFormSteps(prev => prev = { step: '2', secondStep: true })}
             >
                 Next
             </ButtonPrimaryStyle>
