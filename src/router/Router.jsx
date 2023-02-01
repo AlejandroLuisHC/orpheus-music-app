@@ -4,6 +4,7 @@ import GeneralProvider from "../helper/utils/general_provider/GeneralProvider"
 import LogoSpinner from "../components/general_components/loaders/spinner/LogoSpinner"
 import PrivateRoutes from "./PrivateRoutes"
 import NotConnectedRoutes from "./NotConnectedRoutes"
+import Track from "../pages/Track"
 
 const Layout = lazy(() => import('./Layout'))
 const Landing = lazy(() => import('../pages/Landing'))
@@ -52,6 +53,13 @@ const Album = lazy(async () => {
     ])
     return moduleExports
 });
+const Tracks = lazy(async () => {
+    const [moduleExports] = await Promise.all([
+        import("../pages/Track"),
+        new Promise(resolve => setTimeout(resolve, 300))
+    ])
+    return moduleExports
+});
 
 const Router = () => {
     return (
@@ -69,6 +77,7 @@ const Router = () => {
                             <Route path='/profile/:id' element={<PrivateRoutes><Profile /></PrivateRoutes>} />
                             <Route path='/playlist/:id' element={<PrivateRoutes><Playlist /></PrivateRoutes>} />
                             <Route path='/album/:id' element={<PrivateRoutes><Album /></PrivateRoutes>} />
+                            <Route path='/track/:id' element={<PrivateRoutes><Track /></PrivateRoutes>} />
                         </Route>
                     </Routes>
                 </Suspense>

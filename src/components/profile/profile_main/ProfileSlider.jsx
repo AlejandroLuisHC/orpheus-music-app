@@ -58,7 +58,7 @@ const ProfileSlider = ({ dataKey, user }) => {
                         <DivMusicCard
                             resultType={type}
                             key={d._id}
-                            /* as={Link} to={`/${type}/${result.name}`} */
+                        /* as={Link} to={`/${type}/${result.name}`} */
                         >
                             <DivImageMusic onClick={() => {
                                 setPlayer(

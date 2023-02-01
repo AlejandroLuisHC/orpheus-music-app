@@ -35,11 +35,12 @@ import {
     SpanProfileUserNumbers
 } from '../style/profileStyle'
 import AddWork from './profile_main/add_work/AddWork';
-import CreatePlaylist from './CreatePlaylist';
+
 import DisconnectIcon from './DisconnectIcon';
 import ProfileSlider from './profile_main/ProfileSlider';
 import UpdateProfile from './UpdateProfile';
 import Error from "../../pages/Error";
+import CreatePlaylist from './profile_main/create_playlist/CreatePlaylist';
 
 
 const ProfileMobile = ({ userID }) => {

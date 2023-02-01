@@ -32,13 +32,14 @@ import {
     SpanProfileUserNumbers
 } from '../style/profileStyle';
 import AddWork from './profile_main/add_work/AddWork';
-import CreatePlaylist from './CreatePlaylist';
+
 import DisconnectIcon from './DisconnectIcon';
 import ProfileSlider from './profile_main/ProfileSlider';
 import UpdateProfile from './UpdateProfile';
 import fetchOneUser from '../../api/fetchOneUser';
 import Error from "../../pages/Error";
 import LogoSpinner from '../general_components/loaders/spinner/LogoSpinner';
+import CreatePlaylist from './profile_main/create_playlist/CreatePlaylist';
 
 
 const ProfileDesktop = ({ userID }) => {
@@ -55,7 +56,7 @@ const ProfileDesktop = ({ userID }) => {
             ? setUser(loggedUser)
             : setUser(data)
     }, [data, loggedUser])
-    console.log("user", user);
+    
 
     const [editView, setEditView] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
@@ -130,7 +131,7 @@ const ProfileDesktop = ({ userID }) => {
                             {
                                 loggedUser._id === userID &&
                                 <DivProfileActionsStyle>
-                                    <AddWork />
+                                    <AddWork  />
                                     <CreatePlaylist />
                                 </DivProfileActionsStyle>
                             }
