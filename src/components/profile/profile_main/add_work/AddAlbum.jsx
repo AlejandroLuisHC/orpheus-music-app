@@ -72,7 +72,8 @@ const AddAlbum = () => {
         })
         console.log(albumData)
         const token = await getAccessTokenSilently()
-        await fetchCreateAlbum(albumData, token)
+        const data = await fetchCreateAlbum(albumData, token)
+        console.log(data)
         const updateUser = await fetchOneUser(id,token)
         
         dispatch(UPDATE(updateUser))

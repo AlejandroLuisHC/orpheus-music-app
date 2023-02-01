@@ -37,7 +37,7 @@ const AddTrack = () => {
     })
     const { user: userAuth ,getAccessTokenSilently} = useAuth0();
     const id = useSelector((state) => state.userData.user._id);
-    const dispatch = useDispatch();//Creo que esto hay que eliminarlo 
+    const dispatch = useDispatch();
     const {
         register,
         handleSubmit,

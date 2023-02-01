@@ -4,12 +4,13 @@ import fetchCreateUser from "./fetchCreateUser";
 import fetchUpdateUser from "./fetchUpdateUser";
 import fetchCreateAlbum from "./fetchCreateAlbum";
 import fetchOneUser from "./fetchOneUser"
-
+import fetchCreatePlaylist from "./fetchCreatePlaylist";
 export {
     fetchUsers,
     fetchKey,
     fetchCreateUser,
     fetchUpdateUser,
     fetchCreateAlbum,
-    fetchOneUser
+    fetchOneUser,
+    fetchCreatePlaylist
 } 

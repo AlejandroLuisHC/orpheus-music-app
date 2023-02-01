@@ -32,13 +32,14 @@ import {
     SpanProfileUserNumbers
 } from '../style/profileStyle';
 import AddWork from './profile_main/add_work/AddWork';
-import CreatePlaylist from './CreatePlaylist';
+
 import DisconnectIcon from './DisconnectIcon';
 import ProfileSlider from './profile_main/ProfileSlider';
 import UpdateProfile from './UpdateProfile';
 import fetchOneUser from '../../api/fetchOneUser';
 import Error from "../../pages/Error";
 import LogoSpinner from '../general_components/loaders/spinner/LogoSpinner';
+import CreatePlaylist from './profile_main/create_playlist/CreatePlaylist';
 
 
 const ProfileDesktop = ({ userID }) => {

@@ -10,7 +10,7 @@ const fetchCreateTrack = async (track,token) => {
         formData.append('ownership', track.ownership)
         formData.append('genres', track.genres)
 
-        console.log(formData)
+        
         const options = {
             method: 'POST',
             headers: {
