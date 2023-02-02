@@ -1,17 +1,13 @@
 import { useModal } from 'react-hooks-use-modal'
 import { IoIosCloseCircleOutline, IoMdMore } from 'react-icons/io'
-import { useSelector } from 'react-redux'
 import { BtnSelectOption, DivModalOptions, DivOptionsIcon } from '../../style/generalStyle'
 import { DivModalClose } from '../../style/profileStyle'
-import BtnAddToFavTracks from './BtnAddToFavTracks'
 import BtnModalAddToPlaylist from './BtnModalAddToPlaylist'
 
 const BtnModalTrackOptions = ({ trackId }) => {
     const [Modal, open, close, isOpen] = useModal('root', {
         preventScroll: true
     })
-
-   
 
     return (
         <>

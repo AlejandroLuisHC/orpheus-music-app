@@ -80,7 +80,7 @@ const Policy = () => {
 
             <p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us.</p>
             <br></br>
-            
+
         </DivPolicy>
     )
 }

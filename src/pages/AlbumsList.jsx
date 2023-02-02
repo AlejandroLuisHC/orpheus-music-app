@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import LogoSpinner from "../components/general_components/loaders/spinner/LogoSpinner"
 import { memo } from "react";
 import { fetchKey } from '../api';
-import { DivDataList, DivHeroTitle, DivTitlesList, ImgDataList1, PDataList2, PDataList3, PDataList4, PTitleList0, PTitleList1, PTitleList2, PTitleList3} from "../components/style/pagesStyle";
+import { DivDataList, DivHeroTitle, DivTitlesList, ImgDataList1, PDataList2, PDataList3, PDataList4, PTitleList0, PTitleList1, PTitleList2, PTitleList3 } from "../components/style/pagesStyle";
 import { HrDivStyle } from "../components/style/playlistStyle";
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
@@ -38,18 +38,18 @@ const AlbumsList = () => {
                         <PTitleList3>Tracks</PTitleList3>
                     </DivTitlesList>
                     <HrDivStyle />
-                    {data.map((album) =>{
-                        return(
+                    {data.map((album) => {
+                        return (
                             <>
-                                 <DivDataList key={album._id} onClick={() => navigate(`/album/${album._id}`)}>
-                                    <ImgDataList1 src={album.img.url} alt={album.name}/>
+                                <DivDataList key={album._id} onClick={() => navigate(`/album/${album._id}`)}>
+                                    <ImgDataList1 src={album.img.url} alt={album.name} />
                                     <PDataList2>{album.name}</PDataList2>
-                                    <PDataList3>{album.ownership.username}<br/>{moment(album.createdAt).format("DD MMM YYYY")}</PDataList3>
+                                    <PDataList3>{album.ownership.username}<br />{moment(album.createdAt).format("DD MMM YYYY")}</PDataList3>
                                     <PDataList4>{album.tracks.length}</PDataList4>
-                                </DivDataList> 
-                                <HrDivStyle/> 
+                                </DivDataList>
+                                <HrDivStyle />
                             </>
-                            
+
                         )
                     })}
 

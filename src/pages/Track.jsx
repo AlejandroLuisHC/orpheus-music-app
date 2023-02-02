@@ -73,47 +73,47 @@ const Track = () => {
             : status === 'error' || track.data.status === "FALSE"
                 ? <Error />
                 :
-                    <AllBackground img={track.data.img.url}>
-                        <DivImgContain>
-                            <DivimgPadding>
+                <AllBackground img={track.data.img.url}>
+                    <DivImgContain>
+                        <DivimgPadding>
 
-                                <img src={track.data.img.url} alt={track.data.img.url} />
-                            </DivimgPadding>
-                            <div>
-                                <H1Style>{track.data.name}</H1Style>
-                                <PStyleOwnership>{track.data.ownership.username}</PStyleOwnership>
-                                <H2Style><span>Released: </span>{moment(track.data.createdAt).format("DD MMM YYYY")}</H2Style>
-                                <br />
+                            <img src={track.data.img.url} alt={track.data.img.url} />
+                        </DivimgPadding>
+                        <div>
+                            <H1Style>{track.data.name}</H1Style>
+                            <PStyleOwnership>{track.data.ownership.username}</PStyleOwnership>
+                            <H2Style><span>Released: </span>{moment(track.data.createdAt).format("DD MMM YYYY")}</H2Style>
+                            <br />
 
-                            </div>
-                            <DivPlayListen onClick={() => {
-                                setPlayer(
-                                    prev => prev = {
-                                        playerOn: true,
-                                        audio: track.data.file.url,
-                                        name: track.data.name.slice(0, 20) + "...",
-                                        user: track.data.ownership.username,
-                                    }
-                                )
-                            }}>
-                                <IoMdArrowDropright size={40} />
-                            </DivPlayListen>
-                        </DivImgContain>
-                        <DivTitlesTracks>
-                            <PDataTrack1>Title</PDataTrack1>
-                            <PDataTrack2>Album</PDataTrack2>
-                            <PDataTrack3>Released</PDataTrack3>
-                            <PDataTrack4>Duration</PDataTrack4>
-                        </DivTitlesTracks>
-                        <DivInfoTrack>
-                            <ImgListPlaylist src={track.data.img.url} alt={track.data.name} />
-                            <PDataTrack1>{track.data.name}</PDataTrack1>
-                            <PDataTrack2>{track.data.album ?? 'single'}</PDataTrack2>
-                            <PDataTrack3>{moment(track.data.createdAt).format("DD MMM YYYY")}</PDataTrack3>
-                            <PDataTrack4>{durations}</PDataTrack4>
-                            <BtnModalTrackOptions trackId={track.data._id} />
-                        </DivInfoTrack>
-                    </AllBackground>
+                        </div>
+                        <DivPlayListen onClick={() => {
+                            setPlayer(
+                                prev => prev = {
+                                    playerOn: true,
+                                    audio: track.data.file.url,
+                                    name: track.data.name.slice(0, 20) + "...",
+                                    user: track.data.ownership.username,
+                                }
+                            )
+                        }}>
+                            <IoMdArrowDropright size={40} />
+                        </DivPlayListen>
+                    </DivImgContain>
+                    <DivTitlesTracks>
+                        <PDataTrack1>Title</PDataTrack1>
+                        <PDataTrack2>Album</PDataTrack2>
+                        <PDataTrack3>Released</PDataTrack3>
+                        <PDataTrack4>Duration</PDataTrack4>
+                    </DivTitlesTracks>
+                    <DivInfoTrack>
+                        <ImgListPlaylist src={track.data.img.url} alt={track.data.name} />
+                        <PDataTrack1>{track.data.name}</PDataTrack1>
+                        <PDataTrack2>{track.data.album ?? 'single'}</PDataTrack2>
+                        <PDataTrack3>{moment(track.data.createdAt).format("DD MMM YYYY")}</PDataTrack3>
+                        <PDataTrack4>{durations}</PDataTrack4>
+                        <BtnModalTrackOptions trackId={track.data._id} />
+                    </DivInfoTrack>
+                </AllBackground>
     )
 }
 

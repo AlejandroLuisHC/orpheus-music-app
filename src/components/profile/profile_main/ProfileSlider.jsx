@@ -35,7 +35,7 @@ const ProfileSlider = ({ dataKey, user }) => {
             </DivSilderHeader>
 
             <DivSliderBody>
-                {data?.map(d =>
+                {data?.slice(0).reverse().map(d =>
                     type === 'event' ? (
                         <DivEventCard 
                             key={d._id}

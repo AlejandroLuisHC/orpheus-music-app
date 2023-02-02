@@ -1,10 +1,10 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { 
-    DivErrorContainer, 
-    DivErrorMsg, 
-    H1ErrorTitle, 
-    ImgError 
+import {
+    DivErrorContainer,
+    DivErrorMsg,
+    H1ErrorTitle,
+    ImgError
 } from '../components/style/errorStyle'
 import { ButtonPrimaryStyle } from '../components/style/generalStyle'
 

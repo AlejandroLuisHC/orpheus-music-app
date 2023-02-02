@@ -8,11 +8,9 @@ import {
 } from 'react-icons/io';
 import { useSelector } from 'react-redux';
 import fetchOneUser from '../../api/fetchOneUser';
-import FooterInfo from '../general_components/FooterInfo';
 import LogoSpinner from '../general_components/loaders/spinner/LogoSpinner';
 import {
     DivImgCircleL,
-    Footer,
     ImgCircleXL
 } from '../style/generalStyle';
 import { DivSliders } from '../style/homeStyle';
@@ -35,13 +33,11 @@ import {
     SpanProfileUserNumbers
 } from '../style/profileStyle'
 import AddWork from './profile_main/add_work/AddWork';
-
 import DisconnectIcon from './DisconnectIcon';
 import ProfileSlider from './profile_main/ProfileSlider';
 import UpdateProfile from './UpdateProfile';
 import Error from "../../pages/Error";
 import CreatePlaylist from './profile_main/create_playlist/CreatePlaylist';
-import UserInfoEmpty from './UserInfoEmpty';
 
 
 const ProfileMobile = ({ userID }) => {
@@ -138,9 +134,6 @@ const ProfileMobile = ({ userID }) => {
                                 {dataKey.map(key => {
                                     if (key.data.length > 0) {
                                         return <ProfileSlider key={key.id} dataKey={key} user={user} />
-                                    }
-                                    else{
-                                        return <UserInfoEmpty key={key.id} dataKey={key}/>
                                     }
                                 })}
                             </DivSliders>

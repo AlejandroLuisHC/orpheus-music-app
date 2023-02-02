@@ -61,10 +61,10 @@ const AsideDesktop = () => {
                 })
                 break;
 
-            case "/favtracks":
+            case "/favouritetracks":
                 setActiveTab(prev => prev = {
                     ...initState,
-                    eventsActive: '#F1CB58'
+                    tracksActive: '#F1CB58'
                 })
                 break;
 
@@ -98,13 +98,13 @@ const AsideDesktop = () => {
                     <IoMdSearch />
                     <PMenuStyle>Search</PMenuStyle>
                 </LinkAside>
-                <LinkAside to={username}
+                {/* <LinkAside to={username}
                     active={activeTab.playlistActive}
                 >
                     <IoMdMusicalNotes />
                     <PMenuStyle>My playlists</PMenuStyle>
-                </LinkAside>
-                <LinkAside to={username}
+                </LinkAside> */}
+                <LinkAside to={"/favouritetracks"}
                     active={activeTab.tracksActive}
                 >
                     <IoMdHeart />

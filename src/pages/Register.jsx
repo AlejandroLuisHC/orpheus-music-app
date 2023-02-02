@@ -26,7 +26,7 @@ const Register = () => {
             user.email === email
         )
         if (foundUser) {
-            console.log('Found',foundUser)
+            console.log('Found', foundUser)
             dispatch(LOG_IN(foundUser))
             navigate("/home")
         } else {

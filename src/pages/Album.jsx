@@ -95,41 +95,41 @@ const Album = () => {
                             </DivPlayListen>
                         </DivImgContain>
                         <MainStyle>
-                        <DivTitlesAlbum>
-                            <PDataTrack1>Title</PDataTrack1>
-                            <PDataTrack2>Duration</PDataTrack2>
-                        </DivTitlesAlbum>
-                        <HrDivStyle />
+                            <DivTitlesAlbum>
+                                <PDataTrack1>Title</PDataTrack1>
+                                <PDataTrack2>Duration</PDataTrack2>
+                            </DivTitlesAlbum>
+                            <HrDivStyle />
 
-                        {
-                            album.tracks.map((track, index) => {
-                                return (
-                                    <div key={track._id}>
-                                        <DivTracksAlbum onClick={() => {
-                                            setPlayer(
-                                                prev => prev = {
-                                                    playerOn: true,
-                                                    audio: track.file.url,
-                                                    name: track.name.slice(0, 20) + "...",
-                                                    user: track.ownership.username,
-                                                }
-                                            )
-                                        }}>
-                                            <ImgListPlaylist src={track.img.url} alt={track.name} />
-                                            <PDataTrack1>{track.name}</PDataTrack1>
-                                            <PDataTrack2>{durations[index]}</PDataTrack2>
-                                            <BtnAddToFavTracks trackId={track._id} />
-                                            <BtnModalTrackOptions trackId={track._id} />
-                                        </DivTracksAlbum>
-                                        <HrDivStyle />
-                                    </div>
-                                )
-                            })
-                        }
-                    </MainStyle>
+                            {
+                                album.tracks.map((track, index) => {
+                                    return (
+                                        <div key={track._id}>
+                                            <DivTracksAlbum onClick={() => {
+                                                setPlayer(
+                                                    prev => prev = {
+                                                        playerOn: true,
+                                                        audio: track.file.url,
+                                                        name: track.name.slice(0, 20) + "...",
+                                                        user: track.ownership.username,
+                                                    }
+                                                )
+                                            }}>
+                                                <ImgListPlaylist src={track.img.url} alt={track.name} />
+                                                <PDataTrack1>{track.name}</PDataTrack1>
+                                                <PDataTrack2>{durations[index]}</PDataTrack2>
+                                                <BtnAddToFavTracks trackId={track._id} />
+                                                <BtnModalTrackOptions trackId={track._id} />
+                                            </DivTracksAlbum>
+                                            <HrDivStyle />
+                                        </div>
+                                    )
+                                })
+                            }
+                        </MainStyle>
                     </BackgroundDiv>
 
-                    
+
                 </>
     )
 }

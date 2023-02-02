@@ -110,6 +110,13 @@ const UsersList = lazy(async () => {
     ])
     return moduleExports
 });
+const FavTracksList = lazy(async () => {
+    const [moduleExports] = await Promise.all([
+        import("../pages/FavTracksList"),
+        new Promise(resolve => setTimeout(resolve, 300))
+    ])
+    return moduleExports
+});
 
 const Router = () => {
     return (
@@ -135,6 +142,7 @@ const Router = () => {
                             <Route path='/users' element={<PrivateRoutes><UsersList /></PrivateRoutes>} />
                             <Route path='/tracks' element={<PrivateRoutes><TracksList /></PrivateRoutes>} />
                             <Route path='/policy' element={<PrivateRoutes><Policy /></PrivateRoutes>} />
+                            <Route path='/favouritetracks' element={<PrivateRoutes><FavTracksList /></PrivateRoutes>} />
                         </Route>
                     </Routes>
                 </Suspense>

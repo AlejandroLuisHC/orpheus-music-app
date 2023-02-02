@@ -9,12 +9,9 @@ const BtnAddToFavTracks = ({ trackId }) => {
     const dispatch = useDispatch()
 
     const { getAccessTokenSilently } = useAuth0()
-    const token = getAccessTokenSilently()
-    
-    const userFavTracks = useSelector((state) => state.userData.user.favTracks)
-    console.log("userFavTracks", userFavTracks)
-    const userId = useSelector((state) => state.userData.user._id)
 
+    const userFavTracks = useSelector((state) => state.userData.user.favTracks)
+    const userId = useSelector((state) => state.userData.user._id)
     const isInFavTracks = (id) => (
         userFavTracks?.find(track => track._id === id)
     )
@@ -30,16 +27,21 @@ const BtnAddToFavTracks = ({ trackId }) => {
 
             const formData = new FormData()
             formData.append("favTracks", trackId)
+
             userFavTracks.map(track => (
                 formData.append("favTracks", track._id)
             ))
 
+            const token = await getAccessTokenSilently()
             const res = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/users/${userId}`, {
                 method: 'PATCH',
+                headers: {
+                    Authorization: `Bearer ${token}`
+                },
                 body: formData,
-                headers: { Authorization: `Bearer ${token}` },
             })
-            return await res.json()
+
+            return res.json()
 
         } catch (error) {
             console.log(error.message)
@@ -49,27 +51,39 @@ const BtnAddToFavTracks = ({ trackId }) => {
 
     const fetchRemoveTrackFromFav = async (trackId) => {
         try {
-            const isAlreadyInPlaylist = userFavTracks.find(track => track._id === trackId)
-
-            if (!isAlreadyInPlaylist) {
-                console.log(`Track ${trackId} is not in fav tracks`)
-                return
+            if(userFavTracks.length === 1) {
+                const newUserFavTracks = []
+                const token = await getAccessTokenSilently()
+                const res = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/users/${userId}`, {
+                    method: 'PATCH',
+                    body: {
+                        favTracks: newUserFavTracks
+                    },
+                    headers: { Authorization: `Bearer ${token}` },
+                })
+                return await res.json()
+            } else {
+                const isAlreadyInPlaylist = userFavTracks.find(track => track._id === trackId)
+    
+                if (!isAlreadyInPlaylist) {
+                    console.log(`Track ${trackId} is not in fav tracks`)
+                    return
+                }
+    
+                const updatedFavTracks = userFavTracks.filter((track) => track._id !== trackId)
+    
+                const formData = new FormData()
+                updatedFavTracks.map(track => (
+                    formData.append("favTracks", track._id)
+                ))
+                const token = await getAccessTokenSilently()
+                const res = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/users/${userId}`, {
+                    method: 'PATCH',
+                    body: formData,
+                    headers: { Authorization: `Bearer ${token}` },
+                })
+                return await res.json()
             }
-
-            const updatedFavTracks = userFavTracks.filter((track) => track._id !== trackId)
-            console.log("updatedFavTracks", updatedFavTracks)
-
-            const formData = new FormData()
-            updatedFavTracks.map(track => (
-                formData.append("favTracks", track._id)
-            ))
-
-            const res = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/users/${userId}`, {
-                method: 'PATCH',
-                body: formData,
-                headers: { Authorization: `Bearer ${token}` },
-            })
-            return await res.json()
 
         } catch (error) {
             console.log(error.message)
@@ -78,12 +92,14 @@ const BtnAddToFavTracks = ({ trackId }) => {
     }
 
     const addTrackToFav = async () => {
+        const token = await getAccessTokenSilently()
         await fetchAddTrackToFav()
         const updatedUser = await fetchOneUser(userId, token)
         dispatch(UPDATE(updatedUser))
     }
-
+    
     const removeTrackFromFav = async (trackId) => {
+        const token = await getAccessTokenSilently()
         await fetchRemoveTrackFromFav(trackId)
         const updatedUser = await fetchOneUser(userId, token)
         dispatch(UPDATE(updatedUser))
@@ -91,7 +107,7 @@ const BtnAddToFavTracks = ({ trackId }) => {
 
     return (
         !isInFavTracks(trackId)
-            ? <DivOptionsIcon onClick={() => addTrackToFav()}><IoIosHeartEmpty size={20} /></DivOptionsIcon> 
+            ? <DivOptionsIcon onClick={() => addTrackToFav()}><IoIosHeartEmpty size={20} /></DivOptionsIcon>
             : <DivOptionsIcon onClick={() => removeTrackFromFav(trackId)}><IoIosHeart size={20} /></DivOptionsIcon>
     )
 }

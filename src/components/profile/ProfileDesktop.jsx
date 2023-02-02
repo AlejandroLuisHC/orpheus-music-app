@@ -3,7 +3,6 @@ import { useQuery } from '@tanstack/react-query';
 import { useState, useEffect } from 'react';
 import {
     IoIosMore,
-    IoMdCloudUpload,
     IoMdCreate,
     IoMdReturnLeft
 } from 'react-icons/io';
@@ -41,7 +40,6 @@ import Error from "../../pages/Error";
 import LogoSpinner from '../general_components/loaders/spinner/LogoSpinner';
 import UpdateProfileImg from './UpdateProfileImg';
 import CreatePlaylist from './profile_main/create_playlist/CreatePlaylist';
-import UserInfoEmpty from './UserInfoEmpty';
 
 const ProfileDesktop = ({ userID }) => {
     const { getAccessTokenSilently } = useAuth0()
@@ -155,10 +153,7 @@ const ProfileDesktop = ({ userID }) => {
                                 {dataKey.map(key => {
                                     if (key.data.length > 0) {
                                         return <ProfileSlider key={key.id} dataKey={key} user={user} />
-                                    }
-                                    else{
-                                        return <UserInfoEmpty key={key.id} dataKey={key}/>
-                                    }
+                                    }                          
                                 })}
                             </DivSliders>
 

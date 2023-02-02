@@ -8,9 +8,6 @@ import { HrDivStyle } from "../components/style/playlistStyle";
 import { useNavigate } from "react-router-dom";
 import Error from "./Error";
 
-
-
-
 const EventsList = () => {
     const { getAccessTokenSilently } = useAuth0()
 
@@ -40,7 +37,9 @@ const EventsList = () => {
                     {data.map((event) => {
                         return (
                             <div key={event._id}>
-                                <DivDataList onClick={navigate(`/event/${event._id}`)}>
+                                <DivDataList
+                                    onClick={() => navigate(`/event/${event._id}`)}
+                                >
                                     <ImgDataList1 src={event.img.url} alt={event.name} />
                                     <PDataList2>{event.name}</PDataList2>
                                     <PDataList3>{event.location}<br />{event.date.slice(0, 10)}</PDataList3>

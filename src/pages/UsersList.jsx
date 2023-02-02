@@ -3,18 +3,18 @@ import { useQuery } from "@tanstack/react-query";
 import LogoSpinner from "../components/general_components/loaders/spinner/LogoSpinner"
 import { memo } from "react";
 import { fetchKey } from '../api';
-import { 
-    DivDataList, 
-    DivHeroTitle, 
-    DivTitlesList, 
-    ImgDataList1, 
-    PDataList2, 
-    PDataList3, 
-    PDataList4, 
-    PTitleList0, 
-    PTitleList1, 
-    PTitleList2, 
-    PTitleList3, 
+import {
+    DivDataList,
+    DivHeroTitle,
+    DivTitlesList,
+    ImgDataList1,
+    PDataList2,
+    PDataList3,
+    PDataList4,
+    PTitleList0,
+    PTitleList1,
+    PTitleList2,
+    PTitleList3,
     SpanList
 } from "../components/style/pagesStyle";
 import { HrDivStyle } from "../components/style/playlistStyle";

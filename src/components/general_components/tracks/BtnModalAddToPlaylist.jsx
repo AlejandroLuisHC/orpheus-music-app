@@ -10,7 +10,7 @@ import { DivModalClose } from '../../style/profileStyle'
 
 const BtnModalAddToPlaylist = ({ trackId }) => {
     const dispatch = useDispatch()
-    
+
     const { getAccessTokenSilently } = useAuth0()
     const token = getAccessTokenSilently()
 

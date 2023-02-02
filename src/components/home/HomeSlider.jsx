@@ -51,7 +51,7 @@ const HomeSlider = ({ apiKey }) => {
         switch (apiKey) {
 
             case 'users':
-                return data?.map((item) => {
+                return data?.slice(0).reverse().map((item) => {
                     return (
                         <DivUserCard key={item._id}
                             onClick={() => navigate(`/profile/${item._id}`)}
@@ -65,7 +65,7 @@ const HomeSlider = ({ apiKey }) => {
                     )
                 })
             case 'albums':
-                return data?.map((item) => {
+                return data?.slice(0).reverse().map((item) => {
                     return (
                         <DivMusicCard key={item._id}
                             onClick={() => navigate(`/album/${item._id}`)}
@@ -83,7 +83,7 @@ const HomeSlider = ({ apiKey }) => {
                     )
                 })
             case 'playlists':
-                return data?.map((item) => {
+                return data?.slice(0).reverse().map((item) => {
                     return (
                         <DivMusicCard key={item._id}
                             onClick={() => navigate(`/playlist/${item._id}`)}
@@ -100,7 +100,7 @@ const HomeSlider = ({ apiKey }) => {
                     )
                 })
             case 'tracks':
-                return data?.data.map((item) => {
+                return data?.data.slice(0).reverse().map((item) => {
                     return (
                         <DivMusicCard key={item._id}
                             resultType={apiKey}
@@ -131,7 +131,7 @@ const HomeSlider = ({ apiKey }) => {
                         </DivMusicCard>)
                 })
             case 'events':
-                return data?.map((item) => {
+                return data?.slice(0).reverse().map((item) => {
                     return (
                         <DivEventCard key={item._id}
                             onClick={() => navigate(`/event/${item._id}`)}

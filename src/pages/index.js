@@ -1,6 +1,6 @@
 import Album from "./Album";
 import Error from "./Error";
-import Home from "./Home";  
+import Home from "./Home";
 import Landing from "./Landing";
 import Playlist from "./Playlist";
 import Profile from "./Profile";
