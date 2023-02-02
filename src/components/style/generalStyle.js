@@ -631,3 +631,18 @@ export const DivInfoMusicBottom = styled.div`
     display: flex;
     justify-content: space-between;
 `
+
+export const DivFooter = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+`
+export const DivPolicy = styled.div`
+    padding: 20px;
+    margin: 5px;
+    @media ${device.desktop}{
+        padding: 40px 100px 0 100px;
+        margin: 20px;
+    }
+`
