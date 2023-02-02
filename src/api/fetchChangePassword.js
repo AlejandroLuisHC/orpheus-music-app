@@ -1,6 +1,7 @@
 
 
 const fetchChangePassword = async (email) => {
+  console.log(email);
     try {
         const options = {
             method: 'POST',
@@ -13,6 +14,7 @@ const fetchChangePassword = async (email) => {
           };
           
           const res = await fetch(`https://${import.meta.env.VITE_API_AUTH0_DOMAIN}/dbconnections/change_password`, options)
+
           console.log(res)
     } catch (error) {
     console.error(error)

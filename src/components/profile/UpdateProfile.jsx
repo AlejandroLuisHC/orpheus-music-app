@@ -11,8 +11,6 @@ import ChangePassword from './ChangePassword';
 import { useAuth0 } from '@auth0/auth0-react';
 import { DivFlexGenres, DivGenreCircle, DivSelectedGenreCircle } from '../style/registerStyle';
 import { useQuery } from '@tanstack/react-query';
-import fetchChangePassword from '../../api/fetchChangePassword';
-import { useModal } from 'react-hooks-use-modal';
 import DeleteUser from './DeleteUser';
 const UpdateProfile = () => {
     // QUERYS
@@ -62,8 +60,7 @@ const UpdateProfile = () => {
         dispatch(UPDATE(data));
 
     };
-    //data brings the old user 
-
+    console.log('Country', userDataStore.country)
 
     //GENRES
 
@@ -82,8 +79,6 @@ const UpdateProfile = () => {
     };
 
     const removeFromSelectedGenres = (id) => {
-        console.log('remove', id)
-        //TODO: fix this function
         setSelectedGenres([...selectedGenres].filter((genre) => genre !== id))
     };
 
@@ -93,10 +88,6 @@ const UpdateProfile = () => {
     function getRandomSizeSelected() {
         return Math.random() * (125 - 110) + 110;
     }
-
-    // DANGER ZONE
-    
-
 
     // VALIDATES
 
