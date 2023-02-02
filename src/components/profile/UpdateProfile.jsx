@@ -4,18 +4,37 @@ import { IoMdCheckmarkCircle, IoMdCreate } from 'react-icons/io';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { UPDATE } from '../../redux/features/user_data/userSlice';
-import { ButtonPrimaryStyle, ButtonSecondaryStyle, FormStyle, PErrorStyle, SelectCountry, SelectRegion } from '../style/generalStyle';
-import { fetchKey, fetchUpdateUser, fetchUsers } from '../../api'
-import { DivEditUserData, DivUserData, InputEditStyle, DivEditUserContainer, PTextEdit, ButtonSubmitEdit, SpanIconClick, HrEditProfile, DivDangerZone, H1Username, DivModalOptions } from '../style/profileStyle';
+import {
+    ButtonPrimaryStyle,
+    FormStyle,
+    PErrorStyle,
+    SelectCountry,
+    SelectRegion
+} from '../style/generalStyle';
+import {
+    fetchKey,
+    fetchUpdateUser,
+    fetchUsers
+} from '../../api'
+import {
+    DivEditUserData,
+    DivUserData,
+    InputEditStyle,
+    DivEditUserContainer,
+    PTextEdit,
+    ButtonSubmitEdit,
+    SpanIconClick,
+    HrEditProfile,
+    DivDangerZone,
+    DivModalOptions
+} from '../style/profileStyle';
 import ChangePassword from './ChangePassword';
 import { useAuth0 } from '@auth0/auth0-react';
 import { DivFlexGenres, DivGenreCircle, DivSelectedGenreCircle } from '../style/registerStyle';
 import { useQuery } from '@tanstack/react-query';
-import fetchChangePassword from '../../api/fetchChangePassword';
-import { useModal } from 'react-hooks-use-modal';
 import DeleteUser from './DeleteUser';
+
 const UpdateProfile = () => {
-    // QUERYS
     const { getAccessTokenSilently } = useAuth0()
     const token = getAccessTokenSilently()
     const { data: users, status } = useQuery(['users'], fetchUsers);
@@ -35,7 +54,6 @@ const UpdateProfile = () => {
         register,
         handleSubmit,
         watch,
-        formState: { errors },
     } = useForm();
     const navigate = useNavigate()
     const [UpdateUserData, setUpdateUserData] = useState({
@@ -49,24 +67,20 @@ const UpdateProfile = () => {
         username,
     }) => {
         UpdateUserData.username = username ?? userDataStore.username,
-            UpdateUserData.country = location.country ?? userDataStore.country,
-            UpdateUserData.region = location.region ?? userDataStore.region,
-            UpdateUserData.favGenres = selectedGenres ?? userDataStore.favGenres
+        UpdateUserData.country = location.country ?? userDataStore.country,
+        UpdateUserData.region = location.region ?? userDataStore.region,
+        UpdateUserData.favGenres = selectedGenres ?? userDataStore.favGenres
 
+        setUpdateUserData({
+            ...UpdateUserData,
+        });
 
-            setUpdateUserData({
-                ...UpdateUserData,
-            });
         setOpenInput(prev => prev = initialState)
         const { data } = await fetchUpdateUser(UpdateUserData, userDataStore._id, token);
         dispatch(UPDATE(data));
-
     };
-    //data brings the old user 
-
 
     //GENRES
-
     const [selectedGenres, setSelectedGenres] = useState(userDataStore.favGenres)
     const { data: genres } = useQuery(
         ['genres', 'genres'],
@@ -82,8 +96,6 @@ const UpdateProfile = () => {
     };
 
     const removeFromSelectedGenres = (id) => {
-        console.log('remove', id)
-        //TODO: fix this function
         setSelectedGenres([...selectedGenres].filter((genre) => genre !== id))
     };
 
@@ -94,10 +106,6 @@ const UpdateProfile = () => {
         return Math.random() * (125 - 110) + 110;
     }
 
-    // DANGER ZONE
-    
-
-
     // VALIDATES
 
     const userDataAvailable = inputValue => {
@@ -107,6 +115,7 @@ const UpdateProfile = () => {
         );
         return !findUser ? true : false;
     };
+
     return (
         <FormStyle onSubmit={handleSubmit(data => updateUser(data))}>
             <DivEditUserContainer>
@@ -117,25 +126,26 @@ const UpdateProfile = () => {
                         <SpanIconClick><IoMdCreate onClick={() => setOpenInput(prev => prev = { ...prev, username: true })} /></SpanIconClick>
                     </DivUserData>
                     :
-                        <DivEditUserData>
-                            <InputEditStyle
-                                autoFocus
-                                type='text'
-                                required
-                                {...register('username', {
-                                    required: true,
-                                    validate: username => userDataAvailable(username)
-                                })}
-                            />
-                            {/* SubmitButton ⬇️*/}
-                            <ButtonSubmitEdit type='submit'><IoMdCheckmarkCircle /></ButtonSubmitEdit>
-                        </DivEditUserData>
+                    <DivEditUserData>
+                        <InputEditStyle
+                            autoFocus
+                            type='text'
+                            required
+                            {...register('username', {
+                                required: true,
+                                validate: username => userDataAvailable(username)
+                            })}
+                        />
+                        {/* SubmitButton ⬇️*/}
+                        <ButtonSubmitEdit type='submit'><IoMdCheckmarkCircle /></ButtonSubmitEdit>
+                    </DivEditUserData>
                 }
                 {!userDataAvailable(watch('username')) && watch("username").legth >= 4 && watch("username").length <= 20 &&
                     <PErrorStyle>Sorry! This username is already taken</PErrorStyle>
                 }
                 <HrEditProfile />
             </DivEditUserContainer>
+
             <DivEditUserContainer>
                 {!openInput.location
                     ?
@@ -164,8 +174,8 @@ const UpdateProfile = () => {
                 }
                 <HrEditProfile />
             </DivEditUserContainer>
-            <DivEditUserContainer>
 
+            <DivEditUserContainer>
                 {!openInput.favGenres
                     ?
                     <DivUserData>

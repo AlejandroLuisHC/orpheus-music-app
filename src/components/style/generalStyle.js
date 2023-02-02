@@ -553,23 +553,26 @@ export const DivMusicPlayer = styled.div`
     }
 `
 export const DivMusicPlayerInfo = styled.div`
-    width: 240px;
+    width: 40px;
     height: 40px;
     display: flex;
     color: white;
+    @media ${device.desktop}{
+        width: 240px;
+    }
 `
 
 export const DivInfoTrack = styled.div`
-    display: flex;
-    background-color: ${color.primaryBlack};
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 120px;
-    overflow: hidden;
-    border-radius: 3px 0 0 3px;
+    display: none;
     @media ${device.desktop}{
+        display: flex;
         width: 200px;
+        background-color: ${color.primaryBlack};
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border-radius: 3px 0 0 3px;
     }
  `
 
