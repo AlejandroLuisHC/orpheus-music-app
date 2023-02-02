@@ -1,7 +1,6 @@
 
 
 const fetchChangePassword = async (email) => {
-  console.log(email);
     try {
         const options = {
             method: 'POST',
