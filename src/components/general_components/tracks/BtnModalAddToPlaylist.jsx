@@ -2,15 +2,19 @@ import { useAuth0 } from '@auth0/auth0-react'
 import { useQuery } from '@tanstack/react-query'
 import { useModal } from 'react-hooks-use-modal'
 import { IoIosCloseCircleOutline } from 'react-icons/io'
-import { useSelector } from 'react-redux'
-import { fetchKey } from '../../../api'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchKey, fetchOneUser } from '../../../api'
+import { UPDATE } from '../../../redux/features/user_data/userSlice'
 import { BtnSelectOption, ButtonPrimaryStyle, DivModalOptions, DivOptionsIcon } from '../../style/generalStyle'
 import { DivModalClose } from '../../style/profileStyle'
 
 const BtnModalAddToPlaylist = ({ trackId }) => {
+    const dispatch = useDispatch()
+    
     const { getAccessTokenSilently } = useAuth0()
     const token = getAccessTokenSilently()
 
+    const userId = useSelector((state) => state.userData.user._id)
     const userPlaylists = useSelector((state) => state.userData.user.playlists)
 
     const [Modal, open, close, isOpen] = useModal('root', {
@@ -48,6 +52,12 @@ const BtnModalAddToPlaylist = ({ trackId }) => {
         }
     }
 
+    const addTrackToPlaylist = async (playlistId) => {
+        await fetchAddTrackToPlaylist(playlistId)
+        const updatedUser = await fetchOneUser(userId, token)
+        dispatch(UPDATE(updatedUser))
+    }
+
     return (
         <>
             <BtnSelectOption onClick={open}>Add to playlist</BtnSelectOption>
@@ -56,7 +66,7 @@ const BtnModalAddToPlaylist = ({ trackId }) => {
                 <DivModalOptions>
                     <ButtonPrimaryStyle>Create playlist</ButtonPrimaryStyle>
                     {userPlaylists.map(playlist => (
-                        <BtnSelectOption key={playlist._id} onClick={() => fetchAddTrackToPlaylist(playlist._id)}>{playlist.name}</BtnSelectOption>
+                        <BtnSelectOption key={playlist._id} onClick={() => addTrackToPlaylist(playlist._id)}>{playlist.name}</BtnSelectOption>
                     ))}
                     <DivModalClose>
                         <IoIosCloseCircleOutline onClick={close} />
