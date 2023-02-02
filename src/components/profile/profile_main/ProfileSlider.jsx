@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import { useNavigate, useOutletContext } from 'react-router-dom';
+import BtnAddToFavTracks from '../../general_components/tracks/BtnAddToFavTracks';
 import BtnModalTrackOptions from '../../general_components/tracks/BtnModalTrackOptions';
 import { DivImgRectangleL, DivInfoMusicBottom, H2Style } from '../../style/generalStyle';
 import {
@@ -83,6 +84,7 @@ const ProfileSlider = ({ dataKey, user }) => {
                                 <PTitle>{d.name}</PTitle>
                                 <DivInfoMusicBottom>
                                     <PDescription>{user.username}</PDescription>
+                                    {type === "track" && <BtnAddToFavTracks trackId={d._id} />}
                                     {type === "track" && <BtnModalTrackOptions trackId={d._id} />}
                                 </DivInfoMusicBottom>
                             </DivInfoMusic>
