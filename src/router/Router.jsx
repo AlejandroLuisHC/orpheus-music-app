@@ -95,6 +95,13 @@ const TracksList = lazy(async () => {
     ])
     return moduleExports
 });
+const Event = lazy(async () => {
+    const [moduleExports] = await Promise.all([
+        import("../pages/Event"),
+        new Promise(resolve => setTimeout(resolve, 300))
+    ])
+    return moduleExports
+});
 const UsersList = lazy(async () => {
     const [moduleExports] = await Promise.all([
         import("../pages/UsersList"),
@@ -120,6 +127,7 @@ const Router = () => {
                             <Route path='/playlist/:id' element={<PrivateRoutes><Playlist /></PrivateRoutes>} />
                             <Route path='/album/:id' element={<PrivateRoutes><Album /></PrivateRoutes>} />
                             <Route path='/track/:id' element={<PrivateRoutes><Track /></PrivateRoutes>} />
+                            <Route path='/event/:id' element={<PrivateRoutes><Event /></PrivateRoutes>} />
                             <Route path='/events' element={<PrivateRoutes><EventsList /></PrivateRoutes>} />
                             <Route path='/albums' element={<PrivateRoutes><AlbumsList /></PrivateRoutes>} />
                             <Route path='/playlists' element={<PrivateRoutes><PlaylistList /></PrivateRoutes>} />
