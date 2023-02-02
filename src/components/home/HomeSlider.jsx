@@ -100,7 +100,7 @@ const HomeSlider = ({ apiKey }) => {
                     )
                 })
             case 'tracks':
-                return data?.data.slice(0).reverse().map((item) => {
+                return data?.data?.slice(0).reverse().map((item) => {
                     return (
                         <DivMusicCard key={item._id}
                             resultType={apiKey}
