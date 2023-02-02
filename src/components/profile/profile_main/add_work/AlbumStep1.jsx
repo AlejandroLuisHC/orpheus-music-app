@@ -19,7 +19,7 @@ const AlbumStep1 = ({ register, changeModal, close, watch }) => {
                         {/* Image */}
                         <DivBlockForm>
                             <figure>
-                                <ImgTrack src={'https://res.cloudinary.com/drghk9p6q/image/upload/v1674479869/Final-Project-MERN/images-orpheus/default-images/album_zskqhh.webp'} alt="Degfult image" title="Default Image" size={60} />
+                                <ImgTrack src={'https://res.cloudinary.com/drghk9p6q/image/upload/v1674479869/Final-Project-MERN/images-orpheus/default-images/album_zskqhh.webp'} alt="Default image" title="Default Image" size={60} />
                                 <figcaption>Default Image</figcaption>
                             </figure>
                         </DivBlockForm>
@@ -42,8 +42,7 @@ const AlbumStep1 = ({ register, changeModal, close, watch }) => {
                             
                         </DivBlockForm>
                     </div>
-
-                    {/* description & genre & choose picture */}
+          
                     <div>
                         {/* Description */}
                         <DivBlockForm>

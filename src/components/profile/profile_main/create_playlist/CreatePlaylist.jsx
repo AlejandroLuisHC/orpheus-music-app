@@ -7,8 +7,8 @@ import { IoIosCloseCircleOutline } from 'react-icons/io'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchCreatePlaylist, fetchKey, fetchOneUser } from '../../../../api'
 import { UPDATE } from '../../../../redux/features/user_data/userSlice'
-import { ButtonPrimaryStyle, DivInputStyle, InputStyle, LabelStyle, PErrorStyle, SelectStyle } from '../../../style/generalStyle'
-import { ButtonProfileStyle, DivModalClose, DivModalTrack, DivTrackBody, DivTrackImg, FormTracks, ImgTrack, InputDescriptionStyle } from '../../../style/profileStyle'
+import { ButtonPrimaryStyle, ButtonSecondaryStyle, DivInputStyle, InputStyle, LabelStyle, PErrorStyle, SelectStyle } from '../../../style/generalStyle'
+import { ButtonProfileStyle, DivBlockForm, DivColumns, DivModalClose, DivModalTrack, DivTrackBody, DivTrackImg, FormTracks, ImgTrack, InputDescriptionStyle } from '../../../style/profileStyle'
 
 const CreatePlaylist = () => {
 
@@ -69,93 +69,118 @@ const CreatePlaylist = () => {
             <ButtonProfileStyle onClick={open}>Create Playlist</ButtonProfileStyle>
             <Modal>
                 <DivModalTrack>
-                    <h1>Playlist</h1>
+                    <DivModalClose>
+                        <h1>Playlist</h1>
+                        <IoIosCloseCircleOutline onClick={close} size={25} />
+                    </DivModalClose>
+                    
                     <FormTracks onSubmit={
                         handleSubmit(data => createTrack(data))
                     }>
-                        <DivTrackBody>
-                        <DivInputStyle>
-                            <LabelStyle>
-                                Insert mood
-                                <InputStyle
-                                    type='text'
-                                    placeholder='mood'
-                                    required
-                                    {...register('mood', {
-                                        validate: value => value.length >= 2 && value.length <= 20,
-                                    })}
-                                />
-                            </LabelStyle>
-                            {(watch("mood")?.length > 20 || watch("mood")?.length < 2) && <PErrorStyle>Please enter a valid name</PErrorStyle>}
-                        </DivInputStyle>
-                            <br />
-                            <DivInputStyle>
-                            <LabelStyle>
-                                Playlist name
-                                <InputStyle
-                                    type='text'
-                                    placeholder='Playlist name'
-                                    required
-                                    {...register('name', {
-                                        validate: value => value.length >= 2 && value.length <= 20,
-                                    })}
-                                />
-                            </LabelStyle>
-                            {(watch("name")?.length > 20 || watch("name")?.length < 2) && <PErrorStyle>Please enter a valid name</PErrorStyle>}
-                            </DivInputStyle>
-                            <DivInputStyle>
-                            <LabelStyle>
-                                Description
-                                <InputDescriptionStyle
-                                    type='text'
-                                    placeholder='Description'
-                                    {...register('description', {
-                                        required: true,
-                                        validate: value => value.length >= 2 && value.length <= 200,
-                                    })}
-                                />
-                            </LabelStyle>
-                            {(watch("name")?.length > 20 || watch("name")?.length < 2) && <PErrorStyle>Please enter a valid name</PErrorStyle>}
-                            </DivInputStyle>
-                            
-                            <DivInputStyle>
-                            <LabelStyle>
-                                Select a genre
-                                <SelectStyle
-                                    required
-                                    {...register('genres', {
-                                        required: true
-                                    })}>
-                                    {genres?.map((option) => {
-                                        return <option key={option._id} value={option._id}>{option.name}</option>
-                                    })}
-                                </SelectStyle>
-                            </LabelStyle>
-                            </DivInputStyle>
-                        </DivTrackBody>
-                        <DivTrackImg>
-                            <ImgTrack src={'https://res.cloudinary.com/drghk9p6q/image/upload/v1674479864/Final-Project-MERN/images-orpheus/default-images/playlist_mcyltf.webp'} />
-                            <LabelStyle>
-                                Choose picture for your playlist!
-                                <input
-                                    type='file'
-                                    // required
-                                    {...register('img', {
-                                        required: true
-                                    })}
-                                />
-                            </LabelStyle>
-                            {(watch("img") === undefined) || (watch("img").length === 0) && <PErrorStyle>Please enter a valid file</PErrorStyle>}
-                            <ButtonPrimaryStyle 
-                            type='submit'
-                            disabled={watch('name')?.length < 2 || watch('description')?.length < 2 || (watch("img") === undefined) || (watch("img").length === 0)}
-                            >Upload playlist!</ButtonPrimaryStyle>
-                        </DivTrackImg>
-                    </FormTracks>
+                        <DivColumns>
+                            {/* image & name & mood */}
+                            <div>
+                                {/* Image */}
+                                <DivBlockForm>
+                                    <figure>
+                                        <ImgTrack src={'https://res.cloudinary.com/drghk9p6q/image/upload/v1674479864/Final-Project-MERN/images-orpheus/default-images/playlist_mcyltf.webp'} alt="Default image" title="Default Image" size={60} />
+                                        <figcaption>Default Image</figcaption>
+                                    </figure>
+                                </DivBlockForm>
 
-                    <DivModalClose>
-                        <IoIosCloseCircleOutline onClick={close} />
-                    </DivModalClose>
+                                {/* Name Playlist */}
+                                <DivBlockForm>
+                                    <LabelStyle>
+                                        Playlist name
+                                        <InputStyle
+                                            type='text'
+                                            placeholder='Playlist name'
+                                            required
+                                            {...register('name', {
+                                                validate: value => value.length >= 2 && value.length <= 20,
+                                            })}
+                                        />
+                                        {(watch("name")?.length > 20 || watch("name")?.length < 2) && <PErrorStyle>Please enter a valid playlist name</PErrorStyle>}
+                                    </LabelStyle>
+                                </DivBlockForm>
+
+                                {/* Mood */}
+                                <DivBlockForm>
+                                    <LabelStyle>
+                                        Insert mood
+                                        <InputStyle
+                                            type='text'
+                                            placeholder='mood'
+                                            required
+                                            {...register('mood', {
+                                                validate: value => value.length >= 2 && value.length <= 20,
+                                            })}
+                                        />
+                                        {(watch("mood")?.length > 20 || watch("mood")?.length < 2) && <PErrorStyle>Please enter a valid mood</PErrorStyle>}
+                                    </LabelStyle>
+                                </DivBlockForm>
+                            </div>
+
+                            {/* description & genre & choose picture */}
+                            <div>
+                                {/* Description */}
+                                <DivBlockForm>
+                                    <LabelStyle>
+                                        Description
+                                        <InputDescriptionStyle
+                                            type='text'
+                                            placeholder='Description'
+                                            {...register('description', {
+                                                required: true,
+                                                validate: value => value.length >= 2 && value.length <= 200,
+                                            })}
+                                        />
+                                        {(watch("name")?.length > 20 || watch("name")?.length < 2) && <PErrorStyle>Please enter a valid description</PErrorStyle>}
+                                    </LabelStyle>
+                                </DivBlockForm>
+
+                                {/* Genres */}
+                                <DivBlockForm>
+                                    <LabelStyle>
+                                        Select a genre
+                                        <SelectStyle
+                                            required
+                                            {...register('genres', {
+                                                required: true
+                                            })}>
+                                            {genres?.map((option) => {
+                                                return <option key={option._id} value={option._id}>{option.name}</option>
+                                            })}
+                                        </SelectStyle>
+                                    </LabelStyle>
+                                </DivBlockForm>
+
+                                {/* choose picture */}
+                                <DivBlockForm>
+                                    <LabelStyle>
+                                        Choose picture for your playlist!
+                                        <input
+                                            type='file'
+                                            // required
+                                            {...register('img', {
+                                                required: true
+                                            })}
+                                        />
+                                        {(watch("img") === undefined) || (watch("img").length === 0) && <PErrorStyle>Please enter a valid file</PErrorStyle>}
+                                    </LabelStyle>
+                                </DivBlockForm>
+                            </div>
+                        </DivColumns>
+
+                        {/* Button */}
+                        <DivBlockForm>
+                            <ButtonSecondaryStyle
+                                type='submit'
+                                disabled={watch('name')?.length < 2 || watch('description')?.length < 2 || (watch("img") === undefined) || (watch("img").length === 0)}
+                            >Upload playlist!
+                            </ButtonSecondaryStyle>
+                        </DivBlockForm>
+                    </FormTracks>
                 </DivModalTrack>
             </Modal>
         </>

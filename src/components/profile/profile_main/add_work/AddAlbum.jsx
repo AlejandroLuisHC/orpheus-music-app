@@ -79,7 +79,7 @@ const AddAlbum = () => {
             <ButtonSecondaryStyle onClick={open}>Add albums</ButtonSecondaryStyle>
             <Modal>
                 <DivModalTrack>
-                <DivModalClose>
+                    <DivModalClose>
                         <h1>ALBUMS</h1>
                         <IoIosCloseCircleOutline onClick={close} size={25} />
                     </DivModalClose>
