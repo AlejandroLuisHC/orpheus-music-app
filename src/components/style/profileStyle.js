@@ -177,7 +177,7 @@ padding: 10px;
 `
 export const DivUserData = styled.div`
     display: flex;
-    width: 300px;
+    width: 350px;
     justify-content: space-between;
     @media ${device.desktop} {
         width: 650px;
@@ -186,7 +186,7 @@ export const DivUserData = styled.div`
 
 export const DivEditUserData = styled.div`
     height: 40px;
-    width: 280px;
+    width: 350px;
     background-color: ${color.primaryWhite};
     border: none;
     font-size: 22px;
@@ -251,14 +251,10 @@ width: 100%;
 opacity: .5;
 `
 
-
-
-export const DropdownHeader = styled.div`
-    
+export const DropdownHeader = styled.div`    
     font-weight: 500;
     font-size: 2rem;
     color: ${color.primaryWhite};
-
 `
 
 export const DropdownContainer = styled.div`
@@ -312,11 +308,10 @@ export const DivModalWork = styled.div`
 `
 
 export const DivModalOptions = styled.div`
+    display: flex;
     margin-top: 20px;
-    @media ${device.desktop}{
-        display: flex;
-        justify-content: space-around;
-    }
+    justify-content: space-around;
+    align-items: center;
 `
 
 export const DivModalClose = styled.div`
