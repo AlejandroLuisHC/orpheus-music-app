@@ -1,17 +1,17 @@
-const fetchCreateAlbum = async (album,token) => {
+const fetchCreateAlbum = async (album, token) => {
     try {
-  
+
         const formData = new FormData()
-            
+
         formData.append('image', album.img[0])
         formData.append('name', album.name)
         formData.append('description', album.description)
         formData.append('ownership', album.ownership)
         formData.append('genres', album.genres)
         formData.append('followers', album.followers)
-        formData.append('tracks[]', album.tracks)
+        formData.append('tracks', album.tracks)
 
-       
+
         const options = {
             method: 'POST',
             headers: {

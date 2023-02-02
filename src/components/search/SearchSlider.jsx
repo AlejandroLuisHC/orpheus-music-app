@@ -38,7 +38,7 @@ const SearchSlider = ({ apiKey, search }) => {
         if (!search) return setSearchResults([]);
 
         if (apiKey === 'users') {
-            console.log('USER', status, data)
+
 
             const usersResults = data?.filter(
                 (userData) =>
@@ -55,7 +55,6 @@ const SearchSlider = ({ apiKey, search }) => {
                 }))
             );
         } else if (apiKey === 'events') {
-            console.log('EVENTS', status, data)
 
             const results = data?.filter(
                 (item) =>
@@ -75,7 +74,7 @@ const SearchSlider = ({ apiKey, search }) => {
                 }))
             );
         } else if (apiKey === 'playlists') {
-            console.log('PLAYLISTS', status, data)
+
             const results = data?.filter(
                 (item) =>
                     item.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -91,7 +90,7 @@ const SearchSlider = ({ apiKey, search }) => {
                 }))
             );
         } else if (apiKey === 'albums') {
-            console.log('ALABUM', status, data)
+
             const results = data?.filter(
                 (item) =>
                     item.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -107,7 +106,6 @@ const SearchSlider = ({ apiKey, search }) => {
                 }))
             );
         } else if (apiKey === 'tracks') {
-            console.log('TRACKS', status)
 
             const { tracks } = data
             const results = tracks?.filter(

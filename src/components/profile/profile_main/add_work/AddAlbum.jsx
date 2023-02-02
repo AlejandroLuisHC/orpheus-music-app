@@ -12,16 +12,17 @@ import {
 import AlbumStep2 from './AlbumStep2'
 import { UPDATE } from './../../../../redux/features/user_data/userSlice'
 import AlbumStep1 from './AlbumStep1'
+import { useNavigate } from 'react-router-dom'
 
 const AddAlbum = () => {
     const dispatch = useDispatch();
-
+    const navigate = useNavigate()
     const [Modal, open, close, isOpen] = useModal('root', {
         preventScroll: true
     })
-    const user =useSelector(state =>state.userData.user)
-   
-    
+    const user = useSelector(state => state.userData.user)
+
+
     const { user: userAuth, getAccessTokenSilently } = useAuth0();
 
     const id = useSelector((state) => state.userData.user._id);
@@ -48,8 +49,11 @@ const AddAlbum = () => {
         img,
         genres,
     }) => {
-        albumData.name = name || `${userAuth.given_name}-Album`;
+
+
+
         albumData.description = description || 'Orpheus is awesome';
+        albumData.name = name || `${userAuth.given_name}-Album`;
         albumData.img = img || 'https://res.cloudinary.com/drghk9p6q/image/upload/v1674479869/Final-Project-MERN/images-orpheus/default-images/album_zskqhh.webp';
         albumData.genres = [genres] || [];
         albumData.tracks = userTracksData
@@ -57,14 +61,15 @@ const AddAlbum = () => {
         setAlbumData({
             ...albumData
         })
-       
+
         const token = await getAccessTokenSilently()
-        await fetchCreateAlbum(albumData, token)
-       
-        const updateUser = await fetchOneUser(id,token)
-        
-        dispatch(UPDATE(updateUser))
+        const album = await fetchCreateAlbum(albumData, token)
+        const updatedUser = await fetchOneUser(id, token)
+
+        !updatedUser.islogged ?? dispatch(UPDATE(updatedUser))
+
         changeModal(true)
+        navigate(`/album/${album.data.album._id}`)
     }
     const changeModal = (boolean) => {
         setBolleanStep(prev => prev = boolean)
@@ -79,12 +84,12 @@ const AddAlbum = () => {
                 <DivModalTrack>
                     <h1>ALBUMS</h1>
                     <FormTracks onSubmit={
-                        handleSubmit(data => createAlbum(data))
+                        handleSubmit((data) => createAlbum(data))
                     }>
                         {bolleanStep ?
-                          <AlbumStep1 changeModal={changeModal} register={register} close={close} watch={watch}/>
+                            <AlbumStep1 changeModal={changeModal} register={register} close={close} watch={watch} />
                             :
-                            <AlbumStep2 tracks={userTracksData} setTracks={setUserTracksData} />}
+                            <AlbumStep2 userTracksData={userTracksData} setUserTracksData={setUserTracksData} />}
                     </FormTracks>
                 </DivModalTrack>
             </Modal>

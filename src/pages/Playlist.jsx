@@ -44,14 +44,14 @@ const Playlist = () => {
 
     useEffect(() => {
         const fetchDurations = async () => {
-            const promises = playlist.tracks.map(track => duration(track.file.url));
+            const promises = playlist.tracks?.map(track => duration(track.file.url));
             const resolvedDurations = await Promise.all(promises);
             setDurations(prev => prev = resolvedDurations);
         };
 
         fetchDurations();
     }, [playlist]);
-    
+
     const getDuration = (url) => {
         return new Promise((resolve) => {
             const audioFile = document.createElement("audio");
@@ -110,7 +110,7 @@ const Playlist = () => {
                             return (
                                 <div key={track._id}>
                                     <DivTracks onClick={() => {
-                                        console.log("TRACK: ", track);
+
                                         setPlayer(
                                             prev => prev = {
                                                 playerOn: true,

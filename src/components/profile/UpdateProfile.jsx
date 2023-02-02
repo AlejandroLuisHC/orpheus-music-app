@@ -31,8 +31,7 @@ const UpdateProfile = () => {
         formState: { errors },
     } = useForm();
     const navigate = useNavigate()
-    console.log(userDataStore.country)
-    console.log(userDataStore.region)
+
     const [UpdateUserData, setUpdateUserData] = useState({
         username: userDataStore.username || userAuth?.nickname,
         country: userDataStore.country,

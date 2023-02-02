@@ -10,11 +10,7 @@ const BtnModalTrackOptions = ({ trackId }) => {
         preventScroll: true
     })
 
-    //TODO: work in progess
-    // const userTracks = useSelector((state) => state.userData.user.tracks)
-
-    // const isOwner = userTracks.find(track => track._id === trackId)
-    // console.log("isOwner", isOwner)
+   
 
     return (
         <>

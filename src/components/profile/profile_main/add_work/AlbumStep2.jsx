@@ -4,18 +4,21 @@ import { ButtonPrimaryStyle } from '../../../style/generalStyle'
 import { DivModalTrack } from '../../../style/profileStyle'
 import { DivGenreCircle, DivSelectedGenreCircle } from '../../../style/registerStyle'
 
-const AlbumStep2 = ({ tracks, setTracks }) => {
+const AlbumStep2 = ({ userTracksData, setUserTracksData }) => {
 
     const loggedUser = useSelector(state => state.userData.user);
 
     const isTrackSelected = (id) => (
-        tracks?.find((trackId) => trackId === id)
+        userTracksData?.find((trackId) => trackId === id)
     );
     const addToSelectedTracks = (id) => {
-        !isTrackSelected(id) && setTracks([...tracks, id]);
+        !isTrackSelected(id) && setUserTracksData([...userTracksData, id]);
+
+
     };
     const removeFromSelectedTracks = (id) => {
-        setTracks([...tracks].filter((track) => track !== id))
+        setUserTracksData([...userTracksData].filter(track => track !== id))
+
     };
 
     function getRandomSize() {
