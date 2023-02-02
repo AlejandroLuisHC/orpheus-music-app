@@ -131,13 +131,14 @@ export const AsideDesktopStyle = styled.aside`
     display: flex;
     flex-direction: column;
     gap: 20px;
+    padding-left: 10px;
 `
 
 export const LinkAside = styled(Link)`
     display: flex;
     align-items: center;
     padding-bottom: 3px;
-    color: ${color.primaryWhite};
+    color: ${props => props.active};
     text-decoration: none;
     font-size: 1.2em;
     transition: 300ms;
