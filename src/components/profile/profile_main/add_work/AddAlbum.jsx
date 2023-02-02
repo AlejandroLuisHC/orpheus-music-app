@@ -67,8 +67,7 @@ const AddAlbum = () => {
         const token = await getAccessTokenSilently()
         const album = await fetchCreateAlbum(albumData, token)
         const updatedUser = await fetchOneUser(id, token)
-
-        !updatedUser.islogged ?? dispatch(UPDATE(updatedUser))
+        !updatedUser.islogged && dispatch(UPDATE(updatedUser))
 
         changeModal(true)
         navigate(`/album/${album.data.album._id}`)

@@ -60,7 +60,7 @@ const CreatePlaylist = () => {
         const data = await fetchCreatePlaylist(playlistData, token)
        
         const updatedUser = await fetchOneUser(id, token)
-        !updatedUser.islogged ?? dispatch(UPDATE(updatedUser))
+        !updatedUser.islogged && dispatch(UPDATE(updatedUser))
         navigate(`/playlist/${data.data.playlist._id}`)
         data.status === 'Created';
         data.status === 'false' && console.log("There was a problem creating the playlist");

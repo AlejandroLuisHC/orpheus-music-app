@@ -105,7 +105,18 @@ const Track = () => {
                         <PDataTrack3>Released</PDataTrack3>
                         <PDataTrack4>Duration</PDataTrack4>
                     </DivTitlesTracks>
-                    <DivInfoTrack>
+                    <DivInfoTrack
+                        onClick={() => {
+                            setPlayer(
+                                prev => prev = {
+                                    playerOn: true,
+                                    audio: track.data.file.url,
+                                    name: track.data.name.slice(0, 20) + "...",
+                                    user: track.data.ownership.username,
+                                }
+                            )
+                        }}
+                    >
                         <ImgListPlaylist src={track.data.img.url} alt={track.data.name} />
                         <PDataTrack1>{track.data.name}</PDataTrack1>
                         <PDataTrack2>{track.data.album ?? 'single'}</PDataTrack2>
@@ -113,7 +124,7 @@ const Track = () => {
                         <PDataTrack4>{durations}</PDataTrack4>
                         <BtnModalTrackOptions trackId={track.data._id} />
                     </DivInfoTrack>
-                </AllBackground>
+                </AllBackground >
     )
 }
 

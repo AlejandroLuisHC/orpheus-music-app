@@ -79,7 +79,7 @@ const AddTrack = () => {
         const data = await fetchCreateTrack(trackData, token)
        
         const updatedUser = await fetchOneUser(id, token)
-        !updatedUser.islogged ?? dispatch(UPDATE(updatedUser))
+        !updatedUser.islogged && dispatch(UPDATE(updatedUser))
         navigate(`/track/${data.data.newTrack._id}`)
         data.status === 'Created';
         data.status === 'false' && console.log("There was a problem creating the track"); // aqui no hay condicional ni na , para que es esto
