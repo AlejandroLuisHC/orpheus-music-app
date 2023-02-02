@@ -9,13 +9,13 @@ const Policy = () => {
             <H1Style>Privacy Policy of Orpheus</H1Style>
             <br></br>
 
-            <p>Orpheus operates the https://orpheus-music-app.netlify.app/home website, which provides the SERVICE.</p>
+            <p>Orpheus operates the <u>https://orpheus-music-app.netlify.app</u> website, which provides the SERVICE.</p>
 
             <p>This page is used to inform website visitors regarding our policies with the collection, use, and disclosure of Personal Information if anyone decided to use our Service, the Orpheus website.</p>
 
             <p>If you choose to use our Service, then you agree to the collection and use of information in relation with this policy. The Personal Information that we collect are used for providing and improving the Service. We will not use or share your information with anyone except as described in this Privacy Policy.</p>
 
-            <p>The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which is accessible at https://orpheus-music-app.netlify.app/home, unless otherwise defined in this Privacy Policy.</p>
+            <p>The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which is accessible at <u>https://orpheus-music-app.netlify.app</u>, unless otherwise defined in this Privacy Policy.</p>
             <br></br>
 
             <H2Style>Information Collection and Use</H2Style>
