@@ -46,7 +46,6 @@ const UpdateProfileImg = () => {
                 />
                 </LabelUpdateImg>
             </FormUpdateImg>
-        </>
     )
 }
 

@@ -13,6 +13,7 @@ import { DivFlexGenres, DivGenreCircle, DivSelectedGenreCircle } from '../style/
 import { useQuery } from '@tanstack/react-query';
 import fetchChangePassword from '../../api/fetchChangePassword';
 import { useModal } from 'react-hooks-use-modal';
+import DeleteUser from './DeleteUser';
 const UpdateProfile = () => {
     // QUERYS
     const { getAccessTokenSilently } = useAuth0()
@@ -94,9 +95,7 @@ const UpdateProfile = () => {
     }
 
     // DANGER ZONE
-    const [Modal, open, close, isOpen] = useModal('root', {
-        preventScroll: true
-    })
+    
 
 
     // VALIDATES
@@ -203,23 +202,9 @@ const UpdateProfile = () => {
                     <DivDangerZone>
                         <h1>DANGER ZONE !</h1>
                         <DivModalOptions>
-                            <ButtonSecondaryStyle onClick={() => setOpenInput(prev => prev = { ...prev, deleted: true })}>CHANGE PASSWORD</ButtonSecondaryStyle>
-                            <ButtonSecondaryStyle onClick={() => setOpenInput(prev => prev = { ...prev, passwordUpdate: true })}>DELETE USER</ButtonSecondaryStyle>
+                            <ChangePassword />
+                            <DeleteUser />
                         </DivModalOptions>
-                        <Modal>
-                            {openInput.deleted
-                                ??
-                                <>
-                                    <h1>Are you sure you want to delete your user from database?</h1>
-                                    <ButtonSecondaryStyle>Yes, I'm sure</ButtonSecondaryStyle>
-                                </>}
-                            {openInput.passwordUpdate
-                                ??
-                                <>
-                                    <h1>Check your email inbox</h1>
-                                    <p>email sended to `${userDataStore.email}`</p>
-                                </>}
-                        </Modal>
                     </DivDangerZone>
                 </DivEditUserContainer>
                 <HrEditProfile />
