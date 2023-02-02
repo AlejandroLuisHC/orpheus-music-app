@@ -7,6 +7,7 @@ import { DivDataList, DivHeroTitle, DivTitlesList, ImgDataList1, PDataList2, PDa
 import { HrDivStyle } from "../components/style/playlistStyle";
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
+import Error from "./Error";
 
 
 
@@ -33,8 +34,8 @@ const TracksList = () => {
                     <DivTitlesList>
                         <PTitleList0></PTitleList0>
                         <PTitleList1>Name</PTitleList1>
-                        <PTitleList2>Ownership</PTitleList2>
-                        <PTitleList3>Create</PTitleList3>
+                        <PTitleList2>Created by</PTitleList2>
+                        <PTitleList3>Release</PTitleList3>
                     </DivTitlesList>
                     <HrDivStyle />
                     {data.data?.map((track) => {
