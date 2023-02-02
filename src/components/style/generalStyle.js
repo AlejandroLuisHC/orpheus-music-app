@@ -191,6 +191,7 @@ export const ButtonPrimaryStyle = styled.button`
 `
 
 export const ButtonSecondaryStyle = styled.button`
+    
     background: #3d3d3d77;
     color: ${color.primaryYellow};
     height: 40px;
@@ -308,6 +309,7 @@ export const DivInputStyle = styled.div`
     display: flex;
     flex-direction: column; 
     align-items: flex-start;
+    justify-content:center;
 `
 
 export const LabelStyle = styled.label`
@@ -316,8 +318,6 @@ export const LabelStyle = styled.label`
     font-weight: bold;
     display: flex;
     flex-direction: column;
-    gap: 5px;
-
 `
 
 export const LabelFilesStyle = styled.label`
