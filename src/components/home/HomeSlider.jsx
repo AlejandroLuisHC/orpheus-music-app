@@ -106,7 +106,7 @@ const HomeSlider = ({ apiKey }) => {
                             resultType={apiKey}
                         >
                             <DivImageMusic>
-                                <ImgCardMusic 
+                                <ImgCardMusic
                                     src={item.img.url}
                                     onClick={() => navigate(`/track/${item._id}`)}
                                 />
@@ -139,7 +139,7 @@ const HomeSlider = ({ apiKey }) => {
                         </DivEventCard>)
                 })
             default:
-                console.log('default')
+                break
         }
     })
 
