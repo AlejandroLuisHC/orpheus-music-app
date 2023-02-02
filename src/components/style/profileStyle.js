@@ -43,6 +43,68 @@ export const DivProfileBanner = styled.div`
 export const DivProfileMainContent = styled.div`
     margin-top: 30px;
 `
+export const DivMyTracksAlbumStyle = styled.div`
+    display: grid;
+    padding: 20px;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 15px;
+    max-height: 500px;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+            cursor: pointer;
+            width: 4px;
+            height: 4px;
+        }
+        &::-webkit-scrollbar-track {
+            border-radius: 10px;
+            background: #9D9D9D;
+        }
+        &::-webkit-scrollbar-thumb{
+            border-radius: 10px;
+            background: ${color.secondaryYellow};
+        }
+        &::-webkit-scrollbar-thumb:hover{
+            background: ${color.secondaryBlack};
+        }
+        &::-webkit-scrollbar-thumb:active{
+            background: #484848;
+        }
+`
+export const DivEachTrackAlbumStyle = styled.div`
+    color: ${color.primaryWhite};
+    padding: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: ${color.secondaryBlack};
+    border: 2px solid ${color.primaryYellow};
+    cursor: pointer;
+    transition: 300ms;
+    &:hover {
+        transform: scale(1.1);
+    }
+`
+export const DivEachTrackAlbumSelectedStyle = styled.div`
+    color: ${color.primaryBlack};
+    padding: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: ${color.primaryYellow};
+    border: 2px solid ${color.primaryYellow};
+    cursor: pointer;
+    transition: 300ms;
+    &:hover {
+        transform: scale(1.1);
+    }
+`
 export const DivMobileUserAvatar = styled.div`
    display: flex;
    justify-content: center;
@@ -355,7 +417,7 @@ export const DivModalTrack = styled.div`
     justify-content: center;
     text-align: center;
     @media ${device.desktop}{
-        width: 800px;
+        width: 100%;
     }
 `
 
