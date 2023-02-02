@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import fetchKey from '../../api/fetchKey';
 import LogoSpinner from '../general_components/loaders/spinner/LogoSpinner';
 import { H2Style } from '../style/generalStyle';
@@ -14,6 +14,7 @@ import {
 } from '../style/searchStyle';
 
 const ResultCarrousel = ({ apiKey, search }) => {
+    const navigate = useNavigate();
     const { getAccessTokenSilently } = useAuth0()
     const { data, status } = useQuery([apiKey, apiKey], async () => {
         const token = await getAccessTokenSilently()
@@ -63,7 +64,7 @@ const ResultCarrousel = ({ apiKey, search }) => {
                 : searchResults?.length > 0 &&
                 <DivCarrousel>
                     <DivCarrouselTitle>
-                        <H2Style>{apiKey}</H2Style>
+                        <H2Style onClick={() => navigate(`/${apiKey}`)}>{apiKey}</H2Style>
                         <Link to={`${apiKey}`} >View more</Link>
                     </DivCarrouselTitle>
 

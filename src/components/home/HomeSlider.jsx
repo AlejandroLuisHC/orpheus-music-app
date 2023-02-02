@@ -79,7 +79,6 @@ const HomeSlider = ({ apiKey }) => {
                                 <PDescription>{item.ownership.username}</PDescription>
                             </DivInfoMusic>
                         </DivMusicCard>
-
                     )
                 })
             case 'playlists':
@@ -119,7 +118,8 @@ const HomeSlider = ({ apiKey }) => {
                                     <BtnModalTrackOptions trackId={item._id} />
                                 </DivInfoMusicBottom>
                             </DivInfoMusic>
-                        </DivMusicCard>)
+                        </DivMusicCard>
+                    )
                 })
             case 'events':
                 return data?.slice(0).reverse().map((item) => {
@@ -143,7 +143,6 @@ const HomeSlider = ({ apiKey }) => {
         }
     })
 
-
     return (
         status === 'loading'
             ? <HomeSlidersLoader />
@@ -160,8 +159,8 @@ const HomeSlider = ({ apiKey }) => {
                 :
                 <>
                     <DivSilderHeader>
-                        <H2Style onClick={() => navigate(`/${apiKey}`)}>{capitalizeFirstLetter(apiKey)}</H2Style>
-                        <LinkViewMore to={`../${apiKey}`} >View more</LinkViewMore>
+                        <H2Style>{capitalizeFirstLetter(apiKey)}</H2Style>
+                        <LinkViewMore to={`../${apiKey}`}>View more</LinkViewMore>
                     </DivSilderHeader>
 
                     <DivSliderBody>

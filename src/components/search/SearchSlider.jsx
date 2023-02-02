@@ -2,11 +2,11 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import fetchKey from '../../api/fetchKey';
 import { capitalizeFirstLetter } from '../../helper/utils';
-import LogoSpinner from '../general_components/loaders/spinner/LogoSpinner';
-import { DivImgRectangleL, H2Style } from '../style/generalStyle';
+import HomeSlidersLoader from '../general_components/loaders/content_loader/HomeSlidersLoader';
+import { DivImgRectangleL, DivInfoMusicBottom, H2Style } from '../style/generalStyle';
 
 import {
     DivEventInfo,
@@ -22,12 +22,14 @@ import {
     DivSliderBody,
     DivUserCard,
     PNameUser,
+    LinkViewMore,
+    PDescription,
 } from '../style/homeStyle';
 
 const SearchSlider = ({ apiKey, search }) => {
+    const navigate = useNavigate();
     const { getAccessTokenSilently } = useAuth0()
     const { data, status } = useQuery([apiKey, apiKey], async () => {
-
         const token = await getAccessTokenSilently()
         return await fetchKey(apiKey, token)
     });
@@ -39,11 +41,9 @@ const SearchSlider = ({ apiKey, search }) => {
 
         if (apiKey === 'users') {
 
-
             const usersResults = data?.filter(
                 (userData) =>
                     userData.username.toLowerCase().includes(search.toLowerCase())
-                // userData.firstname.toLowerCase().includes(search.toLowerCase()) WE DONT HAVE ANY USER WITH FIRSTNAME OR LASTNAME
             );
 
             setSearchResults(
@@ -87,6 +87,9 @@ const SearchSlider = ({ apiKey, search }) => {
                     name: result.name,
                     img: result.img.url,
                     description: result.description,
+                    ownership: {
+                        username: result.ownership.username
+                    }
                 }))
             );
         } else if (apiKey === 'albums') {
@@ -103,11 +106,14 @@ const SearchSlider = ({ apiKey, search }) => {
                     name: result.name,
                     img: result.img.url,
                     description: result.description,
+                    ownership: {
+                        username: result.ownership.username
+                    }
                 }))
             );
         } else if (apiKey === 'tracks') {
 
-            const { tracks } = data
+            const tracks = data?.tracks
             const results = tracks?.filter(
                 (item) =>
                     item.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -120,6 +126,9 @@ const SearchSlider = ({ apiKey, search }) => {
                     name: result.name,
                     img: result.img.url,
                     description: result.description,
+                    ownership: {
+                        username: result.ownership.username
+                    }
                 }))
             );
         }
@@ -127,20 +136,22 @@ const SearchSlider = ({ apiKey, search }) => {
 
     return (
         status === 'loading'
-            ? <LogoSpinner />
+            ? <HomeSlidersLoader />
             : status === 'error'
                 ? <Error />
                 : searchResults?.length > 0 &&
                 <>
                     <DivSilderHeader>
-                        <H2Style>{capitalizeFirstLetter(apiKey)}</H2Style>
-                        <Link>View more</Link>
+                        <H2Style onClick={() => navigate(`/${apiKey}`)}>{capitalizeFirstLetter(apiKey)}</H2Style>
+                        <LinkViewMore to={`../${apiKey}`}>View more</LinkViewMore>
                     </DivSilderHeader>
 
                     <DivSliderBody>
                         {searchResults?.map((result) => (
                             apiKey === 'events' ? (
-                                <DivEventCard key={result.id}>
+                                <DivEventCard key={result.id}
+                                    onClick={() => navigate(`/event/${result.id}`)}
+                                >
                                     <DivImgRectangleL src={result.img} />
                                     <DivEventInfo>
                                         <div>
@@ -152,33 +163,57 @@ const SearchSlider = ({ apiKey, search }) => {
                                 </DivEventCard>
 
                             ) : apiKey === 'users' ? (
-                                <DivUserCard key={result.id}>
+                                <DivUserCard key={result.id}
+                                    onClick={() => navigate(`/users/${result.id}`)}
+                                >
                                     <ImgAvatarUser src={result.img} />
                                     <PNameUser>{result.name}</PNameUser>
                                     <PFollowersUser>{result.followers} followers</PFollowersUser>
                                 </DivUserCard>
 
-                            ) : (
-                                <DivMusicCard
+                            ) : apiKey === 'tracks' ? (
+                                <DivMusicCard key={result.id}
                                     resultType={apiKey}
-                                    key={result.id}
-                                /* as={Link} to={`/${apiKey}/${result.name}`} */
                                 >
-                                    <DivImageMusic onClick={() =>
-                                        setPlayer(
-                                            (prev) => (prev = {
-                                                playerOn: true,
-                                                audio: track.file,
-                                                name: track.name,
-                                                user: track.description,
-                                            })
-                                        )
-                                    }>
+                                    <DivImageMusic>
+                                        <ImgCardMusic
+                                            src={result.img}
+                                            onClick={() => navigate(`/track/${result.id}`)}
+                                        />
+                                    </DivImageMusic>
+                                    <DivInfoMusic>
+                                        <PTitle>{result.name}</PTitle>
+                                        <DivInfoMusicBottom>
+                                            <PDescription>{result.ownership.username}</PDescription>
+                                            <BtnAddToFavTracks trackId={result.id} />
+                                            <BtnModalTrackOptions trackId={result.id} />
+                                        </DivInfoMusicBottom>
+                                    </DivInfoMusic>
+                                </DivMusicCard>
+                            ) : apiKey === 'playlists' ? (
+                                <DivMusicCard key={result.id}
+                                    onClick={() => navigate(`/playlist/${result.id}`)}
+                                    resultType={apiKey}
+                                >
+                                    <DivImageMusic>
                                         <ImgCardMusic src={result.img} />
                                     </DivImageMusic>
                                     <DivInfoMusic>
                                         <PTitle>{result.name}</PTitle>
-                                        <PTitle>{result.description}</PTitle>
+                                        <PDescription>{result?.ownership?.username}</PDescription>
+                                    </DivInfoMusic>
+                                </DivMusicCard>
+                            ) : (
+                                <DivMusicCard key={result.id}
+                                    onClick={() => navigate(`/album/${result.id}`)}
+                                    resultType={apiKey}
+                                >
+                                    <DivImageMusic>
+                                        <ImgCardMusic src={result.img} />
+                                    </DivImageMusic>
+                                    <DivInfoMusic>
+                                        <PTitle>{result.name}</PTitle>
+                                        <PDescription>{result?.ownership?.username}</PDescription>
                                     </DivInfoMusic>
                                 </DivMusicCard>
                             )
