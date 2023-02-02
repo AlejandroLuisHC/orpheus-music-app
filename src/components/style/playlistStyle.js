@@ -16,7 +16,7 @@ export const BackgroundDiv = styled.div`
     width: 100%;
     height: 333px;
     background-position: center;
-    background: ${props => `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1) ), url('${props.img}')`};
+    background: ${props => `linear-gradient( rgba(18, 18, 18, 0.1), rgba(18, 18, 18, 1) ), url('${props.img}')`};
     background-position:center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -28,6 +28,11 @@ export const BackgroundDiv = styled.div`
 
 export const AllBackground = styled(BackgroundDiv)`
     height:100vh;
+    background-position: center;
+    background: ${props => `linear-gradient( rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 1) ), url('${props.img}')`};
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
         @media ${device.desktop}{
         width: 100%;
 
@@ -185,7 +190,7 @@ export const ImgListPlaylist = styled.img`
 `
 
 export const DivTracks = styled.div`
-    font-size: 14px;
+    font-size: 12px;
     display: grid;
     height: 60px;
     grid-template-columns: 60px repeat(3, 1fr) 40px;
@@ -193,6 +198,8 @@ export const DivTracks = styled.div`
     align-items: center;
  
     @media ${device.desktop}{
+        font-size: 12px;
+        grid-template-columns: 60px repeat(4, 1fr);
         grid-template-columns: 60px repeat(4, 1fr) 40px;
     }
     &:hover {
@@ -224,6 +231,7 @@ export const DivTracksAlbum = styled(DivTracks)`
 export const DivTitles = styled.div`
     text-transform: uppercase;
     font-size: 14px;
+    font-size: 14px;
     display: grid;
     height: 60px;
     grid-template-columns: 60px repeat(3, 1fr) 40px;
@@ -232,6 +240,7 @@ export const DivTitles = styled.div`
     justify-items:center;
     color: ${color.primaryYellow};    
     @media ${device.desktop}{
+        font-size:16px;
         font-size: 18px;
         margin: 0, 10px;
             grid-template-columns: 60px repeat(4, 1fr) 40px;

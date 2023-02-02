@@ -14,7 +14,7 @@ import { DivSliders } from '../components/style/homeStyle';
 import HomeSlider from '../components/home/HomeSlider';
 
 const Home = () => {
-    const apiKeys = ['events', 'albums', 'playlists', 'tracks', 'users']
+    const apiKeys = ['tracks','albums', 'playlists', 'users', 'events']
     const userData = useSelector((state) => state.userData.user);
     const date = new Date();
     const hour = date.getHours();
@@ -39,10 +39,10 @@ const Home = () => {
 
             {/* // Only seen mobile  */}
             <NavHomeMobile>
-                <LinkBtnAction to="/home/playlists">Playlist</LinkBtnAction>
-                <LinkBtnAction to="/home/events">Events</LinkBtnAction>
-                <LinkBtnAction to="/home/users">Social</LinkBtnAction>
-                <LinkBtnAction to="/home/tracks">New Releases</LinkBtnAction>
+                <LinkBtnAction to="/playlists">Playlist</LinkBtnAction>
+                <LinkBtnAction to="/events">Events</LinkBtnAction>
+                <LinkBtnAction to="/albums">Albums</LinkBtnAction>
+                <LinkBtnAction to="/users">Social</LinkBtnAction>
             </NavHomeMobile>
 
             <DivSliders>

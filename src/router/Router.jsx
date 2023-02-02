@@ -5,6 +5,7 @@ import LogoSpinner from "../components/general_components/loaders/spinner/LogoSp
 import PrivateRoutes from "./PrivateRoutes"
 import NotConnectedRoutes from "./NotConnectedRoutes"
 
+
 const Layout = lazy(() => import('./Layout'))
 const Landing = lazy(() => import('../pages/Landing'))
 const Register = lazy(() => import('../pages/Register'))
@@ -66,6 +67,41 @@ const WorkInProgress = lazy(async () => {
     ])
     return moduleExports
 });
+const EventsList = lazy(async () => {
+    const [moduleExports] = await Promise.all([
+        import("../pages/EventsList"),
+        new Promise(resolve => setTimeout(resolve, 300))
+    ])
+    return moduleExports
+});
+const AlbumsList = lazy(async () => {
+    const [moduleExports] = await Promise.all([
+        import("../pages/AlbumsList"),
+        new Promise(resolve => setTimeout(resolve, 300))
+    ])
+    return moduleExports
+});
+const PlaylistList = lazy(async () => {
+    const [moduleExports] = await Promise.all([
+        import("../pages/PlaylistList"),
+        new Promise(resolve => setTimeout(resolve, 300))
+    ])
+    return moduleExports
+});
+const TracksList = lazy(async () => {
+    const [moduleExports] = await Promise.all([
+        import("../pages/TracksList"),
+        new Promise(resolve => setTimeout(resolve, 300))
+    ])
+    return moduleExports
+});
+const UsersList = lazy(async () => {
+    const [moduleExports] = await Promise.all([
+        import("../pages/UsersList"),
+        new Promise(resolve => setTimeout(resolve, 300))
+    ])
+    return moduleExports
+});
 
 const Router = () => {
     return (
@@ -84,6 +120,11 @@ const Router = () => {
                             <Route path='/playlist/:id' element={<PrivateRoutes><Playlist /></PrivateRoutes>} />
                             <Route path='/album/:id' element={<PrivateRoutes><Album /></PrivateRoutes>} />
                             <Route path='/track/:id' element={<PrivateRoutes><Track /></PrivateRoutes>} />
+                            <Route path='/events' element={<PrivateRoutes><EventsList /></PrivateRoutes>} />
+                            <Route path='/albums' element={<PrivateRoutes><AlbumsList /></PrivateRoutes>} />
+                            <Route path='/playlists' element={<PrivateRoutes><PlaylistList /></PrivateRoutes>} />
+                            <Route path='/users' element={<PrivateRoutes><UsersList /></PrivateRoutes>} />
+                            <Route path='/tracks' element={<PrivateRoutes><TracksList /></PrivateRoutes>} />
                         </Route>
                     </Routes>
                 </Suspense>
