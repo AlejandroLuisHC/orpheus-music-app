@@ -323,9 +323,27 @@ export const DivModalClose = styled.div`
     color: ${color.primaryWhite};
     bottom: 5px;
     right: 5px;
-
+    cursor: pointer;
     h1{
-        font-size:20px
+        font-size: 20px;
+        cursor: default;
+    }
+    &:hover  {
+        color: ${color.primaryYellow};
+        h1 {
+            color: ${color.primaryWhite};
+        }
+    }
+`
+export const DivModalCloseTracks = styled.div`
+    color: ${color.primaryWhite};
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    &:hover {
+        color: ${color.primaryYellow};
     }
 `
 

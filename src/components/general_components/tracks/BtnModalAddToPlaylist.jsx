@@ -6,13 +6,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchKey, fetchOneUser } from '../../../api'
 import { UPDATE } from '../../../redux/features/user_data/userSlice'
 import { BtnSelectOption, ButtonPrimaryStyle, DivModalOptions, DivOptionsIcon } from '../../style/generalStyle'
-import { DivModalClose } from '../../style/profileStyle'
+import { DivModalClose, DivModalCloseTracks } from '../../style/profileStyle'
 
 const BtnModalAddToPlaylist = ({ trackId }) => {
     const dispatch = useDispatch()
 
     const { getAccessTokenSilently } = useAuth0()
-    const token = getAccessTokenSilently()
 
     const userId = useSelector((state) => state.userData.user._id)
     const userPlaylists = useSelector((state) => state.userData.user.playlists)
@@ -21,7 +20,10 @@ const BtnModalAddToPlaylist = ({ trackId }) => {
         preventScroll: true
     })
 
-    const { data: playlists, status: playlistsStatus } = useQuery(["playlists", "playlists"], () => fetchKey("playlists", token));
+    const { data: playlists, status: playlistsStatus } = useQuery(["playlists", "playlists"], async () => {
+        const token = await getAccessTokenSilently()
+        fetchKey("playlists", token)
+    });
 
     const fetchAddTrackToPlaylist = async (playlistId) => {
         try {
@@ -39,6 +41,7 @@ const BtnModalAddToPlaylist = ({ trackId }) => {
                 formData.append("tracks", track._id)
             ))
 
+            const token = await getAccessTokenSilently()
             const res = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/playlists/${playlistId}`, {
                 method: 'PATCH',
                 body: formData,
@@ -54,8 +57,10 @@ const BtnModalAddToPlaylist = ({ trackId }) => {
 
     const addTrackToPlaylist = async (playlistId) => {
         await fetchAddTrackToPlaylist(playlistId)
+        const token = await getAccessTokenSilently()
         const updatedUser = await fetchOneUser(userId, token)
         dispatch(UPDATE(updatedUser))
+        close()
     }
 
     return (
@@ -63,15 +68,17 @@ const BtnModalAddToPlaylist = ({ trackId }) => {
             <BtnSelectOption onClick={open}>Add to playlist</BtnSelectOption>
 
             <Modal>
+                <div>
+                <DivModalCloseTracks>
+                    <IoIosCloseCircleOutline onClick={close} />
+                </DivModalCloseTracks>
                 <DivModalOptions>
                     <ButtonPrimaryStyle>Create playlist</ButtonPrimaryStyle>
                     {userPlaylists.map(playlist => (
                         <BtnSelectOption key={playlist._id} onClick={() => addTrackToPlaylist(playlist._id)}>{playlist.name}</BtnSelectOption>
                     ))}
-                    <DivModalClose>
-                        <IoIosCloseCircleOutline onClick={close} />
-                    </DivModalClose>
                 </DivModalOptions>
+                </div>
             </Modal>
         </>
     )

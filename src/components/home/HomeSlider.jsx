@@ -105,16 +105,7 @@ const HomeSlider = ({ apiKey }) => {
                         <DivMusicCard key={item._id}
                             resultType={apiKey}
                         >
-                            <DivImageMusic onClick={() => {
-                                setPlayer(
-                                    prev => prev = {
-                                        playerOn: true,
-                                        audio: item.file.url,
-                                        name: item.name.slice(0, 20) + "...",
-                                        user: item.ownership.username,
-                                    }
-                                )
-                            }}>
+                            <DivImageMusic>
                                 <ImgCardMusic 
                                     src={item.img.url}
                                     onClick={() => navigate(`/track/${item._id}`)}

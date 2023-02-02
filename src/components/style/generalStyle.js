@@ -606,7 +606,10 @@ export const DivModalOptions = styled.div`
     background-color: ${color.primaryBlack};
     padding: 20px;
     border-radius: 25px;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: start;
     text-align: center;
     overflow-y:auto;
     @media ${device.desktop}{
@@ -628,8 +631,8 @@ export const DivOptionsIcon = styled.div`
 `
 
 export const DivInfoMusicBottom = styled.div`
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 25px 25px;
 `
 
 export const DivFooter = styled.div`

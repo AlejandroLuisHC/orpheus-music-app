@@ -275,6 +275,7 @@ export const ImgCardMusic = styled.img`
     display: flex;
     border-radius: 10px;
     transition: 300ms;
+    object-fit: cover;
     &:hover{
         border-radius: 50%;
         /* transform: rotate(360deg); */
