@@ -52,8 +52,6 @@ const AddAlbum = () => {
         genres,
     }) => {
 
-
-
         albumData.description = description || 'Orpheus is awesome';
         albumData.name = name || `${userAuth.given_name}-Album`;
         albumData.img = img || 'https://res.cloudinary.com/drghk9p6q/image/upload/v1674479869/Final-Project-MERN/images-orpheus/default-images/album_zskqhh.webp';

@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { fetchCreatePlaylist, fetchKey, fetchOneUser } from '../../../../api'
 import { UPDATE } from '../../../../redux/features/user_data/userSlice'
-import { ButtonPrimaryStyle, ButtonSecondaryStyle, DivInputStyle, InputStyle, LabelStyle, PErrorStyle, SelectStyle } from '../../../style/generalStyle'
+import { ButtonPrimaryStyle, ButtonSecondaryStyle, DivInputStyle, InputStyle, LabelFileStyle, LabelStyle, PErrorStyle, SelectStyle } from '../../../style/generalStyle'
 import { ButtonProfileStyle, DivBlockForm, DivColumns, DivModalClose, DivModalTrack, DivTrackBody, DivTrackImg, FormTracks, ImgTrack, InputDescriptionStyle } from '../../../style/profileStyle'
 
 const CreatePlaylist = () => {
@@ -159,17 +159,17 @@ const CreatePlaylist = () => {
 
                                 {/* choose picture */}
                                 <DivBlockForm>
-                                    <LabelStyle>
-                                        Choose picture for your playlist!
-                                        <input
+                                    <LabelFileStyle for={"file"}>
+                                        Choose a picture for your playlist!
+                                        <input id="file"
                                             type='file'
-                                            // required
+                                            style={{ visibility: 'hidden' }}
                                             {...register('img', {
                                                 required: true
                                             })}
                                         />
-                                        {(watch("img") === undefined) || (watch("img").length === 0) && <PErrorStyle>Please enter a valid file</PErrorStyle>}
-                                    </LabelStyle>
+                                        {(watch("img") === undefined) || (watch("img").length === 0) && <PErrorStyle>Your playlist will use the default image</PErrorStyle>}
+                                    </LabelFileStyle>
                                 </DivBlockForm>
                             </div>
                         </DivColumns>
@@ -178,7 +178,7 @@ const CreatePlaylist = () => {
                         <DivBlockForm>
                             <ButtonSecondaryStyle
                                 type='submit'
-                                disabled={watch('name')?.length < 2 || watch('description')?.length < 2 || (watch("img") === undefined) || (watch("img").length === 0)}
+                                disabled={watch('name')?.length < 2 || watch('description')?.length < 2}
                             >Upload playlist!
                             </ButtonSecondaryStyle>
                         </DivBlockForm>

@@ -1,15 +1,15 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { IoMdCloudUpload } from 'react-icons/io';
+import { IoMdCheckmarkCircle, IoMdCloudUpload } from 'react-icons/io';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchUpdateUser } from '../../api';
+import { fetchOneUser, fetchUpdateUser } from '../../api';
 import { UPDATE } from '../../redux/features/user_data/userSlice';
-import { FormUpdateImg, InputImg, LabelUpdateImg } from '../style/profileStyle';
+import { ButtonSubmitEdit, FormUpdateImg, InputImg, LabelUpdateImg } from '../style/profileStyle';
 
 const UpdateProfileImg = () => {
     const { getAccessTokenSilently } = useAuth0()
-    const token = getAccessTokenSilently()
+    
     const userDataStore = useSelector(state => state.userData.user);
     const dispatch = useDispatch();
     const {
@@ -29,20 +29,21 @@ const UpdateProfileImg = () => {
         setChangeImg({
             ...changeImg
         })
-        const { data } = await fetchUpdateUser(changeImg, userDataStore._id, token)
-
-        dispatch(UPDATE(data))
+        const token = await getAccessTokenSilently()
+        await fetchUpdateUser(changeImg, userDataStore._id, token)
+        const updatedUser = await fetchOneUser(userDataStore._id, token)
+        console.log(updatedUser);
+        dispatch(UPDATE(updatedUser))
 
     }
 
     return (
-        <FormUpdateImg onSubmit={handleSubmit(data => updateUserImg(data))}>
+        <FormUpdateImg onChange={handleSubmit(data => updateUserImg(data))}>
             <LabelUpdateImg>
                 <IoMdCloudUpload />
                 <InputImg
                     type='file'
                     {...register('url')}
-
                 />
                 </LabelUpdateImg>
             </FormUpdateImg>

@@ -13,6 +13,7 @@ import {
 } from '../style/generalStyle';
 import {
     fetchKey,
+    fetchOneUser,
     fetchUpdateUser,
     fetchUsers
 } from '../../api'
@@ -36,7 +37,7 @@ import DeleteUser from './DeleteUser';
 
 const UpdateProfile = () => {
     const { getAccessTokenSilently } = useAuth0()
-    const token = getAccessTokenSilently()
+    
     const { data: users, status } = useQuery(['users'], fetchUsers);
 
     const initialState = {
@@ -76,8 +77,11 @@ const UpdateProfile = () => {
         });
 
         setOpenInput(prev => prev = initialState)
-        const { data } = await fetchUpdateUser(UpdateUserData, userDataStore._id, token);
-        dispatch(UPDATE(data));
+        const token = await getAccessTokenSilently()
+
+        await fetchUpdateUser(UpdateUserData, userDataStore._id, token);
+        const newUser = await fetchOneUser(userDataStore._id, token);
+        dispatch(UPDATE(newUser));
     };
 
     //GENRES

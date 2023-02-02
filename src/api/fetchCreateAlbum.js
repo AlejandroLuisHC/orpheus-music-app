@@ -11,7 +11,6 @@ const fetchCreateAlbum = async (album, token) => {
         formData.append('followers', album.followers)
         formData.append('tracks', album.tracks)
 
-
         const options = {
             method: 'POST',
             headers: {
@@ -25,7 +24,7 @@ const fetchCreateAlbum = async (album, token) => {
         return data
     } catch (error) {
         console.log(error.message)
-        console.warn('An error occurred when creating the track');
+        console.warn('An error occurred when creating the album');
 
     }
 }

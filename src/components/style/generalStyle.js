@@ -205,6 +205,7 @@ export const ButtonSecondaryStyle = styled.button`
     border-radius: calc(40px * .5);
     font-size: 10px;
     transition: 300ms;
+    cursor: pointer;
     &:hover{
         transform: scale(1.1);
     }
@@ -318,6 +319,18 @@ export const LabelStyle = styled.label`
     font-weight: bold;
     display: flex;
     flex-direction: column;
+`
+export const LabelFileStyle = styled.label`
+    margin: 0 auto;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    text-decoration: underline;
+    cursor: pointer;
+    &:hover{
+        color: ${color.primaryYellow};
+    }
 `
 
 export const LabelFilesStyle = styled.label`

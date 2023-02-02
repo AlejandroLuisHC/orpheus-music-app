@@ -1,8 +1,12 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { ButtonPrimaryStyle } from '../../../style/generalStyle'
+import { Pstyle } from '../../../style/playlistStyle'
 import { DivModalTrack } from '../../../style/profileStyle'
-import { DivGenreCircle, DivSelectedGenreCircle } from '../../../style/registerStyle'
+import { 
+    DivGenreCircle, 
+    DivSelectedGenreCircle 
+} from '../../../style/registerStyle'
 
 const AlbumStep2 = ({ userTracksData, setUserTracksData }) => {
 
@@ -13,23 +17,23 @@ const AlbumStep2 = ({ userTracksData, setUserTracksData }) => {
     );
     const addToSelectedTracks = (id) => {
         !isTrackSelected(id) && setUserTracksData([...userTracksData, id]);
-
-
     };
+
     const removeFromSelectedTracks = (id) => {
         setUserTracksData([...userTracksData].filter(track => track !== id))
-
     };
 
     function getRandomSize() {
         return Math.random() * (100 - 85) + 85;
     }
+    
     function getRandomSizeSelected() {
         return Math.random() * (125 - 110) + 110;
     }
 
     return (
         <DivModalTrack>
+            <Pstyle>Select at least 2 tracks!</Pstyle>
             {loggedUser.tracks?.map((track) => {
                 return !isTrackSelected(track._id)
                     ?
@@ -49,7 +53,7 @@ const AlbumStep2 = ({ userTracksData, setUserTracksData }) => {
                         <p>{track.name}</p>
                     </DivSelectedGenreCircle>
             })}
-            <ButtonPrimaryStyle type='submit'>Upload track!</ButtonPrimaryStyle>
+            <ButtonPrimaryStyle disabled={userTracksData.length < 2} type='submit'>Upload track!</ButtonPrimaryStyle>
         </DivModalTrack>
     )
 }

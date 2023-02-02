@@ -8,6 +8,7 @@ import {
     ButtonSecondaryStyle,
     DivInputStyle,
     InputStyle,
+    LabelFileStyle,
     LabelStyle,
     PErrorStyle,
     SelectStyle
@@ -77,7 +78,7 @@ const AddTrack = () => {
         });
         const token = await getAccessTokenSilently()
         const data = await fetchCreateTrack(trackData, token)
-       
+
         const updatedUser = await fetchOneUser(id, token)
         !updatedUser.islogged && dispatch(UPDATE(updatedUser))
         navigate(`/track/${data.data.newTrack._id}`)
@@ -101,21 +102,6 @@ const AddTrack = () => {
                         {/* CHOOSE TRACK// TRACK NAME// GENRE */}
                         <DivColumns>
                             <div>
-                                {/* choose track */}
-                                <DivBlockForm>
-                                    <LabelStyle>
-                                        Insert Track audio
-                                        <input
-                                            type='file'
-                                            // required
-                                            {...register('file', {
-                                                required: true
-                                            })}
-                                        />
-                                        {(watch("file") === undefined) || (watch("file").length === 0) && <PErrorStyle>Please enter a valid file</PErrorStyle>}
-                                    </LabelStyle>
-                                </DivBlockForm>
-
                                 {/* track name */}
                                 <DivBlockForm>
                                     <LabelStyle>
@@ -148,9 +134,7 @@ const AddTrack = () => {
                                         </SelectStyle>
                                     </LabelStyle>
                                 </DivBlockForm>
-                            </div>
 
-                            <div>
                                 {/* description */}
                                 <DivBlockForm>
                                     <LabelStyle>
@@ -166,20 +150,45 @@ const AddTrack = () => {
                                         {(watch("description")?.length > 200 || watch("description")?.length < 2) && <PErrorStyle>Please enter a valid description</PErrorStyle>}
                                     </LabelStyle>
                                 </DivBlockForm>
+                            </div>
+
+                            <div>
+                                {/* choose track */}
+                                <DivBlockForm>
+                                    <LabelFileStyle for={"audioFile"}>
+                                        Insert audio track (.mp3)
+                                        <input id={"audioFile"}
+                                            type='file'
+                                            style={{ visibility: "hidden" }}
+                                            {...register('file', {
+                                                required: true
+                                            })}
+                                        />
+                                        {(watch("file") === undefined) || (watch("file").length === 0) && <PErrorStyle>Please enter a valid file</PErrorStyle>}
+                                    </LabelFileStyle>
+                                </DivBlockForm>
+
+                                {/* Image */}
+                                <DivBlockForm>
+                                    <figure>
+                                        <ImgTrack src={'https://res.cloudinary.com/drghk9p6q/image/upload/v1674479861/Final-Project-MERN/images-orpheus/default-images/track_okeksf.webp'} alt="Default image" title="Default Image" size={60} />
+                                        <figcaption>Default Image</figcaption>
+                                    </figure>
+                                </DivBlockForm>
 
                                 {/* choose picture */}
                                 <DivBlockForm>
-                                    <LabelStyle>
-                                        Choose picture for your track!
-                                        <input
+                                    <LabelFileStyle for={"imgFile"}>
+                                        Choose a picture for your track! <br />(.jpg, .png, .webp)
+                                        <input id={"imgFile"}
                                             type='file'
-                                            // required
+                                            style={{ visibility: "hidden" }}
                                             {...register('img', {
                                                 required: true
                                             })}
                                         />
-                                        {(watch("img") === undefined) || (watch("img").length === 0) && <PErrorStyle>Please enter a valid file</PErrorStyle>}
-                                    </LabelStyle>
+                                        {(watch("img") === undefined) || (watch("img").length === 0) && <PErrorStyle>Your track will use the default image</PErrorStyle>}
+                                    </LabelFileStyle>
                                 </DivBlockForm>
                             </div>
                         </DivColumns>
@@ -188,7 +197,7 @@ const AddTrack = () => {
                         <DivBlockForm>
                             <ButtonSecondaryStyle
                                 type='submit'
-                                disabled={watch('name')?.length < 2 || watch('description')?.length < 2 || (watch("img") === undefined) || (watch("img").length === 0) || (watch("file") === undefined) || (watch("file").length === 0)}
+                                disabled={watch('name')?.length < 2 || watch('description')?.length < 2 || (watch("file") === undefined) || (watch("file").length === 0)}
                             >Upload track!</ButtonSecondaryStyle>
                         </DivBlockForm>
                     </FormTracks>

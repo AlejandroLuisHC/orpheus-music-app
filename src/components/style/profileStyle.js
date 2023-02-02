@@ -124,6 +124,7 @@ export const ButtonProfileStyle = styled(ButtonSecondaryStyle)`
     width: 180px;
     height: 70px;
     transition: 300ms;
+    cursor: pointer;
     
     @media (max-width: ${'1050px'}) {
         width: 130px;

@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react'
 import { fetchKey } from '../../../../api';
-import { ButtonSecondaryStyle, DivInputStyle, InputStyle, LabelStyle, PErrorStyle, SelectStyle } from '../../../style/generalStyle';
-import { DivBlockForm, DivColumns, DivTrackBody, DivTrackImg, ImgTrack, InputDescriptionStyle } from '../../../style/profileStyle';
+import { ButtonSecondaryStyle, InputStyle, LabelFileStyle, LabelStyle, PErrorStyle, SelectStyle } from '../../../style/generalStyle';
+import { DivBlockForm, DivColumns, DivTrackBody, ImgTrack, InputDescriptionStyle } from '../../../style/profileStyle';
 
 const AlbumStep1 = ({ register, changeModal, close, watch }) => {
 
@@ -65,7 +65,6 @@ const AlbumStep1 = ({ register, changeModal, close, watch }) => {
                             <LabelStyle>
                                 Select a genre
                                 <SelectStyle
-
                                     {...register('genres', {
                                         required: true
                                     })}>
@@ -78,18 +77,17 @@ const AlbumStep1 = ({ register, changeModal, close, watch }) => {
 
                         {/* Choose picture */}
                         <DivBlockForm>
-                            <LabelStyle>
-                                Choose picture for your track!
-                                <input
+                            <LabelFileStyle for={"file"}>
+                                Choose a picture for your track!
+                                <input id={"file"}
                                     type='file'
-
+                                    style={{visibility: "hidden"}}
                                     {...register('img', {
                                         required: true
                                     })}
                                 />
-                                {(watch("img") === undefined) || (watch("img").length === 0) && <PErrorStyle>Please enter a valid file</PErrorStyle>}
-                            </LabelStyle>
-
+                                {(watch("img") === undefined) || (watch("img").length === 0) && <PErrorStyle>Your album will use the default image</PErrorStyle>}
+                            </LabelFileStyle>
                         </DivBlockForm>
                     </div>
                 </DivColumns>
@@ -98,7 +96,7 @@ const AlbumStep1 = ({ register, changeModal, close, watch }) => {
                 <DivBlockForm>
                     <ButtonSecondaryStyle
                         onClick={() => changeModal(false)}
-                        disabled={watch('name')?.length < 2 || watch('description')?.length < 2 || (watch("img") === undefined) || (watch("img").length === 0)}
+                        disabled={watch('name')?.length < 2 || watch('description')?.length < 2}
                     >
                         Add songs
                     </ButtonSecondaryStyle>
