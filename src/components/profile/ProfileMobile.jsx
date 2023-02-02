@@ -41,6 +41,7 @@ import ProfileSlider from './profile_main/ProfileSlider';
 import UpdateProfile from './UpdateProfile';
 import Error from "../../pages/Error";
 import CreatePlaylist from './profile_main/create_playlist/CreatePlaylist';
+import UserInfoEmpty from './UserInfoEmpty';
 
 
 const ProfileMobile = ({ userID }) => {
@@ -137,6 +138,9 @@ const ProfileMobile = ({ userID }) => {
                                 {dataKey.map(key => {
                                     if (key.data.length > 0) {
                                         return <ProfileSlider key={key.id} dataKey={key} user={user} />
+                                    }
+                                    else{
+                                        return <UserInfoEmpty key={key.id} dataKey={key}/>
                                     }
                                 })}
                             </DivSliders>
