@@ -8,6 +8,7 @@ const MusicPlayer = ({ audio, name, user, setPlayer, hideVolume }) => {
         <DivMusicPlayer>
             <Player
                 src={audio}
+                autoPlay={true}
                 height={40}
                 grey={[18, 18, 18]}
                 accent={[239, 184, 16]}

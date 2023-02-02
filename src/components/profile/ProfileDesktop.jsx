@@ -72,6 +72,12 @@ const ProfileDesktop = ({ userID }) => {
         { id: 8, name: `${user?.username}'s playlists`, type: "playlist", data: user?.playlists || [] }
     ]
 
+    const [currentUser, setCurrentUser ] =useState(loggedUser)
+    useEffect(() => {
+        setCurrentUser(loggedUser)
+    }, [currentUser])
+    
+
     return (
         status === 'loading'
             ? <LogoSpinner />

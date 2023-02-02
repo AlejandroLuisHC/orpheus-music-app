@@ -125,7 +125,8 @@ const HomeSlider = ({ apiKey }) => {
                 return data?.map((item) => {
                     return (
                         <DivEventCard key={item._id}
-
+                            onClick={() => navigate(`/event/${item._id}`)}
+                            resultType={apiKey}
                         >
                             <DivImgRectangleL src={item.img.url} />
                             <DivEventInfo>

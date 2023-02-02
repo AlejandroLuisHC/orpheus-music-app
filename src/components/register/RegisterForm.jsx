@@ -4,17 +4,20 @@ import { useForm } from 'react-hook-form';
 import fetchCreateUser from '../../api/fetchCreateUser';
 import { RegisterStep1, RegisterStep2, RegisterStep3 } from './register_steps'
 import { DivStepsContainer, DivStepsCounter, FormStyle } from '../style/generalStyle';
-import { fetchUsers } from './../../api/';
+import { fetchKey, fetchUsers } from './../../api/';
 import LogoSpinner from '../general_components/loaders/spinner/LogoSpinner'
 import { useAuth0 } from '@auth0/auth0-react';
 import { useDispatch } from 'react-redux';
 import { LOG_IN } from '../../redux/features/user_data/userSlice';
+import { useNavigate } from 'react-router-dom';
+import LogoSpinnerRegister from '../general_components/loaders/spinner/LogoSpinnerRegister';
 
 const RegisterForm = () => {
 
     const { data: users, status } = useQuery(['users'], fetchUsers);
     const { user: userAuth } = useAuth0();
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const {
         register,
         handleSubmit,
@@ -46,6 +49,7 @@ const RegisterForm = () => {
 
     const [formSteps, setFormSteps] = useState({ step: '1', firstStep: true });
     const [selectedGenres, setSelectedGenres] = useState([]);
+    const [loadingUser, setLoadingUser] = useState(false);
 
     const [location, setLocation] = useState({ country: '', region: '' });
 
@@ -58,70 +62,85 @@ const RegisterForm = () => {
         return !findUser ? true : false;
     };
 
+    const { data: genres } = useQuery(
+        ['genres', 'genres'],
+        () => fetchKey('genres')
+    );
+
     const createUser = async ({
         username,
         firstName,
         lastName,
     }) => {
-        registerData.username = username || userAuth?.nickname || '';
-        registerData.firstName = firstName || userAuth?.given_name || '';
-        registerData.lastName = lastName || userAuth?.family_name || '';
-        registerData.country = location.country || '';
-        registerData.region = location.region || '';
-        registerData.favGenres = selectedGenres || [];
+
+        const newRegisterData = { ...registerData }
+        newRegisterData.username = username || userAuth?.nickname || '';
+        newRegisterData.firstName = firstName || userAuth?.given_name || '';
+        newRegisterData.lastName = lastName || userAuth?.family_name || '';
+        newRegisterData.country = location.country || '';
+        newRegisterData.region = location.region || '';
+        newRegisterData.favGenres = selectedGenres || [];
 
         setRegisterData({
-            ...registerData,
+            ...newRegisterData,
         });
 
+        console.log("Registering user...");
         const { data } = await fetchCreateUser(registerData)
 
-        data.status === 'Created' && dispatch(LOG_IN(data));
-        data.status === 'false' && console.log("There was a problem creating the user"); // MANAGE INCORRECT REGISTER 
+        data.status === 'Created' && dispatch(LOG_IN(data)) && navigate('/home') && setLoadingUser(false);
+        (data.status === 'false' || !data) && console.log("There was a problem creating the user") && setLoadingUser(false) // MANAGE INCORRECT REGISTER 
     };
 
     return (
         status === "loading"
             ? <LogoSpinner />
-            : status === "error"
-                ? <Error />
-                :
-                <FormStyle onSubmit={
-                    handleSubmit(data => createUser(data))
-                }>
-                    <DivStepsContainer>
-                        <DivStepsCounter step={formSteps.step}></DivStepsCounter>
-                    </DivStepsContainer>
-                    <fieldset>
-                        {formSteps.firstStep &&
-                            <RegisterStep1
-                                register={register}
-                                watch={watch}
-                                errors={errors}
-                                userDataAvailable={userDataAvailable}
-                                setFormSteps={setFormSteps}
-                            />
-                        }
-                        {formSteps.secondStep &&
-                            <RegisterStep2
-                                register={register}
-                                watch={watch}
-                                setFormSteps={setFormSteps}
-                                location={location}
-                                setLocation={setLocation}
-                                setAvatar={setAvatar}
-                            />
-                        }
-                        {formSteps.thirdStep &&
-                            <RegisterStep3
-                                setFormSteps={setFormSteps}
-                                selectedGenres={selectedGenres}
-                                setSelectedGenres={setSelectedGenres}
-                                setAvatar={setAvatar}
-                            />
-                        }
-                    </fieldset>
-                </FormStyle>
+            : loadingUser
+                ? <LogoSpinnerRegister />
+                : status === "error"
+                    ? <Error />
+                    :
+                    <FormStyle onSubmit={
+                        handleSubmit(data => {
+                            setLoadingUser(true)
+                            createUser(data)
+                        })
+                    }>
+                        <DivStepsContainer>
+                            <DivStepsCounter step={formSteps.step}></DivStepsCounter>
+                        </DivStepsContainer>
+                        <fieldset>
+                            {formSteps.firstStep &&
+                                <RegisterStep1
+                                    register={register}
+                                    watch={watch}
+                                    errors={errors}
+                                    userDataAvailable={userDataAvailable}
+                                    setFormSteps={setFormSteps}
+                                />
+                            }
+                            {formSteps.secondStep &&
+                                <RegisterStep2
+                                    register={register}
+                                    watch={watch}
+                                    setFormSteps={setFormSteps}
+                                    location={location}
+                                    setLocation={setLocation}
+                                    setAvatar={setAvatar}
+                                />
+                            }
+                            {formSteps.thirdStep &&
+                                <RegisterStep3
+                                    setFormSteps={setFormSteps}
+                                    selectedGenres={selectedGenres}
+                                    setSelectedGenres={setSelectedGenres}
+                                    setAvatar={setAvatar}
+                                    setLoadingUser={setLoadingUser}
+                                    genres={genres}
+                                />
+                            }
+                        </fieldset>
+                    </FormStyle>
     );
 };
 

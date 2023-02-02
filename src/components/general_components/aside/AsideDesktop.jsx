@@ -32,7 +32,6 @@ const AsideDesktop = () => {
     const { pathname } = useLocation();
 
     useEffect(() => {
-        console.log(pathname)
         switch (pathname) {
             case "/home":
                 setActiveTab(prev => prev = {

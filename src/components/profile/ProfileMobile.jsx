@@ -146,7 +146,6 @@ const ProfileMobile = ({ userID }) => {
                         <SectionEditUser>
                             <UpdateProfile />
                         </SectionEditUser>}
-                    <Footer><FooterInfo /></Footer>
                 </DivProfile>
     )
 }

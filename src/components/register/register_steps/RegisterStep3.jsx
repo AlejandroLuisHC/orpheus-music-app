@@ -1,5 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
-import { fetchKey } from '../../../api';
+import { useNavigate } from 'react-router-dom';
 import {
     ButtonPrimaryStyle,
     ButtonSecondaryStyle
@@ -10,12 +9,7 @@ import {
     DivSelectedGenreCircle
 } from '../../style/registerStyle';
 
-const RegisterStep3 = ({ setFormSteps, selectedGenres, setSelectedGenres, setAvatar }) => {
-    const { data: genres } = useQuery(
-        ['genres', 'genres'],
-        () => fetchKey('genres')
-    );
-
+const RegisterStep3 = ({ setFormSteps, selectedGenres, setSelectedGenres, setAvatar, genres }) => {
     const isGenreSelected = (id) => (
         selectedGenres?.find((genreId) => genreId === id)
     );
@@ -34,6 +28,7 @@ const RegisterStep3 = ({ setFormSteps, selectedGenres, setSelectedGenres, setAva
     function getRandomSizeSelected() {
         return Math.random() * (125 - 110) + 110;
     }
+    const navigate = useNavigate()
 
     return (
         <>
@@ -42,7 +37,8 @@ const RegisterStep3 = ({ setFormSteps, selectedGenres, setSelectedGenres, setAva
             <p>Select at least one genre</p>
             <DivFlexGenres>
                 {genres?.map((genre) => {
-                    return !isGenreSelected(genre._id) ? (
+                    return !isGenreSelected(genre._id)
+                        ?
                         <DivGenreCircle
                             key={genre._id}
                             size={`${getRandomSize()}px`}
@@ -50,7 +46,7 @@ const RegisterStep3 = ({ setFormSteps, selectedGenres, setSelectedGenres, setAva
                         >
                             <p>{genre.name}</p>
                         </DivGenreCircle>
-                    ) : (
+                        :
                         <DivSelectedGenreCircle
                             key={genre._id}
                             size={`${getRandomSizeSelected()}px`}
@@ -58,7 +54,6 @@ const RegisterStep3 = ({ setFormSteps, selectedGenres, setSelectedGenres, setAva
                         >
                             <p>{genre.name}</p>
                         </DivSelectedGenreCircle>
-                    );
                 })}
             </DivFlexGenres>
 
