@@ -1,9 +1,13 @@
 import { useAuth0 } from '@auth0/auth0-react'
 import { IoIosHeartEmpty } from 'react-icons/io'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchOneUser } from '../../../api'
+import { UPDATE } from '../../../redux/features/user_data/userSlice'
 import { DivOptionsIcon } from '../../style/generalStyle'
 
 const BtnAddToFavTracks = ({ trackId }) => {
+    const dispatch = useDispatch()
+
     const { getAccessTokenSilently } = useAuth0()
     const token = getAccessTokenSilently()
     
@@ -41,8 +45,14 @@ const BtnAddToFavTracks = ({ trackId }) => {
         }
     }
 
+    const addTrackToFav = async () => {
+        await fetchAddTrackToFav()
+        const updatedUser = await fetchOneUser(userId, token)
+        dispatch(UPDATE(updatedUser))
+    }
+
     return (
-        <DivOptionsIcon onClick={() => fetchAddTrackToFav()}><IoIosHeartEmpty size={20} /></DivOptionsIcon>
+        <DivOptionsIcon onClick={() => addTrackToFav()}><IoIosHeartEmpty size={20} /></DivOptionsIcon>
     )
 }
 

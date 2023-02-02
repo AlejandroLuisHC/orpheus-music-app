@@ -24,7 +24,7 @@ const BtnModalTrackOptions = ({ trackId }) => {
             <Modal>
                 <DivModalOptions>
                     <BtnModalAddToPlaylist trackId={trackId} />
-                    <BtnAddToFavTracks>Add to liked songs</BtnAddToFavTracks>
+                    {/* <BtnAddToFavTracks>Add to liked songs</BtnAddToFavTracks> */}
                     <BtnSelectOption>View artist</BtnSelectOption>
                     <BtnSelectOption>Go to song album</BtnSelectOption>
                     {/* {isOwner && <BtnSelectOption>Remove from this playlist</BtnSelectOption>} */}

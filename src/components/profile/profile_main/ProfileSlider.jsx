@@ -65,7 +65,6 @@ const ProfileSlider = ({ dataKey, user }) => {
                         <DivMusicCard
                             resultType={type}
                             key={d._id}
-                            onClick={() => navigate(`/${type}/${d._id}`)}
                         >
                             <DivImageMusic onClick={() => {
                                 setPlayer(
@@ -77,7 +76,10 @@ const ProfileSlider = ({ dataKey, user }) => {
                                     }
                                 )
                             }}>
-                                <ImgCardMusic src={d.img.url} />
+                                <ImgCardMusic 
+                                    src={d.img.url} 
+                                    onClick={() => navigate(`/${type}/${d._id}`)}
+                                />
                             </DivImageMusic>
 
                             <DivInfoMusic>
