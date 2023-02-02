@@ -20,14 +20,15 @@ const AddWork = () => {
 
             <Modal>
                 <DivModalWork>
-                    <h1>Add your notes to Orpheus!</h1>
+                    <DivModalClose>
+                        <h1>Add your notes to Orpheus!</h1>
+                        <IoIosCloseCircleOutline onClick={close} size={25} />
+                    </DivModalClose>
                     <DivModalOptions>
                         <AddAlbum />
                         <AddTrack />
                     </DivModalOptions>
-                    <DivModalClose>
-                        <IoIosCloseCircleOutline onClick={close} />
-                    </DivModalClose>
+                    
                 </DivModalWork>
             </Modal>
         </>

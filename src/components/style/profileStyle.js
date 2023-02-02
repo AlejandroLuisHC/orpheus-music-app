@@ -305,26 +305,33 @@ export const DivModalWork = styled.div`
     border-radius: 25px;
     justify-content: center;
     text-align: center;
+    width:100%;
     @media ${device.desktop}{
         width: 500px;
-        height: 190px;
+        height: auto;
     }
 `
 
 export const DivModalOptions = styled.div`
-    margin-top: 20px;
+    margin-top: 40px;
+    display:flex;
+    gap:20px;
     @media ${device.desktop}{
-        display: flex;
         justify-content: space-around;
     }
 `
 
 export const DivModalClose = styled.div`
-    font-size: 30px;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
     color: ${color.primaryWhite};
-    position: absolute;
     bottom: 5px;
     right: 5px;
+
+    h1{
+        font-size:20px
+    }
 `
 
 export const DivModalTrack = styled.div`
@@ -353,7 +360,7 @@ export const DivModalAlbum = styled.div`
 
 export const FormTracks = styled.form`
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     margin-top: 30px;
 `
 export const InputDescriptionStyle = styled.input`
@@ -370,16 +377,52 @@ export const InputDescriptionStyle = styled.input`
 
 export const DivTrackBody = styled.div`
     text-align: center;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    height: auto;
+    @media ${device.desktop}{
+        text-align: center;
+        display:flex;
+        justify-content: center;
+        flex-direction: column;
+        height: auto;
+    }
+`
+export const DivColumns = styled.div`
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items: center;
+    @media ${device.desktop}{
+        display:flex;
+        flex-direction: row;
+        gap: 40px;
+
+    }
+    `
+export const DivBlockForm = styled.div`
+    margin-bottom:30px;
+    display: flex;
+    justify-content:center;
+    figcaption{
+        font-size:10px;
+        display:none;
+        @media ${device.desktop}{
+            display:block;
+        }
+    }
 `
 export const DivTrackImg = styled.div`
     text-align: center;
 `
 export const ImgTrack = styled.img`
-    text-align: center;
-    border-radius: 25px;
+    display:none;
     @media ${device.desktop}{
         width: 200px;
         height: 200px;
+        border-radius: 25px;
+        display:block;
     }
 `
 export const FormUpdateImg = styled.form`
