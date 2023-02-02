@@ -1,7 +1,7 @@
 
 const fetchUpdateUser = async (newData, id, token) => {
     const formData = new FormData()
-    console.log('newData', newData)
+
     if (newData.username) {
         formData.append('username', newData.username)
         formData.append('country', newData.country)

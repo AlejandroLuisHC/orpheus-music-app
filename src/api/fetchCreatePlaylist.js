@@ -9,8 +9,7 @@ const fetchCreatePlaylist = async (playlist,token) => {
         formData.append('ownership', playlist.ownership)
         formData.append('genres', playlist.genres)
         formData.append('followers', playlist.followers)
-        formData.append('tracks[]', playlist.tracks)
-        formData.append('moods[]', playlist.moods)
+        formData.append('moods', playlist.moods)
 
 
         

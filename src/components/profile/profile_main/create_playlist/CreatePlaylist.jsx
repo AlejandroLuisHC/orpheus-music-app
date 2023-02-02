@@ -5,13 +5,14 @@ import { useForm } from 'react-hook-form'
 import { useModal } from 'react-hooks-use-modal'
 import { IoIosCloseCircleOutline } from 'react-icons/io'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { fetchCreatePlaylist, fetchKey, fetchOneUser } from '../../../../api'
 import { UPDATE } from '../../../../redux/features/user_data/userSlice'
 import { ButtonPrimaryStyle, ButtonSecondaryStyle, DivInputStyle, InputStyle, LabelStyle, PErrorStyle, SelectStyle } from '../../../style/generalStyle'
 import { ButtonProfileStyle, DivBlockForm, DivColumns, DivModalClose, DivModalTrack, DivTrackBody, DivTrackImg, FormTracks, ImgTrack, InputDescriptionStyle } from '../../../style/profileStyle'
 
 const CreatePlaylist = () => {
-
+    const navigate = useNavigate()
     const [Modal, open, close, isOpen] = useModal('root', {
         preventScroll: true
     })
@@ -40,7 +41,7 @@ const CreatePlaylist = () => {
         followers: 0
     })
     const createTrack = async ({
-        moods,
+        mood,
         img,
         description,
         name,
@@ -50,16 +51,17 @@ const CreatePlaylist = () => {
         playlistData.description = description || 'Orpheus is awesome';
         playlistData.img = img || 'https://res.cloudinary.com/drghk9p6q/image/upload/v1674479864/Final-Project-MERN/images-orpheus/default-images/playlist_mcyltf.webp';
         playlistData.genres = [genres] || [];
-        playlistData.moods = [moods] || [];
+        playlistData.moods = [mood] || [];
 
         setPlaylistData({
             ...playlistData
         });
         const token = await getAccessTokenSilently()
         const data = await fetchCreatePlaylist(playlistData, token)
-
-        const updateUser = await fetchOneUser(id, token)
-        dispatch(UPDATE(updateUser))
+       
+        const updatedUser = await fetchOneUser(id, token)
+        !updatedUser.islogged ?? dispatch(UPDATE(updatedUser))
+        navigate(`/playlist/${data.data.playlist._id}`)
         data.status === 'Created';
         data.status === 'false' && console.log("There was a problem creating the playlist");
     }

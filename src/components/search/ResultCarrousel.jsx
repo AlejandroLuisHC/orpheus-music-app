@@ -20,7 +20,7 @@ const ResultCarrousel = ({ apiKey, search }) => {
         return await fetchKey(apiKey, token)
     });
     const [searchResults, setSearchResults] = useState([]);
-    console.log(apiKey, searchResults)
+
 
     useEffect(() => {
         if (!search) return setSearchResults([]);

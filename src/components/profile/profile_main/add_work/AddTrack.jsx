@@ -28,9 +28,11 @@ import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { fetchCreateTrack, fetchKey, fetchOneUser } from '../../../../api'
 import { UPDATE } from './../../../../redux/features/user_data/userSlice'
+import { useNavigate } from 'react-router-dom'
 
 
 const AddTrack = () => {
+    const navigate = useNavigate()
     const { data: genres } = useQuery(
         ['genres', 'genres'],
         () => fetchKey('genres')
@@ -75,8 +77,10 @@ const AddTrack = () => {
         });
         const token = await getAccessTokenSilently()
         const data = await fetchCreateTrack(trackData, token)
-        const updateUser = await fetchOneUser(id, token)
-        dispatch(UPDATE(updateUser))
+       
+        const updatedUser = await fetchOneUser(id, token)
+        !updatedUser.islogged ?? dispatch(UPDATE(updatedUser))
+        navigate(`/track/${data.data.newTrack._id}`)
         data.status === 'Created';
         data.status === 'false' && console.log("There was a problem creating the track"); // aqui no hay condicional ni na , para que es esto
     }
