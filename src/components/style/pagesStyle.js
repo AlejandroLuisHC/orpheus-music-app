@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import { HrStyle } from "./generalStyle";
-import { MainStyle } from "./homeStyle";
 import { color, device } from "./utils/styleConstants";
 
 
@@ -28,6 +26,10 @@ padding: 0;
             font-size: 100px;
         }
     }
+`
+
+export const SpanList = styled.span`
+    color: ${color.secondaryYellow};
 `
 
 export const DivTitlesList = styled.div`

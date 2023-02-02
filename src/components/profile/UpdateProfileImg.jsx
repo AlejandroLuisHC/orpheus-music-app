@@ -44,9 +44,8 @@ const UpdateProfileImg = () => {
                     {...register('url')}
 
                 />
-                <button type='submit'>sub</button>
-            </LabelUpdateImg>
-        </FormUpdateImg>
+                </LabelUpdateImg>
+            </FormUpdateImg>
     )
 }
 

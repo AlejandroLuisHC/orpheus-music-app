@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import { useNavigate, useOutletContext } from 'react-router-dom';
+import BtnAddToFavTracks from '../../general_components/tracks/BtnAddToFavTracks';
 import BtnModalTrackOptions from '../../general_components/tracks/BtnModalTrackOptions';
 import { DivImgRectangleL, DivInfoMusicBottom, H2Style } from '../../style/generalStyle';
 import {
@@ -64,7 +65,6 @@ const ProfileSlider = ({ dataKey, user }) => {
                         <DivMusicCard
                             resultType={type}
                             key={d._id}
-                            onClick={() => navigate(`/${type}/${d._id}`)}
                         >
                             <DivImageMusic onClick={() => {
                                 setPlayer(
@@ -76,13 +76,17 @@ const ProfileSlider = ({ dataKey, user }) => {
                                     }
                                 )
                             }}>
-                                <ImgCardMusic src={d.img.url} />
+                                <ImgCardMusic 
+                                    src={d.img.url} 
+                                    onClick={() => navigate(`/${type}/${d._id}`)}
+                                />
                             </DivImageMusic>
 
                             <DivInfoMusic>
                                 <PTitle>{d.name}</PTitle>
                                 <DivInfoMusicBottom>
                                     <PDescription>{user.username}</PDescription>
+                                    {type === "track" && <BtnAddToFavTracks trackId={d._id} />}
                                     {type === "track" && <BtnModalTrackOptions trackId={d._id} />}
                                 </DivInfoMusicBottom>
                             </DivInfoMusic>

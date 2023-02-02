@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchCreateAlbum, fetchOneUser } from '../../../../api'
 import { ButtonSecondaryStyle } from '../../../style/generalStyle'
 import {
+    DivModalClose,
     DivModalTrack,
     FormTracks,
 } from '../../../style/profileStyle'
@@ -13,6 +14,7 @@ import AlbumStep2 from './AlbumStep2'
 import { UPDATE } from './../../../../redux/features/user_data/userSlice'
 import AlbumStep1 from './AlbumStep1'
 import { useNavigate } from 'react-router-dom'
+import { IoIosCloseCircleOutline } from 'react-icons/io'
 
 const AddAlbum = () => {
     const dispatch = useDispatch();
@@ -82,7 +84,10 @@ const AddAlbum = () => {
             <ButtonSecondaryStyle onClick={open}>Add albums</ButtonSecondaryStyle>
             <Modal>
                 <DivModalTrack>
-                    <h1>ALBUMS</h1>
+                    <DivModalClose>
+                        <h1>ALBUMS</h1>
+                        <IoIosCloseCircleOutline onClick={close} size={25} />
+                    </DivModalClose>
                     <FormTracks onSubmit={
                         handleSubmit((data) => createAlbum(data))
                     }>

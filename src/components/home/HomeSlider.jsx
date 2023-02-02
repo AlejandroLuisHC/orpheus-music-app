@@ -9,8 +9,11 @@ import {
 import { fetchKey } from '../../api';
 import { capitalizeFirstLetter } from '../../helper/utils';
 import HomeSlidersLoader from '../general_components/loaders/content_loader/HomeSlidersLoader';
+import BtnAddToFavTracks from '../general_components/tracks/BtnAddToFavTracks';
+import BtnModalTrackOptions from '../general_components/tracks/BtnModalTrackOptions';
 import {
     DivImgRectangleL,
+    DivInfoMusicBottom,
     H2Style,
     PErrorStyle
 } from '../style/generalStyle';
@@ -100,7 +103,6 @@ const HomeSlider = ({ apiKey }) => {
                 return data?.data.map((item) => {
                     return (
                         <DivMusicCard key={item._id}
-                            onClick={() => navigate(`/track/${item._id}`)}
                             resultType={apiKey}
                         >
                             <DivImageMusic onClick={() => {
@@ -108,16 +110,23 @@ const HomeSlider = ({ apiKey }) => {
                                     prev => prev = {
                                         playerOn: true,
                                         audio: item.file.url,
-                                        name: item.name,
+                                        name: item.name.slice(0, 20) + "...",
                                         user: item.ownership.username,
                                     }
                                 )
                             }}>
-                                <ImgCardMusic src={item.img.url} />
+                                <ImgCardMusic 
+                                    src={item.img.url}
+                                    onClick={() => navigate(`/track/${item._id}`)}
+                                />
                             </DivImageMusic>
                             <DivInfoMusic>
                                 <PTitle>{item.name}</PTitle>
-                                <PDescription>{item.ownership.username}</PDescription>
+                                <DivInfoMusicBottom>
+                                    <PDescription>{item.ownership.username}</PDescription>
+                                    <BtnAddToFavTracks trackId={item._id} />
+                                    <BtnModalTrackOptions trackId={item._id} />
+                                </DivInfoMusicBottom>
                             </DivInfoMusic>
                         </DivMusicCard>)
                 })
@@ -125,7 +134,8 @@ const HomeSlider = ({ apiKey }) => {
                 return data?.map((item) => {
                     return (
                         <DivEventCard key={item._id}
-
+                            onClick={() => navigate(`/event/${item._id}`)}
+                            resultType={apiKey}
                         >
                             <DivImgRectangleL src={item.img.url} />
                             <DivEventInfo>
@@ -147,7 +157,15 @@ const HomeSlider = ({ apiKey }) => {
         status === 'loading'
             ? <HomeSlidersLoader />
             : status === 'error'
-                ? <PErrorStyle>There has been an error fetching these data</PErrorStyle>
+                ?
+                <>
+                    <DivSilderHeader>
+                        <H2Style>{capitalizeFirstLetter(apiKey)}</H2Style>
+                    </DivSilderHeader>
+                    <DivSliderBody>
+                        <PErrorStyle>There has been an error fetching these data</PErrorStyle>
+                    </DivSliderBody>
+                </>
                 :
                 <>
                     <DivSilderHeader>

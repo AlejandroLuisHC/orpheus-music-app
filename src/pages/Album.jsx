@@ -24,6 +24,7 @@ import {
 import { fetchOneAlbum } from "../api/";
 import moment from "moment";
 import BtnModalTrackOptions from "../components/general_components/tracks/BtnModalTrackOptions";
+import BtnAddToFavTracks from "../components/general_components/tracks/BtnAddToFavTracks";
 
 
 const Album = () => {
@@ -109,7 +110,7 @@ const Album = () => {
                                                 prev => prev = {
                                                     playerOn: true,
                                                     audio: track.file.url,
-                                                    name: track.name,
+                                                    name: track.name.slice(0, 20) + "...",
                                                     user: track.ownership.username,
                                                 }
                                             )
@@ -117,6 +118,7 @@ const Album = () => {
                                             <ImgListPlaylist src={track.img.url} alt={track.name} />
                                             <PDataTrack1>{track.name}</PDataTrack1>
                                             <PDataTrack2>{durations[index]}</PDataTrack2>
+                                            <BtnAddToFavTracks trackId={track._id} />
                                             <BtnModalTrackOptions trackId={track._id} />
                                         </DivTracksAlbum>
                                         <HrDivStyle />

@@ -5,6 +5,7 @@ const fetchUsers = async () => {
         return res.json();
 
     } catch (e) {
+        console.log(e.message);
         console.log("Fail fetching users")
     }
 }

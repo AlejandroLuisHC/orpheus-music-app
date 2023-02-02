@@ -3,6 +3,7 @@ import { IoIosCloseCircleOutline, IoMdMore } from 'react-icons/io'
 import { useSelector } from 'react-redux'
 import { BtnSelectOption, DivModalOptions, DivOptionsIcon } from '../../style/generalStyle'
 import { DivModalClose } from '../../style/profileStyle'
+import BtnAddToFavTracks from './BtnAddToFavTracks'
 import BtnModalAddToPlaylist from './BtnModalAddToPlaylist'
 
 const BtnModalTrackOptions = ({ trackId }) => {
@@ -19,7 +20,7 @@ const BtnModalTrackOptions = ({ trackId }) => {
             <Modal>
                 <DivModalOptions>
                     <BtnModalAddToPlaylist trackId={trackId} />
-                    <BtnSelectOption>Add to liked songs</BtnSelectOption>
+                    {/* <BtnAddToFavTracks>Add to liked songs</BtnAddToFavTracks> */}
                     <BtnSelectOption>View artist</BtnSelectOption>
                     <BtnSelectOption>Go to song album</BtnSelectOption>
                     {/* {isOwner && <BtnSelectOption>Remove from this playlist</BtnSelectOption>} */}

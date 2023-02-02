@@ -193,14 +193,13 @@ export const DivTracks = styled.div`
     font-size: 12px;
     display: grid;
     height: 60px;
-    grid-template-columns: 60px repeat(3, 1fr) 40px;
+    grid-template-columns: 60px repeat(3, 1fr) 20px 40px;
     text-align: center;
     align-items: center;
  
     @media ${device.desktop}{
         font-size: 12px;
-        grid-template-columns: 60px repeat(4, 1fr);
-        grid-template-columns: 60px repeat(4, 1fr) 40px;
+        grid-template-columns: 60px repeat(4, 1fr) 40px 40px;
     }
     &:hover {
         background-color: #ffffff22;
@@ -221,9 +220,9 @@ export const DivInfoTrack = styled(DivTracks)`
 `
 
 export const DivTracksAlbum = styled(DivTracks)`
-    grid-template-columns: 60px repeat(2, 2fr) 1fr;
+    grid-template-columns: 60px repeat(2, 2fr) 20px 40px;
     @media ${device.desktop}{
-            grid-template-columns: 60px repeat(2, 2fr) 1fr;
+        grid-template-columns: 60px repeat(2, 2fr) 40px 40px;
 }
 
 `
@@ -234,7 +233,7 @@ export const DivTitles = styled.div`
     font-size: 14px;
     display: grid;
     height: 60px;
-    grid-template-columns: 60px repeat(3, 1fr) 40px;
+    grid-template-columns: 60px repeat(3, 1fr) 60px;
     text-align: center;
     align-items: center;
     justify-items:center;
@@ -243,7 +242,7 @@ export const DivTitles = styled.div`
         font-size:16px;
         font-size: 18px;
         margin: 0, 10px;
-            grid-template-columns: 60px repeat(4, 1fr) 40px;
+            grid-template-columns: 60px repeat(4, 1fr) 80px;
     }
 `
 
@@ -263,10 +262,9 @@ export const DivTitlesTracks = styled(DivTitles)`
     }
 `
 export const DivTitlesAlbum = styled(DivTitles)`
-    grid-template-columns: 60px repeat(2, 2fr) 1fr;
+    grid-template-columns: 60px repeat(2, 2fr) 60px;
     @media ${device.desktop}{
-
-            grid-template-columns: 60px repeat(2, 2fr) 1fr;;
+        grid-template-columns: 60px repeat(2, 2fr) 80px;
     }
 `
 

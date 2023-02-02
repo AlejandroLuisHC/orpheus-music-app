@@ -131,13 +131,14 @@ export const AsideDesktopStyle = styled.aside`
     display: flex;
     flex-direction: column;
     gap: 20px;
+    padding-left: 10px;
 `
 
 export const LinkAside = styled(Link)`
     display: flex;
     align-items: center;
     padding-bottom: 3px;
-    color: ${color.primaryWhite};
+    color: ${props => props.active};
     text-decoration: none;
     font-size: 1.2em;
     transition: 300ms;
@@ -190,6 +191,7 @@ export const ButtonPrimaryStyle = styled.button`
 `
 
 export const ButtonSecondaryStyle = styled.button`
+    
     background: #3d3d3d77;
     color: ${color.primaryYellow};
     height: 40px;
@@ -307,6 +309,7 @@ export const DivInputStyle = styled.div`
     display: flex;
     flex-direction: column; 
     align-items: flex-start;
+    justify-content:center;
 `
 
 export const LabelStyle = styled.label`
@@ -315,8 +318,6 @@ export const LabelStyle = styled.label`
     font-weight: bold;
     display: flex;
     flex-direction: column;
-    gap: 5px;
-
 `
 
 export const LabelFilesStyle = styled.label`
@@ -453,6 +454,7 @@ export const ImgCircleXL = styled.img`
     width: 100px;
     height: 100px;
     border-radius: 50%;
+    object-fit: cover;
     @media ${device.desktop}{
         width: 180px;
         height: 180px;
@@ -497,6 +499,7 @@ export const DivMainSpinnerStyle = styled.div`
     height: 100%;
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 `
@@ -550,23 +553,26 @@ export const DivMusicPlayer = styled.div`
     }
 `
 export const DivMusicPlayerInfo = styled.div`
-    width: 240px;
+    width: 40px;
     height: 40px;
     display: flex;
     color: white;
+    @media ${device.desktop}{
+        width: 240px;
+    }
 `
 
 export const DivInfoTrack = styled.div`
-    display: flex;
-    background-color: ${color.primaryBlack};
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 120px;
-    overflow: hidden;
-    border-radius: 3px 0 0 3px;
+    display: none;
     @media ${device.desktop}{
+        display: flex;
         width: 200px;
+        background-color: ${color.primaryBlack};
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border-radius: 3px 0 0 3px;
     }
  `
 
@@ -624,4 +630,19 @@ export const DivOptionsIcon = styled.div`
 export const DivInfoMusicBottom = styled.div`
     display: flex;
     justify-content: space-between;
+`
+
+export const DivFooter = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+`
+export const DivPolicy = styled.div`
+    padding: 20px;
+    margin: 5px;
+    @media ${device.desktop}{
+        padding: 40px 100px 0 100px;
+        margin: 20px;
+    }
 `

@@ -136,10 +136,8 @@ export const ButtonProfileStyle = styled(ButtonSecondaryStyle)`
 `
 export const DivProfileActionsStyle = styled.div`
     width: 100%;
-    
     display: flex;
     justify-content: center;
-    /* margin-top: 20px; */
     gap: 50px;
 `
 
@@ -163,7 +161,6 @@ export const ButtonEditUser = styled.div`
         right: 15px;
         top: 15px;    
     }
-    
 `
 
 // edit view
@@ -171,12 +168,15 @@ export const ButtonEditUser = styled.div`
 export const SectionEditUser = styled.section`
     margin-top: 10px;
 `
+
 export const DivEditUserContainer = styled.div`
 margin-top: 20px;
+padding: 10px;
 `
+
 export const DivUserData = styled.div`
     display: flex;
-    width: 300px;
+    width: 350px;
     justify-content: space-between;
     @media ${device.desktop} {
         width: 650px;
@@ -185,7 +185,7 @@ export const DivUserData = styled.div`
 
 export const DivEditUserData = styled.div`
     height: 40px;
-    width: 280px;
+    width: 350px;
     background-color: ${color.primaryWhite};
     border: none;
     font-size: 22px;
@@ -250,14 +250,10 @@ width: 100%;
 opacity: .5;
 `
 
-
-
-export const DropdownHeader = styled.div`
-    
+export const DropdownHeader = styled.div`    
     font-weight: 500;
     font-size: 2rem;
     color: ${color.primaryWhite};
-
 `
 
 export const DropdownContainer = styled.div`
@@ -304,26 +300,33 @@ export const DivModalWork = styled.div`
     border-radius: 25px;
     justify-content: center;
     text-align: center;
+    width:100%;
     @media ${device.desktop}{
         width: 500px;
-        height: 190px;
+        height: auto;
     }
 `
 
 export const DivModalOptions = styled.div`
-    margin-top: 20px;
+    margin-top: 40px;
+    display:flex;
+    gap:20px;
     @media ${device.desktop}{
-        display: flex;
         justify-content: space-around;
     }
 `
 
 export const DivModalClose = styled.div`
-    font-size: 30px;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
     color: ${color.primaryWhite};
-    position: absolute;
     bottom: 5px;
     right: 5px;
+
+    h1{
+        font-size:20px
+    }
 `
 
 export const DivModalTrack = styled.div`
@@ -334,7 +337,6 @@ export const DivModalTrack = styled.div`
     text-align: center;
     @media ${device.desktop}{
         width: 800px;
-        height: 600px;
     }
 `
 
@@ -351,10 +353,19 @@ export const DivModalAlbum = styled.div`
 `
 
 export const FormTracks = styled.form`
-    display: flex;
-    justify-content: space-around;
-    margin-top: 30px;
+/*     display: flex;
+    justify-content: center;
+    margin-top: 30px; */
+    padding: 20px;
+    border-radius: 25px;
+    justify-content: center;
+    text-align: center;
+    @media ${device.desktop}{
+        width: 800px;
+        height: auto;
+    }
 `
+
 export const InputDescriptionStyle = styled.input`
     background-color: ${color.primaryWhite};
     height: 100px;
@@ -369,16 +380,56 @@ export const InputDescriptionStyle = styled.input`
 
 export const DivTrackBody = styled.div`
     text-align: center;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    height: auto;
+    @media ${device.desktop}{
+        text-align: center;
+        display:flex;
+        justify-content: center;
+        flex-direction: column;
+        height: auto;
+    }
+`
+export const DivColumns = styled.div`
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items: center;
+    @media ${device.desktop}{
+        display:flex;
+        flex-direction: row;
+        gap: 40px;
+    }
+    `
+export const DivBlockForm = styled.div`
+    margin-bottom:10px;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    @media ${device.desktop}{
+        margin-bottom:40px;   
+    }
+    figcaption{
+        font-size:10px;
+        display:none;
+        @media ${device.desktop}{
+            display:block;
+            
+        }
+    }
 `
 export const DivTrackImg = styled.div`
     text-align: center;
 `
 export const ImgTrack = styled.img`
-    text-align: center;
-    border-radius: 25px;
+    display:none;
     @media ${device.desktop}{
         width: 200px;
         height: 200px;
+        border-radius: 25px;
+        display:block;
     }
 `
 export const FormUpdateImg = styled.form`
@@ -391,13 +442,19 @@ export const FormUpdateImg = styled.form`
 `
 export const InputImg = styled.input`
     position: absolute;
-   visibility: hidden;
+    visibility: hidden;
 `
 
 export const LabelUpdateImg = styled.label`
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+export const DivDangerZone = styled.div`
+    text-align: center;
+    border-radius: 25px;
+    padding: 15px;
+    background-color: rgb(252, 56, 43, .3 );
 
-display: flex;
-justify-content: center;
-align-items: center;
 `

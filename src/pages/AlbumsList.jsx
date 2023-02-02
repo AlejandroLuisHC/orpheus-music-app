@@ -34,7 +34,7 @@ const AlbumsList = () => {
                     <DivTitlesList>
                         <PTitleList0></PTitleList0>
                         <PTitleList1>Name</PTitleList1>
-                        <PTitleList2>Ownership</PTitleList2>
+                        <PTitleList2>Created by</PTitleList2>
                         <PTitleList3>Tracks</PTitleList3>
                     </DivTitlesList>
                     <HrDivStyle />

@@ -91,7 +91,7 @@ const Track = () => {
                                     prev => prev = {
                                         playerOn: true,
                                         audio: track.data.file.url,
-                                        name: track.data.name,
+                                        name: track.data.name.slice(0, 20) + "...",
                                         user: track.data.ownership.username,
                                     }
                                 )

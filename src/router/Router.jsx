@@ -4,6 +4,7 @@ import GeneralProvider from "../helper/utils/general_provider/GeneralProvider"
 import LogoSpinner from "../components/general_components/loaders/spinner/LogoSpinner"
 import PrivateRoutes from "./PrivateRoutes"
 import NotConnectedRoutes from "./NotConnectedRoutes"
+import Policy from "../pages/Policy"
 
 
 const Layout = lazy(() => import('./Layout'))
@@ -95,6 +96,13 @@ const TracksList = lazy(async () => {
     ])
     return moduleExports
 });
+const Event = lazy(async () => {
+    const [moduleExports] = await Promise.all([
+        import("../pages/Event"),
+        new Promise(resolve => setTimeout(resolve, 300))
+    ])
+    return moduleExports
+});
 const UsersList = lazy(async () => {
     const [moduleExports] = await Promise.all([
         import("../pages/UsersList"),
@@ -120,11 +128,13 @@ const Router = () => {
                             <Route path='/playlist/:id' element={<PrivateRoutes><Playlist /></PrivateRoutes>} />
                             <Route path='/album/:id' element={<PrivateRoutes><Album /></PrivateRoutes>} />
                             <Route path='/track/:id' element={<PrivateRoutes><Track /></PrivateRoutes>} />
+                            <Route path='/event/:id' element={<PrivateRoutes><Event /></PrivateRoutes>} />
                             <Route path='/events' element={<PrivateRoutes><EventsList /></PrivateRoutes>} />
                             <Route path='/albums' element={<PrivateRoutes><AlbumsList /></PrivateRoutes>} />
                             <Route path='/playlists' element={<PrivateRoutes><PlaylistList /></PrivateRoutes>} />
                             <Route path='/users' element={<PrivateRoutes><UsersList /></PrivateRoutes>} />
                             <Route path='/tracks' element={<PrivateRoutes><TracksList /></PrivateRoutes>} />
+                            <Route path='/policy' element={<PrivateRoutes><Policy /></PrivateRoutes>} />
                         </Route>
                     </Routes>
                 </Suspense>
