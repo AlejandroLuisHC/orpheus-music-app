@@ -458,3 +458,7 @@ export const DivDangerZone = styled.div`
     background-color: rgb(252, 56, 43, .3 );
 
 `
+export const DivEmptyProfile = styled.div`
+    text-align: center;
+    padding-top: 20px;
+`
