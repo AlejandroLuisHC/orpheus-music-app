@@ -6,6 +6,7 @@ import { fetchKey } from '../api';
 import { DivDataList, DivHeroTitle, DivTitlesList, ImgDataList1, PDataList2, PDataList3, PDataList4, PTitleList0, PTitleList1, PTitleList2, PTitleList3 } from "../components/style/pagesStyle";
 import { HrDivStyle } from "../components/style/playlistStyle";
 import { useNavigate } from "react-router-dom";
+import Error from "./Error";
 
 
 

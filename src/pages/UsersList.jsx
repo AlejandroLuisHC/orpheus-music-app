@@ -19,6 +19,7 @@ import {
 } from "../components/style/pagesStyle";
 import { HrDivStyle } from "../components/style/playlistStyle";
 import { useNavigate } from "react-router-dom";
+import Error from "./Error";
 
 const UsersList = () => {
     const { getAccessTokenSilently } = useAuth0()

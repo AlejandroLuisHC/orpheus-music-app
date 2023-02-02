@@ -148,7 +148,15 @@ const HomeSlider = ({ apiKey }) => {
         status === 'loading'
             ? <HomeSlidersLoader />
             : status === 'error'
-                ? <PErrorStyle>There has been an error fetching these data</PErrorStyle>
+                ?
+                <>
+                    <DivSilderHeader>
+                        <H2Style>{capitalizeFirstLetter(apiKey)}</H2Style>
+                    </DivSilderHeader>
+                    <DivSliderBody>
+                        <PErrorStyle>There has been an error fetching these data</PErrorStyle>
+                    </DivSliderBody>
+                </>
                 :
                 <>
                     <DivSilderHeader>
