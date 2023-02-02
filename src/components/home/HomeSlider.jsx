@@ -46,20 +46,6 @@ const HomeSlider = ({ apiKey }) => {
 
     const items = (() => {
         switch (apiKey) {
-            case 'events':
-                return data?.map((item) => {
-                    return (
-                        <DivEventCard key={item._id}>
-                            <DivImgRectangleL src={item.img.url} />
-                            <DivEventInfo>
-                                <div>
-                                    <PTitle>{item.name}</PTitle>
-                                    <PDescription>{item.location} - {moment(item.date).format('MMMM Do YYYY, h:mm a')}</PDescription>
-                                </div>
-                                <PEventPrice>{item.price}€</PEventPrice>
-                            </DivEventInfo>
-                        </DivEventCard>)
-                })
 
             case 'users':
                 return data?.map((item) => {
@@ -122,7 +108,7 @@ const HomeSlider = ({ apiKey }) => {
                                     prev => prev = {
                                         playerOn: true,
                                         audio: item.file.url,
-                                        name: item.name,
+                                        name: item.name.slice(0, 20) + "...",
                                         user: item.ownership.username,
                                     }
                                 )
@@ -134,6 +120,22 @@ const HomeSlider = ({ apiKey }) => {
                                 <PDescription>{item.ownership.username}</PDescription>
                             </DivInfoMusic>
                         </DivMusicCard>)
+                })
+            case 'events':
+                return data?.map((item) => {
+                    return (
+                        <DivEventCard key={item._id}
+
+                        >
+                            <DivImgRectangleL src={item.img.url} />
+                            <DivEventInfo>
+                                <div>
+                                    <PTitle>{item.name}</PTitle>
+                                    <PDescription>{item.location} - {moment(item.date).format('MMMM Do YYYY, h:mm a')}</PDescription>
+                                </div>
+                                <PEventPrice>{item.price}€</PEventPrice>
+                            </DivEventInfo>
+                        </DivEventCard>)
                 })
             default:
                 console.log('default')
@@ -149,8 +151,8 @@ const HomeSlider = ({ apiKey }) => {
                 :
                 <>
                     <DivSilderHeader>
-                        <H2Style onClick={() => navigate(`/home/${apiKey}`)}>{capitalizeFirstLetter(apiKey)}</H2Style>
-                        <LinkViewMore to={`/home/${apiKey}`} >View more</LinkViewMore>
+                        <H2Style onClick={() => navigate(`/${apiKey}`)}>{capitalizeFirstLetter(apiKey)}</H2Style>
+                        <LinkViewMore to={`../${apiKey}`} >View more</LinkViewMore>
                     </DivSilderHeader>
 
                     <DivSliderBody>

@@ -106,12 +106,11 @@ const Album = () => {
                                 return (
                                     <div key={track._id}>
                                         <DivTracksAlbum onClick={() => {
-                                            console.log("TRACK: ", track);
                                             setPlayer(
                                                 prev => prev = {
                                                     playerOn: true,
                                                     audio: track.file.url,
-                                                    name: track.name,
+                                                    name: track.name.slice(0, 20) + "...",
                                                     user: track.ownership.username,
                                                 }
                                             )

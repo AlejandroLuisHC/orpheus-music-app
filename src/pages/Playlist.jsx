@@ -45,7 +45,7 @@ const Playlist = () => {
 
     useEffect(() => {
         const fetchDurations = async () => {
-            const promises = playlist.tracks.map(track => duration(track.file.url));
+            const promises = playlist?.tracks?.map(track => duration(track.file.url));
             const resolvedDurations = await Promise.all(promises);
             setDurations(prev => prev = resolvedDurations);
         };
@@ -116,7 +116,7 @@ const Playlist = () => {
                                             prev => prev = {
                                                 playerOn: true,
                                                 audio: track.file.url,
-                                                name: track.name,
+                                                name: track.name.slice(0, 20) + "...",
                                                 user: track.ownership.username,
                                             }
                                         )
