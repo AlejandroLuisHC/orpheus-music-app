@@ -40,12 +40,14 @@ const HomeSlider = ({ apiKey }) => {
         const token = await getAccessTokenSilently()
         return await fetchKey(apiKey, token)
     });
+    console.log(data)
 
     const navigate = useNavigate();
     const [setPlayer] = useOutletContext();
 
     const items = (() => {
         switch (apiKey) {
+            
             case 'events':
                 return data?.map((item) => {
                     return (

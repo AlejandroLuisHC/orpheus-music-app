@@ -27,7 +27,7 @@ const Hero = () => {
             }}
         >
             <Overlay>
-                <DivHeroTitles onClick={() => navigate('/home/events')}>
+                <DivHeroTitles onClick={() => navigate('../events')}>
                     <H2StyleHero>
                         Your favourite event <br />just a click away
                     </H2StyleHero>
