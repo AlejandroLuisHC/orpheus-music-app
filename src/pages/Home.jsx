@@ -14,7 +14,7 @@ import { DivSliders } from '../components/style/homeStyle';
 import HomeSlider from '../components/home/HomeSlider';
 
 const Home = () => {
-    const apiKeys = ['events', 'albums', 'playlists', 'tracks', 'users']
+    const apiKeys = ['tracks','albums', 'playlists', 'users', 'events']
     const userData = useSelector((state) => state.userData.user);
     const date = new Date();
     const hour = date.getHours();

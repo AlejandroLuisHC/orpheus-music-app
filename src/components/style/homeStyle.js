@@ -53,7 +53,7 @@ export const DivWelcomingHome = styled.div`
 `
 
 export const H1Welcome = styled.h1`
-    font-size: 24px;
+    font-size: 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;

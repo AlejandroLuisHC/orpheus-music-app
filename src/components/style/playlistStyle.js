@@ -28,6 +28,11 @@ export const BackgroundDiv = styled.div`
 
 export const AllBackground = styled(BackgroundDiv)`
     height:100vh;
+    background-position: center;
+    background: ${props => `linear-gradient( rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 1) ), url('${props.img}')`};
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
         @media ${device.desktop}{
         width: 100%;
 
