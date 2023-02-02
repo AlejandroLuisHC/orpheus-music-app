@@ -25,12 +25,12 @@ const UpdateProfileImg = () => {
         url
     }) => {
         changeImg.img = url || userDataStore.img
-        console.log('url', url)
+
         setChangeImg({
             ...changeImg
         })
         const { data } = await fetchUpdateUser(changeImg, userDataStore._id, token)
-        console.log('DATA', data)
+
         dispatch(UPDATE(data))
 
     }
