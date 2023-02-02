@@ -109,7 +109,7 @@ const Album = () => {
                                                 prev => prev = {
                                                     playerOn: true,
                                                     audio: track.file.url,
-                                                    name: track.name,
+                                                    name: track.name.slice(0, 20) + "...",
                                                     user: track.ownership.username,
                                                 }
                                             )

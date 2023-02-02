@@ -108,7 +108,7 @@ const HomeSlider = ({ apiKey }) => {
                                     prev => prev = {
                                         playerOn: true,
                                         audio: item.file.url,
-                                        name: item.name,
+                                        name: item.name.slice(0, 20) + "...",
                                         user: item.ownership.username,
                                     }
                                 )
