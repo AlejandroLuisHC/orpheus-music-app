@@ -35,8 +35,8 @@ const PlaylistList = () => {
                     <DivTitlesList>
                         <PTitleList0></PTitleList0>
                         <PTitleList1>Name</PTitleList1>
-                        <PTitleList2>Tracks</PTitleList2>
-                        <PTitleList3>Create</PTitleList3>
+                        <PTitleList2>Created by</PTitleList2>
+                        <PTitleList3>Release</PTitleList3>
                     </DivTitlesList>
                     <HrDivStyle />
                     {data.map((playlist) => {
