@@ -32,6 +32,7 @@ import BtnAddToFavTracks from "../components/general_components/tracks/BtnAddToF
 const Playlist = () => {
 
     const [setPlayer] = useOutletContext();
+    const [randomTrack, setRandomTrack] = useState(0);
 
     const { id: playlistID } = useParams();
     const { getAccessTokenSilently } = useAuth0()
@@ -40,6 +41,13 @@ const Playlist = () => {
         const token = await getAccessTokenSilently()
         return await fetchOnePlaylist(playlistID, token)
     });
+    function getRandomTrack(length) {
+        const random = Math.floor(Math.random() * length);
+        setRandomTrack(prev => prev = random);
+    }
+    useEffect(() => {
+        getRandomTrack(playlist?.tracks?.length);
+    }, [playlist])
 
     const [durations, setDurations] = useState([]);
 
@@ -93,7 +101,19 @@ const Playlist = () => {
                                 <H2Style>{`Created by: ${playlist.ownership.username}`}</H2Style>
                                 <Pstyle>{playlist.tracks.length} track{playlist.tracks.length === 1 ? "" : "s"}</Pstyle>
                             </div>
-                            <DivPlayListen>
+                            <DivPlayListen
+                                onClick={() => {
+                                    setPlayer(
+                                        prev => prev = {
+                                            playerOn: true,
+                                            audio: playlist.tracks[randomTrack].file.url,
+                                            name: playlist.tracks[randomTrack].name.slice(0, 20) + "...",
+                                            user: playlist.tracks[randomTrack].ownership.username,
+                                        }
+                                    )
+                                    getRandomTrack(playlist.tracks.length);
+                                }}
+                            >
                                 <IoMdArrowDropright size={40} />
                             </DivPlayListen>
                         </DivImgContain>

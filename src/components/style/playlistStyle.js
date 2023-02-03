@@ -182,7 +182,6 @@ export const ImgListPlaylist = styled.img`
     width: 40px;
     height: 40px;
     margin-left: 10px;
-    height: auto;
     object-fit: cover;
     grid-column: 1;
     border-radius: 5px;
