@@ -159,7 +159,7 @@ const HomeSlider = ({ apiKey }) => {
                 :
                 <>
                     <DivSilderHeader>
-                        <H2Style>{capitalizeFirstLetter(apiKey)}</H2Style>
+                        <H2Style onClick={() => navigate(`/${apiKey}`)}>{capitalizeFirstLetter(apiKey)}</H2Style>
                         <LinkViewMore to={`../${apiKey}`}>View more</LinkViewMore>
                     </DivSilderHeader>
 

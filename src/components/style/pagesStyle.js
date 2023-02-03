@@ -43,13 +43,9 @@ export const DivTitlesList = styled.div`
     text-align: center;
     align-items: center;
 
- 
     @media ${device.desktop}{
         font-size:16px;
-
     }
-    
-
 `
 export const DivDataList = styled(DivTitlesList)`
     font-size: 12px;

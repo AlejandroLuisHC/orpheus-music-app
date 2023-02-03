@@ -39,7 +39,7 @@ const ProfileSlider = ({ dataKey, user }) => {
                     type === 'event' ? (
                         <DivEventCard 
                             key={d._id}
-                            onClick={() => navigate(`/${type}/${d._id}`)}
+                            onClick={() => navigate(`/event/${d._id}`)}
                         >
                             <DivImgRectangleL src={d.img.url} />
                             <DivEventInfo>
@@ -54,7 +54,7 @@ const ProfileSlider = ({ dataKey, user }) => {
                     ) : type === 'user' ? (
                         <DivUserCard 
                             key={d._id}
-                            onClick={() => navigate(`/${type}/${d._id}`)}
+                            onClick={() => navigate(`/profile/${d._id}`)}
                         >
                             <ImgAvatarUser src={d.img.url} />
                             <PNameUser>{d.username}</PNameUser>
@@ -78,7 +78,7 @@ const ProfileSlider = ({ dataKey, user }) => {
                             }}>
                                 <ImgCardMusic 
                                     src={d.img.url} 
-                                    onClick={() => navigate(`/${type}/${d._id}`)}
+                                    onClick={() => navigate(`/favouriteTracks`)}
                                 />
                             </DivImageMusic>
 
