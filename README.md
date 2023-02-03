@@ -1,7 +1,13 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 # Orpheus 
 ![This is an image](https://res.cloudinary.com/drghk9p6q/image/upload/v1671122043/Final-Project-MERN/Readme/WhatsApp_Image_2022-12-15_at_17.29.42_c8gara.jpg)
-Audio streaming webpage centered around social interactions that provide freedom to all the users to upload their own work and create playlists as a way to communicate with each other. This project was born to improve the skills of the team around MERN stack technologies. 
+Audio streaming webpage centered around social interactions that provide freedom to all the users to upload their own work and create playlists as a way to communicate with each other. 
+
+This project was born to improve the skills of the team around **MERN stack technologies**. 
+
+## Screenshots 📸
+![Orpheus screenshots](https://res.cloudinary.com/drghk9p6q/image/upload/v1675415760/Final-Project-MERN/Presentacion/Readme_1_p5ywae.png)
 
 ## Start 🚀
 
@@ -60,6 +66,7 @@ npm run dev
   - Outlet()
   - useOutletContext()
 - [React-hook-form](https://react-hook-form.com/)
+- [Auth0](https://auth0.com/docs)
 - [Styled-Components](https://styled-components.com/)
 - [npm](https://www.npmjs.com/)
 
@@ -71,6 +78,8 @@ npm run dev
 - [react-simple-player](https://github.com/streamich/react-simple-player)
 - [boring-avatars](https://boringavatars.com/)
 - [json-server](https://github.com/typicode/json-server)
+- [moment.js](https://momentjs.com/)
+- [react-hooks-use-modals](https://www.npmjs.com/package/react-hooks-use-modal)
 
 ## Contributing 🖇️
 
