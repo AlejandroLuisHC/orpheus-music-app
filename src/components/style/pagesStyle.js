@@ -48,9 +48,18 @@ export const DivTitlesList = styled.div`
         font-size:16px;
 
     }
-    
-
 `
+export const ImgDataList1 = styled.img`
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    object-fit: cover;
+    grid-column: 1;
+    border-radius: 5px;
+    transition: 300ms;  
+    grid-column: 1;
+`
+
 export const DivDataList = styled(DivTitlesList)`
     font-size: 12px;
     color: ${color.primaryWhite};
@@ -58,9 +67,12 @@ export const DivDataList = styled(DivTitlesList)`
     @media ${device.desktop}{
         font-size: 14px;
     }
-&:hover {
+    &:hover {
         background-color: #ffffff22;
         cursor: pointer;
+    }
+    &:hover ${ImgDataList1} {
+        border-radius: 50%;
     }
 `
 
@@ -88,17 +100,7 @@ export const PTitleList3 = styled.p`
 export const PTitleList4 = styled.p`
     grid-column: 5;
 `
-export const ImgDataList1 = styled.img`
-    width: 40px;
-    height: 40px;
-    margin-left: 10px;
-    height: auto;
-    object-fit: cover;
-    grid-column: 1;
-    border-radius: 5px;
-    transition: 300ms;  
-    grid-column: 1;
-` 
+
 export const PDataList2 = styled.p`
     grid-column: 2;
     span{
@@ -109,13 +111,13 @@ export const PDataList2 = styled.p`
         }
         
     }
-` 
+`
 export const PDataList3 = styled.p`
     grid-column: 3;
-` 
+`
 export const PDataList4 = styled.p`
     grid-column: 4;
-` 
+`
 export const PDataList5 = styled.p`
     grid-column: 5;
 ` 

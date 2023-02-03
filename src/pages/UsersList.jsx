@@ -50,7 +50,7 @@ const UsersList = () => {
                     {data.map((user) => {
                         return (
                             <div key={user._id}>
-                                <DivDataList key={user._id} onClick={() => navigate(`/user/${user._id}`)}>
+                                <DivDataList key={user._id} onClick={() => navigate(`/profile/${user._id}`)}>
                                     <ImgDataList1 src={user.img.url} alt={user.username} />
                                     <PDataList2>{user.username}<br /><SpanList>{user.country}</SpanList></PDataList2>
                                     <PDataList3>{user.tracks.length} / {user.albums.length}</PDataList3>
