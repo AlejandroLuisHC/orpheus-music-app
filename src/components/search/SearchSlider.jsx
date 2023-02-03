@@ -164,7 +164,7 @@ const SearchSlider = ({ apiKey, search }) => {
 
                             ) : apiKey === 'users' ? (
                                 <DivUserCard key={result.id}
-                                    onClick={() => navigate(`/users/${result.id}`)}
+                                    onClick={() => navigate(`/profile/${result.id}`)}
                                 >
                                     <ImgAvatarUser src={result.img} />
                                     <PNameUser>{result.name}</PNameUser>
