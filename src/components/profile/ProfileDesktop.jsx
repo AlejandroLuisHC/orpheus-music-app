@@ -122,7 +122,7 @@ const ProfileDesktop = ({ userID }) => {
                             </DivUsernameWorks>
                             <DivProfileUserInfoContainer>
                                 <PProfileUserInfo>
-                                    <SpanProfileUserNumbers>{user?.favPlaylists.length}</SpanProfileUserNumbers>
+                                    <SpanProfileUserNumbers>{user?.playlists.length}</SpanProfileUserNumbers>
                                     Playlists
                                 </PProfileUserInfo>
                                 <PProfileUserInfo>

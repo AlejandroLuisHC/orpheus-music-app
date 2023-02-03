@@ -101,11 +101,11 @@ const ProfileMobile = ({ userID }) => {
                         <DivUserGeneralData>
                             <DivUsernameWorks>
                                 <H1Username>{user?.username}</H1Username>
-                                <H2UserWorks>23 works</H2UserWorks>
+                                <H2UserWorks>{user?.tracks.length} works</H2UserWorks>
                             </DivUsernameWorks>
                             <DivProfileUserInfoContainer>
                                 <PProfileUserInfo>
-                                    <SpanProfileUserNumbers>{user?.favPlaylists.length}</SpanProfileUserNumbers>
+                                    <SpanProfileUserNumbers>{user?.playlists.length}</SpanProfileUserNumbers>
                                     Playlists
                                 </PProfileUserInfo>
                                 <PProfileUserInfo>
