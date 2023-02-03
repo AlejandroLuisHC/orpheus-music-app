@@ -14,7 +14,7 @@ const FavTracksList = () => {
     return (
         <>
             <DivHeroTitle>
-                <h1>LAST TRACKS</h1>
+                <h1>FAV TRACKS</h1>
             </DivHeroTitle>
             <DivTitlesList>
                 <PTitleList0></PTitleList0>
