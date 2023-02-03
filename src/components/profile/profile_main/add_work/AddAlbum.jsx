@@ -1,5 +1,5 @@
 import { useAuth0 } from '@auth0/auth0-react'
-import React, { useEffect, useState } from 'react'
+import React, { memo, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useModal } from 'react-hooks-use-modal'
 import { useDispatch, useSelector } from 'react-redux'
@@ -15,8 +15,10 @@ import { UPDATE } from './../../../../redux/features/user_data/userSlice'
 import AlbumStep1 from './AlbumStep1'
 import { useNavigate } from 'react-router-dom'
 import { IoIosCloseCircleOutline } from 'react-icons/io'
+import LogoSpinnerRegistrater from '../../../general_components/loaders/spinner/LogoSpinnerRegister'
 
 const AddAlbum = () => {
+    const [loading, setLoading] = useState(false)
     const dispatch = useDispatch();
     const navigate = useNavigate()
     const [Modal, open, close, isOpen] = useModal('root', {
@@ -51,7 +53,7 @@ const AddAlbum = () => {
         img,
         genres,
     }) => {
-
+        setLoading(true)
         albumData.description = description || 'Orpheus is awesome';
         albumData.name = name || `${userAuth.given_name}-Album`;
         albumData.img = img || 'https://res.cloudinary.com/drghk9p6q/image/upload/v1674479869/Final-Project-MERN/images-orpheus/default-images/album_zskqhh.webp';
@@ -66,7 +68,7 @@ const AddAlbum = () => {
         const album = await fetchCreateAlbum(albumData, token)
         const updatedUser = await fetchOneUser(id, token)
         !updatedUser.islogged && dispatch(UPDATE(updatedUser))
-
+        setLoading(false)
         changeModal(true)
         navigate(`/album/${album.data.album._id}`)
     }
@@ -88,10 +90,14 @@ const AddAlbum = () => {
                     <FormTracks onSubmit={
                         handleSubmit((data) => createAlbum(data))
                     }>
-                        {bolleanStep ?
-                            <AlbumStep1 changeModal={changeModal} register={register} close={close} watch={watch} />
-                            :
-                            <AlbumStep2 userTracksData={userTracksData} setUserTracksData={setUserTracksData} />}
+                        {
+                            loading
+                                ? <LogoSpinnerRegistrater />
+                                :
+                                bolleanStep ?
+                                    <AlbumStep1 changeModal={changeModal} register={register} close={close} watch={watch} />
+                                    :
+                                    <AlbumStep2 userTracksData={userTracksData} setUserTracksData={setUserTracksData} />}
                     </FormTracks>
                 </DivModalTrack>
             </Modal>
@@ -99,4 +105,4 @@ const AddAlbum = () => {
     )
 }
 
-export default AddAlbum
+export default memo(AddAlbum)

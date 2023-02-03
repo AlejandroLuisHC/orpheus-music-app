@@ -141,7 +141,7 @@ const Router = () => {
                             <Route path='/playlists' element={<PrivateRoutes><PlaylistList /></PrivateRoutes>} />
                             <Route path='/users' element={<PrivateRoutes><UsersList /></PrivateRoutes>} />
                             <Route path='/tracks' element={<PrivateRoutes><TracksList /></PrivateRoutes>} />
-                            <Route path='/policy' element={<PrivateRoutes><Policy /></PrivateRoutes>} />
+                            <Route path='/policy' element={<Policy />} />
                             <Route path='/favouritetracks' element={<PrivateRoutes><FavTracksList /></PrivateRoutes>} />
                         </Route>
                     </Routes>

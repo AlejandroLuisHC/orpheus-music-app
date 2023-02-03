@@ -1,11 +1,12 @@
 
 import React from 'react'
-import { DivPolicy, H2Style } from '../components/style/generalStyle'
+import { DivPolicy, H2Style, LinkSecondaryStyle } from '../components/style/generalStyle'
 import { H1Style } from '../components/style/playlistStyle'
 
 const Policy = () => {
     return (
         <DivPolicy>
+            <LinkSecondaryStyle to='/'> &gt; Return</LinkSecondaryStyle>
             <H1Style>Privacy Policy of Orpheus</H1Style>
             <br></br>
 
@@ -80,7 +81,7 @@ const Policy = () => {
 
             <p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us.</p>
             <br></br>
-
+            <LinkSecondaryStyle to='/'> &gt; Return</LinkSecondaryStyle>
         </DivPolicy>
     )
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { useModal } from 'react-hooks-use-modal'
 import { IoIosCloseCircleOutline } from 'react-icons/io'
 import {
@@ -28,7 +28,7 @@ const AddWork = () => {
                         <AddAlbum />
                         <AddTrack />
                     </DivModalOptions>
-                    
+
                 </DivModalWork>
             </Modal>
         </>
@@ -36,4 +36,4 @@ const AddWork = () => {
     )
 }
 
-export default AddWork
+export default memo(AddWork)

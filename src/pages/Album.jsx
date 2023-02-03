@@ -43,7 +43,7 @@ const Album = () => {
 
     useEffect(() => {
         const fetchDurations = async () => {
-            const promises = album?.tracks?.map(track => duration(track.file.url));
+            const promises = album?.tracks?.map(track => duration(track?.file.url));
             const resolvedDurations = await Promise.all(promises);
             setDurations(prev => prev = resolvedDurations);
         };

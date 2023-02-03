@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { useSelector } from 'react-redux'
 import { ButtonPrimaryStyle } from '../../../style/generalStyle'
-import { Pstyle } from '../../../style/playlistStyle'
-import { DivEachTrackAlbumSelectedStyle, DivEachTrackAlbumStyle, DivModalTrack, DivMyTracksAlbumStyle } from '../../../style/profileStyle'
 import { 
-    DivGenreCircle, 
-    DivSelectedGenreCircle 
-} from '../../../style/registerStyle'
+    DivEachTrackAlbumSelectedStyle, 
+    DivEachTrackAlbumStyle, 
+    DivModalTrack, 
+    DivMyTracksAlbumStyle 
+} from '../../../style/profileStyle'
 
 const AlbumStep2 = ({ userTracksData, setUserTracksData }) => {
 
@@ -61,4 +61,4 @@ const AlbumStep2 = ({ userTracksData, setUserTracksData }) => {
     )
 }
 
-export default AlbumStep2
+export default memo(AlbumStep2)

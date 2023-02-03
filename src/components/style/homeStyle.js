@@ -319,6 +319,7 @@ export const LinkProfile = styled(Link)`
         display: none;
     }
 `
+
 export const DivSlider = styled.div`
     display: flex;
     width: calc(100vw - 40px);
@@ -367,7 +368,10 @@ export const DivSlider = styled.div`
         }
     }
 `
-
+export const DivSliderLoader = styled(DivSlider)`
+    flex-wrap: nowrap;
+    overflow: hidden;
+`
 /* HERO TITLES */
 export const DivHeroTitles = styled.div`
     display: flex;
