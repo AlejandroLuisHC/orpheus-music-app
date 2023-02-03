@@ -71,11 +71,11 @@ const ProfileDesktop = ({ userID }) => {
         { id: 8, name: `${user?.username}'s playlists`, type: "playlist", data: user?.playlists || [] }
     ]
 
-    const [currentUser, setCurrentUser ] =useState(loggedUser)
+    const [currentUser, setCurrentUser] = useState(loggedUser)
     useEffect(() => {
         setCurrentUser(loggedUser)
     }, [currentUser])
-    
+
 
     return (
         status === 'loading'
@@ -85,22 +85,25 @@ const ProfileDesktop = ({ userID }) => {
                 :
                 <DivProfile>
                     <DivProfileBanner>
-                        <DropdownContainer>
-                            <DropdownHeader onClick={toggling}><IoIosMore /></DropdownHeader>
-                            {isOpen && (
-                                <ul>
-                                    <ListItem >
-                                        {!editView
-                                            ?
-                                            <span onClick={() => setEditView(prev => prev = true)}>Edit <IoMdCreate /> </span>
-                                            :
-                                            <span onClick={() => setEditView(prev => prev = false)}>Return <IoMdReturnLeft /></span>
-                                        }
-                                    </ListItem >
-                                    <DisconnectIcon />
-                                </ul>
-                            )}
-                        </DropdownContainer>
+                        {
+                            loggedUser._id === user?._id &&
+                            <DropdownContainer>
+                                <DropdownHeader onClick={toggling}><IoIosMore /></DropdownHeader>
+                                {isOpen && (
+                                    <ul>
+                                        <ListItem >
+                                            {!editView
+                                                ?
+                                                <span onClick={() => setEditView(prev => prev = true)}>Edit <IoMdCreate /> </span>
+                                                :
+                                                <span onClick={() => setEditView(prev => prev = false)}>Return <IoMdReturnLeft /></span>
+                                            }
+                                        </ListItem >
+                                        <DisconnectIcon />
+                                    </ul>
+                                )}
+                            </DropdownContainer>
+                        }
 
                         <DivImgCircleL>
                             {!editView
@@ -153,7 +156,7 @@ const ProfileDesktop = ({ userID }) => {
                                 {dataKey.map(key => {
                                     if (key.data.length > 0) {
                                         return <ProfileSlider key={key.id} dataKey={key} user={user} />
-                                    }                          
+                                    }
                                 })}
                             </DivSliders>
 
