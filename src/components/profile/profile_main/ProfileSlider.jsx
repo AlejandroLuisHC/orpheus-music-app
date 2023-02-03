@@ -30,8 +30,8 @@ const ProfileSlider = ({ dataKey, user }) => {
     return (
         <>
             <DivSilderHeader>
-                <H2Style onClick={() => navigate(`/profile/${type}`)}>{name}</H2Style>
-                <LinkViewMore to={`/profile/${type}`} >View more</LinkViewMore>
+                <H2Style onClick={() => navigate(`/favouritetracks`)}>{name}</H2Style>
+                <LinkViewMore to={`/favouritetracks`} >View more</LinkViewMore>
             </DivSilderHeader>
 
             <DivSliderBody>
