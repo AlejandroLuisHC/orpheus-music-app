@@ -34,14 +34,6 @@ _Then run 'npm install' in the base folder_
 npm install
 ```
 
-Once all the dependencies have been installed you will need to use [json-server](https://github.com/typicode/json-server) to create a local server to fetch data.
-
-_To do so, run 'npm run data' in the base folder_ 
-
-```
-npm run data
-```
-
 _After this, open another terminal to run the server with 'npm run dev'_
 
 ```
@@ -86,7 +78,7 @@ npm run dev
 We welcome any contributions to the orpheus-music-app. To contribute, please follow these steps:
 
 1. Fork the repository by clicking the "Fork" button in the top right corner of this page.
-2. Clone the forked repository to your local machine by running `git clone https://github.com/AlejandroLuisHC/orpheus-music-app.git` in your terminal.
+2. Clone the forked repository to your local machine by running `git clone https://github.com/[your-username]/orpheus-music-app.git` in your terminal.
 3. Create a new branch for your contribution by running `git checkout -b [branch-name]`.
 4. Make your changes and test them thoroughly.
 5. Commit your changes by running `git commit -m "[commit message]"`.
