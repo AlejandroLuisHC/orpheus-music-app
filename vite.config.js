@@ -7,6 +7,6 @@ export default defineConfig({
         esmExternals: true,
     },
     server: {
-        port: 3000,
+        port: 3001,
     },
 });
