@@ -1,5 +1,6 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![CodeFactor](https://www.codefactor.io/repository/github/alejandroluishc/orpheus-music-app/badge)](https://www.codefactor.io/repository/github/alejandroluishc/orpheus-music-app)
 # Orpheus 
 ![Orpheus](https://res.cloudinary.com/drghk9p6q/image/upload/v1671122043/Final-Project-MERN/Readme/WhatsApp_Image_2022-12-15_at_17.29.42_c8gara.jpg)
 Audio streaming webpage centered around social interactions that provide freedom to all the users to upload their own work and create playlists as a way to communicate with each other. 
