@@ -9,7 +9,7 @@ import { ButtonSubmitEdit, FormUpdateImg, InputImg, LabelUpdateImg } from '../st
 
 const UpdateProfileImg = () => {
     const { getAccessTokenSilently } = useAuth0()
-    
+
     const userDataStore = useSelector(state => state.userData.user);
     const dispatch = useDispatch();
     const {
@@ -45,8 +45,8 @@ const UpdateProfileImg = () => {
                     type='file'
                     {...register('url')}
                 />
-                </LabelUpdateImg>
-            </FormUpdateImg>
+            </LabelUpdateImg>
+        </FormUpdateImg>
     )
 }
 
