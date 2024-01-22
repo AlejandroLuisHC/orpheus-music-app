@@ -104,7 +104,6 @@ Thank you for your contributions! 🎉
     width="100px;" alt="pauciv"/><br /><sub><b>Pau Civill</b></sub></a></td>
     <td align="center"><a href="https://github.com/zzezequiel"><img src="https://avatars.githubusercontent.com/u/104327861?v=4" 
     width="100px;" alt="zzezequiel"/><br /><sub><b>Ezequiel Zvirgzdins</b></sub></a></td>
-    <td align="center"><a href="https://github.com/AlejandroLuisHC"><img src="https://avatars.githubusercontent.com/u/57948901?v=4" width="100px;" alt="AlejandroLuisHC"/><br /><sub><b>Alejandro L. Herrero</b></sub></a></td>
   </tr>
 </table>
 <!-- markdownlint-restore -->
